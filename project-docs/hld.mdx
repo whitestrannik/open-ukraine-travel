@@ -1,0 +1,142 @@
+# 🏗 High-Level Design – Open Ukraine Travel Portal
+
+## 📌 Document Overview
+
+This document outlines the high-level technical architecture and component design for the **Open Ukraine Travel Portal**. It is aligned with the PRD and sets the foundation for clean, maintainable, and extensible implementation. All recommendations and decisions must follow industry-standard best practices.
+
+---
+
+## 1. 🎯 Goals
+
+The system must meet the following explicit goals:
+
+- Build a mobile-first responsive web portal for international travelers that supports:
+  - 📖 Browsing travel guidance content (static and dynamic)
+  - 🛡 Purchasing tourist insurance
+  - 🏨 Searching and booking hotels
+  - 🗺 Exploring and reserving tours
+
+- Ensure the **UI and UX are modern, visually appealing, and optimized** for both mobile and desktop devices.
+
+- Design the system with a **modular and layered architecture**, ensuring:
+  - Clear separation of concerns between frontend, backend, data access, and external integrations
+  - Ease of testing (unit, integration, and E2E)
+  - Easy extension of functionality in future phases (e.g., user accounts, multi-provider support, AI assistants)
+
+- All components must have a **well-defined responsibility scope**. Avoid tight coupling and implicit dependencies.
+
+- The implementation must **adhere to clean architecture principles**, making it suitable for AI-assisted code generation, documentation, and automated testing.
+
+---
+
+## 2. 🧱 Architecture Overview
+
+The system is designed using a **modular, layered architecture** that promotes clean separation of concerns, scalability, and ease of testing. While the full layering is conceptually present, only a subset of layers will be implemented in **Phase 0 (MVP)**. The backend will follow a **modular monolith architecture**, not microservices.
+
+---
+
+### 2.1 High-Level Architecture
+
+```
++------------------------------+
+|      Frontend (React)        |
++------------------------------+
+|        API Gateway / BFF     |   ← Optional (can be skipped in P0)
++------------------------------+
+|         Application Layer     |
++------------------------------+
+|      Domain Logic Layer       |
++------------------------------+
+|       Infrastructure Layer    |
++------------------------------+
+| External APIs / Data Sources |
++------------------------------+
+```
+
+---
+
+### 2.2 Layer Responsibilities and Implementation Status
+
+| Layer                     | Role                                                                                             | Included in P0 |
+|---------------------------|--------------------------------------------------------------------------------------------------|----------------|
+| **Frontend**              | React SPA handling routing, UI rendering, and interactions with backend APIs                    | ✅ Yes         |
+| **API Gateway / BFF**     | Proxy and request shaping between frontend and backend, useful if multiple clients exist         | ❌ No          |
+| **Application Layer**     | Request-level logic, routing, orchestration of domain use cases                                  | ✅ Yes         |
+| **Domain Logic Layer**    | Core business rules: availability checks, insurance calculations, content filters, etc.          | ✅ Yes         |
+| **Infrastructure Layer**  | Adapters to database, email, payments, authentication, file storage, etc.                        | ✅ Yes         |
+| **External APIs**         | 3rd-party systems (e.g. insurance providers, payment gateways) to be integrated via adapters     | ✅ Yes         |
+
+_Note: Infrastructure Layer includes custom adapters that abstract access to external APIs (e.g., Fondy, Mailgun) and internal services (e.g., PostgreSQL, Auth)._
+
+---
+
+### 2.3 Technology Stack
+
+#### 💻 Frontend
+
+| Component         | Technology           |
+|-------------------|----------------------|
+| Framework         | React + TypeScript   |
+| Styling           | TailwindCSS          |
+| Routing           | React Router         |
+| State Management  | Zustand              |
+| UI Components     | shadcn/ui            |
+| Forms             | React Hook Form      |
+| Icons             | Lucide Icons         |
+| Animations        | Framer Motion        |
+
+#### 🖥 Backend
+
+| Component             | Technology/Provider                    |
+|------------------------|----------------------------------------|
+| Runtime               | Node.js                                |
+| Framework             | Express + TypeScript                   |
+| Database              | PostgreSQL (Railway)                             |
+| ORM                   | Prisma                                 |
+| AuthN/AuthZ           | Supabase Auth (email/password + JWT validation) |
+| Email Delivery        | SMTP via Nodemailer (Mailgun SMTP)     |
+| PDF Generation        | pdfkit                                 |
+| Payment Integration   | Fondy\Liqpay                                  |
+| Insurance Integration | *(TBD – see integration spec)*    |
+| Hotel Integration     | *(TBD – see integration spec)*         |
+| Tour Integration      | *(TBD – see integration spec)*         |
+| **CI/CD**            | GitHub integration with Railway                |
+| **Secrets Management** | Railway Environment Variables                |
+| **Logging/Monitoring** | Built-in Railway dashboard tools            |
+| **Cron Jobs**        | Railway Scheduled Jobs  
+
+---
+
+
+## 🚀 Section 5 – Hosting & Deployment
+
+All services will be deployed via GitHub CI/CD workflows, with Railway as the unified hosting platform. Supabase is used exclusively for authentication. This hybrid model provides rapid iteration, developer convenience, and strong long-term scalability.
+
+### 5.1 Hosting Platform
+
+| Component         | Platform   | Notes                                             |
+|------------------|------------|---------------------------------------------------|
+| Frontend (SPA)   | Railway    | Deployed from GitHub, built with Vite             |
+| Backend (API)    | Railway    | Node.js + Express as a monolith                   |
+| Database         | Railway    | PostgreSQL with built-in backup and pooling       |
+| AuthN/AuthZ      | Supabase   | Auth services, JWT issuance and verification      |
+| Email (SMTP)     | Mailgun    | Used via Nodemailer from backend                  |
+| Cron Jobs        | Railway    | UI-based scheduled jobs                           |
+| Logs & Metrics   | Railway    | Built-in, viewable per deployment or service      |
+| Secrets          | Railway    | Environment variables configured per environment  |
+
+### 5.2 CI/CD
+
+- GitHub integration for automatic deployments on push to `main` branch.
+- Secrets and build parameters configured via Railway dashboard.
+- Deployments are atomic and rollback-capable.
+
+### 5.3 Security Practices
+
+- All backend endpoints are protected via Supabase-issued JWTs.
+- Secrets are never committed; managed via Railway environment settings.
+- HTTPS is enforced across frontend and backend.
+- PostgreSQL access restricted to internal connections only.
+- Regular backups of DB and configuration snapshots.
+
+
