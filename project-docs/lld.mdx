@@ -1,0 +1,523 @@
+# 📁 LLD
+
+## 🧱 Section 1 - Recommended folder structure
+
+This section defines the recommended folder layout and initial tooling stack for both frontend and backend projects using TypeScript, ReactJS, and Node.js.
+
+
+\```
+/open-ukraine-travel/
+│
+├── frontend/               # ReactJS + Vite + TailwindCSS
+├── backend/                # NodeJS + Express + Prisma
+├── .github/                # GitHub workflows (CI/CD)
+├── .vscode/                # Editor config (optional)
+├── .env.example            # Shared environment variables
+├── package.json            # Workspace-level scripts
+├── pnpm-workspace.yaml     # Monorepo package definitions
+└── README.md
+\```
+
+---
+
+## ⚛️ Frontend: `/frontend`
+
+**Tech Stack:**
+- Vite (bundler)
+- React + TypeScript
+- TailwindCSS
+- Zustand (lightweight state management)
+- React Router v6
+- React Hook Form
+- Vitest + React Testing Library
+
+**Structure:**
+
+\```
+/frontend/
+├── public/
+├── src/
+│   ├── assets/             # Images, icons
+│   ├── components/         # Reusable UI components
+│   ├── features/           # Feature-based folders (hotel, booking, etc.)
+│   ├── hooks/              # Custom React hooks
+│   ├── pages/              # Route-level pages
+│   ├── routes/             # Routing config
+│   ├── services/           # API functions (e.g. axios wrappers)
+│   ├── state/              # Zustand stores
+│   ├── types/              # TypeScript shared types
+│   ├── utils/              # General-purpose helpers
+│   └── main.tsx            # App bootstrap
+│
+├── index.html
+├── vite.config.ts
+├── tailwind.config.ts
+└── tsconfig.json
+\```
+
+---
+
+## 🧩 Backend: `/backend`
+
+**Tech Stack:**
+- Node.js + Express
+- TypeScript
+- Prisma (PostgreSQL ORM)
+- Jest (testing)
+- dotenv (config)
+- Supabase (auth verification)
+- PDF generation: pdfkit or puppeteer
+
+**Structure:**
+
+\```
+/backend/
+├── prisma/                 # Prisma schema, migrations
+│   └── schema.prisma
+├── src/
+│   ├── api/                # Express routes and handlers
+│   ├── auth/               # JWT middleware, Supabase utils
+│   ├── config/             # Env, DB, server setup
+│   ├── middleware/         # Logger, error handler, CORS
+│   ├── services/           # Business logic and integrations
+│   ├── types/              # Global interfaces and types
+│   └── index.ts            # Main server entry
+│
+├── tests/                  # Unit/integration tests
+├── tsconfig.json
+├── .env
+└── package.json
+\```
+
+---
+
+## 🧰 Bootstrapping Tools
+
+- Monorepo: `pnpm`
+- Frontend scaffold: `pnpm create vite frontend --template react-ts`
+- Backend: custom setup with Express, TypeScript, Prisma
+- Linting/formatting: `eslint`, `prettier`
+- CI ready: GitHub Actions
+
+
+## 🧾 Section 2 – Data Model & Storage (not finalized!!!)
+
+The system’s data layer is backed by a PostgreSQL relational database, hosted and managed via Railway. All core domain data will be stored in normalized schemas with referential integrity and indexing support for performance.
+
+For the MVP (P0), the focus is on these primary entities:
+
+---
+
+### 2.1 Core Entities
+
+| Entity           | Description                                              |
+|------------------|----------------------------------------------------------|
+| **User**         | Registered user account (email, metadata, role)          |
+| **Booking**      | Generalized booking entity (related to hotel/tour)       |
+| **Hotel**        | Static or synced data about a hotel                      |
+| **Room**         | Room type, availability, price, amenities, hotel_id FK   |
+| **Tour**         | Tour package with schedule, description, pricing         |
+| **InsurancePlan**| Insurance types, options, and pricing rules              |
+| **InsuranceOrder**| User-selected policy with status, price, confirmation    |
+| **Payment**      | Transaction metadata (status, provider ref, amount)      |
+| **ContentPage**  | Static or semi-static information pages (markdown)       |
+| **BlogPost**     | News/updates managed by content editors                  |
+
+---
+
+### 2.2 Key Relationships
+
+- `User` ↔ `Booking` (1:N)
+- `Hotel` ↔ `Room` (1:N)
+- `Booking` ↔ (`Hotel` or `Tour`) – polymorphic or separate tables
+- `Booking` ↔ `Payment` (1:1)
+- `InsuranceOrder` ↔ `User` (M:1)
+- `InsuranceOrder` ↔ `Payment` (1:1)
+- `Booking` ↔ `InsuranceOrder` (optional 1:1 for travel bundle)
+- `ContentPage`, `BlogPost` are owned/admin-managed (no FK)
+
+---
+
+### 2.3 Metadata and Audit
+
+All major entities include:
+- `created_at`, `updated_at`
+- `created_by` (user ID, if applicable)
+- Soft-delete flag (optional for admin content)
+
+---
+
+### 2.4 Content Storage
+
+| Type              | Storage Approach                             |
+|-------------------|-----------------------------------------------|
+| **Static pages**  | Markdown files + frontmatter (P0)             |
+| **Blog/news**     | Stored in DB as structured content            |
+| **Media files**   | Supabase storage or Railway disk hosting (TBD)|
+
+---
+
+Future improvements may include:
+- Availability calendar per room or tour (normalized table)
+- Location-based queries (PostGIS extension)
+- Indexing and full-text search (e.g. `pg_trgm` for fuzzy matches)
+
+## 3. Content Management & Dynamic Rendering
+
+This section outlines how editorial content is authored, managed, and rendered, including dynamic UI integration, content format strategy, and the long-term maintainability of the system.
+
+---
+
+### 3.1 Content Authoring Workflow
+
+#### Content Types in Scope for Static Authoring:
+- **Travel guides** (e.g. safety, transport, border)
+- **Landing pages** (insurance overview, about Ukraine)
+- **FAQs**, **terms**, and **legal disclaimers**
+- Embedded UI blocks (e.g. callouts, calculators)
+
+#### Editing Format
+- Markdown (`.mdx`) format with JSX support
+- Stored in Git-based `/content` directory
+- Authored by developers or technical content managers
+- Frontmatter metadata for routing, title, description, etc.
+
+#### Example `.mdx` Structure:
+```mdx
+# Safety Tips for Travelers
+
+Be aware of local curfews and alerts.
+
+<TipBox variant="info">
+Register with your embassy before travel.
+</TipBox>
+
+<FAQSection ids={['safety-documents', 'emergency-contacts']} />
+```
+
+---
+
+### 3.2 Content Repository Structure
+
+```bash
+/content
+  guides/
+    safety.mdx
+    transport.mdx
+  pages/
+    insurance.mdx
+    about.mdx
+  faq/
+    covid-rules.mdx
+  _components/
+    TipBox.tsx
+    FAQSection.tsx
+```
+
+---
+
+### 3.3 Rendering Strategy (Static + Dynamic)
+
+- `.mdx` files are rendered via `@mdx-js/react` and integrated into the React layout tree.
+- Dynamic JSX blocks (like `<TourGrid />` or `<InsuranceCalculator />`) are hydrated client-side.
+- All dynamic components are injected via MDXProvider using a component map.
+
+```tsx
+import { MDXProvider } from '@mdx-js/react'
+import TipBox from './components/TipBox'
+
+<MDXProvider components={{ TipBox }}>
+  <PageContent />
+</MDXProvider>
+```
+
+---
+
+### 3.4 Supported Features in Markdown
+
+| Feature        | Syntax Example                          |
+|----------------|------------------------------------------|
+| Headings       | `#`, `##`, `###`                         |
+| Paragraphs     | Plain text                               |
+| Links          | `[text](https://...)`                    |
+| Images         | `![Alt](./path.jpg)` or JSX-based `<img>`|
+| JSX Blocks     | `<TipBox>Text</TipBox>`                  |
+| Code Blocks    | ```` ```ts\ncode\n``` ````               |
+| Videos         | JSX `<video>` or embedded `<iframe>`    |
+
+---
+
+### 3.5 Use Cases for MDX Content
+
+| Content Type        | MDX-based? | Notes                         |
+|---------------------|------------|-------------------------------|
+| Travel Guides       | ✅ Yes     | Long-form, static             |
+| Landing Pages       | ✅ Yes     | Can embed dynamic content     |
+| FAQ Pages           | ✅ Yes     | Optional JSON hybrid          |
+| Tour Listings       | ❌ No      | Fetched from DB               |
+| Hotel Data          | ❌ No      | Fetched from DB/API           |
+| Bookings            | ❌ No      | User-stateful + private       |
+| Auth Pages          | ❌ No      | Built in React                |
+
+---
+
+### 3.6 Extending Dynamic Component Blocks
+
+To add a new interactive block:
+
+1. Create React component in `/content/_components/`
+2. Add it to the MDX component map
+3. Use it in any `.mdx` file
+
+Example:
+```tsx
+// PromoBanner.tsx
+export default function PromoBanner({ text }: { text: string }) {
+  return <div className="bg-yellow-200 p-4 rounded">{text}</div>
+}
+```
+
+```tsx
+// MDX wrapper
+const components = { PromoBanner, ... }
+```
+
+```mdx
+<PromoBanner text="Get 10% off all tours in Lviv!" />
+```
+
+---
+
+### 3.7 MDX Limitations & CMS Strategy
+
+#### Downsides:
+- Requires technical skill or training
+- Poor UX for non-dev editors
+- Hard to preview visually
+- No structured i18n support
+
+#### Recommendation:
+Start with `.mdx` during early stages, but consider migrating to a lightweight CMS once:
+- Non-technical contributors are onboarded
+- Content scale increases
+- Multi-language support is needed
+
+Suggested options for future:
+- **TinaCMS** (for visual editing of `.mdx`)
+- **Decap CMS** (Git-based, no backend needed)
+- **Sanity** or **Contentful** (headless API-first with custom schema)
+
+---
+
+### 3.8 Static vs Dynamic Rendering Strategy
+
+| Type             | Rendered With          | Indexed in SEO | Example                 |
+|------------------|------------------------|----------------|--------------------------|
+| Markdown Content | Static via Vite/SSG    | ✅ Yes         | Guide pages             |
+| Dynamic Blocks   | Hydrated React         | ⚠️ Limited     | Tour list, calculators  |
+| API Content      | Fetched via SWR/fetch  | ❌ No          | Realtime reviews        |
+
+
+## 4. Integration with External APIs (Booking, Insurance, Tours, etc.)
+
+This section defines a unified approach for integrating business-specific external APIs such as booking systems, insurance providers, and tour aggregators. The goal is to enable fast, pluggable integration workflows — both for developers and AI code assistants — without rewriting core logic per API.
+
+---
+
+### 4.1 Integration Strategy Overview
+
+- All third-party APIs (e.g., Booking.com, Stripe, InsuranceGate, TourRadar) are abstracted behind **modular adapters** using a common interface.
+- The adapters are stateless, functional, and side-effect-free where possible.
+- API credentials are stored in **Railway environment variables** and accessed via `process.env`.
+- Dynamic configuration (e.g., endpoint mappings) is stored in a central registry file (`src/integrations/registry.ts`).
+
+---
+
+### 4.2 Integration Architecture
+
+```bash
+/src/integrations/
+  registry.ts              # Declares all known integrations
+  booking/
+    adapter.ts             # Maps Booking API to internal interface
+    types.ts               # API response and request types
+  insurance/
+    adapter.ts
+  tours/
+    adapter.ts
+  utils/
+    httpClient.ts          # Common fetch wrapper with retry, logging
+```
+
+- Each integration module exports a standardized interface.
+- Adapters handle request shaping, auth, transformation, and error normalization.
+
+---
+
+### 4.3 Unified Integration Interface
+
+```ts
+// src/integrations/types.ts
+export interface Searchable<TSearch, TResult> {
+  search(params: TSearch): Promise<TResult[]>
+}
+
+export interface Bookable<TBookingInput, TBookingResult> {
+  book(input: TBookingInput): Promise<TBookingResult>
+}
+
+export interface Cancelable<TCancelInput, TCancelResult> {
+  cancel(input: TCancelInput): Promise<TCancelResult>
+}
+```
+
+Adapters implement only the interfaces they support:
+
+```ts
+// src/integrations/booking/adapter.ts
+import type { Searchable, Bookable } from '../types'
+
+export const BookingAdapter: Searchable<BookingSearchInput, BookingListing>
+                            & Bookable<BookingRequest, BookingConfirmation> = {
+  async search(params) {
+    // Transform params → API-specific request
+    const res = await fetch(BOOKING_URL, { method: 'POST', body: ... })
+    return normalizeListing(res)
+  },
+
+  async book(input) {
+    // Submit booking request
+    return await postBooking(input)
+  }
+}
+```
+
+---
+
+### 4.4 Adapter Registry
+
+```ts
+// src/integrations/registry.ts
+import { BookingAdapter } from './booking/adapter'
+import { InsuranceAdapter } from './insurance/adapter'
+
+export const Integrations = {
+  booking: BookingAdapter,
+  insurance: InsuranceAdapter,
+  // tours: to be added
+}
+```
+
+This registry is the **single source of truth** for all integrations. It is used by the backend API router and by AI-assisted code completion.
+
+---
+
+### 4.5 API Environment Management
+
+- Each adapter reads from scoped environment variables:
+  ```env
+  BOOKING_API_KEY=xxx
+  INSURANCE_GATE_TOKEN=xxx
+  ```
+- Variables are managed in **Railway’s Environment Variables panel**
+- A helper (`getEnvVar('BOOKING_API_KEY')`) enforces validation and logs if unset
+
+---
+
+### 4.6 AI-First Guidance
+
+To ensure AI tools (e.g. Cursor) can help efficiently with integration work:
+
+- Every adapter must have clear TypeScript interfaces
+- Each integration must be **self-contained** (no coupling to app internals)
+- Include small **example usages** per adapter in `src/examples/`
+- Tag `registry.ts` with AI comments:
+  ```ts
+  // Cursor: this is the list of pluggable API integrations
+  ```
+
+Example Cursor prompt:
+```ts
+"Add a new integration for 'TourRadar'. It should implement Searchable<TourSearchInput, TourResult>. Follow the existing adapter pattern."
+```
+
+---
+
+### 4.7 Adapter Testing
+
+- Use [MSW](https://mswjs.io/) for mocking third-party APIs in tests
+- Integration tests are colocated in adapter folders:
+  ```bash
+  /booking/adapter.test.ts
+  ```
+
+---
+
+### 4.8 Future Extensions
+
+| Feature               | Approach                        |
+|------------------------|----------------------------------|
+| API throttling         | Add `rateLimit()` to `httpClient.ts` |
+| Observability          | Log with request ID and adapter ID |
+| Multivendor failover   | Implement fallback logic in registry |
+| Feature toggling       | Use `supabase.config.json` or flags table |
+
+
+
+## 5. Design Inspiration and References
+
+To guide the visual and UX design of the Ukraine Travel Portal, we reference a number of world-class tourism and booking websites known for their aesthetics, usability, and clarity. These portals demonstrate best practices in mobile-first layouts, CTA hierarchy, content block variety, and modern responsive behavior.
+
+---
+
+### 5.1 Inspiration Sources
+
+#### 🌍 VisitNorway.com  
+**URL**: https://www.visitnorway.com/  
+- Full-width visuals and immersive hero sections  
+- Clear navigation and call-to-actions  
+- Grid-based content layout with strong regional filtering  
+- Consistent use of map overlays, search tools, and language toggles  
+
+#### 🇫🇷 Explore France – France.fr  
+**URL**: https://www.france.fr/en  
+- High-end editorial design with dynamic content blocks  
+- Smart use of white space, serif typography, and cultural accents  
+- Human-centered storytelling layout (travel diaries, interviews)  
+- Smooth page transitions and localized color palette  
+
+#### 🏖️ 100% Pure New Zealand  
+**URL**: https://www.newzealand.com/int/  
+- Organized layering of destinations, themes, and experiences  
+- Great use of media carousels and activity tagging  
+- Balanced content + location information  
+- Easy navigation across both desktop and mobile  
+
+#### ✈️ Tiqets.com *(Booking-focused)*  
+**URL**: https://www.tiqets.com/  
+- Fast-loading booking UI for mobile  
+- Modern UI components for filtering and sorting  
+- Excellent pricing card grid and booking modals  
+- Serves as inspiration for our Insurance and Tour Booking UX  
+
+#### 🏔️ MySwitzerland.com  
+**URL**: https://www.myswitzerland.com/en/  
+- Stunning visual hierarchy with image-heavy layout  
+- Sticky navigation, modular content cards, destination filters  
+- Consistent multilingual UX and regional segmentation  
+- Practical balance between design and performance
+
+---
+
+### 5.2 Design Strategy Takeaways
+
+| Design Feature             | Adopt in Portal? | Notes                                       |
+|----------------------------|------------------|---------------------------------------------|
+| Full-width hero sections   | ✅ Yes           | For homepage, landing, and marketing        |
+| Interactive filters        | ✅ Yes           | Tours, Hotels, and Guides                   |
+| Mixed content blocks       | ✅ Yes           | Markdown + JSX dynamic rendering            |
+| Story-driven layout        | ⚠️ Maybe         | Could be used for guides/articles           |
+| Multilingual UI            | ✅ Yes (long-term)| Required for Ukrainian + English            |
+| Booking-first experience   | ✅ Yes           | For Insurance and Tours                     |
+| Integrated media (video)   | ✅ Yes           | For engagement and retention                |
+
