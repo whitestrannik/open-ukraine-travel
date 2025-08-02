@@ -1,0 +1,399 @@
+🇺🇦 Ukraine Travel Portal – Product Requirements Document (PRD)
+
+General
+
+Project Overview
+
+The Ukraine Travel Portal is a public-facing, multilingual web platform aimed at promoting and supporting safe, informed, and seamless travel to Ukraine. It serves as both an informational hub and a transactional interface for purchasing tourist insurance, booking accommodations, and exploring curated tour experiences.
+
+Project Goals
+
+Provide up-to-date, trustworthy, and easy-to-navigate travel information.
+
+Simplify mandatory travel requirements, such as purchasing tourist insurance.
+
+Support the Ukrainian tourism economy through hotel and tour bookings.
+
+Position Ukraine as a resilient, welcoming, and safe destination in a post-crisis world.
+
+Target Audience
+
+Foreign Tourists planning to visit Ukraine.
+
+Diaspora Ukrainians returning to visit friends and family.
+
+International Volunteers, NGO workers, and Journalists requiring local guidance and insurance.
+
+Digital Nomads and Remote Workers interested in long-term stays.
+
+Tourism Service Providers (e.g. guides, hoteliers) looking to reach international travelers.
+
+Primary Pillars of the Portal
+
+Trust & Safety
+
+Prioritize accurate, official, and regularly updated content.
+
+Promote safe regions and services; avoid misinformation.
+
+Simplicity & Accessibility
+
+Clean, mobile-first UI with language support and minimal friction in booking or reading.
+
+Simple onboarding for non-technical content editors.
+
+Smart Integration
+
+Seamless backend/API connections with travel, insurance, and booking providers.
+
+Built-in payment and document delivery systems.
+
+Resilience & Promotion
+
+Show that Ukraine is open and safe to visit.
+
+Support the economy by spotlighting local services and businesses.
+
+Security & Privacy
+
+Handle personal user data and payment flows securely.
+
+Apply industry best practices for authentication, data storage, and third-party API access.
+
+Build trust through transparency, encrypted communication, and regulatory compliance.
+
+🔸 Travel Information Architecture (L0 → L1 → L2)
+
+/travel-info (L0)
+
+Entry Rules
+
+Visa Requirements & Access (dynamic by nationality)
+
+Internal country database (visa regime, length of stay, required documents, risk markers)
+
+Required Documents (goal of trip, financial means, accommodation proof)
+
+Epidemic Restrictions & Limitations
+
+COVID-19, Yellow Fever, Malaria, etc. + source data (WHO, MoH, MFA)
+
+Insurance
+
+Overview of mandatory coverage
+
+Online form + parameter input
+
+Redirect or embed partner flow
+
+DB record: store policy until 7 days after expiration
+
+Hotels
+
+Level 1: Search form for destination, dates, guests
+
+Level 2: Results page with filters
+
+Filters: price slider, star rating, amenities (wifi, parking, free cancellation), distance (if API supports), "safe zone only" toggle
+
+Partner integration (API/embed/redirect)
+
+No local inventory; DB only stores issued voucher metadata
+
+Transportation
+
+How to get to Ukraine (border crossing, flights, etc.)
+
+Internal mobility (incl. integration with UZ - Ukrzaliznytsia)
+
+Explore Ukraine
+
+Top Destinations: Kyiv, Lviv, Odesa, Chernobyl, Carpathians
+
+Undiscovered Gems: Chernivtsi, Poltava, Bessarabia, Uman, Chernihiv
+
+UNESCO Heritage & Candidate Sites (L2)
+
+By Region:
+
+West, Center, South, North, East
+
+Culinary Heritage, Wine Culture, MICE Activities
+
+Tours & Packages
+
+Discoverable by city/type
+
+Internal and partner-curated listings
+
+MICE Travel
+
+National positioning
+
+Regional MICE capabilities by macro-region and activity
+
+Bottom Block
+
+Emergency Contacts & Recommendations
+
+Events & Activities
+
+FAQs & Help Desk
+
+News & Updates
+
+Useful Governmental Address Book (embassies, OVIR, customs, police, etc.)
+
+🔸 Insurance Flow (based on Visit Ukraine UX)
+
+/insurance landing page
+
+Description why it's mandatory
+
+CTA → Start form
+
+Insurance Form
+
+Input: nationality, trip dates, age, # of people
+
+Optional: COVID/risk coverage
+
+Quote retrieval
+
+API call or widget display
+
+Pricing returned with conditions
+
+Payment flow
+
+Redirect or embed (Stripe, Fondy, etc.)
+
+Confirmation
+
+Policy PDF sent via email
+
+Saved in DB until 7 days post-expiration
+
+Support
+
+If user is volunteer → redirect to specialized plan or help desk contact
+
+DB Structure: Insurance Policies
+
+Field
+
+Type
+
+Description
+
+policy_id
+
+string
+
+External policy reference
+
+user_email
+
+string
+
+User email
+
+coverage
+
+string
+
+Type of coverage
+
+start_date
+
+date
+
+Start of coverage
+
+end_date
+
+date
+
+End of coverage
+
+created_at
+
+datetime
+
+Date of policy issuance
+
+🔸 Entry Rules Functional Logic
+
+Drop-down country selector (user nationality)
+
+Query internal visa database
+
+Display result (no visa, visa on arrival, e-visa)
+
+Additional document list if required (e.g., purpose proof, funds)
+
+Risk markers (not shown publicly)
+
+Migration risk → trigger help desk alert
+
+Epidemic risk → advisory banner or redirect
+
+Military/smuggling risk → internal flag only
+
+🏨 Hotel Booking via API (MVP)
+
+Principles
+
+Hotels are not stored locally
+
+All hotel data comes from 3rd-party APIs (e.g. Booking.com)
+
+Local DB only contains issued voucher metadata
+
+User Flow
+
+/hotels Landing (Level 1)
+
+Form:
+
+City (destination)
+
+Check-in / Check-out
+
+Number of guests
+
+CTA: "Search"
+
+/hotels/search Results Page (Level 2)
+
+Left panel: Filters
+
+Price range (slider)
+
+Category (stars)
+
+Distance from center or user-provided location (if API supports it)
+
+Amenities: free cancellation, wifi, parking
+
+Safe zone toggle
+
+Right panel: Results via API
+
+Hotel name, rating, price, image, CTA
+
+Booking Redirect or Embed
+
+External checkout or embedded widget
+
+Payment handled by partner
+
+Confirmation
+
+API returns booking ID
+
+Save to DB:
+
+{
+  "voucher_id": "EXTERNAL-ID",
+  "user_email": "user@example.com",
+  "hotel_name": "Hotel Kyiv",
+  "city": "Kyiv",
+  "checkin": "2025-09-01",
+  "checkout": "2025-09-03",
+  "created_at": "2025-07-31T12:00:00Z"
+}
+
+DB Structure: Booking Vouchers
+
+Field
+
+Type
+
+Description
+
+voucher_id
+
+string
+
+External booking reference
+
+user_email
+
+string
+
+User email
+
+hotel_name
+
+string
+
+Hotel name
+
+city
+
+string
+
+City of stay
+
+checkin
+
+date
+
+Check-in date
+
+checkout
+
+date
+
+Check-out date
+
+created_at
+
+datetime
+
+Time of booking
+
+🗂 Internal Databases Required
+
+Visa & Country DB
+
+Fields: country_code, visa_required, duration_allowed, visa_type, entry_docs_required, epidemic_risk, migration_risk, military_risk, smuggling_risk
+
+Epidemic Restrictions DB
+
+Fields: disease, active_in, vaccination_required, source_link, last_updated
+
+Insurance Policy DB
+
+See Insurance section
+
+Voucher Records (Hotel)
+
+See Hotels section
+
+Technical Considerations
+
+Dynamic widgets
+
+All input validated
+
+API fallback if partner not reachable
+
+Next Steps
+
+Finalize DB schema for visa and medical inputs
+
+Select insurance partner (API-ready)
+
+Develop initial front-end for Explore Ukraine with regional filters
+
+Create authoring guidelines for info content
+
+Draft UI mockups for key flows (entry, insurance, booking)
+
+Evaluate hotel API partners and test voucher flow
+
+This version reflects the fully updated PRD structure with all content and flows discussed up to August 2, 2025.
+
+
