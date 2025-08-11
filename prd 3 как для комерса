@@ -1,0 +1,119 @@
+# Ukraine Travel Portal — Full Product Requirements Document (External Logic & Flows)
+
+**Date:** 2025‑08‑11  
+**Scope:** UX‑first, product logic and user flows (non‑technical).  
+**MVP Languages:** English (base) + Ukrainian.  
+**Phase‑2 Languages:** Spanish, French, German, Arabic *(RTL)*, Hebrew *(RTL)*, Portuguese, Hindi, Russian.  
+**RTL Note:** For Arabic/Hebrew, the UI must support right‑to‑left layout, mirrored controls/icons, correct bidi rendering, and logical tab/snackbar placement.
+
+---
+
+## L0 — Global Navigation (Top‑Level Sections)
+1. **Explore Ukraine (L0.1)** — Country & destinations hub; parent for Essential Information.
+2. **Entry Rules (L0.2)** — Visa by nationality + static Health & Pets + Government Contacts.
+3. **Insurance (L0.3)** — Explain & purchase via partners (MVP types 1–2).
+4. **Hotels (L0.4)** — Search, compare, and book via partner API (store vouchers only).
+5. **Transportation (L0.5)** — How to get to Ukraine; internal mobility guidance.
+6. **MICE Travel (L0.6)** — Static B2B pitch; contact email.
+7. **Footer (L0.bottom)** — Shown **only on the main page**.
+
+---
+
+## L0.1 — Explore Ukraine
+**Purpose:** Provide a comprehensive overview of Ukraine’s travel attractions, cultural heritage, and regional diversity.
+
+**Structure:**
+1. **Essential Information** — Travel basics for visitors (security, currency, language, weather, etc.).
+2. **Top Destinations** — Kyiv, Lviv, Odesa, Chernobyl, Carpathians.
+3. **Undiscovered Gems** — Chernivtsi, Poltava, Bessarabia, Uman, Chernihiv.
+4. **UNESCO Sites & Candidates** — Complete list with photos, descriptions, map.
+5. **By Regions** — West, Center, South, North, East (each with Culinary Heritage & Wine Culture).
+6. **Jewish Ukraine** — Uman, Medzhybizh, Chernivtsi, Kyiv.
+
+**Content:** Static core descriptions + admin‑editable new L1 topics.
+
+**User Flow:** User clicks into Explore Ukraine → sees L1 sections as tiles → clicks to L2 detail pages.
+
+---
+
+## L0.2 — Entry Rules
+**Purpose:** Provide travelers with entry requirements tailored to nationality.
+
+**Main Components:**
+- **Country Selector** — Drop‑down, empty by default.
+- **Visa Requirements** — Dynamic from DB.
+- **Epidemic Restrictions** — Static disease list + vaccination/quarantine needs.
+- **Pet Travel** — Static rules for animals.
+- **Government Contacts** — Border guard, phytosanitary, MFA consular.
+
+**Tabs:** Visa Requirements | Health/Epidemic Rules | Pet Travel | Government Contacts.
+
+**User Flow:** Select nationality → visa info loads → scroll/tab to other sections.
+
+---
+
+## L0.3 — Insurance
+**Scope:**
+1. MVP — Travel insurance for foreigners visiting Ukraine.
+2. MVP — Travel insurance for Ukrainians traveling domestically.
+
+**Process:**
+- Static intro text: why insurance is needed; legal entry requirements.
+- Cards for each provider (≥3), showing: policy type, coverage scope, duration, cost, limits, exclusions, provider details, emergency contacts, claim procedure.
+- Each card expandable to full policy details (insured events & limits + official insurer info).
+- CTA to purchase → partner API → voucher returned → stored in DB for 1 month after expiry.
+- Interface to retrieve policies from DB.
+
+---
+
+## L0.4 — Hotels
+**MVP Data Source:** Partner API (store vouchers only).
+
+**User Flow:**
+- Search form (city, dates, guests) → results with filters (price, stars, amenities, distance, Safe Zone toggle).
+- Hotel detail page: full description, photos, amenities, map, room types with prices & availability, booking/cancellation conditions, pre‑payment vs. pay‑at‑hotel info.
+
+**Special Requirements:**
+1. Filters update dynamically.
+2. Safe Accommodation marker.
+3. Display multiple providers for same hotel.
+4. Static blocks for booking & cancellation rules.
+
+---
+
+## L0.5 — Transportation
+**Purpose:** Guide to reaching Ukraine + internal travel.
+
+**MVP:** Static info with possible links to APIs (e.g., Ukrzaliznytsia) later.
+
+---
+
+## L0.6 — MICE Travel
+**MVP:** Static pitch about MICE opportunities in Ukraine with contact email `mice@xxx`.
+
+**Future:** Add case studies, photo gallery, event calendar.
+
+---
+
+## L0.bottom — Footer
+Displayed only on the main page; contains: B2B link, Emergency contacts, Events & Activities, FAQs & Help Desk, News & Updates, Useful Governmental Address Book.
+
+---
+
+## Cross‑cutting Rules
+- All static content editable by admin without dev.
+- All public info translatable per language plan.
+- Data sources for dynamic info: internal DBs (Visa & Country, Epidemic Restrictions, Insurance Policies, Hotel Vouchers).
+- MVP: EN + UA; Phase‑2 adds 7 more languages incl. RTL.
+
+## MVP Definition
+- L0.1–L0.6 sections implemented with MVP scope.
+- Dynamic visa check by nationality.
+- Partner integrations for insurance & hotels.
+- Static transportation & MICE.
+
+## Acceptance Criteria
+- All MVP flows functional.
+- Static/dynamic data displayed as per scope.
+- Translation framework ready.
+- RTL readiness verified for Arabic/Hebrew.
