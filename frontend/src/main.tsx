@@ -13,6 +13,11 @@ import Odesa from '@/pages/cities/Odesa'
 import Carpathians from '@/pages/cities/Carpathians'
 import Chernobyl from '@/pages/cities/Chernobyl'
 import Chernivtsi from '@/pages/cities/Chernivtsi'
+import EssentialInfo from '@/pages/EssentialInfo'
+import HiddenGems from '@/pages/HiddenGems'
+import UnescoSites from '@/pages/UnescoSites'
+import ByRegions from '@/pages/ByRegions'
+import JewishUkraine from '@/pages/JewishUkraine'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -23,11 +28,11 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/explore/destinations" element={<TopDestinations />} />
-            <Route path="/explore/essential" element={<div className="p-6">Essential Information – placeholder</div>} />
-            <Route path="/explore/gems" element={<div className="p-6">Hidden Gems – placeholder</div>} />
-            <Route path="/explore/unesco" element={<div className="p-6">UNESCO Sites – placeholder</div>} />
-            <Route path="/explore/regions" element={<div className="p-6">By Regions – placeholder</div>} />
-            <Route path="/explore/jewish" element={<div className="p-6">Jewish Ukraine – placeholder</div>} />
+            <Route path="/explore/essential" element={<EssentialInfo />} />
+            <Route path="/explore/gems" element={<HiddenGems />} />
+            <Route path="/explore/unesco" element={<UnescoSites />} />
+            <Route path="/explore/regions" element={<ByRegions />} />
+            <Route path="/explore/jewish" element={<JewishUkraine />} />
             <Route path="/cities/kyiv" element={<Kyiv />} />
             <Route path="/cities/lviv" element={<Lviv />} />
             <Route path="/cities/odesa" element={<Odesa />} />
