@@ -16,8 +16,8 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
-          <source src="/media/12064535-uhd_3840_2160_30fps.mp4" type="video/mp4" />
-          <source src="/media/12080908-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}media/12064535-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}media/12080908-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
         </video>
         
         {/* Overlay */}
@@ -128,7 +128,7 @@ export default function Home() {
             {/* Kyiv */}
             <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
               <img 
-                src="/media/pexels-freestockpro-1227513.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`} 
                 alt="Kyiv" 
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -148,7 +148,7 @@ export default function Home() {
             {/* Lviv */}
             <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
               <img 
-                src="/media/pexels-freestockpro-1174204.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`} 
                 alt="Lviv" 
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -168,7 +168,7 @@ export default function Home() {
             {/* Carpathians */}
             <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
               <img 
-                src="/media/pexels-freestockpro-2787267.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`} 
                 alt="Carpathians" 
                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -262,7 +262,7 @@ export default function Home() {
             {/* Cultural Heritage */}
             <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
               <img 
-                src="/media/pexels-freestockpro-1172064.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg`} 
                 alt="Cultural Heritage" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -276,7 +276,7 @@ export default function Home() {
             {/* Nature & Parks */}
             <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
               <img 
-                src="/media/pexels-nextvoyage-1000026.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`} 
                 alt="Nature & Parks" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -290,7 +290,7 @@ export default function Home() {
             {/* Food & Wine */}
             <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
               <img 
-                src="/media/pexels-mayday-1370306.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-mayday-1370306.jpg`} 
                 alt="Food & Wine" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -304,7 +304,7 @@ export default function Home() {
             {/* Events & Festivals */}
             <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
               <img 
-                src="/media/pexels-heyho-6143369.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-heyho-6143369.jpg`} 
                 alt="Events & Festivals" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -334,7 +334,7 @@ export default function Home() {
             {/* Update 1 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <img 
-                src="/media/pexels-kostiantyn-13200201.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`} 
                 alt="Travel Update" 
                 className="w-full h-48 object-cover"
               />
@@ -355,7 +355,7 @@ export default function Home() {
             {/* Update 2 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <img 
-                src="/media/pexels-kostiantyn-13200378.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`} 
                 alt="Safety Update" 
                 className="w-full h-48 object-cover"
               />
@@ -376,7 +376,7 @@ export default function Home() {
             {/* Update 3 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <img 
-                src="/media/pexels-stepkoanna-33337362.jpg" 
+                src={`${import.meta.env.BASE_URL}media/pexels-stepkoanna-33337362.jpg`} 
                 alt="Tourism Update" 
                 className="w-full h-48 object-cover"
               />
@@ -444,3 +444,4 @@ export default function Home() {
     </div>
   )
 }
+

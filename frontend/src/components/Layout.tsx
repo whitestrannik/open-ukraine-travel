@@ -43,7 +43,7 @@ export function Layout() {
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src="/logo/Logo2.png" alt="Open Ukraine" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
+            <img src={`${import.meta.env.BASE_URL}logo/Logo2.png`} alt="Open Ukraine" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
             <span className="font-bold text-xl text-[#22242A] transition-colors duration-300 group-hover:text-[#1F5FA0]">Open Ukraine</span>
           </Link>
           
@@ -303,7 +303,7 @@ export function Layout() {
               {/* Company Info */}
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <img src="/logo/Logo2.png" alt="Open Ukraine" className="h-10 w-auto" />
+                  <img src={`${import.meta.env.BASE_URL}logo/Logo2.png`} alt="Open Ukraine" className="h-10 w-auto" />
                   <span className="font-bold text-xl">Open Ukraine</span>
                 </div>
                 <p className="text-[#B0B3BA] mb-4">
@@ -388,6 +388,7 @@ export function Layout() {
     </div>
   )
 }
+
 
 
 

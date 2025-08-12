@@ -260,7 +260,7 @@ export default function Carpathians() {
             <div className="space-y-4">
               <div className="relative rounded-2xl overflow-hidden shadow-lg group">
                 <img 
-                  src="/media/pexels-freestockpro-2787267.jpg" 
+                  src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`} 
                   alt={t('cities.carpathians.overview.images.mountains')}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -272,7 +272,7 @@ export default function Carpathians() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative rounded-xl overflow-hidden shadow-lg group">
                   <img 
-                    src="/media/pexels-nextvoyage-1000026.jpg" 
+                    src={`${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`} 
                     alt={t('cities.carpathians.overview.images.lake')}
                     className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -283,7 +283,7 @@ export default function Carpathians() {
                 
                 <div className="relative rounded-xl overflow-hidden shadow-lg group">
                   <img 
-                    src="/media/pexels-kostiantyn-13200378.jpg" 
+                    src={`${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`} 
                     alt={t('cities.carpathians.overview.images.church')}
                     className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -504,3 +504,4 @@ export default function Carpathians() {
     </div>
   )
 }
+

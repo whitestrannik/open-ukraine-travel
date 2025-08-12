@@ -277,7 +277,7 @@ export default function Chernobyl() {
             <div className="space-y-4">
               <div className="relative rounded-2xl overflow-hidden shadow-lg group">
                 <img 
-                  src="/media/pexels-freestockpro-345522.jpg" 
+                  src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-345522.jpg`} 
                   alt={t('cities.chernobyl.overview.images.reactor')}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -289,7 +289,7 @@ export default function Chernobyl() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative rounded-xl overflow-hidden shadow-lg group">
                   <img 
-                    src="/media/pexels-freestockpro-1172064.jpg" 
+                    src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg`} 
                     alt={t('cities.chernobyl.overview.images.pripyat')}
                     className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -300,7 +300,7 @@ export default function Chernobyl() {
                 
                 <div className="relative rounded-xl overflow-hidden shadow-lg group">
                   <img 
-                    src="/media/pexels-freestockpro-12932806.jpg" 
+                    src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`} 
                     alt={t('cities.chernobyl.overview.images.memorial')}
                     className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -520,3 +520,4 @@ export default function Chernobyl() {
     </div>
   )
 }
+

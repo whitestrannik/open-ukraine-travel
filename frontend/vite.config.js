@@ -14,7 +14,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // Always use GitHub Pages base URL for now
+  // GitHub Pages base URL - this should prefix ALL assets
   base: '/open-ukraine-travel/',
   build: {
     outDir: 'dist',

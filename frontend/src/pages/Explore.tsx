@@ -74,7 +74,7 @@ export default function Explore() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/media/12064535-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}media/12064535-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
         </video>
         
         {/* Overlay */}
@@ -230,6 +230,7 @@ export default function Explore() {
     </div>
   )
 }
+
 
 
 
