@@ -15,7 +15,9 @@ export default defineConfig({
     },
   },
   // Configure base URL for GitHub Pages deployment  
-  base: '/open-ukraine-travel/',  // Hardcoded for GitHub Pages testing
+  base: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
+    ? '/open-ukraine-travel/'  // GitHub Pages deployment
+    : '/',  // Local development
   build: {
     outDir: 'dist',
     sourcemap: true,
