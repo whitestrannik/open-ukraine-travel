@@ -14,10 +14,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // Configure base URL for GitHub Pages deployment  
-  base: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
-    ? '/open-ukraine-travel/'  // GitHub Pages deployment
-    : '/',  // Local development
+  // Always use GitHub Pages base URL for now
+  base: '/open-ukraine-travel/',
   build: {
     outDir: 'dist',
     sourcemap: true,
