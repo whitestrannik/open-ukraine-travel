@@ -1,0 +1,70 @@
+## Decisions Log (P0)
+
+- Routes
+  - Root pages: `/explore`, `/entry`
+  - Placeholders: `/insurance`, `/hotels`, `/transportation`, `/mice`
+- i18n (P0)
+  - UI toggle only (no locale in path); optional `?lang=uk` override
+  - Persist order: query > localStorage > browser language > default `en`
+  - Fallback to EN if key missing; update `<html lang>` on change
+- Tech/UI
+  - Tailwind CSS v4 with `@tailwindcss/vite` plugin
+  - `shadcn/ui` included from the start (Vite + React 19 compatible)
+  - Icons: Lucide; animations: Framer Motion (optional)
+- Data & API
+  - Entry Rules backend: public `GET /api/entry/:country`
+  - Country key: ISO 3166-1 alpha-2
+  - Seed initial dataset (no external source yet)
+  - Validation with `zod` (shared types where practical)
+- Logging/Infra
+  - `pino` + `pino-http` for structured logs; pretty in dev, JSON in prod
+  - Railway: one project with 3 services (frontend, backend, PostgreSQL)
+  - CI/CD: GitHub Actions deploy to Railway on `main`
+  - CORS per env (dev: `http://localhost:5173`)
+
+## Tailwind v4 Setup Notes (Vite + React)
+
+- Install: `tailwindcss` + `@tailwindcss/vite` (first-party Vite plugin)
+- Vite config: add `tailwindcss()` to plugins
+- Import once in app CSS: `@import "tailwindcss";`
+- Configure tokens in CSS via `@theme` (no `tailwind.config.js` needed by default)
+- Automatic content detection, no `content` array
+- For shadcn/ui with Tailwind v4, follow `ui.shadcn.com/docs/installation/vite` (uses the same Vite plugin and CSS-first theming)
+
+### Example snippets
+
+- `vite.config.ts` plugin entry:
+
+```ts
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import tailwindcss from "@tailwindcss/vite"
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+
+- `src/index.css`:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  /* example tokens */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.5rem;
+}
+```
+
+- Dark mode variant (optional):
+
+```css
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+## Long-term i18n (post-P0)
+
+- Locale-prefixed URLs `/{locale}/...` with hreflang + localized sitemaps
+- ICU messages via Lingui; CI sync with a TMS (e.g., Lokalise)
+- Backend translation tables and `Accept-Language` handling
