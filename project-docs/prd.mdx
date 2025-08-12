@@ -1,5 +1,10 @@
 # 🇺🇦 Ukraine Travel Portal – Product Requirements Document (PRD)
 
+**Scope:** UX‑first, product logic and user flows (non‑technical).  
+**MVP Languages:** English (base) + Ukrainian.  
+**Phase‑2 Languages:** Spanish, French, German, Arabic *(RTL)*, Hebrew *(RTL)*, Portuguese, Hindi, Russian.  
+**RTL Note:** For Arabic/Hebrew, the UI must support right‑to‑left layout, mirrored controls/icons, correct bidi rendering, and logical tab/snackbar placement.
+
 ## General
 
 ### Project Overview
@@ -116,636 +121,144 @@ While the project is focused on Ukraine, it draws inspiration and competition fr
 - Forum, community or social features
 
 
-## Section 1: Static Travel Information & Guidance
-
-### 1.1 Overview
-
-This section includes trusted, multilingual guidance content designed to help travelers prepare for a trip to Ukraine. It consists of two types of content:
-
-- **Evergreen informational pages** — stable, official content updated infrequently
-- **Dynamic updates and blog posts** — time-sensitive or advisory content updated regularly
 
 ---
 
-### 1.2 Goals
-
-- Deliver essential, up-to-date travel preparation info in a structured, multilingual format.
-- Clearly separate long-term guidance from short-term alerts and updates.
-- Allow flexibility in editorial workflows while maintaining trust and consistency.
-- Prepare for future migration to a full headless CMS without disrupting structure.
-
----
-
-### 1.3 Content Structure and Types
-
-#### 1.3.1 Evergreen Informational Pages
-
-These are core guidance pages that rarely change and will be **pinned** or featured across the portal.
-
-| Title                     | Static / Dynamic | Description                                                              |
-|---------------------------|------------------|--------------------------------------------------------------------------|
-| Entry Requirements        | Static + Dynamic | Base content in MDX, plus visa widget per nationality                   |
-| General Safety Tips       | Static + Dynamic | Written safety tips with live safety feed or alerts by region           |
-| Healthcare Access         | Static           | Info on hospitals, emergency numbers, medical apps                      |
-| Currency & Payments       | Static           | Exchange guidance, ATM tips, card usage                                 |
-| SIM & Internet Access     | Static           | How to buy SIM cards, use mobile data, apps                             |
-| Recommended Apps          | Static           | Local apps to install: Diia, Air Alert, taxi apps, translators          |
-| Travel FAQs               | Static           | General Q&A addressing common tourist concerns                          |
-
-##### Location and Routing
-- Stored as `.mdx` files under `/content/{lang}/[slug].mdx`
-- Routed to `/travel-info/[slug]`
-- Indexed and grouped under `/travel-info`
-
-##### Frontmatter Example
-```yaml
----
-title: "Entry Requirements"
-slug: "entry-requirements"
-lang: "en"
-category: "travel-info"
-pinned: true
-dynamic_blocks:
-  - type: "visa_check_widget"
-    region: "user_country"
----
-```
-
-##### Display
-- Featured prominently on the homepage or travel info index
-- Rendered as visually styled cards with icons, categories, or short excerpts
+## L0 — Global Navigation (Top‑Level Sections)
+1. **Explore Ukraine (L0.1)** — Country & destinations hub; parent for Essential Information.
+2. **Entry Rules (L0.2)** — Visa by nationality + static Health & Pets + Government Contacts.
+3. **Insurance (L0.3)** — Explain & purchase via partners (MVP types 1–2).
+4. **Hotels (L0.4)** — Search, compare, and book via partner API (store vouchers only).
+5. **Transportation (L0.5)** — How to get to Ukraine; internal mobility guidance.
+6. **MICE Travel (L0.6)** — Static B2B pitch; contact email.
+7. **Footer (L0.bottom)** — Shown **only on the main page**.
 
 ---
 
-#### 1.3.2 Blog Posts / News / Updates
+## L0.1 — Explore Ukraine
+**Purpose:** Provide a comprehensive overview of Ukraine’s travel attractions, cultural heritage, and regional diversity.
 
-These are time-sensitive, frequently added pieces created by editors to share developments, tips, or local updates.
+**Structure:**
+1. **Essential Information** — Travel basics for visitors (security, currency, language, weather, etc.).
+2. **Top Destinations** — Kyiv, Lviv, Odesa, Chernobyl, Carpathians.
+3. **Undiscovered Gems** — Chernivtsi, Poltava, Bessarabia, Uman, Chernihiv.
+4. **UNESCO Sites & Candidates** — Complete list with photos, descriptions, map.
+5. **By Regions** — West, Center, South, North, East (each with Culinary Heritage & Wine Culture).
+6. **Jewish Ukraine** — Uman, Medzhybizh, Chernivtsi, Kyiv.
 
-| Title Example                              | Description                                                              |
-|--------------------------------------------|--------------------------------------------------------------------------|
-| "Updated Entry Rules for 2025"             | Policy changes, new restrictions or allowances                          |
-| "New Kyiv–Lviv Train Schedule Released"    | Public transport alerts                                                  |
-| "Top 5 Travel Apps for Ukraine in 2025"    | Tips-style article, more editorial in tone                              |
-| "Western Ukraine Fully Open for Tourists"  | Regional safety, promotional messaging                                  |
+**Content:** Static core descriptions + admin‑editable new L1 topics.
 
-##### Location and Routing
-- Stored under `/posts/{lang}/[slug].mdx`
-- Routed to `/blog/[slug]`
-- Auto-displayed on `/blog` (paginated)
-
-##### Frontmatter Example
-```yaml
----
-title: "New Entry Rules for Tourists in 2025"
-slug: "new-entry-rules-2025"
-lang: "en"
-tags: ["entry", "policy"]
-date: "2025-01-03"
-author: "editor1"
----
-```
-
-##### Display
-- Listed chronologically on `/blog` or homepage under "Latest Updates"
-- May be shown in carousels, feeds, or tiles
-- Not shown on `/travel-info` to avoid noise
+**User Flow:** User clicks into Explore Ukraine → sees L1 sections as tiles → clicks to L2 detail pages.
 
 ---
 
-### 1.4 Content Authoring Strategy
+## L0.2 — Entry Rules
+**Purpose:** Provide travelers with entry requirements tailored to nationality.
 
-#### Evergreen Pages
-- Authored and updated manually in MDX
-- Stored and version-controlled in Git
-- Pinned content is explicitly listed in metadata or config file
+**Main Components:**
+- **Country Selector** — Drop‑down, empty by default.
+- **Visa Requirements** — Dynamic from DB.
+- **Epidemic Restrictions** — Static disease list + vaccination/quarantine needs.
+- **Pet Travel** — Static rules for animals.
+- **Government Contacts** — Border guard, phytosanitary, MFA consular.
 
-#### Blog Posts
-- Authored in Markdown/MDX
-- Posted by content manager via Git (or optional lightweight CMS UI)
-- Sorted and rendered dynamically based on metadata (date, tags)
+**Tabs:** Visa Requirements | Health/Epidemic Rules | Pet Travel | Government Contacts.
 
-#### Dynamic Components
-- Rendered inside MDX using React components:
-  ```mdx
-  <VisaCheckWidget nationality="auto" />
-  <SafetyAlert region="Kyiv" />
-  ```
+**User Flow:** Select nationality → visa info loads → scroll/tab to other sections.
 
 ---
 
-### 1.5 Functional Requirements
+## L0.3 — Insurance
+**Scope:**
+1. MVP — Travel insurance for foreigners visiting Ukraine.
+2. MVP — Travel insurance for Ukrainians traveling domestically.
 
-- Render MDX-based content for both evergreen and blog sections
-- Support multilingual content via folder-based structure or metadata
-- Create category-based navigation for `/travel-info`
-- Display dynamic widgets inside content when configured
-- Search/filter content by tags, category, or keywords
-- Auto-generate blog archive by date
-- Allow "pinned" or "featured" flag to promote key guidance pages
-- Enable easy migration to API-based CMS in the future
-
-## Section 2: Tourist Insurance
-
-### 2.1 Overview
-
-This section provides visitors with a simple, fast, and legally compliant way to purchase tourist insurance. The goal is to ensure that all travelers entering Ukraine can obtain the mandatory insurance certificate (covering medical expenses, including war-related risk, if applicable) through a trusted and user-friendly process.
-
-The portal acts as a **frontend interface and broker**, while the insurance policy data and purchase flow are delegated to **external insurance providers** via API or secure redirection.
+**Process:**
+- Static intro text: why insurance is needed; legal entry requirements.
+- Cards for each provider (≥3), showing: policy type, coverage scope, duration, cost, limits, exclusions, provider details, emergency contacts, claim procedure.
+- Each card expandable to full policy details (insured events & limits + official insurer info).
+- CTA to purchase → partner API → voucher returned → stored in DB for 1 month after expiry.
+- Interface to retrieve policies from DB.
 
 ---
 
-### 2.2 Goals
+## L0.4 — Hotels
+**MVP Data Source:** Partner API (store vouchers only).
 
-- Enable travelers to purchase valid tourist insurance required for entry.
-- Clearly explain why insurance is needed and what types are available.
-- Minimize friction through a mobile-first, multilingual form and instant digital delivery.
-- Support easy integration with one or more trusted insurance providers.
+**User Flow:**
+- Search form (city, dates, guests) → results with filters (price, stars, amenities, distance, Safe Zone toggle).
+- Hotel detail page: full description, photos, amenities, map, room types with prices & availability, booking/cancellation conditions, pre‑payment vs. pay‑at‑hotel info.
 
----
-
-### 2.3 Ownership of Functionality
-
-| Functionality                        | Managed by Portal | Managed by Insurance Provider |
-|-------------------------------------|--------------------|-------------------------------|
-| UI/UX: Insurance landing page       | ✅                 | ❌                            |
-| Explanation content (FAQs, help)    | ✅                 | ❌                            |
-| Form for insurance parameters       | ✅                 | ❌                            |
-| Price calculation & validation      | ❌ (delegated)     | ✅                            |
-| Payment handling                    | ❌ (or optional)   | ✅ (or embedded if allowed)   |
-| PDF certificate generation          | ❌                 | ✅                            |
-| Refund/cancellation workflow        | ❌                 | ✅                            |
-| Customer support (post-purchase)    | ❌                 | ✅                            |
+**Special Requirements:**
+1. Filters update dynamically.
+2. Safe Accommodation marker.
+3. Display multiple providers for same hotel.
+4. Static blocks for booking & cancellation rules.
 
 ---
 
-### 2.4 User Flow
+## L0.5 — Transportation
+**Purpose:** Guide to reaching Ukraine + internal travel.
 
-1. **Landing Page `/insurance`**
-   - Overview: why insurance is required
-   - FAQ and coverage explanation
-   - CTA: “Get Insurance Now”
-
-2. **Insurance Form**
-   - Trip duration (start + end date)
-   - Nationality (auto-detected or selected)
-   - Destination: entire Ukraine (default)
-   - Age and number of travelers
-   - Optional add-ons (e.g. COVID, evacuation)
-
-3. **Quote Retrieval**
-   - Form values are sent via API or embedded iframe to partner
-   - Receive and display quote options
-
-4. **User Checkout**
-   - Payment UI from partner (or embedded if partner allows)
-   - Legal agreement / terms
-
-5. **Confirmation**
-   - Insurance PDF emailed to user and optionally downloadable from portal
-   - Instructions on how to present it at the border
+**MVP:** Static info with possible links to APIs (e.g., Ukrzaliznytsia) later.
 
 ---
 
-### 2.5 Integration Notes
+## L0.6 — MICE Travel
+**MVP:** Static pitch about MICE opportunities in Ukraine with contact email `mice@xxx`.
 
-- P0 will use **external provider API** (e.g. redirect flow or embedded partner widget)
-- Partner(s) must support:
-  - API access for quote generation
-  - Payment handling
-  - Instant PDF issuance
-  - REST or JS SDK integration (or hosted checkout)
-
-- Optional: Fallback integration with affiliate-style redirect URL and tracking
+**Future:** Add case studies, photo gallery, event calendar.
 
 ---
 
-### 2.6 Functional Requirements
-
-- Responsive, accessible form to collect user input
-- Field validation (date logic, nationality input, etc.)
-- Multilingual support (EN, UK at minimum)
-- API client or integration handler to pass user data to external service
-- Handling and display of partner errors (e.g. pricing unavailable)
-- Confirmation screen after successful order
-- Optional: email summary via portal or tracking ID
+## L0.bottom — Footer
+Displayed only on the main page; contains: B2B link, Emergency contacts, Events & Activities, FAQs & Help Desk, News & Updates, Useful Governmental Address Book.
 
 ---
 
-### 2.7 Future Extensions
 
-- Multiple providers with price comparison
-- User accounts to track/download old insurance
-- Optional travel companion/vehicle insurance bundling
-- Integration with tour/hotel booking flows ("add insurance" option)
-- Localized pricing per user origin
+## 🔧 Content Creation Strategy for Key Sections
 
+For **Phase 0 (MVP)**, we will focus only on implementing the core functionality for the following two sections:
 
-## Section 3: Hotel Booking
+- `Explore Ukraine` (`/travel-info`)
+- `Entry Rules` (`/entry` or `/travel-info/entry-requirements`)
 
-### 3.1 Overview
-
-This section enables users to search for and book accommodations in Ukraine, starting with a third-party hotel inventory integration (e.g. Booking.com, Amadeus, or other providers) and potentially evolving into direct hotel listings in later phases.
-
-For the MVP, the portal will serve as a **frontend wrapper** around a hotel booking affiliate or API, offering users a localized and trusted interface. The backend logic, availability, booking flow, and payment will be **delegated to external services**.
+All other top-level sections (**Insurance**, **Hotels**, **Transportation**, **MICE Travel**) will be present in the top menu for UX consistency, but they will link to **static placeholder (dummy) pages** during the MVP phase. Their full implementation is deferred to later phases.
 
 ---
 
-### 3.2 Goals
+### Explore Ukraine (`/travel-info` category)
 
-- Allow travelers to discover and book accommodations across Ukraine with confidence.
-- Embed hotel discovery within the broader experience of the portal (tied to safety zones, city highlights, etc.).
-- Minimize development effort and data responsibility by using trusted third-party providers initially.
-- Ensure flexibility to switch or extend to direct hotel onboarding in future phases.
+- **Phase 0 (MVP)**:
+  - All pages under *Explore Ukraine* will be **pre-created statically** during development.
+  - Content will be authored in `.mdx` format with full Ukrainian and English translations.
+  - No dynamic CMS or visual editor is provided in this phase.
+  - Pages will include regional highlights, destinations, culture, etc.
 
----
-
-### 3.3 Ownership of Functionality
-
-| Functionality                          | Managed by Portal | Managed by Provider |
-|---------------------------------------|--------------------|----------------------|
-| Search UI and filters                 | ✅                 | ❌                   |
-| Category tags (safe zones, regions)   | ✅ (overlay only)  | ❌                   |
-| Hotel data (name, price, rating, etc.)| ❌                 | ✅                   |
-| Booking and payment                   | ❌                 | ✅                   |
-| Booking confirmation + email         | ❌                 | ✅                   |
-| Hotel photos and descriptions         | ❌                 | ✅                   |
-| Affiliate tracking or deep linking    | ✅                 | ✅                   |
-| Display partner logo / terms          | ✅                 | ✅                   |
+- **Phase 1+**:
+  - A dedicated **Admin Panel** will allow:
+    - Adding/modifying/removing destination pages
+    - Managing translations and rich media content
+    - Organizing content hierarchy
 
 ---
 
-### 3.4 User Flow
+### Entry Rules (`/entry` or `/travel-info/entry-requirements`)
 
-1. **Landing Page `/hotels`**
-   - Explanation of booking scope
-   - Optional filters: city, date, budget, rating, proximity to safe areas
+- **Phase 0 (MVP)**:
+  - Layout and routing will be created during development.
+  - All dynamic content (e.g. visa requirements, health rules) will be loaded from a database.
+  - Country-specific rules will be seeded into the DB before launch.
+  - No admin UI will exist to edit DB content.
 
-2. **Search Interaction**
-   - User enters destination, check-in/out dates, guests
-   - Results returned via:
-     - **API integration**, or
-     - **Embedded widget**, or
-     - **Redirection with parameters**
-
-3. **Results Display**
-   - Hotel name, rating, starting price, availability preview
-   - Click-through to partner checkout or embedded detail
-
-4. **Booking & Confirmation**
-   - Entire flow handled by provider (Booking.com, etc.)
-   - Partner sends confirmation email directly to the user
+- **Phase 1+**:
+  - A structured **Admin Data Editor** will be built to allow authorized content managers to:
+    - Update visa rules per nationality
+    - Modify epidemic-related info
+    - Maintain contact details for border and consular services
+  - All updates will be logged and versioned with RBAC protections.
 
 ---
-
-### 3.5 Integration Strategy (MVP)
-
-- **Affiliate/White-label approach** preferred for MVP
-  - Simplifies booking and legal responsibilities
-  - No need to handle inventory, cancellations, or support
-  - Revenue via commission model or referral tracking
-
-- If available, use partner’s **JavaScript SDK** or **search API**
-  - Enables embedding results in your own UI
-  - Enables geo-filtering or overlaying “safe zones”
-
-- Examples of providers to evaluate:
-  - Booking.com (Affiliate Partner Program)
-  - RapidAPI hotel search providers (e.g. Amadeus, Hotelbeds)
-  - Ukrainian OTA partners (local aggregators)
-
----
-
-### 3.6 Functional Requirements
-
-- Search form with the following inputs:
-  - Destination or city
-  - Check-in / check-out date pickers
-  - Number of guests
-- Optional filters:
-  - Price range
-  - User rating
-  - “Safe zone only” toggle
-- List or card view of results with:
-  - Hotel name, short description
-  - Price per night, rating
-  - Thumbnail photo
-  - Link to external or embedded checkout
-- Partner attribution and disclaimers
-- Multilingual support (EN, UK)
-
----
-
-### 3.7 Future Extensions
-
-- Direct onboarding of hotels via admin portal
-- Admin moderation for listings and regional safety tagging
-- Reviews and traveler photos
-- Loyalty program or travel bundle discounts (hotel + insurance)
-- “Verified safe” badge from Ukrainian tourism authority
-- Filtering by special needs: family-friendly, pet-friendly, accessibility
-
-## Section 4: Tour Booking
-
-### 4.1 Overview
-
-This section enables travelers to discover and book guided tours, excursions, and local experiences in Ukraine. In the MVP, the portal will support a **hybrid approach**:
-
-- **Externally integrated tour providers** (e.g. GetYourGuide, Viator) for scalable inventory
-- **Directly listed curated tours** managed through the portal’s admin interface for early partnerships
-
-This allows the platform to offer value immediately while building up a future catalog of unique, locally operated tours.
-
----
-
-### 4.2 Goals
-
-- Allow users to explore a variety of tours filtered by city, type, date, or duration.
-- Enable direct booking or redirection to verified providers.
-- Support direct listing of hand-picked tours operated by trusted Ukrainian partners.
-- Promote cultural, historical, and safe local tourism experiences.
-
----
-
-### 4.3 Ownership of Functionality
-
-| Functionality                          | Managed by Portal | Managed by Tour Provider |
-|---------------------------------------|--------------------|---------------------------|
-| Tour listing UI and filter logic      | ✅                 | ❌                        |
-| Partner tour content (via API/embed)  | ❌ or Partial       | ✅                        |
-| Curated (manual) tour content         | ✅                 | ❌                        |
-| Booking and checkout (API/external)   | ❌ (or embedded)   | ✅                        |
-| Tour availability/calendar            | ❌ (external) or ✅ (manual) | ✅ or portal-admin |
-| Email confirmation and cancellation   | ❌                 | ✅                        |
-
----
-
-### 4.4 User Flow
-
-1. **Landing Page `/tours`**
-   - Hero section or CTA highlighting featured tours
-   - Optional filters: city, tour type, duration, date
-
-2. **Search & Discovery**
-   - Tours shown in a card/grid format with thumbnail, title, price, and tags
-   - Tour detail view shows:
-     - Full description
-     - What’s included
-     - Tour guide/operator info
-     - Available time slots
-     - Booking or "Check availability" button
-
-3. **Booking Flow**
-   - For **external tours**: redirect to partner page or use embedded checkout widget
-   - For **curated internal tours**: collect booking request, send to operator, or confirm in-app (future phase)
-
----
-
-### 4.5 Integration Strategy (MVP)
-
-- Combine:
-  - **External integrations** via iframe, partner widget, or redirect (e.g. GetYourGuide, Viator)
-  - **Hardcoded or markdown-based curated listings** for key tours operated by local partners
-
-- Each curated tour may be manually entered into the system via content files or early admin UI.
-
----
-
-### 4.6 Functional Requirements
-
-- `/tours` page must include:
-  - Filters: city, tour type (e.g. historical, nature, cultural), price range, duration
-  - Sort by: popularity, rating, price, date
-
-- Tour cards must display:
-  - Title
-  - Operator name or logo (if applicable)
-  - Short description (excerpt)
-  - Price per person
-  - Duration tag (e.g. “3 hours”)
-  - Thumbnail image
-
-- Tour detail page must include:
-  - Long description
-  - Itinerary or highlights
-  - “Included” and “Not included” sections
-  - Booking or redirection button
-  - Optional: cancellation policy, group size, rating
-
-- Multilingual support (EN, UK)
-
----
-
-### 4.7 Future Extensions
-
-- Admin interface for direct tour operators to add/edit their offerings
-- Live calendar integration with availability slots
-- Real-time booking confirmation and ticket PDF
-- Review/rating system
-- Bundles: tour + hotel + insurance
-- User accounts with booking history
-- Location-aware suggestions (e.g. nearby tours)
-
-## ❓ Open Questions & TBDs
-
-This section tracks open decisions and design considerations that need to be addressed during HLD/LLD or future planning sessions.
-
----
-
-### 🔌 Integrations with External Services
-
-- What level of integration do we want with:
-  - **Hotel booking providers**: iframe/embed vs full API?
-  - **Insurance providers**: redirect flow vs embedded widget vs direct API call with PDF generation?
-  - **Tour aggregators**: affiliate links only or live API feeds?
-- Do we plan to support **multiple providers per category**, or just one trusted partner at launch?
-- Will we offer **fallback experiences** if partner APIs are temporarily unavailable?
-
----
-
-### 👤 User Accounts & Authentication
-
-- When will user accounts be introduced: P0, P1, or later?
-- What features will require authentication (e.g. bookings, saving preferences, access to documents)?
-- What data should be stored in the user profile (e.g. nationality, past trips, personal info)?
-- Do we need social login (Google, Apple) or just email/password?
-
----
-
-### 🗃 Data Storage vs Proxying
-
-| Data Type                       | Store in Our DB? | Pass to External API? | Notes                                   |
-|--------------------------------|------------------|------------------------|-----------------------------------------|
-| User personal data (email, name, passport) | ❓               | ✅                     | Required for insurance; may need partial storage |
-| Booking metadata (date, city, hotel/tour)   | ❓               | ✅                     | Could store locally for analytics       |
-| Payment records (status, amount)           | ❓               | ✅                     | Store only reference, actual via Stripe/Fondy |
-| Tour listings (curated)                   | ✅               | ❓                     | Mixed model: ours + partners            |
-| Hotel data                                 | ❓               | ✅                     | Primarily from partner feed             |
-
-Questions:
-- Which data do we store persistently vs treat as ephemeral/session-based?
-- Do we require GDPR-style data deletion and user access/export functionality?
-
----
-
-### 🛠 Admin Panel & Content Ownership
-
-- When will the admin UI be built: at launch or as a post-MVP tool?
-- Will dynamic content (e.g. tours) be edited through admin UI or static file pull requests in early phases?
-- Will tour providers or hotel owners eventually be given access to manage their listings?
-
----
-
-### 📄 Booking Ownership
-
-- If a booking is made through the portal, but processed externally:
-  - Can we still track it for analytics or support purposes?
-  - Do we generate our own confirmation reference number or reuse the external one?
-  - Will users be able to access their documents again via our portal?
-
----
-
-### 🔐 Security & Legal
-
-- What legal disclaimers or T&Cs do we need to include around:
-  - Third-party responsibility (insurance, hotels, tours)?
-  - Data usage and user consent?
-- Do we need an internal audit log for content edits or booking activity?
-
----
-
-### 🧭 Future Considerations
-
-- Will we evolve toward a fully self-hosted CRS for hotels and tours?
-- How will versioning of guidance content be handled when laws change?
-- Will we support Ukrainian domestic travelers or just foreign visitors?
-
-
-## 🚀 Future Extensions & Ideas
-
-This section outlines potential future functionality that is **not required for the MVP**, but may significantly enhance the platform's value, engagement, and business potential.
-
----
-
-### 🧩 Platform Features
-
-- **User Accounts (Phase 1+)**
-  - Profile management, booking history, saved preferences
-  - Re-download documents and manage active trips
-  - Referral tracking or loyalty points
-
-- **Admin Panel (Phase 1+)**
-  - Web interface for managing tours, hotels, insurance configs, content
-  - Role-based access for editors, moderators, and external partners
-
-- **Multi-provider Support**
-  - Aggregate offers from several hotel/tour/insurance providers
-  - Allow users to compare by price, location, ratings
-
-- **Bundle Offers**
-  - Sell hotel + insurance + tour packages together
-  - Offer discounts or bonus perks for multi-service purchase
-
-- **Promotional Banners / Announcements**
-  - Highlight regional events, holiday offers, or government advisories
-
-- **Regional/Localized Guides**
-  - City-based landing pages (e.g. "Visit Lviv", "Stay in Odesa")
-  - Combine local maps, curated tours, and geo-tagged news
-
-- **Smart Recommender System**
-  - Suggest tours or hotels based on previous behavior, interests, or travel duration
-
----
-
-### 🌐 Community & UGC (Optional)
-
-- **User Reviews**
-  - Allow verified users to leave reviews for tours or hotels
-  - Aggregate external ratings where available
-
-- **Q&A or Comments on Info Pages**
-  - Enable clarification from other travelers
-  - Moderation required
-
-- **Traveler Stories or Blog Contributions**
-  - Let locals or tourists share experiences (curated publishing)
-
----
-
-### 📊 Analytics & Feedback
-
-- **Integrated Web Analytics**
-  - Heatmaps, conversion funnels, traffic sources
-
-- **In-product Feedback Widgets**
-  - "Was this page helpful?" rating
-  - Collect user pain points and suggestions directly from the UI
-
----
-
-### 📱 Mobile & Offline
-
-- **Progressive Web App (PWA)**
-  - Enable offline access to guidance content and saved bookings
-  - Push notifications for air alerts or safety changes
-
-- **Native Mobile App (Long-term)**
-  - GPS-based discovery (tours, help centers, emergency exits)
-  - Emergency toolkit: contacts, offline map, alert updates
-
----
-
-### 🇺🇦 Government & Local Business Integration
-
-- **Official API Integration**
-  - Tie into government immigration, customs, or alert systems
-
-- **Tour Provider & Hotel Partner Portal**
-  - Allow businesses to manage their listings
-  - Optional verification/badge program (e.g. “Officially Trusted”)
-
----
-
-### 💸 Monetization Options (If applicable)
-
-- Affiliate commissions from bookings or insurance purchases  
-- Sponsored placements (e.g. “Featured Tour”)  
-- B2B offerings: dashboard for embassies, travel agencies, or NGOs  
-- Donation system for supporting the platform or Ukrainian recovery projects
-
-### 🤖 AI & Chat-based Assistance
-
-- **AI Travel Assistant Chatbot**
-  - Interactive 24/7 assistant to help users:
-    - Understand entry requirements
-    - Pick suitable insurance plans
-    - Recommend tours or hotels based on interests
-    - Translate content or explain local customs
-  - Can use OpenAI or similar LLM via controlled prompt flow
-
-- **Smart FAQ Assistant**
-  - Searchable, conversational interface trained on all help articles and legal pages
-  - “Ask a question” box instead of navigating static FAQ
-
-- **Live Chat Support (Hybrid)**
-  - Human + bot combo for booking issues or urgent queries
-  - Can be activated only on critical pages (e.g. during checkout)
-
-- **AI-based Safety Alert Summary**
-  - Use NLP to summarize regional news/safety data into plain-language tips
-  - Especially helpful for foreigners or those unfamiliar with the situation
-
-- **Trip Planning Bot**
-  - “Plan my 5-day trip” prompt to generate tour + hotel recommendations
-  - Could integrate user preferences and calendar availability
-
-- **Multilingual Content Q&A**
-  - Help users ask questions in their own language and get real-time translated answers
-
-- **Admin-side AI Tools (Optional)**
-  - Auto-generate tour descriptions from raw input
-  - Summarize insurance partner policy terms into readable bullet lists
-  - Detect outdated content or suggest updates for blog articles
-
 
 

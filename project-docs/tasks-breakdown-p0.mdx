@@ -1,0 +1,98 @@
+# ✅ Phase 0 Task Breakdown – Ukraine Travel Portal (P0)
+
+> All pages will be implemented as static ReactJS pages during development.  
+> No MDX or CMS-based rendering in P0.  
+> Development will be done inside Cursor AI environment.
+
+---
+
+## 📦 General Setup (FE + BE)
+
+### Frontend
+- [ ] Initialize React + TypeScript project using Vite
+- [ ] Setup TailwindCSS with custom config
+- [ ] Configure ESLint + Prettier
+- [ ] Setup React Router (v6)
+- [ ] Implement global layout:
+  - [ ] Top navigation bar with multilingual toggle
+  - [ ] Footer with links and disclaimers
+- [ ] Stub out all top-level routes as placeholder static pages:
+  - `/travel-info`
+  - `/entry`
+  - `/insurance`
+  - `/hotels`
+  - `/transportation`
+  - `/mice`
+
+### Backend
+- [ ] Initialize Node.js + TypeScript + Express project
+- [ ] Setup project structure:
+  - `src/api`, `src/services`, `src/prisma`, `src/config`, `src/middleware`
+- [ ] Setup Prisma with PostgreSQL (hosted on Railway)
+- [ ] Create basic Prisma schema (only for Entry Rules feature)
+- [ ] Setup Supabase JWT verification middleware
+- [ ] Configure environment loading via `dotenv`
+- [ ] Implement base error handler and logging utilities
+
+---
+
+## 🌍 Feature 1: Explore Ukraine (`/travel-info`)
+
+### Frontend
+- [ ] Build `/travel-info` static landing page with grid/tile layout
+- [ ] Build sub-pages for each section:
+  - [ ] Essential Information
+  - [ ] Top Destinations
+  - [ ] Undiscovered Gems
+  - [ ] UNESCO Sites
+  - [ ] By Regions
+  - [ ] Jewish Ukraine
+- [ ] Implement multilingual support using file-based dictionaries
+- [ ] Add responsive image assets and section icons
+
+### Backend
+- ❌ Not applicable in P0 (no dynamic logic)
+
+---
+
+## 🌐 Feature 2: Entry Rules (`/entry`)
+
+### Frontend
+- [ ] Create layout with:
+  - [ ] Nationality selector (dropdown)
+  - [ ] Tabs: Visa, Health, Pets, Contacts
+- [ ] Load data from backend for selected nationality
+- [ ] Implement loading/error/empty states
+- [ ] Add translations for all labels and static texts
+
+### Backend
+- [ ] Create REST API: `GET /api/entry/:country`
+- [ ] Define Prisma schema:
+  - `VisaRequirement`
+  - `EpidemicRule`
+  - `PetRule`
+  - `GovContact`
+- [ ] Seed database with entry rule content (EN + UA)
+- [ ] Implement validation and fallback for missing data
+
+---
+
+## 🧪 Testing
+
+### Frontend
+- [ ] Unit tests for shared components (e.g. CountrySelector)
+- [ ] Integration tests for Entry Rules interaction (Vitest + React Testing Library)
+
+### Backend
+- [ ] Unit tests for database access logic
+- [ ] Integration test: `GET /api/entry/:country`
+
+---
+
+## 🚀 DevOps & Deployment
+
+- [ ] Setup Railway projects for frontend, backend, and database
+- [ ] Connect CI/CD pipelines with GitHub
+- [ ] Configure preview deployments for each pull request
+- [ ] Define `.env` values in Railway dashboard
+- [ ] Setup staging/production environments with branch mapping
