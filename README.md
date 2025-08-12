@@ -13,10 +13,11 @@ A comprehensive travel portal for discovering Ukraine's beauty, culture, and her
 ## 🎯 Getting Started
 
 ### Prerequisites
-- Node.js 18+
-- npm or pnpm
+- **Node.js 18+** (LTS recommended) - [Download for Windows](https://nodejs.org/en/download/)
+- **npm 9+** or **pnpm 8+** (package manager) - npm comes with Node.js, or [install pnpm](https://pnpm.io/installation#on-windows)
+- **Git** (for cloning repository) - [Download Git for Windows](https://git-scm.com/download/win)
 
-### Development Setup
+### Frontend Development Setup
 
 ```bash
 # Clone and install
@@ -24,12 +25,33 @@ git clone [repository-url]
 cd open-ukraine-travel/frontend
 npm install
 
-# Start development
+# Start development server
 npm run dev
 # Open http://localhost:5173
 
 # Build for production
 npm run build
+```
+
+### Backend Development Setup
+
+```bash
+# Navigate to backend
+cd open-ukraine-travel/backend
+npm install
+
+# Start backend server
+npm run dev
+# Backend runs on http://localhost:3000
+```
+
+### Full Stack Development
+
+```bash
+# From project root - run both FE & BE
+npm run dev
+# Frontend: http://localhost:5173
+# Backend: http://localhost:3000
 ```
 
 ## 📱 Deployment
