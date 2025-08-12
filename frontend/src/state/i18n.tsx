@@ -99,6 +99,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'destinations.hero.subtitle': 'Discover the most captivating cities and regions that showcase Ukraine\'s rich heritage, stunning landscapes, and vibrant culture',
     'destinations.hero.breadcrumb': 'Top Destinations',
     
+    'explore.nav.title': 'Explore Ukraine',
     'explore.nav.destinations': 'Top Destinations',
     'explore.nav.essential': 'Essential Info',
     'explore.nav.gems': 'Hidden Gems',
@@ -244,6 +245,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'destinations.hero.subtitle': 'Відкрийте найчарівніші міста та регіони, що демонструють багату спадщину, приголомшливі пейзажі та яскраву культуру України',
     'destinations.hero.breadcrumb': 'Топ напрямки',
     
+    'explore.nav.title': 'Досліджуй Україну',
     'explore.nav.destinations': 'Топ напрямки',
     'explore.nav.essential': 'Основна інформація',
     'explore.nav.gems': 'Приховані перлини',

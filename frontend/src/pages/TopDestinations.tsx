@@ -58,70 +58,81 @@ export default function TopDestinations() {
           <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto drop-shadow-lg">
             {t('destinations.hero.subtitle')}
           </p>
-          
-          {/* Breadcrumb */}
-          <nav className="flex justify-center items-center space-x-2 text-sm text-white/80">
-            <Link to="/" className="hover:text-white transition-colors">
+        </div>
+      </section>
+
+      {/* Breadcrumb Section */}
+      <section className="bg-gray-50 py-4 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="flex items-center space-x-2 text-sm text-[#B0B3BA]">
+            <Link to="/" className="hover:text-[#1F5FA0] transition-colors">
               {t('nav.home')}
             </Link>
-            <span>→</span>
-            <Link to="/explore" className="hover:text-white transition-colors">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <Link to="/explore" className="hover:text-[#1F5FA0] transition-colors">
               {t('nav.explore')}
             </Link>
-            <span>→</span>
-            <span className="text-[#F5C542]">{t('destinations.hero.breadcrumb')}</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-[#1F5FA0] font-medium">{t('destinations.hero.breadcrumb')}</span>
           </nav>
         </div>
       </section>
 
       {/* Sub-navigation */}
-      <section className="bg-white border-b sticky top-[73px] z-40">
+      <section className="bg-white border-b border-gray-200/50 sticky top-[73px] z-40">
         <div className="max-w-6xl mx-auto px-4">
-          <nav className="flex items-center gap-1 py-4 overflow-x-auto">
-            <div className="flex items-center gap-1 bg-gray-50/80 rounded-full px-2 py-1 min-w-fit">
+          <div className="py-4">
+            <h2 className="text-sm font-semibold text-[#22242A] mb-3 uppercase tracking-wide">
+              {t('explore.nav.title')}
+            </h2>
+            <nav className="flex flex-wrap items-center gap-2 overflow-x-auto">
               <Link 
                 to="/explore/destinations" 
-                className="px-4 py-2 rounded-full font-medium text-white bg-[#1F5FA0] shadow-lg shadow-[#1F5FA0]/25 whitespace-nowrap"
+                className="px-4 py-2 rounded-lg font-medium text-white bg-[#1F5FA0] shadow-md hover:shadow-lg transition-all duration-300 whitespace-nowrap"
               >
                 {t('explore.nav.destinations')}
               </Link>
               
               <Link 
                 to="/explore/essential" 
-                className="px-4 py-2 rounded-full font-medium text-[#22242A] hover:text-[#1F5FA0] hover:bg-white/80 hover:shadow-md transition-all duration-300 whitespace-nowrap"
+                className="px-4 py-2 rounded-lg font-medium text-[#22242A] bg-gray-100 hover:bg-[#1F5FA0] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
                 {t('explore.nav.essential')}
               </Link>
               
               <Link 
                 to="/explore/gems" 
-                className="px-4 py-2 rounded-full font-medium text-[#22242A] hover:text-[#1F5FA0] hover:bg-white/80 hover:shadow-md transition-all duration-300 whitespace-nowrap"
+                className="px-4 py-2 rounded-lg font-medium text-[#22242A] bg-gray-100 hover:bg-[#1F5FA0] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
                 {t('explore.nav.gems')}
               </Link>
               
               <Link 
                 to="/explore/unesco" 
-                className="px-4 py-2 rounded-full font-medium text-[#22242A] hover:text-[#1F5FA0] hover:bg-white/80 hover:shadow-md transition-all duration-300 whitespace-nowrap"
+                className="px-4 py-2 rounded-lg font-medium text-[#22242A] bg-gray-100 hover:bg-[#1F5FA0] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
                 {t('explore.nav.unesco')}
               </Link>
               
               <Link 
                 to="/explore/regions" 
-                className="px-4 py-2 rounded-full font-medium text-[#22242A] hover:text-[#1F5FA0] hover:bg-white/80 hover:shadow-md transition-all duration-300 whitespace-nowrap"
+                className="px-4 py-2 rounded-lg font-medium text-[#22242A] bg-gray-100 hover:bg-[#1F5FA0] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
                 {t('explore.nav.regions')}
               </Link>
               
               <Link 
                 to="/explore/jewish" 
-                className="px-4 py-2 rounded-full font-medium text-[#22242A] hover:text-[#1F5FA0] hover:bg-white/80 hover:shadow-md transition-all duration-300 whitespace-nowrap"
+                className="px-4 py-2 rounded-lg font-medium text-[#22242A] bg-gray-100 hover:bg-[#1F5FA0] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
                 {t('explore.nav.jewish')}
               </Link>
-            </div>
-          </nav>
+            </nav>
+          </div>
         </div>
       </section>
 
