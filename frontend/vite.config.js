@@ -14,10 +14,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // Configure base URL for GitHub Pages deployment
-  base: process.env.VITE_DEPLOY_TARGET === 'github-pages' 
-    ? '/open-ukraine-travel/'  // GitHub Pages repo name
-    : '/',
+  // Configure base URL for GitHub Pages deployment  
+  base: '/open-ukraine-travel/',  // Hardcoded for GitHub Pages testing
   build: {
     outDir: 'dist',
     sourcemap: true,
