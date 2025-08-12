@@ -156,6 +156,46 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'destinations.cta.subtitle': 'Start planning your Ukrainian adventure with travel insurance and accommodation',
     'destinations.cta.insurance': 'Get Travel Insurance',
     'destinations.cta.hotels': 'Find Hotels',
+    
+    // Explore Hub Page
+    'explore.hero.title': 'Discover Ukraine',
+    'explore.hero.subtitle': 'From ancient capitals to pristine mountains, from UNESCO heritage sites to hidden gems - explore the diverse beauty and rich culture of Ukraine',
+    'explore.hero.cta.destinations': 'Explore Destinations',
+    'explore.hero.cta.essential': 'Essential Information',
+    
+    'explore.stats.title': 'Ukraine at a Glance',
+    'explore.stats.subtitle': 'Discover the numbers that showcase Ukraine\'s rich heritage and diverse landscape',
+    'explore.stats.unesco': 'UNESCO Sites',
+    'explore.stats.regions': 'Regions',
+    'explore.stats.cities': 'Cities & Towns',
+    'explore.stats.history': 'Years of History',
+    
+    'explore.sections.title': 'What Would You Like to Explore?',
+    'explore.sections.subtitle': 'Choose your adventure and discover Ukraine through different lenses',
+    'explore.sections.explore': 'Explore Section',
+    
+    'explore.sections.destinations.title': 'Top Destinations',
+    'explore.sections.destinations.description': 'Discover Ukraine\'s most captivating cities and regions, from vibrant Kyiv to historic Lviv, coastal Odesa to the majestic Carpathians',
+    
+    'explore.sections.essential.title': 'Essential Information',
+    'explore.sections.essential.description': 'Everything you need to know for a safe and enjoyable trip - travel tips, safety guidelines, currency, weather, and practical advice',
+    
+    'explore.sections.gems.title': 'Hidden Gems',
+    'explore.sections.gems.description': 'Off the beaten path destinations that showcase Ukraine\'s authentic beauty - from charming villages to secret natural wonders',
+    
+    'explore.sections.unesco.title': 'UNESCO World Heritage',
+    'explore.sections.unesco.description': 'Explore Ukraine\'s 7 UNESCO World Heritage Sites, from ancient churches to historic city centers that tell the story of our civilization',
+    
+    'explore.sections.regions.title': 'Explore by Regions',
+    'explore.sections.regions.description': 'Discover Ukraine\'s 24 diverse regions, each with unique traditions, landscapes, and cultural treasures waiting to be explored',
+    
+    'explore.sections.jewish.title': 'Jewish Ukraine',
+    'explore.sections.jewish.description': 'Journey through Ukraine\'s rich Jewish heritage, from historic synagogues to cultural centers that preserve centuries of tradition',
+    
+    'explore.cta.title': 'Ready to Start Your Ukrainian Adventure?',
+    'explore.cta.subtitle': 'Get prepared with travel insurance and find the perfect accommodation for your journey',
+    'explore.cta.insurance': 'Get Travel Insurance',
+    'explore.cta.hotels': 'Find Hotels',
   },
   uk: {
     'nav.explore': 'Досліджуй',
@@ -302,6 +342,46 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'destinations.cta.subtitle': 'Почніть планувати свою українську пригоду зі страхуванням подорожей та розміщенням',
     'destinations.cta.insurance': 'Оформити страховку',
     'destinations.cta.hotels': 'Знайти готелі',
+    
+    // Explore Hub Page
+    'explore.hero.title': 'Відкрийте Україну',
+    'explore.hero.subtitle': 'Від стародавніх столиць до незайманих гір, від об\'єктів спадщини ЮНЕСКО до прихованих перлин - досліджуйте різноманітну красу та багату культуру України',
+    'explore.hero.cta.destinations': 'Досліджувати напрямки',
+    'explore.hero.cta.essential': 'Основна інформація',
+    
+    'explore.stats.title': 'Україна одним поглядом',
+    'explore.stats.subtitle': 'Відкрийте цифри, що демонструють багату спадщину та різноманітні пейзажі України',
+    'explore.stats.unesco': 'Об\'єкти ЮНЕСКО',
+    'explore.stats.regions': 'Регіони',
+    'explore.stats.cities': 'Міста та селища',
+    'explore.stats.history': 'Років історії',
+    
+    'explore.sections.title': 'Що ви хочете досліджувати?',
+    'explore.sections.subtitle': 'Оберіть свою пригоду та відкрийте Україну під різними кутами',
+    'explore.sections.explore': 'Дослідити розділ',
+    
+    'explore.sections.destinations.title': 'Топ напрямки',
+    'explore.sections.destinations.description': 'Відкрийте найчарівніші міста та регіони України, від жвавого Києва до історичного Львова, від прибережної Одеси до величних Карпат',
+    
+    'explore.sections.essential.title': 'Основна інформація',
+    'explore.sections.essential.description': 'Все, що потрібно знати для безпечної та приємної подорожі - поради для мандрівників, правила безпеки, валюта, погода та практичні поради',
+    
+    'explore.sections.gems.title': 'Приховані перлини',
+    'explore.sections.gems.description': 'Напрямки поза протоптаними стежками, що демонструють автентичну красу України - від чарівних сіл до таємних природних чудес',
+    
+    'explore.sections.unesco.title': 'Всесвітня спадщина ЮНЕСКО',
+    'explore.sections.unesco.description': 'Досліджуйте 7 об\'єктів Всесвітньої спадщини ЮНЕСКО України, від стародавніх церков до історичних центрів міст, що розповідають історію нашої цивілізації',
+    
+    'explore.sections.regions.title': 'Дослідження за регіонами',
+    'explore.sections.regions.description': 'Відкрийте 24 різноманітні регіони України, кожен з унікальними традиціями, пейзажами та культурними скарбами, що чекають на дослідження',
+    
+    'explore.sections.jewish.title': 'Єврейська Україна',
+    'explore.sections.jewish.description': 'Подорожуйте багатою єврейською спадщиною України, від історичних синагог до культурних центрів, що зберігають століття традицій',
+    
+    'explore.cta.title': 'Готові розпочати свою українську пригоду?',
+    'explore.cta.subtitle': 'Підготуйтесь зі страхуванням подорожей та знайдіть ідеальне розміщення для своєї подорожі',
+    'explore.cta.insurance': 'Оформити страховку',
+    'explore.cta.hotels': 'Знайти готелі',
   },
 }
 

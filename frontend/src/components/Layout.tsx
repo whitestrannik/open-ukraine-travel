@@ -84,7 +84,11 @@ export function Layout() {
                 
                 {/* Dropdown Menu */}
                 {isExploreDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200/50 backdrop-blur-sm z-50">
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200/50 backdrop-blur-sm z-50"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     <div className="py-2">
                       <Link 
                         to="/explore/destinations" 
