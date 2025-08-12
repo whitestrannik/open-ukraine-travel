@@ -204,6 +204,9 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'cities.categories.historical': 'Historical Monument',
     'cities.categories.cultural': 'Cultural Site',
     'cities.categories.museum': 'Museum',
+    'cities.categories.coastal': 'Coastal Area',
+    'cities.categories.nature': 'Natural Site',
+    'cities.categories.memorial': 'Memorial Site',
     
     // Kyiv City Page
     'cities.kyiv.name': 'Kyiv',
@@ -271,6 +274,571 @@ const dictionaries: Record<Language, Record<string, string>> = {
     
     'cities.kyiv.history.modern.title': 'Independent Ukraine\'s Capital',
     'cities.kyiv.history.modern.description': 'Since Ukraine\'s independence, Kyiv has flourished as a European capital, playing host to historic events like the Orange Revolution and the Revolution of Dignity, cementing its role as a beacon of democracy.',
+
+    // LVIV TRANSLATIONS
+    'cities.lviv.name': 'Lviv',
+    'cities.lviv.hero.title': 'Lviv - Cultural Pearl of Ukraine',
+    'cities.lviv.hero.subtitle': 'Discover the UNESCO World Heritage city where cobblestone streets tell stories of centuries past',
+    'cities.lviv.hero.cta.plan': 'Plan Your Visit',
+    'cities.lviv.hero.cta.guide': 'City Guide',
+    
+    'cities.lviv.facts.title': 'Lviv at a Glance',
+    'cities.lviv.facts.population.value': '721K',
+    'cities.lviv.facts.population.label': 'Population',
+    'cities.lviv.facts.founded.value': '1256',
+    'cities.lviv.facts.founded.label': 'Founded',
+    'cities.lviv.facts.unesco.value': '1998',
+    'cities.lviv.facts.unesco.label': 'UNESCO Status',
+    'cities.lviv.facts.coffee.value': '100+',
+    'cities.lviv.facts.coffee.label': 'Coffee Houses',
+    
+    'cities.lviv.attractions.title': 'Must-See Attractions',
+    'cities.lviv.attractions.subtitle': 'Explore Lviv\'s architectural treasures and cultural landmarks',
+    'cities.lviv.attractions.learn': 'Learn More',
+    
+    'cities.lviv.attractions.old-town.name': 'Historic Old Town',
+    'cities.lviv.attractions.old-town.description': 'UNESCO World Heritage Site with stunning medieval architecture and charming squares',
+    
+    'cities.lviv.attractions.opera-house.name': 'Lviv Opera House',
+    'cities.lviv.attractions.opera-house.description': 'Magnificent 19th-century opera theater, one of the most beautiful in Europe',
+    
+    'cities.lviv.attractions.high-castle.name': 'High Castle Hill',
+    'cities.lviv.attractions.high-castle.description': 'Historic hilltop offering panoramic views of the entire city',
+    
+    'cities.lviv.attractions.coffee-museums.name': 'Coffee Culture Museums',
+    'cities.lviv.attractions.coffee-museums.description': 'Unique museums celebrating Lviv\'s rich coffee heritage and traditions',
+    
+    'cities.lviv.attractions.armenian-cathedral.name': 'Armenian Cathedral',
+    'cities.lviv.attractions.armenian-cathedral.description': '14th-century cathedral showcasing Armenian architectural heritage',
+    
+    'cities.lviv.attractions.pharmacy-museum.name': 'Pharmacy Museum',
+    'cities.lviv.attractions.pharmacy-museum.description': 'Historic pharmacy turned museum with fascinating medical artifacts',
+    
+    'cities.lviv.overview.title': 'Discover Lviv',
+    'cities.lviv.overview.subtitle': 'Immerse yourself in the cultural capital of Western Ukraine',
+    
+    'cities.lviv.overview.about.title': 'Cultural Capital of Western Ukraine',
+    'cities.lviv.overview.about.description1': 'Lviv is a living museum where Gothic, Renaissance, and Baroque architecture creates an enchanting urban landscape. Founded in 1256, this UNESCO World Heritage city has preserved its medieval charm while embracing modern cultural dynamism.',
+    'cities.lviv.overview.about.description2': 'The city\'s cobblestone streets wind through a historic center filled with stunning churches, palaces, and squares. Lviv\'s unique position at the crossroads of Eastern and Western Europe has created a rich cultural tapestry reflected in its architecture, cuisine, and traditions.',
+    
+    'cities.lviv.overview.culture.title': 'Coffee Culture & Arts',
+    'cities.lviv.overview.culture.description': 'Lviv is renowned as Ukraine\'s coffee capital, with a café culture that rivals Vienna or Prague. The city pulses with artistic energy, hosting numerous festivals, exhibitions, and cultural events throughout the year.',
+    'cities.lviv.overview.culture.highlights': 'Coffee Culture, Art Galleries, Music Festivals, Theater Scene, Literary Traditions, Craft Heritage',
+    
+    'cities.lviv.overview.images.square': 'Market Square - heart of the old town',
+    'cities.lviv.overview.images.architecture': 'Stunning baroque and gothic architecture',
+    'cities.lviv.overview.images.coffee': 'Traditional coffee houses and culture',
+    
+    'cities.lviv.history.title': 'A Journey Through Centuries',
+    'cities.lviv.history.founding.title': 'Medieval Foundation',
+    'cities.lviv.history.founding.description': 'Founded by King Danylo of Galicia in 1256 and named after his son Lev, Lviv quickly became an important trading center on the route between Europe and Asia.',
+    
+    'cities.lviv.history.austrian.title': 'Austrian Golden Age',
+    'cities.lviv.history.austrian.description': 'Under Austrian rule (1772-1918), Lviv flourished as the capital of Galicia, becoming a major cultural and educational center with magnificent architecture still visible today.',
+    
+    'cities.lviv.history.coffee.title': 'Birth of Coffee Culture',
+    'cities.lviv.history.coffee.description': 'The 19th century saw the emergence of Lviv\'s famous coffee culture, with numerous coffee houses becoming centers of intellectual and cultural life.',
+    
+    'cities.lviv.history.modern.title': 'UNESCO Recognition',
+    'cities.lviv.history.modern.description': 'In 1998, Lviv\'s historic center was inscribed on the UNESCO World Heritage List, recognizing its outstanding universal value and well-preserved medieval urban fabric.',
+    
+    'cities.lviv.districts.title': 'Explore Lviv\'s Districts',
+    'cities.lviv.districts.subtitle': 'Each district offers unique architectural styles and cultural experiences',
+    
+    'cities.lviv.districts.old-town.name': 'Historic Old Town',
+    'cities.lviv.districts.old-town.description': 'The UNESCO-protected heart of Lviv with medieval streets, Renaissance palaces, and baroque churches',
+    'cities.lviv.districts.old-town.highlights': 'Market Square, Town Hall, St. George\'s Cathedral',
+    
+    'cities.lviv.districts.galician.name': 'Galician Quarter',
+    'cities.lviv.districts.galician.description': 'Elegant 19th-century district with Austrian-era architecture and tree-lined boulevards',
+    'cities.lviv.districts.galician.highlights': 'Opera House, University, Freedom Avenue',
+    
+    'cities.lviv.districts.jewish-quarter.name': 'Former Jewish Quarter',
+    'cities.lviv.districts.jewish-quarter.description': 'Historic area that was once the center of one of Europe\'s largest Jewish communities',
+    'cities.lviv.districts.jewish-quarter.highlights': 'Golden Rose Synagogue, Jewish Museum, Memorial sites',
+    
+    'cities.lviv.districts.castle-hill.name': 'Castle Hill Area',
+    'cities.lviv.districts.castle-hill.description': 'Elevated district offering panoramic views and historic fortifications',
+    'cities.lviv.districts.castle-hill.highlights': 'High Castle Park, Observatory, City Views',
+    
+    'cities.lviv.practical.title': 'Practical Information',
+    
+    'cities.lviv.practical.visit.title': 'Best Time to Visit',
+    'cities.lviv.practical.visit.description': 'Lviv is beautiful year-round, with each season offering unique experiences',
+    'cities.lviv.practical.visit.spring': 'Spring (Mar-May): Mild weather, fewer crowds',
+    'cities.lviv.practical.visit.summer': 'Summer (Jun-Aug): Warm, perfect for walking tours',
+    'cities.lviv.practical.visit.autumn': 'Autumn (Sep-Nov): Golden colors, cozy café weather',
+    'cities.lviv.practical.visit.winter': 'Winter (Dec-Feb): Christmas markets, snow-covered architecture',
+    
+    'cities.lviv.practical.coffee.title': 'Coffee Culture',
+    'cities.lviv.practical.coffee.description': 'Experience Lviv\'s legendary coffee scene',
+    'cities.lviv.practical.coffee.culture': 'Traditional coffee houses with unique atmospheres',
+    'cities.lviv.practical.coffee.museums': 'Coffee-themed museums and exhibitions',
+    'cities.lviv.practical.coffee.roasters': 'Local roasters and specialty blends',
+    
+    'cities.lviv.practical.transport.title': 'Getting Around',
+    'cities.lviv.practical.transport.description': 'Lviv is best explored on foot, with excellent public transport options',
+    'cities.lviv.practical.transport.walking': 'Walking tours of the historic center',
+    'cities.lviv.practical.transport.tram': 'Historic tram system throughout the city',
+    'cities.lviv.practical.transport.taxi': 'Taxi and ride-sharing services available',
+    'cities.lviv.practical.transport.train': 'Central railway station with connections across Europe',
+    
+    'cities.lviv.cta.title': 'Experience Lviv\'s Magic',
+    'cities.lviv.cta.subtitle': 'Book your stay in Ukraine\'s cultural capital and discover centuries of heritage',
+    'cities.lviv.cta.hotels': 'Find Hotels',
+    'cities.lviv.cta.insurance': 'Get Insured',
+
+    // ODESA TRANSLATIONS
+    'cities.odesa.name': 'Odesa',
+    'cities.odesa.hero.title': 'Odesa - Pearl by the Sea',
+    'cities.odesa.hero.subtitle': 'Experience the charm of Ukraine\'s maritime capital with its legendary beaches and vibrant culture',
+    'cities.odesa.hero.cta.plan': 'Plan Your Visit',
+    'cities.odesa.hero.cta.guide': 'City Guide',
+    
+    'cities.odesa.facts.title': 'Odesa at a Glance',
+    'cities.odesa.facts.population.value': '1.0M',
+    'cities.odesa.facts.population.label': 'Population',
+    'cities.odesa.facts.founded.value': '1794',
+    'cities.odesa.facts.founded.label': 'Founded',
+    'cities.odesa.facts.beaches.value': '16km',
+    'cities.odesa.facts.beaches.label': 'Coastline',
+    'cities.odesa.facts.steps.value': '192',
+    'cities.odesa.facts.steps.label': 'Potemkin Steps',
+    
+    'cities.odesa.attractions.title': 'Must-See Attractions',
+    'cities.odesa.attractions.subtitle': 'Discover Odesa\'s iconic landmarks and coastal beauty',
+    'cities.odesa.attractions.learn': 'Learn More',
+    
+    'cities.odesa.attractions.potemkin-stairs.name': 'Potemkin Stairs',
+    'cities.odesa.attractions.potemkin-stairs.description': 'Iconic 192-step staircase connecting the city to the port, famous worldwide',
+    
+    'cities.odesa.attractions.opera-house.name': 'Odesa Opera House',
+    'cities.odesa.attractions.opera-house.description': 'Magnificent opera theater, architectural masterpiece and cultural heart of the city',
+    
+    'cities.odesa.attractions.primorsky-boulevard.name': 'Primorsky Boulevard',
+    'cities.odesa.attractions.primorsky-boulevard.description': 'Elegant seaside promenade with stunning views over the Black Sea',
+    
+    'cities.odesa.attractions.arcadia-beach.name': 'Arcadia Beach',
+    'cities.odesa.attractions.arcadia-beach.description': 'Popular beach resort area with clubs, restaurants, and vibrant nightlife',
+    
+    'cities.odesa.attractions.catacombs.name': 'Odesa Catacombs',
+    'cities.odesa.attractions.catacombs.description': 'Extensive underground limestone tunnels, among the largest catacomb systems in the world',
+    
+    'cities.odesa.attractions.city-garden.name': 'City Garden',
+    'cities.odesa.attractions.city-garden.description': 'Historic park in the city center, perfect for relaxation and cultural events',
+    
+    'cities.odesa.overview.title': 'Discover Odesa',
+    'cities.odesa.overview.subtitle': 'Experience the unique charm of Ukraine\'s maritime gateway',
+    
+    'cities.odesa.overview.about.title': 'Pearl by the Black Sea',
+    'cities.odesa.overview.about.description1': 'Odesa is Ukraine\'s principal seaport and a major cultural center, known for its distinctive architecture, vibrant arts scene, and legendary sense of humor. Founded in 1794, the city has always been a cosmopolitan melting pot of cultures.',
+    'cities.odesa.overview.about.description2': 'The city\'s elegant 19th-century architecture, tree-lined boulevards, and beautiful beaches make it one of Ukraine\'s most attractive destinations. Odesa\'s unique character combines European sophistication with Black Sea charm.',
+    
+    'cities.odesa.overview.culture.title': 'Maritime Culture & Arts',
+    'cities.odesa.overview.culture.description': 'Odesa is famous for its wit, humor, and vibrant cultural life. The city has produced many renowned writers, musicians, and artists, and continues to be a major center for performing arts and literature.',
+    'cities.odesa.overview.culture.highlights': 'Opera & Theater, Beach Culture, Literary Traditions, Comedy & Humor, Film Industry, Maritime Heritage',
+    
+    'cities.odesa.overview.images.seafront': 'Beautiful seafront and Potemkin Stairs',
+    'cities.odesa.overview.images.opera': 'Magnificent opera house architecture',
+    'cities.odesa.overview.images.beach': 'Popular Arcadia beach resort area',
+    
+    'cities.odesa.history.title': 'From Port City to Cultural Capital',
+    'cities.odesa.history.founding.title': 'Imperial Foundation',
+    'cities.odesa.history.founding.description': 'Founded in 1794 by Catherine the Great as a strategic port on the Black Sea, Odesa quickly grew into one of the Russian Empire\'s most important commercial centers.',
+    
+    'cities.odesa.history.golden.title': '19th Century Prosperity',
+    'cities.odesa.history.golden.description': 'The 19th century was Odesa\'s golden age, when the city became a major grain export hub and attracted merchants, artists, and intellectuals from across Europe.',
+    
+    'cities.odesa.history.soviet.title': 'Soviet Era Challenges',
+    'cities.odesa.history.soviet.description': 'During the Soviet period, Odesa remained an important port while developing its cultural reputation, particularly in cinema and literature, despite facing various political challenges.',
+    
+    'cities.odesa.history.modern.title': 'Modern Renaissance',
+    'cities.odesa.history.modern.description': 'Today, Odesa continues to thrive as Ukraine\'s maritime capital, balancing its role as a major port with its growing importance as a tourist destination and cultural center.',
+    
+    'cities.odesa.districts.title': 'Explore Odesa\'s Districts',
+    'cities.odesa.districts.subtitle': 'From historic center to beachfront, each area has its own character',
+    
+    'cities.odesa.districts.city-center.name': 'Historic City Center',
+    'cities.odesa.districts.city-center.description': 'The heart of Odesa with its famous opera house, elegant architecture, and bustling pedestrian streets',
+    'cities.odesa.districts.city-center.highlights': 'Opera House, Deribasovskaya Street, City Garden',
+    
+    'cities.odesa.districts.arcadia.name': 'Arcadia',
+    'cities.odesa.districts.arcadia.description': 'Popular beach resort district with clubs, restaurants, and vibrant nightlife',
+    'cities.odesa.districts.arcadia.highlights': 'Beaches, Nightclubs, Restaurants, Waterfront',
+    
+    'cities.odesa.districts.moldavanka.name': 'Moldavanka',
+    'cities.odesa.districts.moldavanka.description': 'Historic working-class district famous in literature and folklore',
+    'cities.odesa.districts.moldavanka.highlights': 'Traditional Markets, Local Culture, Historic Sites',
+    
+    'cities.odesa.districts.langeron.name': 'Langeron',
+    'cities.odesa.districts.langeron.description': 'Upscale coastal area with beautiful beaches and luxury accommodations',
+    'cities.odesa.districts.langeron.highlights': 'Premium Beaches, Hotels, Seafood Restaurants',
+    
+    'cities.odesa.practical.title': 'Practical Information',
+    
+    'cities.odesa.practical.visit.title': 'Best Time to Visit',
+    'cities.odesa.practical.visit.description': 'Odesa is a year-round destination with peak season during summer months',
+    'cities.odesa.practical.visit.spring': 'Spring (Apr-May): Pleasant weather, fewer crowds',
+    'cities.odesa.practical.visit.summer': 'Summer (Jun-Aug): Beach season, festivals, warm weather',
+    'cities.odesa.practical.visit.autumn': 'Autumn (Sep-Oct): Mild temperatures, beautiful colors',
+    'cities.odesa.practical.visit.winter': 'Winter (Nov-Mar): Mild climate, cultural season',
+    
+    'cities.odesa.practical.beaches.title': 'Beach Guide',
+    'cities.odesa.practical.beaches.description': 'Odesa offers various beach experiences along its coastline',
+    'cities.odesa.practical.beaches.arcadia': 'Arcadia: Most popular, clubs and entertainment',
+    'cities.odesa.practical.beaches.langeron': 'Langeron: Upscale, family-friendly',
+    'cities.odesa.practical.beaches.dolphin': 'Dolphin: Quieter, more relaxed atmosphere',
+    
+    'cities.odesa.practical.transport.title': 'Getting Around',
+    'cities.odesa.practical.transport.description': 'Odesa has good public transport and is walkable in the center',
+    'cities.odesa.practical.transport.tram': 'Historic tram system connecting major areas',
+    'cities.odesa.practical.transport.trolley': 'Extensive trolleybus network',
+    'cities.odesa.practical.transport.taxi': 'Taxi and ride-sharing readily available',
+    'cities.odesa.practical.transport.walking': 'Walking tours of the historic center',
+    
+    'cities.odesa.cta.title': 'Discover Odesa\'s Charm',
+    'cities.odesa.cta.subtitle': 'Experience Ukraine\'s maritime pearl with its beaches, culture, and legendary hospitality',
+    'cities.odesa.cta.hotels': 'Find Hotels',
+    'cities.odesa.cta.insurance': 'Get Insured',
+
+    // CARPATHIANS TRANSLATIONS
+    'cities.carpathians.name': 'Carpathians',
+    'cities.carpathians.hero.title': 'Ukrainian Carpathians - Nature\'s Paradise',
+    'cities.carpathians.hero.subtitle': 'Discover pristine mountains, ancient traditions, and breathtaking landscapes in Ukraine\'s highland region',
+    'cities.carpathians.hero.cta.plan': 'Plan Adventure',
+    'cities.carpathians.hero.cta.guide': 'Nature Guide',
+    
+    'cities.carpathians.facts.title': 'Carpathians at a Glance',
+    'cities.carpathians.facts.peak.value': '2,061m',
+    'cities.carpathians.facts.peak.label': 'Highest Peak (Hoverla)',
+    'cities.carpathians.facts.unesco.value': '16',
+    'cities.carpathians.facts.unesco.label': 'UNESCO Churches',
+    'cities.carpathians.facts.parks.value': '8',
+    'cities.carpathians.facts.parks.label': 'National Parks',
+    'cities.carpathians.facts.villages.value': '500+',
+    'cities.carpathians.facts.villages.label': 'Mountain Villages',
+    
+    'cities.carpathians.attractions.title': 'Natural Wonders & Heritage',
+    'cities.carpathians.attractions.subtitle': 'Explore the diverse attractions of Ukraine\'s mountain region',
+    'cities.carpathians.attractions.learn': 'Learn More',
+    
+    'cities.carpathians.attractions.hoverla.name': 'Mount Hoverla',
+    'cities.carpathians.attractions.hoverla.description': 'Ukraine\'s highest peak at 2,061 meters, popular hiking destination with stunning views',
+    
+    'cities.carpathians.attractions.synevyr.name': 'Lake Synevyr',
+    'cities.carpathians.attractions.synevyr.description': 'The largest natural lake in the Carpathians, known as the "Pearl of the Carpathians"',
+    
+    'cities.carpathians.attractions.wooden-churches.name': 'Wooden Churches',
+    'cities.carpathians.attractions.wooden-churches.description': 'UNESCO World Heritage wooden churches showcasing traditional Carpathian architecture',
+    
+    'cities.carpathians.attractions.bukovel.name': 'Bukovel Resort',
+    'cities.carpathians.attractions.bukovel.description': 'Premier ski resort and year-round mountain destination with modern facilities',
+    
+    'cities.carpathians.attractions.hutsul-villages.name': 'Hutsul Villages',
+    'cities.carpathians.attractions.hutsul-villages.description': 'Traditional mountain villages preserving authentic Hutsul culture and crafts',
+    
+    'cities.carpathians.attractions.thermal-springs.name': 'Thermal Springs',
+    'cities.carpathians.attractions.thermal-springs.description': 'Natural hot springs offering relaxation and therapeutic benefits',
+    
+    'cities.carpathians.overview.title': 'Discover the Carpathians',
+    'cities.carpathians.overview.subtitle': 'Immerse yourself in Ukraine\'s mountain paradise',
+    
+    'cities.carpathians.overview.about.title': 'Mountain Paradise',
+    'cities.carpathians.overview.about.description1': 'The Ukrainian Carpathians offer some of Europe\'s most pristine mountain landscapes, with dense forests, crystal-clear lakes, and traditional villages that have preserved their authentic character for centuries.',
+    'cities.carpathians.overview.about.description2': 'This region is home to unique Hutsul culture, UNESCO World Heritage wooden churches, and diverse wildlife. Whether you seek adventure or tranquility, the Carpathians provide unforgettable experiences in every season.',
+    
+    'cities.carpathians.overview.culture.title': 'Traditional Mountain Culture',
+    'cities.carpathians.overview.culture.description': 'The Carpathians are the heartland of traditional Ukrainian mountain culture, where ancient customs, crafts, and folklore continue to thrive in authentic village communities.',
+    'cities.carpathians.overview.culture.highlights': 'Hutsul Traditions, Wood Crafts, Folk Music, Traditional Cuisine, Pastoral Life, Ancient Customs',
+    
+    'cities.carpathians.overview.images.mountains': 'Majestic Carpathian mountain peaks',
+    'cities.carpathians.overview.images.lake': 'Crystal-clear mountain lakes',
+    'cities.carpathians.overview.images.church': 'Historic wooden churches',
+    
+    'cities.carpathians.history.title': 'Ancient Land of Traditions',
+    'cities.carpathians.history.ancient.title': 'Ancient Settlements',
+    'cities.carpathians.history.ancient.description': 'The Carpathians have been inhabited for millennia, with archaeological evidence of ancient settlements and trade routes crossing these mountains.',
+    
+    'cities.carpathians.history.medieval.title': 'Medieval Heritage',
+    'cities.carpathians.history.medieval.description': 'During medieval times, the region developed its distinctive wooden church architecture and unique cultural traditions that blend various European influences.',
+    
+    'cities.carpathians.history.folklore.title': 'Folk Traditions',
+    'cities.carpathians.history.folklore.description': 'The 19th century saw the documentation and preservation of rich Carpathian folklore, music, and crafts that continue to define the region\'s cultural identity.',
+    
+    'cities.carpathians.history.modern.title': 'Conservation & Tourism',
+    'cities.carpathians.history.modern.description': 'Today, the Carpathians balance environmental conservation with sustainable tourism, protecting their natural beauty while sharing their cultural treasures with visitors.',
+    
+    'cities.carpathians.regions.title': 'Carpathian Regions',
+    'cities.carpathians.regions.subtitle': 'Each region offers unique landscapes and cultural experiences',
+    
+    'cities.carpathians.regions.zakarpattia.name': 'Zakarpattia Oblast',
+    'cities.carpathians.regions.zakarpattia.description': 'The westernmost region with thermal springs, wine valleys, and multicultural heritage',
+    'cities.carpathians.regions.zakarpattia.highlights': 'Thermal Springs, Wine Region, Uzhhorod Castle',
+    
+    'cities.carpathians.regions.ivano-frankivsk.name': 'Ivano-Frankivsk Oblast',
+    'cities.carpathians.regions.ivano-frankivsk.description': 'Home to Mount Hoverla, Bukovel resort, and pristine national parks',
+    'cities.carpathians.regions.ivano-frankivsk.highlights': 'Mount Hoverla, Bukovel, National Parks',
+    
+    'cities.carpathians.regions.chernivtsi.name': 'Chernivtsi Oblast',
+    'cities.carpathians.regions.chernivtsi.description': 'Southern Carpathians with unique Hutsul villages and mountain traditions',
+    'cities.carpathians.regions.chernivtsi.highlights': 'Hutsul Culture, Mountain Villages, Traditional Crafts',
+    
+    'cities.carpathians.regions.lviv.name': 'Lviv Oblast',
+    'cities.carpathians.regions.lviv.description': 'Northern foothills with historic sites and natural reserves',
+    'cities.carpathians.regions.lviv.highlights': 'Nature Reserves, Historic Sites, Hiking Trails',
+    
+    'cities.carpathians.practical.title': 'Practical Information',
+    
+    'cities.carpathians.practical.visit.title': 'Best Time to Visit',
+    'cities.carpathians.practical.visit.description': 'The Carpathians offer different experiences throughout the year',
+    'cities.carpathians.practical.visit.spring': 'Spring (Apr-May): Wildflowers, mild hiking weather',
+    'cities.carpathians.practical.visit.summer': 'Summer (Jun-Aug): Perfect for hiking, festivals',
+    'cities.carpathians.practical.visit.autumn': 'Autumn (Sep-Oct): Beautiful colors, mushroom season',
+    'cities.carpathians.practical.visit.winter': 'Winter (Dec-Mar): Skiing, snow activities',
+    
+    'cities.carpathians.practical.activities.title': 'Mountain Activities',
+    'cities.carpathians.practical.activities.description': 'Year-round outdoor adventures and cultural experiences',
+    'cities.carpathians.practical.activities.hiking': 'Hiking trails for all skill levels',
+    'cities.carpathians.practical.activities.skiing': 'Skiing and winter sports at Bukovel',
+    'cities.carpathians.practical.activities.thermal': 'Thermal spring relaxation',
+    
+    'cities.carpathians.practical.accommodation.title': 'Mountain Stays',
+    'cities.carpathians.practical.accommodation.description': 'Various accommodation options in mountain settings',
+    'cities.carpathians.practical.accommodation.hotels': 'Mountain hotels and resorts',
+    'cities.carpathians.practical.accommodation.guesthouses': 'Traditional village guesthouses',
+    'cities.carpathians.practical.accommodation.camping': 'Camping and eco-lodges',
+    
+    'cities.carpathians.cta.title': 'Embrace Mountain Adventure',
+    'cities.carpathians.cta.subtitle': 'Discover Ukraine\'s natural paradise with pristine landscapes and ancient traditions',
+    'cities.carpathians.cta.hotels': 'Find Mountain Stays',
+    'cities.carpathians.cta.insurance': 'Get Insured',
+
+    // CHERNOBYL TRANSLATIONS
+    'cities.chernobyl.name': 'Chernobyl',
+    'cities.chernobyl.hero.title': 'Chernobyl - Historical Site',
+    'cities.chernobyl.hero.subtitle': 'Experience one of history\'s most significant sites through safe, guided educational tours',
+    'cities.chernobyl.hero.cta.tours': 'Book Tour',
+    'cities.chernobyl.hero.cta.safety': 'Safety Info',
+    
+    'cities.chernobyl.notice.title': 'Important Safety Notice',
+    'cities.chernobyl.notice.description': 'All visits to the Chernobyl Exclusion Zone must be arranged through licensed tour operators. Tours are safe, educational, and strictly regulated by Ukrainian authorities.',
+    
+    'cities.chernobyl.facts.title': 'Chernobyl Facts',
+    'cities.chernobyl.facts.disaster.value': '1986',
+    'cities.chernobyl.facts.disaster.label': 'Nuclear Accident',
+    'cities.chernobyl.facts.zone.value': '30km',
+    'cities.chernobyl.facts.zone.label': 'Exclusion Zone Radius',
+    'cities.chernobyl.facts.evacuated.value': '116K',
+    'cities.chernobyl.facts.evacuated.label': 'People Evacuated',
+    'cities.chernobyl.facts.tours.value': '2011',
+    'cities.chernobyl.facts.tours.label': 'Tours Started',
+    
+    'cities.chernobyl.attractions.title': 'Key Sites',
+    'cities.chernobyl.attractions.subtitle': 'Educational visits to historically significant locations',
+    'cities.chernobyl.attractions.learn': 'Learn More',
+    
+    'cities.chernobyl.attractions.reactor-4.name': 'Reactor 4 & New Sarcophagus',
+    'cities.chernobyl.attractions.reactor-4.description': 'The site of the 1986 accident, now covered by the massive New Safe Confinement structure',
+    
+    'cities.chernobyl.attractions.pripyat.name': 'Pripyat Ghost City',
+    'cities.chernobyl.attractions.pripyat.description': 'The abandoned city that housed nuclear plant workers, frozen in time since evacuation',
+    
+    'cities.chernobyl.attractions.duga-radar.name': 'Duga Radar System',
+    'cities.chernobyl.attractions.duga-radar.description': 'Massive Soviet-era radar installation, known as the "Russian Woodpecker"',
+    
+    'cities.chernobyl.attractions.red-forest.name': 'Red Forest',
+    'cities.chernobyl.attractions.red-forest.description': 'Forest area most affected by radiation, now a site of scientific study and natural recovery',
+    
+    'cities.chernobyl.attractions.control-room.name': 'Control Room',
+    'cities.chernobyl.attractions.control-room.description': 'Replica of the control room where the accident occurred, used for educational purposes',
+    
+    'cities.chernobyl.attractions.memorial.name': 'Memorial Sites',
+    'cities.chernobyl.attractions.memorial.description': 'Monuments honoring the victims and heroes of the Chernobyl disaster',
+    
+    'cities.chernobyl.overview.title': 'Understanding Chernobyl',
+    'cities.chernobyl.overview.subtitle': 'Learn about this significant historical site through educational tourism',
+    
+    'cities.chernobyl.overview.about.title': 'Historical Significance',
+    'cities.chernobyl.overview.about.description1': 'The Chernobyl Nuclear Power Plant accident of April 26, 1986, was a pivotal moment in history that changed global perspectives on nuclear energy and safety. Today, the site serves as an important educational destination.',
+    'cities.chernobyl.overview.about.description2': 'Guided tours offer visitors the opportunity to learn about the events, consequences, and ongoing recovery efforts while observing how nature has begun to reclaim the abandoned areas.',
+    
+    'cities.chernobyl.overview.today.title': 'Chernobyl Today',
+    'cities.chernobyl.overview.today.description': 'The exclusion zone has become an unexpected laboratory for studying radiation effects on ecosystems and a symbol of human resilience and scientific progress in containment and cleanup efforts.',
+    'cities.chernobyl.overview.today.highlights': 'Educational Tours, Scientific Research, Wildlife Recovery, Historical Preservation, Safety Protocols, Memorial Sites',
+    
+    'cities.chernobyl.overview.images.reactor': 'Reactor 4 with New Safe Confinement',
+    'cities.chernobyl.overview.images.pripyat': 'Abandoned city of Pripyat',
+    'cities.chernobyl.overview.images.memorial': 'Memorial to disaster victims',
+    
+    'cities.chernobyl.history.title': 'Timeline of Events',
+    'cities.chernobyl.history.construction.title': 'Power Plant Construction',
+    'cities.chernobyl.history.construction.description': 'Construction of the Chernobyl Nuclear Power Plant began in 1970, with the first reactor becoming operational in 1977. The facility was designed to provide power to the growing Soviet economy.',
+    
+    'cities.chernobyl.history.disaster.title': 'The Accident',
+    'cities.chernobyl.history.disaster.description': 'On April 26, 1986, during a safety test, Reactor 4 exploded, releasing radioactive materials across Europe. This became the worst nuclear disaster in history.',
+    
+    'cities.chernobyl.history.containment.title': 'Containment Efforts',
+    'cities.chernobyl.history.containment.description': 'Massive containment and cleanup efforts began immediately, involving hundreds of thousands of workers. The original sarcophagus was built to contain the damaged reactor.',
+    
+    'cities.chernobyl.history.tourism.title': 'Educational Tourism',
+    'cities.chernobyl.history.tourism.description': 'In 2011, Ukraine opened the exclusion zone for educational tours, allowing visitors to learn about the disaster and its aftermath through guided, safe visits.',
+    
+    'cities.chernobyl.zones.title': 'Exclusion Zone Areas',
+    'cities.chernobyl.zones.subtitle': 'Different areas within the 30km exclusion zone offer various educational experiences',
+    
+    'cities.chernobyl.zones.exclusion-zone.name': '30km Exclusion Zone',
+    'cities.chernobyl.zones.exclusion-zone.description': 'The outer boundary where access is controlled and radiation monitoring is conducted',
+    'cities.chernobyl.zones.exclusion-zone.highlights': 'Checkpoints, Monitoring Stations, Wildlife Areas',
+    
+    'cities.chernobyl.zones.pripyat-city.name': 'Pripyat City',
+    'cities.chernobyl.zones.pripyat-city.description': 'The abandoned city that housed 50,000 plant workers and their families',
+    'cities.chernobyl.zones.pripyat-city.highlights': 'Abandoned Buildings, Amusement Park, Schools',
+    
+    'cities.chernobyl.zones.chernobyl-town.name': 'Chernobyl Town',
+    'cities.chernobyl.zones.chernobyl-town.description': 'The administrative center where some workers still maintain the facility',
+    'cities.chernobyl.zones.chernobyl-town.highlights': 'Administrative Buildings, Worker Facilities, Monuments',
+    
+    'cities.chernobyl.zones.cooling-pond.name': 'Cooling Pond Area',
+    'cities.chernobyl.zones.cooling-pond.description': 'The artificial lake used for cooling the reactors, now a wildlife habitat',
+    'cities.chernobyl.zones.cooling-pond.highlights': 'Wildlife Viewing, Scientific Studies, Nature Recovery',
+    
+    'cities.chernobyl.tours.title': 'Tour Information',
+    
+    'cities.chernobyl.tours.safety.title': 'Safety & Regulations',
+    'cities.chernobyl.tours.safety.description': 'All tours are conducted with strict safety protocols and professional guides',
+    'cities.chernobyl.tours.safety.guide': 'Licensed professional guides required',
+    'cities.chernobyl.tours.safety.equipment': 'Radiation monitoring equipment provided',
+    'cities.chernobyl.tours.safety.restrictions': 'Age and health restrictions apply',
+    
+    'cities.chernobyl.tours.duration.title': 'Tour Options',
+    'cities.chernobyl.tours.duration.description': 'Various tour lengths available to suit different interests',
+    'cities.chernobyl.tours.duration.oneday': 'One-day tours: Basic overview',
+    'cities.chernobyl.tours.duration.twoday': 'Two-day tours: Extended exploration',
+    'cities.chernobyl.tours.duration.private': 'Private tours: Customized experience',
+    
+    'cities.chernobyl.tours.booking.title': 'Booking Requirements',
+    'cities.chernobyl.tours.booking.description': 'Advance booking and documentation required',
+    'cities.chernobyl.tours.booking.advance': 'Book minimum 2 weeks in advance',
+    'cities.chernobyl.tours.booking.passport': 'Valid passport required',
+    'cities.chernobyl.tours.booking.operators': 'Use only licensed tour operators',
+    
+    'cities.chernobyl.cta.title': 'Educational Experience',
+    'cities.chernobyl.cta.subtitle': 'Learn about history through safe, guided tours of this significant site',
+    'cities.chernobyl.cta.tours': 'Book Educational Tour',
+    'cities.chernobyl.cta.insurance': 'Get Travel Insurance',
+
+    // CHERNIVTSI TRANSLATIONS
+    'cities.chernivtsi.name': 'Chernivtsi',
+    'cities.chernivtsi.hero.title': 'Chernivtsi - Little Vienna',
+    'cities.chernivtsi.hero.subtitle': 'Explore the multicultural gem of Bukovina with its stunning UNESCO university and rich architectural heritage',
+    'cities.chernivtsi.hero.cta.plan': 'Plan Your Visit',
+    'cities.chernivtsi.hero.cta.guide': 'City Guide',
+    
+    'cities.chernivtsi.facts.title': 'Chernivtsi at a Glance',
+    'cities.chernivtsi.facts.population.value': '264K',
+    'cities.chernivtsi.facts.population.label': 'Population',
+    'cities.chernivtsi.facts.founded.value': '1408',
+    'cities.chernivtsi.facts.founded.label': 'First Mentioned',
+    'cities.chernivtsi.facts.unesco.value': '2011',
+    'cities.chernivtsi.facts.unesco.label': 'UNESCO University',
+    'cities.chernivtsi.facts.languages.value': '4+',
+    'cities.chernivtsi.facts.languages.label': 'Historic Languages',
+    
+    'cities.chernivtsi.attractions.title': 'Must-See Attractions',
+    'cities.chernivtsi.attractions.subtitle': 'Discover the architectural and cultural treasures of Bukovina',
+    'cities.chernivtsi.attractions.learn': 'Learn More',
+    
+    'cities.chernivtsi.attractions.university.name': 'Chernivtsi University',
+    'cities.chernivtsi.attractions.university.description': 'UNESCO World Heritage university building, masterpiece of 19th-century architecture',
+    
+    'cities.chernivtsi.attractions.theater-square.name': 'Theater Square',
+    'cities.chernivtsi.attractions.theater-square.description': 'Central square with beautiful theater and surrounding historic buildings',
+    
+    'cities.chernivtsi.attractions.armenian-church.name': 'Armenian Church',
+    'cities.chernivtsi.attractions.armenian-church.description': 'Historic Armenian church showcasing the city\'s multicultural heritage',
+    
+    'cities.chernivtsi.attractions.city-hall.name': 'City Hall',
+    'cities.chernivtsi.attractions.city-hall.description': 'Elegant Austrian-era city hall building with distinctive architecture',
+    
+    'cities.chernivtsi.attractions.museum-art.name': 'Art Museum',
+    'cities.chernivtsi.attractions.museum-art.description': 'Regional art museum with collections of local and European works',
+    
+    'cities.chernivtsi.attractions.prut-river.name': 'Prut River Embankment',
+    'cities.chernivtsi.attractions.prut-river.description': 'Scenic riverside area perfect for walks and relaxation',
+    
+    'cities.chernivtsi.overview.title': 'Discover Chernivtsi',
+    'cities.chernivtsi.overview.subtitle': 'Experience the multicultural charm of Bukovina\'s capital',
+    
+    'cities.chernivtsi.overview.about.title': 'Little Vienna of the East',
+    'cities.chernivtsi.overview.about.description1': 'Chernivtsi, known as "Little Vienna," is a remarkable city that showcases the architectural and cultural heritage of the former Austro-Hungarian Empire. Its UNESCO World Heritage university building stands as a testament to the city\'s rich educational and cultural traditions.',
+    'cities.chernivtsi.overview.about.description2': 'The city\'s unique character stems from its multicultural past, where Ukrainian, Romanian, German, Jewish, and Polish communities created a vibrant cultural mosaic that continues to influence its identity today.',
+    
+    'cities.chernivtsi.overview.culture.title': 'Multicultural Heritage',
+    'cities.chernivtsi.overview.culture.description': 'Chernivtsi\'s cultural landscape reflects its diverse history, with influences from various European traditions creating a unique blend of architecture, cuisine, and customs.',
+    'cities.chernivtsi.overview.culture.highlights': 'Austrian Architecture, University Traditions, Literary Heritage, Multicultural Festivals, Classical Music, Historical Museums',
+    
+    'cities.chernivtsi.overview.images.university': 'UNESCO World Heritage University',
+    'cities.chernivtsi.overview.images.square': 'Central Theater Square',
+    'cities.chernivtsi.overview.images.river': 'Scenic Prut River embankment',
+    
+    'cities.chernivtsi.history.title': 'Centuries of Cultural Exchange',
+    'cities.chernivtsi.history.founding.title': 'Medieval Origins',
+    'cities.chernivtsi.history.founding.description': 'First mentioned in 1408, Chernivtsi developed as an important trading center in the historical region of Bukovina, benefiting from its strategic location.',
+    
+    'cities.chernivtsi.history.austrian.title': 'Austrian Period',
+    'cities.chernivtsi.history.austrian.description': 'Under Austrian rule (1775-1918), Chernivtsi flourished as the capital of Bukovina, developing its distinctive architecture and multicultural character.',
+    
+    'cities.chernivtsi.history.university.title': 'University Foundation',
+    'cities.chernivtsi.history.university.description': 'The founding of Chernivtsi University in 1875 marked the city\'s emergence as a major educational center, with its magnificent building becoming an architectural masterpiece.',
+    
+    'cities.chernivtsi.history.modern.title': 'Modern Chernivtsi',
+    'cities.chernivtsi.history.modern.description': 'Today, Chernivtsi continues to be an important educational and cultural center, preserving its architectural heritage while embracing its role in modern Ukraine.',
+    
+    'cities.chernivtsi.districts.title': 'Historic Districts',
+    'cities.chernivtsi.districts.subtitle': 'Each district reflects different aspects of the city\'s multicultural heritage',
+    
+    'cities.chernivtsi.districts.historic-center.name': 'Historic Center',
+    'cities.chernivtsi.districts.historic-center.description': 'The heart of Chernivtsi with its Austrian-era architecture and main cultural attractions',
+    'cities.chernivtsi.districts.historic-center.highlights': 'Theater Square, City Hall, Historic Buildings',
+    
+    'cities.chernivtsi.districts.university-quarter.name': 'University Quarter',
+    'cities.chernivtsi.districts.university-quarter.description': 'The prestigious educational district centered around the UNESCO World Heritage university',
+    'cities.chernivtsi.districts.university-quarter.highlights': 'University Campus, Student Life, Academic Traditions',
+    
+    'cities.chernivtsi.districts.romanian-district.name': 'Romanian Quarter',
+    'cities.chernivtsi.districts.romanian-district.description': 'Historic area reflecting the city\'s Romanian cultural heritage and traditions',
+    'cities.chernivtsi.districts.romanian-district.highlights': 'Romanian Churches, Cultural Centers, Traditional Architecture',
+    
+    'cities.chernivtsi.districts.jewish-quarter.name': 'Former Jewish Quarter',
+    'cities.chernivtsi.districts.jewish-quarter.description': 'Area that was once home to a thriving Jewish community, part of the city\'s multicultural heritage',
+    'cities.chernivtsi.districts.jewish-quarter.highlights': 'Synagogue Sites, Memorial Places, Cultural Heritage',
+    
+    'cities.chernivtsi.practical.title': 'Practical Information',
+    
+    'cities.chernivtsi.practical.visit.title': 'Best Time to Visit',
+    'cities.chernivtsi.practical.visit.description': 'Chernivtsi is beautiful throughout the year, with each season offering unique experiences',
+    'cities.chernivtsi.practical.visit.spring': 'Spring (Apr-May): Pleasant weather, blooming parks',
+    'cities.chernivtsi.practical.visit.summer': 'Summer (Jun-Aug): Warm weather, outdoor festivals',
+    'cities.chernivtsi.practical.visit.autumn': 'Autumn (Sep-Oct): Beautiful colors, comfortable temperatures',
+    'cities.chernivtsi.practical.visit.winter': 'Winter (Nov-Mar): Cozy atmosphere, fewer crowds',
+    
+    'cities.chernivtsi.practical.architecture.title': 'Architecture Tours',
+    'cities.chernivtsi.practical.architecture.description': 'Explore the city\'s stunning architectural heritage',
+    'cities.chernivtsi.practical.architecture.university': 'UNESCO University building tours',
+    'cities.chernivtsi.practical.architecture.churches': 'Historic churches of various denominations',
+    'cities.chernivtsi.practical.architecture.mansions': 'Austrian-era mansions and public buildings',
+    
+    'cities.chernivtsi.practical.transport.title': 'Getting Around',
+    'cities.chernivtsi.practical.transport.description': 'Chernivtsi is compact and walkable, with good public transport',
+    'cities.chernivtsi.practical.transport.walking': 'Walking tours of the historic center',
+    'cities.chernivtsi.practical.transport.trolley': 'Trolleybus system connecting districts',
+    'cities.chernivtsi.practical.transport.taxi': 'Taxi services readily available',
+    'cities.chernivtsi.practical.transport.train': 'Railway connections to major Ukrainian cities',
+    
+    'cities.chernivtsi.cta.title': 'Experience Little Vienna',
+    'cities.chernivtsi.cta.subtitle': 'Discover the multicultural heritage and architectural beauty of Bukovina\'s capital',
+    'cities.chernivtsi.cta.hotels': 'Find Hotels',
+    'cities.chernivtsi.cta.insurance': 'Get Insured',
     
     'cities.kyiv.districts.title': 'Explore Kyiv\'s Districts',
     'cities.kyiv.districts.subtitle': 'Each district offers unique character, attractions, and experiences',
