@@ -4,20 +4,25 @@
 > No MDX or CMS-based rendering in P0.  
 > Development will be done inside Cursor AI environment.
 
+## 📊 Current Status
+**✅ COMPLETED**: General Setup (FE + BE scaffolding, Tailwind v4, i18n, routing)  
+**🚧 IN PROGRESS**: Home Page Implementation (Feature 0)  
+**📅 UPDATED**: January 2025 - Starting Home Page development with modern design inspired by MySwitzerland.com
+
 ---
 
 ## 📦 General Setup (FE + BE)
 
 ### Frontend
-- [ ] Initialize React + TypeScript project using Vite
-- [ ] Setup TailwindCSS with custom config
-- [ ] Configure ESLint + Prettier
-- [ ] Setup React Router (v6)
-- [ ] Implement global layout:
-  - [ ] Top navigation bar with multilingual toggle
-  - [ ] Footer with links and disclaimers
-- [ ] Stub out all top-level routes as placeholder static pages:
-  - `/travel-info`
+- [x] Initialize React + TypeScript project using Vite
+- [x] Setup TailwindCSS with custom config (v4 CSS-first approach)
+- [x] Configure ESLint + Prettier
+- [x] Setup React Router (v6)
+- [x] Implement global layout:
+  - [x] Top navigation bar with multilingual toggle
+  - [x] Footer with links and disclaimers
+- [x] Stub out all top-level routes as placeholder static pages:
+  - `/explore` (updated from `/travel-info`)
   - `/entry`
   - `/insurance`
   - `/hotels`
@@ -25,21 +30,43 @@
   - `/mice`
 
 ### Backend
-- [ ] Initialize Node.js + TypeScript + Express project
-- [ ] Setup project structure:
-  - `src/api`, `src/services`, `src/prisma`, `src/config`, `src/middleware`
+- [x] Initialize Node.js + TypeScript + Express project
+- [x] Setup project structure (basic `src/` structure)
 - [ ] Setup Prisma with PostgreSQL (hosted on Railway)
 - [ ] Create basic Prisma schema (only for Entry Rules feature)
 - [ ] Setup Supabase JWT verification middleware
-- [ ] Configure environment loading via `dotenv`
-- [ ] Implement base error handler and logging utilities
+- [x] Configure environment loading via `dotenv`
+- [x] Implement base error handler and logging utilities (pino + pino-http)
 
 ---
 
-## 🌍 Feature 1: Explore Ukraine (`/travel-info`)
+## 🏠 Feature 0: Home Page (`/`) **[PRIORITY]**
 
 ### Frontend
-- [ ] Build `/travel-info` static landing page with grid/tile layout
+- [ ] Implement modern, immersive home page design:
+  - [ ] Hero section with video background and compelling CTAs
+  - [ ] Quick Actions Bar (Insurance, Hotels, Entry Rules, etc.)
+  - [ ] Featured Destinations preview cards
+  - [ ] Safety & Trust building section
+  - [ ] Experience Categories (Cultural, Nature, Food & Wine, Events)
+  - [ ] Latest Updates carousel
+  - [ ] Insurance highlight section
+  - [ ] Comprehensive footer (only shown on homepage per PRD)
+- [ ] Implement responsive design (mobile-first)
+- [ ] Add smooth animations and interactions
+- [ ] Integrate multilingual support (EN/UA)
+- [ ] Optimize media assets (videos, images) for performance
+- [ ] Implement proper SEO structure and meta tags
+
+### Backend
+- ❌ Not applicable in P0 (static content only)
+
+---
+
+## 🌍 Feature 1: Explore Ukraine (`/explore`)
+
+### Frontend
+- [x] Build `/explore` static landing page (basic placeholder structure)
 - [ ] Build sub-pages for each section:
   - [ ] Essential Information
   - [ ] Top Destinations
@@ -47,7 +74,7 @@
   - [ ] UNESCO Sites
   - [ ] By Regions
   - [ ] Jewish Ukraine
-- [ ] Implement multilingual support using file-based dictionaries
+- [x] Implement multilingual support using file-based dictionaries (basic i18n setup)
 - [ ] Add responsive image assets and section icons
 
 ### Backend
@@ -66,7 +93,7 @@
 - [ ] Add translations for all labels and static texts
 
 ### Backend
-- [ ] Create REST API: `GET /api/entry/:country`
+- [x] Create REST API: `GET /api/entry/:country` (placeholder implementation)
 - [ ] Define Prisma schema:
   - `VisaRequirement`
   - `EpidemicRule`
