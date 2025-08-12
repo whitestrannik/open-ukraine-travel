@@ -48,7 +48,8 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build application
-        run: cd frontend && pnpm run build
+        working-directory: ./frontend
+        run: pnpm run build
         env:
           NODE_ENV: production
           VITE_DEPLOY_TARGET: github-pages
