@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css'
 import { I18nProvider } from '@/state/i18n'
+import { config } from '@/config/environment'
 import { Layout } from '@/components/Layout'
 import Home from '@/pages/Home'
 import Explore from '@/pages/Explore'
@@ -19,10 +20,13 @@ import UnescoSites from '@/pages/UnescoSites'
 import ByRegions from '@/pages/ByRegions'
 import JewishUkraine from '@/pages/JewishUkraine'
 
+// Handle GitHub Pages routing
+const basename = config.baseUrl === '/' ? undefined : config.baseUrl.slice(0, -1)
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <I18nProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
