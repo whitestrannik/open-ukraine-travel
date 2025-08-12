@@ -8,32 +8,38 @@ export default function TopDestinations() {
     {
       id: 'kyiv',
       image: '/media/pexels-freestockpro-1227513.jpg',
-      category: 'capital'
+      category: 'capital',
+      route: '/cities/kyiv'
     },
     {
       id: 'lviv',
       image: '/media/pexels-freestockpro-1174204.jpg',
-      category: 'cultural'
+      category: 'cultural',
+      route: '/cities/lviv'
     },
     {
       id: 'odesa',
       image: '/media/pexels-nextvoyage-1000772.jpg',
-      category: 'coastal'
+      category: 'coastal',
+      route: '/cities/odesa'
     },
     {
       id: 'carpathians',
       image: '/media/pexels-freestockpro-2787267.jpg',
-      category: 'nature'
+      category: 'nature',
+      route: '/cities/carpathians'
     },
     {
       id: 'chernobyl',
       image: '/media/pexels-markus-winkler-1430818-3058990.jpg',
-      category: 'historical'
+      category: 'historical',
+      route: '/cities/chernobyl'
     },
     {
       id: 'chernivtsi',
       image: '/media/pexels-kostiantyn-13200378.jpg',
-      category: 'architectural'
+      category: 'architectural',
+      route: '/cities/chernivtsi'
     }
   ]
 
@@ -150,9 +156,10 @@ export default function TopDestinations() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((destination) => (
-              <div 
+              <Link
                 key={destination.id}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                to={destination.route}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 block"
               >
                 {/* Destination Image */}
                 <div className="relative h-80 overflow-hidden">
@@ -201,15 +208,15 @@ export default function TopDestinations() {
                     </div>
 
                     {/* CTA */}
-                    <button className="inline-flex items-center text-[#F5C542] hover:text-[#F5C542]/80 font-semibold transition-colors group">
+                    <div className="inline-flex items-center text-[#F5C542] hover:text-[#F5C542]/80 font-semibold transition-colors group">
                       {t('destinations.card.explore')}
                       <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

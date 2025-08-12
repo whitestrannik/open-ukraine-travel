@@ -196,6 +196,126 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'explore.cta.subtitle': 'Get prepared with travel insurance and find the perfect accommodation for your journey',
     'explore.cta.insurance': 'Get Travel Insurance',
     'explore.cta.hotels': 'Find Hotels',
+    
+    // City Pages - Categories
+    'cities.categories.unesco': 'UNESCO Site',
+    'cities.categories.religious': 'Religious Site',
+    'cities.categories.square': 'Historic Square',
+    'cities.categories.historical': 'Historical Monument',
+    'cities.categories.cultural': 'Cultural Site',
+    'cities.categories.museum': 'Museum',
+    
+    // Kyiv City Page
+    'cities.kyiv.name': 'Kyiv',
+    'cities.kyiv.hero.title': 'Kyiv - Heart of Ukraine',
+    'cities.kyiv.hero.subtitle': 'Discover the vibrant capital where ancient history meets modern resilience, golden domes rise above bustling squares, and every street tells a story of triumph',
+    'cities.kyiv.hero.cta.plan': 'Plan Your Visit',
+    'cities.kyiv.hero.cta.guide': 'Download Guide',
+    
+    'cities.kyiv.facts.title': 'Kyiv at a Glance',
+    'cities.kyiv.facts.population.value': '2.9M',
+    'cities.kyiv.facts.population.label': 'Population',
+    'cities.kyiv.facts.founded.value': '482 AD',
+    'cities.kyiv.facts.founded.label': 'Founded',
+    'cities.kyiv.facts.unesco.value': '2',
+    'cities.kyiv.facts.unesco.label': 'UNESCO Sites',
+    'cities.kyiv.facts.area.value': '847 km²',
+    'cities.kyiv.facts.area.label': 'Area',
+    
+    'cities.kyiv.attractions.title': 'Must-See Attractions',
+    'cities.kyiv.attractions.subtitle': 'Explore Kyiv\'s most iconic landmarks and hidden treasures',
+    'cities.kyiv.attractions.learn': 'Learn More',
+    
+    'cities.kyiv.attractions.sophia.name': 'St. Sophia\'s Cathedral',
+    'cities.kyiv.attractions.sophia.description': 'UNESCO World Heritage site with stunning Byzantine architecture and ancient mosaics from the 11th century',
+    
+    'cities.kyiv.attractions.lavra.name': 'Kyiv Pechersk Lavra',
+    'cities.kyiv.attractions.lavra.description': 'Historic Orthodox Christian monastery complex with underground cave systems and golden domes',
+    
+    'cities.kyiv.attractions.independence.name': 'Independence Square',
+    'cities.kyiv.attractions.independence.description': 'The heart of modern Ukraine, witness to historic events and vibrant city life',
+    
+    'cities.kyiv.attractions.golden-gate.name': 'Golden Gate',
+    'cities.kyiv.attractions.golden-gate.description': 'Reconstructed ancient fortified gateway that once protected medieval Kyiv',
+    
+    'cities.kyiv.attractions.andrew.name': 'St. Andrew\'s Church',
+    'cities.kyiv.attractions.andrew.description': 'Baroque masterpiece designed by Italian architect Bartolomeo Rastrelli',
+    
+    'cities.kyiv.attractions.museum.name': 'National Art Museum',
+    'cities.kyiv.attractions.museum.description': 'Premier collection of Ukrainian art from medieval icons to contemporary works',
+    
+    'cities.kyiv.overview.title': 'Discover Kyiv',
+    'cities.kyiv.overview.subtitle': 'Explore the rich tapestry of Ukraine\'s capital - where ancient traditions meet modern innovation',
+    
+    'cities.kyiv.overview.about.title': 'The Heart of Ukraine',
+    'cities.kyiv.overview.about.description1': 'Kyiv stands as one of Europe\'s oldest cities, with over 1,500 years of continuous history. As Ukraine\'s political, economic, and cultural center, it seamlessly blends its ancient heritage with modern dynamism.',
+    'cities.kyiv.overview.about.description2': 'The city stretches along both banks of the Dnipro River, with its historic center perched on rolling hills dotted with golden-domed churches, tree-lined boulevards, and vibrant neighborhoods that each tell their own story.',
+    
+    'cities.kyiv.overview.culture.title': 'Cultural Capital',
+    'cities.kyiv.overview.culture.description': 'Kyiv is the undisputed cultural heart of Ukraine, home to world-class museums, theaters, and galleries. The city pulses with creativity, from traditional folk performances to cutting-edge contemporary art.',
+    'cities.kyiv.overview.culture.highlights': 'Opera & Ballet, Contemporary Art, Folk Traditions, Literary Heritage, Music Festivals, Culinary Scene',
+    
+    'cities.kyiv.overview.images.modern': 'Modern Kyiv skyline along the Dnipro River',
+    'cities.kyiv.overview.images.architecture': 'Historic architecture in the city center',
+    'cities.kyiv.overview.images.riverside': 'Scenic riverside parks and walkways',
+    
+    'cities.kyiv.history.title': 'A Journey Through Time',
+    'cities.kyiv.history.founding.title': 'Ancient Founding',
+    'cities.kyiv.history.founding.description': 'Legend tells of three brothers - Kyi, Shchek, and Khoryv - who founded the city on the hills above the Dnipro River. Archaeological evidence confirms continuous settlement since the 5th century.',
+    
+    'cities.kyiv.history.golden.title': 'Golden Age of Kyivan Rus\'',
+    'cities.kyiv.history.golden.description': 'Kyiv became the capital of the powerful Kyivan Rus\' state, rivaling Constantinople and Baghdad. St. Sophia\'s Cathedral and other architectural marvels were built during this prosperous era.',
+    
+    'cities.kyiv.history.soviet.title': 'Soviet Era & Resilience',
+    'cities.kyiv.history.soviet.description': 'Through Soviet rule, World War II devastation, and reconstruction, Kyiv demonstrated remarkable resilience. The city became a major industrial and educational center of the USSR.',
+    
+    'cities.kyiv.history.modern.title': 'Independent Ukraine\'s Capital',
+    'cities.kyiv.history.modern.description': 'Since Ukraine\'s independence, Kyiv has flourished as a European capital, playing host to historic events like the Orange Revolution and the Revolution of Dignity, cementing its role as a beacon of democracy.',
+    
+    'cities.kyiv.districts.title': 'Explore Kyiv\'s Districts',
+    'cities.kyiv.districts.subtitle': 'Each district offers unique character, attractions, and experiences',
+    
+    'cities.kyiv.districts.podil.name': 'Podil District',
+    'cities.kyiv.districts.podil.description': 'Historic merchant quarter with cobblestone streets, artisan shops, and riverside views',
+    'cities.kyiv.districts.podil.highlights': 'Contract House, Kyiv River Port, Artisan Markets, Historic Churches',
+    
+    'cities.kyiv.districts.pechersk.name': 'Pechersk District',
+    'cities.kyiv.districts.pechersk.description': 'Government and cultural center housing parliament, museums, and the famous Lavra monastery',
+    'cities.kyiv.districts.pechersk.highlights': 'Pechersk Lavra, Parliament Building, National Museum, Park of Eternal Glory',
+    
+    'cities.kyiv.districts.shevchenko.name': 'Shevchenko District',
+    'cities.kyiv.districts.shevchenko.description': 'Central district with universities, theaters, and the main shopping areas',
+    'cities.kyiv.districts.shevchenko.highlights': 'Khreshchatyk Street, Opera House, University, Central Park',
+    
+    'cities.kyiv.districts.obolon.name': 'Obolon District',
+    'cities.kyiv.districts.obolon.description': 'Modern residential area with parks, shopping centers, and Dnipro River access',
+    'cities.kyiv.districts.obolon.highlights': 'Obolon Beach, Shopping Malls, Modern Architecture, River Activities',
+    
+    'cities.kyiv.practical.title': 'Practical Information',
+    'cities.kyiv.practical.visit.title': 'Best Time to Visit',
+    'cities.kyiv.practical.visit.description': 'Kyiv is beautiful year-round, each season offering unique experiences',
+    'cities.kyiv.practical.visit.spring': 'Spring (Apr-May): Blooming chestnuts, mild weather',
+    'cities.kyiv.practical.visit.summer': 'Summer (Jun-Aug): Warm weather, outdoor festivals',
+    'cities.kyiv.practical.visit.autumn': 'Autumn (Sep-Oct): Golden foliage, perfect temperatures',
+    'cities.kyiv.practical.visit.winter': 'Winter (Nov-Mar): Snow-covered domes, cozy cafes',
+    
+    'cities.kyiv.practical.language.title': 'Language',
+    'cities.kyiv.practical.language.description': 'Communication in Kyiv is easy with multiple language options',
+    'cities.kyiv.practical.language.ukrainian': 'Ukrainian is the official language',
+    'cities.kyiv.practical.language.english': 'English widely spoken in tourist areas',
+    'cities.kyiv.practical.language.russian': 'Russian also understood by many locals',
+    
+    'cities.kyiv.practical.transport.title': 'Getting Around',
+    'cities.kyiv.practical.transport.description': 'Kyiv offers excellent public transportation and walkable districts',
+    'cities.kyiv.practical.transport.metro': 'Metro: Fast, efficient, beautiful stations',
+    'cities.kyiv.practical.transport.bus': 'Buses & Trams: Comprehensive city coverage',
+    'cities.kyiv.practical.transport.taxi': 'Taxi & Ride-sharing: Uber, Bolt available',
+    'cities.kyiv.practical.transport.walk': 'Walking: Many attractions within walking distance',
+    
+    'cities.kyiv.cta.title': 'Ready to Explore Kyiv?',
+    'cities.kyiv.cta.subtitle': 'Book your accommodation and get travel insurance for a worry-free visit',
+    'cities.kyiv.cta.hotels': 'Find Hotels in Kyiv',
+    'cities.kyiv.cta.insurance': 'Get Travel Insurance',
   },
   uk: {
     'nav.explore': 'Досліджуй',
@@ -382,6 +502,126 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'explore.cta.subtitle': 'Підготуйтесь зі страхуванням подорожей та знайдіть ідеальне розміщення для своєї подорожі',
     'explore.cta.insurance': 'Оформити страховку',
     'explore.cta.hotels': 'Знайти готелі',
+    
+    // City Pages - Categories
+    'cities.categories.unesco': 'Об\'єкт ЮНЕСКО',
+    'cities.categories.religious': 'Релігійне місце',
+    'cities.categories.square': 'Історична площа',
+    'cities.categories.historical': 'Історичний пам\'ятник',
+    'cities.categories.cultural': 'Культурне місце',
+    'cities.categories.museum': 'Музей',
+    
+    // Kyiv City Page
+    'cities.kyiv.name': 'Київ',
+    'cities.kyiv.hero.title': 'Київ - Серце України',
+    'cities.kyiv.hero.subtitle': 'Відкрийте жваву столицю, де стародавня історія зустрічається з сучасною стійкістю, золоті куполи здіймаються над жвавими площами, і кожна вулиця розповідає історію тріумфу',
+    'cities.kyiv.hero.cta.plan': 'Сплануйте візит',
+    'cities.kyiv.hero.cta.guide': 'Завантажити гід',
+    
+    'cities.kyiv.facts.title': 'Київ одним поглядом',
+    'cities.kyiv.facts.population.value': '2,9 млн',
+    'cities.kyiv.facts.population.label': 'Населення',
+    'cities.kyiv.facts.founded.value': '482 р.',
+    'cities.kyiv.facts.founded.label': 'Заснований',
+    'cities.kyiv.facts.unesco.value': '2',
+    'cities.kyiv.facts.unesco.label': 'Об\'єкти ЮНЕСКО',
+    'cities.kyiv.facts.area.value': '847 км²',
+    'cities.kyiv.facts.area.label': 'Площа',
+    
+    'cities.kyiv.attractions.title': 'Обов\'язкові до відвідування пам\'ятки',
+    'cities.kyiv.attractions.subtitle': 'Досліджуйте найвідоміші визначні місця та приховані скарби Києва',
+    'cities.kyiv.attractions.learn': 'Дізнатися більше',
+    
+    'cities.kyiv.attractions.sophia.name': 'Софійський собор',
+    'cities.kyiv.attractions.sophia.description': 'Об\'єкт Всесвітньої спадщини ЮНЕСКО з приголомшливою візантійською архітектурою та стародавніми мозаїками XI століття',
+    
+    'cities.kyiv.attractions.lavra.name': 'Києво-Печерська лавра',
+    'cities.kyiv.attractions.lavra.description': 'Історичний православний монастирський комплекс з підземними печерними системами та золотими куполами',
+    
+    'cities.kyiv.attractions.independence.name': 'Майдан Незалежності',
+    'cities.kyiv.attractions.independence.description': 'Серце сучасної України, свідок історичних подій та жвавого міського життя',
+    
+    'cities.kyiv.attractions.golden-gate.name': 'Золоті ворота',
+    'cities.kyiv.attractions.golden-gate.description': 'Реконструйовані стародавні укріплені ворота, що колись захищали середньовічний Київ',
+    
+    'cities.kyiv.attractions.andrew.name': 'Андріївська церква',
+    'cities.kyiv.attractions.andrew.description': 'Барокковий шедевр, спроектований італійським архітектором Бартоломео Растреллі',
+    
+    'cities.kyiv.attractions.museum.name': 'Національний художній музей',
+    'cities.kyiv.attractions.museum.description': 'Провідна колекція українського мистецтва від середньовічних ікон до сучасних творів',
+    
+    'cities.kyiv.overview.title': 'Відкрийте Київ',
+    'cities.kyiv.overview.subtitle': 'Досліджуйте багатий гобелен столиці України - де стародавні традиції зустрічаються з сучасними інноваціями',
+    
+    'cities.kyiv.overview.about.title': 'Серце України',
+    'cities.kyiv.overview.about.description1': 'Київ - одне з найстаріших міст Європи з понад 1500-річною безперервною історією. Як політичний, економічний та культурний центр України, він органічно поєднує свою стародавню спадщину з сучасним динамізмом.',
+    'cities.kyiv.overview.about.description2': 'Місто розкинулося по обох берегах Дніпра, з історичним центром на пагорбах, усіяних золотокуполими церквами, обсадженими деревами бульварами та жвавими районами, кожен з яких розповідає свою історію.',
+    
+    'cities.kyiv.overview.culture.title': 'Культурна столиця',
+    'cities.kyiv.overview.culture.description': 'Київ - безперечне культурне серце України, дім музеїв, театрів та галерей світового класу. Місто пульсує творчістю, від традиційних народних вистав до найсучаснішого мистецтва.',
+    'cities.kyiv.overview.culture.highlights': 'Опера та балет, Сучасне мистецтво, Народні традиції, Літературна спадщина, Музичні фестивалі, Кулінарна сцена',
+    
+    'cities.kyiv.overview.images.modern': 'Сучасний горизонт Києва вздовж Дніпра',
+    'cities.kyiv.overview.images.architecture': 'Історична архітектура в центрі міста',
+    'cities.kyiv.overview.images.riverside': 'Мальовничі прибережні парки та алеї',
+    
+    'cities.kyiv.history.title': 'Подорож крізь час',
+    'cities.kyiv.history.founding.title': 'Стародавнє заснування',
+    'cities.kyiv.history.founding.description': 'Легенда розповідає про трьох братів - Кия, Щека та Хорива - які заснували місто на пагорбах над Дніпром. Археологічні дані підтверджують безперервне поселення з V століття.',
+    
+    'cities.kyiv.history.golden.title': 'Золота доба Київської Русі',
+    'cities.kyiv.history.golden.description': 'Київ став столицею могутньої держави Київська Русь, що суперничала з Константинополем та Багдадом. Софійський собор та інші архітектурні шедеври були збудовані в цю процвітаючу епоху.',
+    
+    'cities.kyiv.history.soviet.title': 'Радянська епоха та стійкість',
+    'cities.kyiv.history.soviet.description': 'Через радянське правління, спустошення Другої світової війни та відновлення Київ продемонстрував надзвичайну стійкість. Місто стало великим промисловим та освітнім центром СРСР.',
+    
+    'cities.kyiv.history.modern.title': 'Столиця незалежної України',
+    'cities.kyiv.history.modern.description': 'З часу незалежності України Київ процвітає як європейська столиця, приймаючи історичні події як Помаранчева революція та Революція гідності, закріплюючи свою роль як маяк демократії.',
+    
+    'cities.kyiv.districts.title': 'Досліджуйте райони Києва',
+    'cities.kyiv.districts.subtitle': 'Кожен район пропонує унікальний характер, пам\'ятки та враження',
+    
+    'cities.kyiv.districts.podil.name': 'Подільський район',
+    'cities.kyiv.districts.podil.description': 'Історичний купецький квартал з бруківкою, ремісничими крамницями та видами на річку',
+    'cities.kyiv.districts.podil.highlights': 'Контрактовий дім, Київський річковий порт, Ремісничі ринки, Історичні церкви',
+    
+    'cities.kyiv.districts.pechersk.name': 'Печерський район',
+    'cities.kyiv.districts.pechersk.description': 'Урядовий та культурний центр з парламентом, музеями та знаменитим монастирем Лавра',
+    'cities.kyiv.districts.pechersk.highlights': 'Печерська лавра, Будівля парламенту, Національний музей, Парк Вічної Слави',
+    
+    'cities.kyiv.districts.shevchenko.name': 'Шевченківський район',
+    'cities.kyiv.districts.shevchenko.description': 'Центральний район з університетами, театрами та основними торговими районами',
+    'cities.kyiv.districts.shevchenko.highlights': 'Хрещатик, Оперний театр, Університет, Центральний парк',
+    
+    'cities.kyiv.districts.obolon.name': 'Оболонський район',
+    'cities.kyiv.districts.obolon.description': 'Сучасний житловий район з парками, торговими центрами та доступом до Дніпра',
+    'cities.kyiv.districts.obolon.highlights': 'Оболонський пляж, Торгові центри, Сучасна архітектура, Річкові розваги',
+    
+    'cities.kyiv.practical.title': 'Практична інформація',
+    'cities.kyiv.practical.visit.title': 'Найкращий час для відвідування',
+    'cities.kyiv.practical.visit.description': 'Київ прекрасний цілий рік, кожен сезон пропонує унікальні враження',
+    'cities.kyiv.practical.visit.spring': 'Весна (кві-тра): Цвітіння каштанів, м\'яка погода',
+    'cities.kyiv.practical.visit.summer': 'Літо (чер-сер): Тепла погода, фестивалі просто неба',
+    'cities.kyiv.practical.visit.autumn': 'Осінь (вер-жов): Золоте листя, ідеальні температури',
+    'cities.kyiv.practical.visit.winter': 'Зима (лис-бер): Засніжені куполи, затишні кафе',
+    
+    'cities.kyiv.practical.language.title': 'Мова',
+    'cities.kyiv.practical.language.description': 'Спілкування в Києві легке з кількома мовними варіантами',
+    'cities.kyiv.practical.language.ukrainian': 'Українська - офіційна мова',
+    'cities.kyiv.practical.language.english': 'Англійська широко поширена в туристичних районах',
+    'cities.kyiv.practical.language.russian': 'Російську також розуміють багато місцевих',
+    
+    'cities.kyiv.practical.transport.title': 'Пересування містом',
+    'cities.kyiv.practical.transport.description': 'Київ пропонує відмінний громадський транспорт та пішохідні райони',
+    'cities.kyiv.practical.transport.metro': 'Метро: Швидко, ефективно, красиві станції',
+    'cities.kyiv.practical.transport.bus': 'Автобуси та трамваї: Повне покриття міста',
+    'cities.kyiv.practical.transport.taxi': 'Таксі та каршерінг: Uber, Bolt доступні',
+    'cities.kyiv.practical.transport.walk': 'Пішки: Багато пам\'яток в межах пішої відстані',
+    
+    'cities.kyiv.cta.title': 'Готові досліджувати Київ?',
+    'cities.kyiv.cta.subtitle': 'Забронюйте житло та оформіть туристичну страховку для безтурботного візиту',
+    'cities.kyiv.cta.hotels': 'Знайти готелі в Києві',
+    'cities.kyiv.cta.insurance': 'Оформити страховку',
   },
 }
 

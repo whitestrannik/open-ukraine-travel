@@ -7,6 +7,7 @@ import { Layout } from '@/components/Layout'
 import Home from '@/pages/Home'
 import Explore from '@/pages/Explore'
 import TopDestinations from '@/pages/TopDestinations'
+import Kyiv from '@/pages/cities/Kyiv'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -22,6 +23,12 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/explore/unesco" element={<div className="p-6">UNESCO Sites – placeholder</div>} />
             <Route path="/explore/regions" element={<div className="p-6">By Regions – placeholder</div>} />
             <Route path="/explore/jewish" element={<div className="p-6">Jewish Ukraine – placeholder</div>} />
+            <Route path="/cities/kyiv" element={<Kyiv />} />
+            <Route path="/cities/lviv" element={<div className="p-6">Lviv – coming soon</div>} />
+            <Route path="/cities/odesa" element={<div className="p-6">Odesa – coming soon</div>} />
+            <Route path="/cities/carpathians" element={<div className="p-6">Carpathians – coming soon</div>} />
+            <Route path="/cities/chernobyl" element={<div className="p-6">Chernobyl – coming soon</div>} />
+            <Route path="/cities/chernivtsi" element={<div className="p-6">Chernivtsi – coming soon</div>} />
             <Route path="/entry" element={<div className="p-6">Entry Requirements – placeholder</div>} />
             <Route path="/insurance" element={<div className="p-6">Insurance – placeholder</div>} />
             <Route path="/hotels" element={<div className="p-6">Hotels – placeholder</div>} />
