@@ -1,18 +1,23 @@
-# 🎨 Refined Color Scheme – Ukraine Travel Portal (P0, vesrion 1)
+# 🎨 UI/UX Design System – Ukraine Travel Portal (P0, version 1)
 
 ## Primary Colors (inspired by Ukrainian identity, but softened for modern UI)
 - **Skyline Blue** – `#1F5FA0`  
   Trust, calm, professional — a deeper, less saturated blue.
+  *Usage*: Primary buttons, active navigation states, trust elements
 - **Golden Wheat** – `#F5C542`  
   Warm, welcoming, less intense than pure yellow.
+  *Usage*: CTA buttons, accents, highlights, conversion elements
 
 ## Secondary Colors
 - **Warm Clay** – `#D89B5A`  
   Evokes historic towns and a cozy, earthy feel.
+  *Usage*: Hotel/accommodation sections, warm content areas
 - **Forest Trail** – `#4E7B53`  
   Eco-tourism, nature-focused experiences.
+  *Usage*: Nature/parks content, eco-friendly elements
 - **Dusk Purple** – `#6A5B8C`  
   Cultural sophistication, night-life events.
+  *Usage*: Cultural content, events, premium features
 
 ## Neutral Colors
 - **Light Mist** – `#F6F6F8`  
@@ -22,6 +27,81 @@
 - **Charcoal Black** – `#22242A`  
   Primary text and key UI elements.
 
+## Navigation Design Pattern
+### Pill-Style Navigation (Implemented)
+- **Container**: Rounded full background (`bg-gray-50/80 rounded-full px-2 py-1`)
+- **Active State**: Full blue background with shadow (`bg-[#1F5FA0] shadow-lg shadow-[#1F5FA0]/25`)
+- **Hover Effects**: Scale transform (`hover:scale-105`) + gradient background
+- **Typography**: Medium font weight, proper spacing
+- **Responsive**: Collapses to hamburger on mobile
+
+## Logo & Branding
+- **Logo**: Logo2.png at `h-10 w-auto` for optimal visibility
+- **Brand Text**: "Open Ukraine" with hover color transition
+- **Positioning**: Left-aligned with proper spacing
+
+## Typography Scale
+- **Hero Headlines**: `text-5xl md:text-7xl font-bold` with drop shadows
+- **Section Titles**: `text-4xl font-bold` for main sections
+- **Card Titles**: `text-xl font-semibold` for content cards
+- **Body Text**: Standard sizing with proper line height
+
+## Button Patterns
+### Primary CTA (Golden Wheat)
+```css
+bg-[#F5C542] hover:bg-[#F5C542]/90 
+text-[#22242A] px-8 py-4 rounded-lg 
+font-semibold transition-all duration-300 
+transform hover:scale-105
+```
+
+### Secondary CTA (Skyline Blue)
+```css
+bg-[#1F5FA0] hover:bg-[#1F5FA0]/90 
+text-white px-8 py-4 rounded-lg 
+font-semibold transition-all duration-300 
+transform hover:scale-105
+```
+
+## Card Design Pattern
+- **Shadow**: `shadow-lg hover:shadow-xl`
+- **Border Radius**: `rounded-xl` for modern appearance
+- **Hover Effects**: `transform hover:-translate-y-2` for subtle lift
+- **Transitions**: `transition-all duration-300`
+
+## Hero Section Pattern
+- **Video Background**: Full viewport height with overlay
+- **Overlay**: `bg-black/50` for optimal text contrast
+- **Text Treatment**: White text with `drop-shadow-2xl` for readability
+- **CTA Placement**: Centered with flex gap spacing
+
+## Responsive Breakpoints
+- **Mobile**: Default (mobile-first)
+- **Tablet**: `md:` (768px+)
+- **Desktop**: `lg:` (1024px+)
+- **Large Desktop**: `xl:` (1280px+)
+
+## Animation Guidelines
+- **Duration**: 300ms for most interactions
+- **Easing**: Default browser transitions (ease)
+- **Scale Effects**: `hover:scale-105` for subtle feedback
+- **Transform Effects**: `hover:-translate-y-2` for card lifts
+
 ## Accessibility
-- All text colors pass WCAG AA contrast requirements for their intended background.
-- Golden Wheat is reserved for accents, buttons, and highlights — not large background areas, to prevent visual fatigue.
+- All text colors pass WCAG AA contrast requirements for their intended background
+- Golden Wheat is reserved for accents, buttons, and highlights — not large background areas, to prevent visual fatigue
+- Proper focus states on interactive elements
+- Semantic HTML structure maintained
+- Alt text for all images and media
+
+## Media Guidelines
+- **Images**: High-quality, culturally relevant Ukrainian content
+- **Videos**: 4K resolution when available, with fallback sources
+- **Optimization**: WebP format preferred with fallbacks
+- **Loading**: Lazy loading for performance
+
+## Spacing System
+- **Sections**: `py-16` for major sections
+- **Cards**: `p-6` for card content
+- **Containers**: `max-w-6xl mx-auto px-4` for content width
+- **Gaps**: `gap-4`, `gap-6`, `gap-8` for consistent spacing
