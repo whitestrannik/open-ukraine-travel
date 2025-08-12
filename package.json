@@ -1,8 +1,19 @@
 {
   "name": "open-ukraine-travel",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Open Ukraine Travel Portal - Comprehensive travel platform for discovering Ukraine",
+  "author": "Open Ukraine Travel Portal",
+  "license": "UNLICENSED",
+  "keywords": [
+    "ukraine",
+    "travel",
+    "tourism",
+    "travel-insurance",
+    "hotels",
+    "travel-guide"
+  ],
   "scripts": {
     "dev": "pnpm -r --parallel run dev",
     "build": "pnpm -r run build",

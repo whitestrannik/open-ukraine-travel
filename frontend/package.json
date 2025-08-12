@@ -1,8 +1,11 @@
 {
-  "name": "frontend",
+  "name": "open-ukraine-travel-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Open Ukraine Travel Portal - Frontend Application",
+  "author": "Open Ukraine Travel Portal",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
