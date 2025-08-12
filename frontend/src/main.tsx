@@ -6,6 +6,7 @@ import { I18nProvider } from '@/state/i18n'
 import { Layout } from '@/components/Layout'
 import Home from '@/pages/Home'
 import Explore from '@/pages/Explore'
+import TopDestinations from '@/pages/TopDestinations'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -15,6 +16,12 @@ createRoot(document.getElementById('root')!).render(
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
+            <Route path="/explore/destinations" element={<TopDestinations />} />
+            <Route path="/explore/essential" element={<div className="p-6">Essential Information – placeholder</div>} />
+            <Route path="/explore/gems" element={<div className="p-6">Hidden Gems – placeholder</div>} />
+            <Route path="/explore/unesco" element={<div className="p-6">UNESCO Sites – placeholder</div>} />
+            <Route path="/explore/regions" element={<div className="p-6">By Regions – placeholder</div>} />
+            <Route path="/explore/jewish" element={<div className="p-6">Jewish Ukraine – placeholder</div>} />
             <Route path="/entry" element={<div className="p-6">Entry Requirements – placeholder</div>} />
             <Route path="/insurance" element={<div className="p-6">Insurance – placeholder</div>} />
             <Route path="/hotels" element={<div className="p-6">Hotels – placeholder</div>} />
