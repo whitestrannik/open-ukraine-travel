@@ -45,6 +45,27 @@ export default function TopDestinations() {
 
   return (
     <div className="min-h-screen">
+      {/* Breadcrumb Section */}
+      <section className="bg-gray-50 py-4 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="flex items-center space-x-2 text-sm text-[#B0B3BA]">
+            <Link to="/" className="hover:text-[#1F5FA0] transition-colors">
+              {t('nav.home')}
+            </Link>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <Link to="/explore" className="hover:text-[#1F5FA0] transition-colors">
+              {t('nav.explore')}
+            </Link>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-[#1F5FA0] font-medium">{t('destinations.hero.breadcrumb')}</span>
+          </nav>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -64,27 +85,6 @@ export default function TopDestinations() {
           <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto drop-shadow-lg">
             {t('destinations.hero.subtitle')}
           </p>
-        </div>
-      </section>
-
-      {/* Breadcrumb Section */}
-      <section className="bg-gray-50 py-4 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4">
-          <nav className="flex items-center space-x-2 text-sm text-[#B0B3BA]">
-            <Link to="/" className="hover:text-[#1F5FA0] transition-colors">
-              {t('nav.home')}
-            </Link>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <Link to="/explore" className="hover:text-[#1F5FA0] transition-colors">
-              {t('nav.explore')}
-            </Link>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <span className="text-[#1F5FA0] font-medium">{t('destinations.hero.breadcrumb')}</span>
-          </nav>
         </div>
       </section>
 
