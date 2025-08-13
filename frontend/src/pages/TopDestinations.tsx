@@ -89,7 +89,7 @@ export default function TopDestinations() {
       </section>
 
       {/* Sub-navigation */}
-      <section className="bg-white border-b border-gray-200/50 sticky top-[73px] z-40">
+      <section className="bg-white border-b border-gray-200/50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="py-4">
             <h2 className="text-sm font-semibold text-[#22242A] mb-3 uppercase tracking-wide">
