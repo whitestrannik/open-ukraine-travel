@@ -7,32 +7,32 @@ export default function Kyiv() {
   const attractions = [
     {
       id: 'sophia',
-      image: '/media/pexels-freestockpro-1227513.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`,
       category: 'unesco'
     },
     {
       id: 'lavra',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       category: 'religious'
     },
     {
       id: 'independence',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       category: 'square'
     },
     {
       id: 'golden-gate',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       category: 'historical'
     },
     {
       id: 'andrew',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       category: 'cultural'
     },
     {
       id: 'museum',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       category: 'museum'
     }
   ]

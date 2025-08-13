@@ -8,7 +8,7 @@ export default function Explore() {
     {
       id: 'destinations',
       route: '/explore/destinations',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
       color: 'bg-[#1F5FA0]',
       gradient: 'from-[#1F5FA0] to-[#1F5FA0]/80'
@@ -16,7 +16,7 @@ export default function Explore() {
     {
       id: 'essential',
       route: '/explore/essential',
-      image: '/media/pexels-freestockpro-1227513.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`,
       icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
       color: 'bg-[#4E7B53]',
       gradient: 'from-[#4E7B53] to-[#4E7B53]/80'
@@ -24,7 +24,7 @@ export default function Explore() {
     {
       id: 'gems',
       route: '/explore/gems',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
       color: 'bg-[#6A5B8C]',
       gradient: 'from-[#6A5B8C] to-[#6A5B8C]/80'
@@ -32,7 +32,7 @@ export default function Explore() {
     {
       id: 'unesco',
       route: '/explore/unesco',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
       color: 'bg-[#D89B5A]',
       gradient: 'from-[#D89B5A] to-[#D89B5A]/80'
@@ -40,7 +40,7 @@ export default function Explore() {
     {
       id: 'regions',
       route: '/explore/regions',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
       color: 'bg-[#1F5FA0]',
       gradient: 'from-[#1F5FA0] to-[#1F5FA0]/80'
@@ -48,7 +48,7 @@ export default function Explore() {
     {
       id: 'jewish',
       route: '/explore/jewish',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
       color: 'bg-[#6A5B8C]',
       gradient: 'from-[#6A5B8C] to-[#6A5B8C]/80'

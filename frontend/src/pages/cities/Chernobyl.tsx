@@ -7,32 +7,32 @@ export default function Chernobyl() {
   const attractions = [
     {
       id: 'reactor-4',
-      image: '/media/pexels-freestockpro-345522.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-345522.jpg`,
       category: 'historical'
     },
     {
       id: 'pripyat',
-      image: '/media/pexels-freestockpro-1172064.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg`,
       category: 'historical'
     },
     {
       id: 'duga-radar',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       category: 'historical'
     },
     {
       id: 'red-forest',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       category: 'nature'
     },
     {
       id: 'control-room',
-      image: '/media/pexels-nextvoyage-1000026.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
       category: 'historical'
     },
     {
       id: 'memorial',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       category: 'memorial'
     }
   ]

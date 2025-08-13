@@ -7,42 +7,42 @@ export default function UnescoSites() {
   const unescoSites = [
     {
       id: 'kyiv-sofia',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       year: '1990',
       type: 'cultural',
       city: 'kyiv'
     },
     {
       id: 'lviv-historic-center',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       year: '1998',
       type: 'cultural',
       city: 'lviv'
     },
     {
       id: 'struve-arc',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       year: '2005',
       type: 'cultural',
       city: 'multiple'
     },
     {
       id: 'primeval-beech-forests',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       year: '2007',
       type: 'natural',
       city: 'carpathians'
     },
     {
       id: 'wooden-churches',
-      image: '/media/pexels-nextvoyage-1000026.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
       year: '2013',
       type: 'cultural',
       city: 'carpathians'
     },
     {
       id: 'chernivtsi-university',
-      image: '/media/pexels-kostiantyn-13200201.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`,
       year: '2011',
       type: 'cultural',
       city: 'chernivtsi'

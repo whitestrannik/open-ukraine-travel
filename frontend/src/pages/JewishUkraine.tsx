@@ -7,42 +7,42 @@ export default function JewishUkraine() {
   const heritageSites = [
     {
       id: 'babyn-yar',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       city: 'kyiv',
       type: 'memorial',
       significance: 'high'
     },
     {
       id: 'lviv-synagogue',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       city: 'lviv',
       type: 'synagogue',
       significance: 'high'
     },
     {
       id: 'uman-pilgrimage',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       city: 'uman',
       type: 'pilgrimage',
       significance: 'high'
     },
     {
       id: 'chernivtsi-temple',
-      image: '/media/pexels-kostiantyn-13200201.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`,
       city: 'chernivtsi',
       type: 'synagogue',
       significance: 'medium'
     },
     {
       id: 'odesa-community',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       city: 'odesa',
       type: 'community',
       significance: 'high'
     },
     {
       id: 'berdychiv-heritage',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       city: 'berdychiv',
       type: 'historical',
       significance: 'medium'

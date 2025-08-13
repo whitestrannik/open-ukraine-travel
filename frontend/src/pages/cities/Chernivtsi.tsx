@@ -7,32 +7,32 @@ export default function Chernivtsi() {
   const attractions = [
     {
       id: 'university',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       category: 'unesco'
     },
     {
       id: 'theater-square',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       category: 'square'
     },
     {
       id: 'armenian-church',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       category: 'religious'
     },
     {
       id: 'city-hall',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       category: 'historical'
     },
     {
       id: 'museum-art',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       category: 'museum'
     },
     {
       id: 'prut-river',
-      image: '/media/pexels-nextvoyage-1000026.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
       category: 'nature'
     }
   ]

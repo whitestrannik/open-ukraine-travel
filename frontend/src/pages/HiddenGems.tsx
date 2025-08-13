@@ -7,55 +7,55 @@ export default function HiddenGems() {
   const hiddenGems = [
     {
       id: 'tunnel-of-love',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       category: 'nature',
       region: 'rivne'
     },
     {
       id: 'olesko-castle',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       category: 'historical',
       region: 'lviv'
     },
     {
       id: 'askania-nova',
-      image: '/media/pexels-nextvoyage-1000026.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
       category: 'nature',
       region: 'kherson'
     },
     {
       id: 'kamianets-podilskyi',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       category: 'historical',
       region: 'khmelnytskyi'
     },
     {
       id: 'shatsky-lakes',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       category: 'nature',
       region: 'volyn'
     },
     {
       id: 'khotyn-fortress',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       category: 'historical',
       region: 'chernivtsi'
     },
     {
       id: 'klevan-castle',
-      image: '/media/pexels-freestockpro-1227513.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`,
       category: 'historical',
       region: 'rivne'
     },
     {
       id: 'dzharylhach',
-      image: '/media/pexels-nextvoyage-1000026.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
       category: 'nature',
       region: 'kherson'
     },
     {
       id: 'pidhirtsi-castle',
-      image: '/media/pexels-kostiantyn-13200201.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`,
       category: 'historical',
       region: 'lviv'
     }

@@ -7,37 +7,37 @@ export default function ByRegions() {
   const regions = [
     {
       id: 'western-ukraine',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       color: 'bg-[#6A5B8C]',
       cities: ['lviv', 'chernivtsi', 'uzhhorod', 'ivano-frankivsk']
     },
     {
       id: 'central-ukraine',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       color: 'bg-[#1F5FA0]',
       cities: ['kyiv', 'cherkasy', 'poltava', 'vinnytsia']
     },
     {
       id: 'eastern-ukraine',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       color: 'bg-[#D89B5A]',
       cities: ['kharkiv', 'dnipro', 'zaporizhzhia']
     },
     {
       id: 'southern-ukraine',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       color: 'bg-[#4E7B53]',
       cities: ['odesa', 'mykolaiv', 'kherson']
     },
     {
       id: 'carpathian-region',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       color: 'bg-[#4E7B53]',
       cities: ['bukovel', 'yaremche', 'kolomyia']
     },
     {
       id: 'northern-ukraine',
-      image: '/media/pexels-nextvoyage-1000026.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
       color: 'bg-[#6A5B8C]',
       cities: ['chernihiv', 'sumy', 'zhytomyr']
     }

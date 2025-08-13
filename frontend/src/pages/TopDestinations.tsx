@@ -7,37 +7,37 @@ export default function TopDestinations() {
   const destinations = [
     {
       id: 'kyiv',
-      image: '/media/pexels-freestockpro-1227513.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`,
       category: 'capital',
       route: '/cities/kyiv'
     },
     {
       id: 'lviv',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       category: 'cultural',
       route: '/cities/lviv'
     },
     {
       id: 'odesa',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       category: 'coastal',
       route: '/cities/odesa'
     },
     {
       id: 'carpathians',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       category: 'nature',
       route: '/cities/carpathians'
     },
     {
       id: 'chernobyl',
-      image: '/media/pexels-markus-winkler-1430818-3058990.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-markus-winkler-1430818-3058990.jpg`,
       category: 'historical',
       route: '/cities/chernobyl'
     },
     {
       id: 'chernivtsi',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       category: 'architectural',
       route: '/cities/chernivtsi'
     }

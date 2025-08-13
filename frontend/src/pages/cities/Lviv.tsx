@@ -7,32 +7,32 @@ export default function Lviv() {
   const attractions = [
     {
       id: 'old-town',
-      image: '/media/pexels-freestockpro-1174204.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
       category: 'unesco'
     },
     {
       id: 'opera-house',
-      image: '/media/pexels-kostiantyn-13200378.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       category: 'cultural'
     },
     {
       id: 'high-castle',
-      image: '/media/pexels-freestockpro-2787267.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
       category: 'historical'
     },
     {
       id: 'coffee-museums',
-      image: '/media/pexels-nextvoyage-1000772.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
       category: 'museum'
     },
     {
       id: 'armenian-cathedral',
-      image: '/media/pexels-freestockpro-12932806.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
       category: 'religious'
     },
     {
       id: 'pharmacy-museum',
-      image: '/media/pexels-kostiantyn-13200201.jpg',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`,
       category: 'museum'
     }
   ]
