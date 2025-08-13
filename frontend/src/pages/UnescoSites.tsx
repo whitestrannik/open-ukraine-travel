@@ -83,7 +83,7 @@ export default function UnescoSites() {
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/media/pexels-freestockpro-12932806.jpg')` }}
+          style={{ backgroundImage: `url('${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg')` }}
         ></div>
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         

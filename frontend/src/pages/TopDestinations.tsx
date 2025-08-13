@@ -50,7 +50,7 @@ export default function TopDestinations() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/media/pexels-freestockpro-12932806.jpg')` }}
+          style={{ backgroundImage: `url('${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg')` }}
         ></div>
         
         {/* Overlay */}
