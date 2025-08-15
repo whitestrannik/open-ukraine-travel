@@ -23,7 +23,7 @@ import JewishUkraine from '@/pages/JewishUkraine'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <I18nProvider>
-      <BrowserRouter basename="/explore-ukraine-travel">
+      <BrowserRouter basename="/open-ukraine-travel">
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
