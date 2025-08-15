@@ -221,6 +221,8 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'jewish.content.cta.journey': 'Plan Your Journey',
     'jewish.content.cta.insurance': 'Get Travel Insurance',
 
+    'jewish.content.places.title': 'Top 10 Jewish Heritage Destinations',
+
     // Additional missing translations - English
     'jewish.content.khazars.title': 'The Khazar Legacy',
     'jewish.content.khazars.text1': 'The history of Jews in Ukraine spans more than a thousand years. The earliest written mentions of Kyiv appear in Jewish texts of the 10th century, preserved from the era of the Khazar Khaganate.',
@@ -229,6 +231,27 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'jewish.content.hasidism.title': 'The Birth of Hasidism',
     'jewish.content.hasidism.text1': 'Ukraine became the birthplace of Hasidism, a mystical Jewish movement that revolutionized Jewish spirituality. Founded by the Baal Shem Tov in the 18th century, this movement emphasized joy, prayer, and direct connection with the divine.',
     'jewish.content.hasidism.text2': 'Major Hasidic dynasties like Breslov, Chabad, Belz, and Sadagora originated in Ukrainian towns, creating spiritual centers that attracted followers from across Eastern Europe and continue to influence Jewish life worldwide.',
+
+    // Why Visit and Dynasty descriptions - English
+    'jewish.content.visit.title': 'Why Visit Jewish Ukraine',
+    'jewish.content.visit.text1': 'A journey through Jewish places in Ukraine is a rare opportunity to combine spiritual pilgrimage, cultural discoveries, and culinary delights.',
+    'jewish.content.visit.text2': 'Here you will find shtetl streets, historic synagogues, the birthplace of Hasidism (Medzhybizh, Uman, Belz, Hadiach) and places of tragedy (Babyn Yar, Janów concentration camp).',
+    'jewish.content.visit.text3': 'Jewish humor of Odesa, cuisine - gefilte fish, tzimmes, cholent, knish, bagels, matzah, strudel, forshmak.',
+    'jewish.content.visit.text4': 'And - the opportunity, following tradition, to quietly ask for blessings at the graves of spiritual leaders - for the health of loved ones, success in business, or peace in the heart.',
+
+    'jewish.content.dynasties.title': 'Major Hasidic Dynasties Founded in Ukraine',
+    'jewish.content.dynasties.breslov': 'Founded by Rabbi Nachman, emphasizing joy and storytelling in spiritual practice.',
+    'jewish.content.dynasties.chabad': 'Intellectual approach to Hasidism, founded by the Alter Rebbe, now global movement.',
+    'jewish.content.dynasties.belz': 'One of the largest Hasidic dynasties, known for preserving traditional customs.',
+    'jewish.content.dynasties.sadagora': 'Royal dynasty of Hasidism, known for their majestic courts and influence.',
+    'jewish.content.dynasties.subtitle': 'These spiritual movements transformed Jewish life and continue to influence millions worldwide.',
+
+    // Ashkenazim section - English  
+    'jewish.content.intro': 'The history of Jews in Ukraine spans more than a thousand years. The earliest written mentions of Kyiv appear in Jewish texts of the 10th century, preserved from the era of the Khazar Khaganate. The Khazars, whose ruling elite had adopted Judaism, controlled strategic trade routes between East and West. Their cities were home to Jewish merchants, craftsmen, and scholars. Even then, on the hills of Kyiv and in the Black Sea port towns, the first communities emerged, blending the traditions of Eastern Jews with local culture.',
+    
+    'jewish.content.ashkenazim.title': 'Ashkenazi Communities',
+    'jewish.content.ashkenazim.text1': 'From the 14th century, Ashkenazi Jewish communities flourished in Ukrainian lands. They established yeshivas, developed trade networks, and created vibrant cultural centers.',
+    'jewish.content.ashkenazim.text2': 'These communities became renowned for their scholars, merchants, and craftsmen who contributed significantly to the economic and intellectual life of the region.',
     
     // City Pages - Categories
     'cities.categories.unesco': 'UNESCO Site',
@@ -1624,11 +1647,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'jewish.content.hasidism.title': 'Народження хасидизму',
     'jewish.content.hasidism.text': 'У XVIII столітті в Меджибожі на Поділлі народився хасидський рух. Баал Шем Тов (Ізраїль бен Еліезер) проповідував радість молитви, духовну близькість до Бога та важливість добрих справ. Його учні заснували впливові династії, які й досі залишаються основними місцями паломництва.',
     
-    'jewish.content.dynasties.breslov': 'Вчення рабі Нахмана',
-    'jewish.content.dynasties.sadigura': 'Впливова династія',
-    'jewish.content.dynasties.belz': 'Історичний центр',
-    'jewish.content.dynasties.chabad': 'Інтелектуальний підхід',
-    'jewish.content.dynasties.subtitle': 'Ці духовні центри продовжують приваблювати паломників з усього світу',
+
     
     'jewish.content.traces.title': 'Україна — рідкісна країна, де збереглося так багато фізичних слідів єврейського життя',
     'jewish.content.traces.intro': 'Тут можна побачити як окремі будівлі, так і цілі квартали, де планування вулиць — і навіть атмосфера — майже не змінилися. Ось 10 місць, які найкраще передають масштаб і глибину єврейської спадщини:',
@@ -1664,7 +1683,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'jewish.content.visit.text4': 'І — можливість, слідуючи традиції, тихо попросити благословення біля могил духовних лідерів — за здоров\'я близьких, успіх у справах чи спокій у серці.',
     
     // Additional translations for remaining English text
-    'jewish.content.dynasties.title': 'Основні хасидські династії, засновані в Україні',
+
     'jewish.content.places.title': 'Топ-10 місць єврейської спадщини',
     'jewish.content.image.uman': 'Умань - Головний центр єврейського паломництва у Східній Європі',
     'jewish.content.image.sharhorod': 'Синагога в Шаргороді (1589) - Одна з найстаріших діючих синагог у Європі',
@@ -1695,14 +1714,24 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'jewish.content.places.odesa.title': 'Одеса (Одеська область)',
     'jewish.content.places.odesa.description': 'Батьківщина єврейського гумору, видатні письменники та музиканти. Портове місто з унікальною єврейською культурою.',
 
-    // Additional missing translations - Ukrainian
+    // Additional missing translations - Ukrainian (removing duplicates)
     'jewish.content.khazars.title': 'Спадщина хозарів',
     'jewish.content.khazars.text1': 'Історія євреїв в Україні налічує понад тисячу років. Найперші письмові згадки про Київ з\'являються в єврейських текстах X століття, збережених з епохи Хозарського каганату.',
     'jewish.content.khazars.text2': 'Хозари, чия правляча еліта прийняла іудаїзм, контролювали стратегічні торгові шляхи між Сходом і Заходом. У їхніх містах жили єврейські купці, ремісники та вчені, які заклали основу для століть єврейського життя в Україні.',
 
+    'jewish.content.ashkenazim.title': 'Ашкеназькі громади',
+    'jewish.content.ashkenazim.text1': 'З XIV століття ашкеназькі єврейські громади процвітали на українських землях. Вони засновували єшиви, розвивали торгові мережі та створювали яскраві культурні центри.',
+    'jewish.content.ashkenazim.text2': 'Ці громади стали відомими своїми вченими, купцями та ремісниками, які значно сприяли економічному та інтелектуальному життю регіону.',
+
     'jewish.content.hasidism.title': 'Народження хасидизму',
     'jewish.content.hasidism.text1': 'Україна стала батьківщиною хасидизму — містичного єврейського руху, який революціонізував єврейську духовність. Заснований Баал Шем Товом у XVIII столітті, цей рух підкреслював радість, молитву та безпосередній зв\'язок з божественним.',
     'jewish.content.hasidism.text2': 'Основні хасидські династії, такі як Брацлав, Хабад, Белз та Садагора, виникли в українських містах, створивши духовні центри, які приваблювали послідовників з усієї Східної Європи і продовжують впливати на єврейське життя в усьому світі.',
+
+    'jewish.content.dynasties.breslov': 'Засновано рабі Нахманом, підкреслює радість та розповідання історій у духовній практиці.',
+    'jewish.content.dynasties.chabad': 'Інтелектуальний підхід до хасидизму, заснований Альтер Ребе, тепер глобальний рух.',
+    'jewish.content.dynasties.belz': 'Одна з найбільших хасидських династій, відома збереженням традиційних звичаїв.',
+    'jewish.content.dynasties.sadagora': 'Королівська династія хасидизму, відома своїми величними дворами та впливом.',
+    'jewish.content.dynasties.subtitle': 'Ці духовні рухи трансформували єврейське життя і продовжують впливати на мільйони людей у всьому світі.',
     
     // City Pages - Categories
     'cities.categories.unesco': 'Об\'єкт ЮНЕСКО',
