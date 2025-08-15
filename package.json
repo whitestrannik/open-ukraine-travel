@@ -1,10 +1,10 @@
 {
-  "name": "open-ukraine-travel",
+  "name": "explore-ukraine-travel",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Open Ukraine Travel Portal - Comprehensive travel platform for discovering Ukraine",
-  "author": "Open Ukraine Travel Portal",
+  "description": "Explore Ukraine Travel Portal - Comprehensive travel platform for discovering Ukraine",
+  "author": "Explore Ukraine Travel Portal",
   "license": "UNLICENSED",
   "keywords": [
     "ukraine",

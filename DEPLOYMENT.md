@@ -1,6 +1,6 @@
 # 🚀 Deployment Guide - GitHub Pages
 
-This guide covers deploying the Open Ukraine Travel Portal frontend to GitHub Pages.
+This guide covers deploying the Explore Ukraine Travel Portal frontend to GitHub Pages.
 
 ## 📋 Prerequisites
 
@@ -10,7 +10,7 @@ This guide covers deploying the Open Ukraine Travel Portal frontend to GitHub Pa
 - **Note**: The deployed site will be publicly accessible even from a private repo
 
 ### Repository Setup
-1. Ensure your repository is named appropriately (e.g., `open-ukraine-travel`)
+1. Ensure your repository is named appropriately (e.g., `explore-ukraine-travel`)
 2. Update the base URL in `frontend/vite.config.ts` to match your repo name:
    ```typescript
    base: process.env.VITE_DEPLOY_TARGET === 'github-pages' 
@@ -135,7 +135,7 @@ If you have a backend API, update the API URLs in `frontend/src/config/environme
 |-------------|-----|---------|-------------|
 | **Development** | `localhost:5173` | Local development | `localhost:3000` |
 | **GitHub Pages** | `yourusername.github.io/repo` | Staging/Demo | Railway backend |
-| **Railway Production** | `openukraine.travel` | Production | Production API |
+| **Railway Production** | `exploreukraine.travel` | Production | Production API |
 
 ## 🔄 Updates and Maintenance
 
@@ -169,4 +169,4 @@ If you encounter issues:
 
 ---
 
-**🎉 Your Open Ukraine Travel Portal is now ready for GitHub Pages deployment!**
+**🎉 Your Explore Ukraine Travel Portal is now ready for GitHub Pages deployment!**

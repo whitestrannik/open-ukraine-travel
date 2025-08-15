@@ -43,8 +43,8 @@ export function Layout() {
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={`${import.meta.env.BASE_URL}logo/Logo2.png`} alt="Open Ukraine" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
-            <span className="font-bold text-xl text-[#22242A] transition-colors duration-300 group-hover:text-[#1F5FA0]">Open Ukraine</span>
+            <img src={`${import.meta.env.BASE_URL}logo/Logo2.png`} alt="Explore Ukraine" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
+            <span className="font-bold text-xl text-[#22242A] transition-colors duration-300 group-hover:text-[#1F5FA0]">Explore Ukraine</span>
           </Link>
           
           {/* Main Navigation */}
@@ -303,8 +303,8 @@ export function Layout() {
               {/* Company Info */}
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <img src={`${import.meta.env.BASE_URL}logo/Logo2.png`} alt="Open Ukraine" className="h-10 w-auto" />
-                  <span className="font-bold text-xl">Open Ukraine</span>
+                  <img src={`${import.meta.env.BASE_URL}logo/Logo2.png`} alt="Explore Ukraine" className="h-10 w-auto" />
+                  <span className="font-bold text-xl">Explore Ukraine</span>
                 </div>
                 <p className="text-[#B0B3BA] mb-4">
                   Your trusted guide to discovering the beauty, culture, and resilience of Ukraine.
@@ -374,7 +374,7 @@ export function Layout() {
             {/* Bottom Bar */}
             <div className="border-t border-[#B0B3BA]/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
               <div className="text-[#B0B3BA] text-sm">
-                © {new Date().getFullYear()} Open Ukraine. All rights reserved.
+                © {new Date().getFullYear()} Explore Ukraine. All rights reserved.
               </div>
               <div className="flex gap-6 mt-4 md:mt-0 text-sm text-[#B0B3BA]">
                 <Link to="/legal" className="hover:text-white transition-colors">Privacy Policy</Link>

@@ -1,4 +1,4 @@
-# 🇺🇦 Open Ukraine Travel Portal (WIP/DRAFT)
+# 🇺🇦 Explore Ukraine Travel Portal (WIP/DRAFT)
 
 A comprehensive travel portal for discovering Ukraine's beauty, culture, and heritage. This platform provides travel insurance, hotel booking, and detailed travel information for visitors to Ukraine.
 
@@ -22,7 +22,7 @@ A comprehensive travel portal for discovering Ukraine's beauty, culture, and her
 ```bash
 # Clone and install
 git clone [repository-url]
-cd open-ukraine-travel/frontend
+cd explore-ukraine-travel/frontend
 npm install
 
 # Start development server
@@ -37,7 +37,7 @@ npm run build
 
 ```bash
 # Navigate to backend
-cd open-ukraine-travel/backend
+cd explore-ukraine-travel/backend
 npm install
 
 # Start backend server
@@ -61,7 +61,7 @@ npm run dev
 
 ## ⚖️ License
 
-**Copyright (c) 2025 Open Ukraine Travel Portal**
+**Copyright (c) 2025 Explore Ukraine Travel Portal**
 
 **All Rights Reserved**
 

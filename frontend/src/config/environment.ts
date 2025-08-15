@@ -18,13 +18,13 @@ const configs: Record<string, AppConfig> = {
   },
   'github-pages': {
     apiUrl: 'https://your-railway-backend.railway.app/api', // Update with actual Railway backend URL
-    baseUrl: '/open-ukraine-travel/', // Update with actual repo name
+    baseUrl: '/explore-ukraine-travel/', // Update with actual repo name
     environment: 'github-pages',
     enableAnalytics: true,
     enableDevTools: false,
   },
   'railway-production': {
-    apiUrl: 'https://api.openukraine.travel', // Update with actual production API URL
+    apiUrl: 'https://api.exploreukraine.travel', // Update with actual production API URL
     baseUrl: '/',
     environment: 'railway-production',
     enableAnalytics: true,

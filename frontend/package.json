@@ -1,10 +1,10 @@
 {
-  "name": "open-ukraine-travel-frontend",
+  "name": "explore-ukraine-travel-frontend",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Open Ukraine Travel Portal - Frontend Application",
-  "author": "Open Ukraine Travel Portal",
+  "description": "Explore Ukraine Travel Portal - Frontend Application",
+  "author": "Explore Ukraine Travel Portal",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",

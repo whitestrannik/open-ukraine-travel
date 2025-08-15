@@ -222,7 +222,7 @@ export default function TopDestinations() {
         </div>
       </section>
 
-      {/* Why Visit Ukraine Section */}
+      {/* Why Explore Ukraine Section */}
       <section className="py-16 bg-[#F6F6F8]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">

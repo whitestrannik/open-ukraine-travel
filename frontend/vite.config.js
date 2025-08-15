@@ -15,7 +15,7 @@ export default defineConfig({
     },
   },
   // GitHub Pages base URL - this should prefix ALL assets
-  base: '/open-ukraine-travel/',
+  base: '/explore-ukraine-travel/',
   build: {
     outDir: 'dist',
     sourcemap: true,

@@ -143,7 +143,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     
     'destinations.card.explore': 'Explore Destination',
     
-    'destinations.why.title': 'Why Visit Ukraine?',
+    'destinations.why.title': 'Why Explore Ukraine?',
     'destinations.why.subtitle': 'Discover what makes Ukraine a unique and compelling travel destination',
     'destinations.why.history.title': 'Rich Historical Heritage',
     'destinations.why.history.description': 'Over 1,000 years of history with ancient castles, medieval towns, and UNESCO World Heritage sites',
@@ -196,6 +196,39 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'explore.cta.subtitle': 'Get prepared with travel insurance and find the perfect accommodation for your journey',
     'explore.cta.insurance': 'Get Travel Insurance',
     'explore.cta.hotels': 'Find Hotels',
+
+    // Missing Jewish content translations - English
+    'jewish.content.shtetls.title': 'Shtetls: Jewish Towns',
+    'jewish.content.shtetls.text1': 'Shtetls were small Jewish towns that served as the heart of Jewish life in Ukraine for centuries. These communities thrived through trade, crafts, and deep religious tradition.',
+    'jewish.content.shtetls.text2': 'In shtetls, prominent rabbis, writers, musicians, and thinkers were born who influenced world culture. Ancient traditions were preserved here and new forms of Jewish art were created.',
+
+    'jewish.content.tragedy.title': 'Tragic Pages of History',
+    'jewish.content.tragedy.text1': 'The 20th century brought terrible trials for Jewish communities in Ukraine. Pogroms, wars, and the Holocaust destroyed thousands of years of cultural heritage.',
+    'jewish.content.tragedy.text2': 'The memory of these tragedies is preserved in memorials, museums, and monuments, reminding us of the importance of tolerance and humanity.',
+
+    'jewish.content.places.uman.title': 'Uman (Cherkasy region)',
+    'jewish.content.places.uman.description': 'Center of Hasidic pilgrimage, grave of Rabbi Nachman of Breslov. Every year thousands of pilgrims come here for Rosh Hashanah.',
+
+    'jewish.content.places.lviv.title': 'Lviv (Lviv region)',
+    'jewish.content.places.lviv.description': 'Historic Jewish quarter, synagogues and museums. Center of Jewish culture in Western Ukraine with a rich history.',
+
+    'jewish.content.places.kyiv.title': 'Kyiv',
+    'jewish.content.places.kyiv.description': 'Babyn Yar, Podil Synagogue, museums and cultural centers. Capital with a thousand-year history of Jewish life.',
+
+    'jewish.content.places.odesa.title': 'Odesa (Odesa region)',
+    'jewish.content.places.odesa.description': 'Birthplace of Jewish humor, outstanding writers and musicians. Port city with unique Jewish culture.',
+
+    'jewish.content.cta.journey': 'Plan Your Journey',
+    'jewish.content.cta.insurance': 'Get Travel Insurance',
+
+    // Additional missing translations - English
+    'jewish.content.khazars.title': 'The Khazar Legacy',
+    'jewish.content.khazars.text1': 'The history of Jews in Ukraine spans more than a thousand years. The earliest written mentions of Kyiv appear in Jewish texts of the 10th century, preserved from the era of the Khazar Khaganate.',
+    'jewish.content.khazars.text2': 'The Khazars, whose ruling elite had adopted Judaism, controlled strategic trade routes between East and West. Their cities were home to Jewish merchants, craftsmen, and scholars who laid the foundation for centuries of Jewish life in Ukraine.',
+
+    'jewish.content.hasidism.title': 'The Birth of Hasidism',
+    'jewish.content.hasidism.text1': 'Ukraine became the birthplace of Hasidism, a mystical Jewish movement that revolutionized Jewish spirituality. Founded by the Baal Shem Tov in the 18th century, this movement emphasized joy, prayer, and direct connection with the divine.',
+    'jewish.content.hasidism.text2': 'Major Hasidic dynasties like Breslov, Chabad, Belz, and Sadagora originated in Ukrainian towns, creating spiritual centers that attracted followers from across Eastern Europe and continue to influence Jewish life worldwide.',
     
     // City Pages - Categories
     'cities.categories.unesco': 'UNESCO Site',
@@ -1173,7 +1206,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
 
     // JEWISH UKRAINE PAGE (condensed)
     'jewish.nav.title': 'Jewish Ukraine',
-    'jewish.hero.title': 'Jewish Heritage in Ukraine',
+    'jewish.hero.title': 'Jews in Ukraine: From the Khazars to Hollywood',
     'jewish.hero.subtitle': 'Discover the rich history and cultural legacy of Jewish communities in Ukraine',
     'jewish.hero.cta.explore': 'Explore Heritage',
     'jewish.hero.cta.history': 'Learn History',
@@ -1488,6 +1521,188 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'explore.cta.subtitle': 'Підготуйтесь зі страхуванням подорожей та знайдіть ідеальне розміщення для своєї подорожі',
     'explore.cta.insurance': 'Оформити страховку',
     'explore.cta.hotels': 'Знайти готелі',
+    
+    // JEWISH UKRAINE PAGE - Ukrainian translations
+    'jewish.nav.title': 'Єврейська Україна',
+    'jewish.hero.title': 'Євреї в Україні: від хозарів до Голлівуду',
+    'jewish.hero.subtitle': 'Тисяча років життя, віри та натхнення',
+    'jewish.hero.cta.explore': 'Дослідити спадщину',
+    'jewish.hero.cta.history': 'Вивчити історію',
+    
+    'jewish.history.title': 'Історичні періоди',
+    'jewish.history.subtitle': 'Ключові періоди в українсько-єврейській історії',
+    'jewish.history.golden-age.title': 'Золотий вік',
+    'jewish.history.golden-age.description': 'Період процвітання та культурного розквіту',
+    'jewish.history.hasidism.title': 'Хасидський рух',
+    'jewish.history.hasidism.description': 'Народження впливового єврейського духовного руху',
+    'jewish.history.pogroms.title': 'Важкі часи',
+    'jewish.history.pogroms.description': 'Період переслідувань та еміграції',
+    'jewish.history.holocaust.title': 'Голокост',
+    'jewish.history.holocaust.description': 'Трагічне знищення під час Другої світової війни',
+    
+    'jewish.sites.title': 'Місця спадщини',
+    'jewish.sites.subtitle': 'Важливі місця єврейської спадщини по всій Україні',
+    'jewish.sites.learn': 'Дізнатися більше',
+    
+    'jewish.significance.high': 'Основне місце',
+    'jewish.significance.medium': 'Важливе місце',
+    
+    'jewish.types.memorial': 'Меморіал',
+    'jewish.types.synagogue': 'Синагога',
+    'jewish.types.pilgrimage': 'Паломництво',
+    'jewish.types.community': 'Громада',
+    'jewish.types.historical': 'Історичне',
+    
+    'jewish.sites.babyn-yar.name': 'Меморіал Бабин Яр',
+    'jewish.sites.babyn-yar.description': 'Меморіал жертвам Голокосту та місце пам\'яті',
+    'jewish.sites.lviv-synagogue.name': 'Львівські синагоги',
+    'jewish.sites.lviv-synagogue.description': 'Історичні синагоги та залишки єврейського кварталу',
+    'jewish.sites.uman-pilgrimage.name': 'Місце паломництва в Умані',
+    'jewish.sites.uman-pilgrimage.description': 'Важливе місце паломництва для хасидів Брацлав',
+    'jewish.sites.chernivtsi-temple.name': 'Чернівецький храм',
+    'jewish.sites.chernivtsi-temple.description': 'Прекрасний храм, що представляє мультикультурну спадщину',
+    'jewish.sites.odesa-community.name': 'Одеська єврейська громада',
+    'jewish.sites.odesa-community.description': 'Історичний центр єврейської громади та культурні місця',
+    'jewish.sites.berdychiv-heritage.name': 'Спадщина Бердичева',
+    'jewish.sites.berdychiv-heritage.description': 'Важливий історичний центр єврейської громади',
+    
+    'jewish.cities.kyiv': 'Київ',
+    'jewish.cities.lviv': 'Львів',
+    'jewish.cities.uman': 'Умань',
+    'jewish.cities.chernivtsi': 'Чернівці',
+    'jewish.cities.odesa': 'Одеса',
+    'jewish.cities.berdychiv': 'Бердичів',
+    
+    'jewish.legacy.title': 'Культурна спадщина',
+    'jewish.legacy.subtitle': 'Тривалий внесок українських єврейських громад у світову культуру',
+    'jewish.legacy.literature.title': 'Література та письменники',
+    'jewish.legacy.literature.description': 'Українські єврейські письменники зробили значний внесок у світову літературу.',
+    'jewish.legacy.literature.examples': 'Шолом Алейхем, Ісаак Бабель, Василь Гроссман',
+    'jewish.legacy.music.title': 'Музика та мистецтво',
+    'jewish.legacy.music.description': 'Багаті музичні традиції від клезмера до класичних композицій.',
+    'jewish.legacy.music.examples': 'Клезмерська музика, народні пісні, класичні композитори',
+    'jewish.legacy.science.title': 'Наука та інновації',
+    'jewish.legacy.science.description': 'Значний внесок у науку, медицину та технології.',
+    'jewish.legacy.science.examples': 'Медичні досягнення, наукові дослідження, технологічні інновації',
+
+    'jewish.modern.title': 'Сучасні ініціативи',
+    'jewish.modern.subtitle': 'Сучасні зусилля зі збереження та вшанування єврейської спадщини',
+    'jewish.modern.preservation.title': 'Збереження спадщини',
+    'jewish.modern.preservation.description': 'Реставрація синагог, кладовищ та історичних місць.',
+    'jewish.modern.education.title': 'Освітні програми',
+    'jewish.modern.education.description': 'Музеї, культурні центри та освітні ініціативи.',
+    'jewish.modern.tourism.title': 'Туризм спадщини',
+    'jewish.modern.tourism.description': 'Екскурсії та культурні заходи для відвідувачів.',
+    'jewish.modern.community.title': 'Відродження громади',
+    'jewish.modern.community.description': 'Відбудова єврейських громад та культурного життя.',
+
+    'jewish.respectful.title': 'Поважний туризм спадщини',
+    'jewish.respectful.subtitle': 'Рекомендації для змістовних та поважних відвідувань місць єврейської спадщини',
+    'jewish.respectful.guidelines.title': 'Рекомендації для відвідувачів',
+    'jewish.respectful.guidelines.items': 'Підходьте до місць з повагою та урочистістю|Вивчайте історію перед відвідуванням|Дотримуйтесь правил та звичаїв місця|Будьте обачні при фотографуванні|Одягайтеся відповідно для релігійних місць|Підтримуйте місцеві зусилля зі збереження',
+    'jewish.respectful.support.title': 'Підтримка спадщини',
+    'jewish.respectful.support.description': 'Ваше поважне відвідування допомагає зберегти ці важливі місця та підтримує місцеві громади.',
+    'jewish.respectful.support.ways': 'Відвідуйте з сертифікованими гідами|Купуйте в місцевих магазинах спадщини|Жертвуйте організаціям зі збереження|Ділитеся освітнім контентом відповідально|Беріть участь у культурних заходах|Підтримуйте громадські ініціативи',
+
+    'jewish.cta.title': 'Досліджуйте єврейську спадщину',
+    'jewish.cta.subtitle': 'Відвідуйте ці значущі місця з повагою та розумінням',
+    'jewish.cta.kyiv': 'Відвідати місця Києва',
+    'jewish.cta.lviv': 'Дослідити спадщину Львова',
+    
+    // JEWISH UKRAINE CONTENT - Ukrainian translations
+    'jewish.content.hero.subtitle': 'Тисяча років життя, віри та натхнення',
+    
+    'jewish.content.intro': 'Історія євреїв в Україні налічує понад тисячу років. Найперші письмові згадки про Київ з\'являються в єврейських текстах X століття, збережених з епохи Хозарського каганату. Хозари, чия правляча еліта прийняла іудаїзм, контролювали стратегічні торгові шляхи між Сходом і Заходом. У їхніх містах жили єврейські купці, ремісники та вчені. Уже тоді, на київських пагорбах та в чорноморських портових містах, виникали перші громади, поєднуючи традиції східних євреїв з місцевою культурою.',
+    
+    'jewish.content.ashkenazim.title': 'Ашкеназі та формування громад',
+    'jewish.content.ashkenazim.text1': 'З XII–XIII століть, рятуючись від погромів та обмежень у Центральній Європі, ашкеназькі євреї знаходили притулок на землях Великого князівства Литовського, Речі Посполитої, а згодом і Російської імперії — більшість яких сьогодні знаходиться в межах сучасної України.',
+    'jewish.content.ashkenazim.text2': 'До XVIII–XIX століть багато українських міст були по суті єврейськими: у Бердичеві, Белзі, Острозі, Жовкві, Шаргороді та десятках інших штетлів частка єврейського населення сягала 50–70%, а іноді й більше. Штетл був самодостатнім, але водночас живим світом: синагога, ринок, ремісничі майстерні та єврейські школи — хедери. Торгівля та культурний обмін з українськими сусідами були постійними, збагачуючи обидві культури.',
+    
+    'jewish.content.cultural.title': 'Культурне переплетення',
+    'jewish.content.cultural.text': 'Століття співіснування залишили глибокий відбиток на мові, кухні та музиці. Українська мова запозичила десятки слів з ідишу — книш, шмон, халепа та інші. Ідиш поглинав українську лексику та інтонацію. На святкових столах можна було знайти борщ, цимес, вареники та гефілте фіш. Музика теж переплітались: кобзарські балади та клезмерські мелодії стали саундтреком цілих регіонів.',
+    
+    'jewish.content.hasidism.title': 'Народження хасидизму',
+    'jewish.content.hasidism.text': 'У XVIII столітті в Меджибожі на Поділлі народився хасидський рух. Баал Шем Тов (Ізраїль бен Еліезер) проповідував радість молитви, духовну близькість до Бога та важливість добрих справ. Його учні заснували впливові династії, які й досі залишаються основними місцями паломництва.',
+    
+    'jewish.content.dynasties.breslov': 'Вчення рабі Нахмана',
+    'jewish.content.dynasties.sadigura': 'Впливова династія',
+    'jewish.content.dynasties.belz': 'Історичний центр',
+    'jewish.content.dynasties.chabad': 'Інтелектуальний підхід',
+    'jewish.content.dynasties.subtitle': 'Ці духовні центри продовжують приваблювати паломників з усього світу',
+    
+    'jewish.content.traces.title': 'Україна — рідкісна країна, де збереглося так багато фізичних слідів єврейського життя',
+    'jewish.content.traces.intro': 'Тут можна побачити як окремі будівлі, так і цілі квартали, де планування вулиць — і навіть атмосфера — майже не змінилися. Ось 10 місць, які найкраще передають масштаб і глибину єврейської спадщини:',
+    'jewish.content.traces.conclusion': 'А крім цих — сотні незвичайних і захоплюючих місць по всій Україні: історичних, культурних, релігійних, філософських і навіть містичних.',
+    
+    'jewish.content.places.uman': 'Головний центр єврейського паломництва у Східній Європі. Могила рабі Нахмана, лідера хасидів Брацлав, приваблює десятки тисяч паломників на Рош ха-Шана. Навколишній квартал перетворюється на живий сучасний "штетл" з кошерними магазинами, гостьовими будинками та молитовними будинками. Навіть поза святами тут відчувається особлива енергетика.',
+    'jewish.content.places.sharhorod': 'Синагога 1589 року, одна з найстаріших діючих у Європі. Кам\'яні стіни, аркові вікна, інтер\'єри з різьбленням і фрагментами старовинних написів. Навколо неї збережений центр старого штетлу.',
+    'jewish.content.places.sataniv': 'Фортифікована синагога XVI століття з бійницями та масивними стінами. Поруч будинки з кам\'яними підвалами та кладовище з унікальними надгробками.',
+    'jewish.content.places.zhovkva': 'Ренесансна синагога XVII століття, колись одна з найбільших у Східній Європі; оточена старими міськими кварталами.',
+    'jewish.content.places.belz': 'Історичний центр хасидської династії Белз; бруковані вулиці та одноповерхові будинки.',
+    'jewish.content.places.medzhybizh': 'Могила Баал Шем Това; поруч історичні будівлі та краєвиди на замок над річкою Буг.',
+    'jewish.content.places.berdychiv': 'Мавзолей рабі Леві Іцхака, старе кладовище та будинки купців і ремісників.',
+    'jewish.content.places.kamianets': 'Єврейський квартал поруч із легендарною фортецею.',
+    'jewish.content.places.sadgora': 'Резиденція хасидської династії Садгора; старі синагоги та кладовище.',
+    'jewish.content.places.hadyach': 'Могила рабі Шнеура Залмана з Ляд (Альтер Ребе) на мальовничому пагорбі.',
+    
+    'jewish.content.figures.title': 'Видатні постаті',
+    'jewish.content.figures.text': 'Україна є батьківщиною багатьох видатних євреїв: Шолом Алейхем (Переяслав), Голда Меїр (Київ, Бессарабка), президенти Ізраїлю Іцхак Бен-Цві (Полтава), Залман Шазар (Кременець), Моше Шарет (Херсон); письменники Ісаак Бабель (Одеса), Бруно Шульц (Дрогобич) та Ілля Еренбург (Київ).',
+    
+    'jewish.content.cities.title': 'Символічні міста',
+    'jewish.content.cities.text': 'Одеса — центр єврейської літератури, гумору та сіоністської думки; Бердичів — комерційне серце Волині у XIX столітті; Дніпро — дім "Менори", найбільшого єврейського центру в Європі.',
+    
+    'jewish.content.emigration.title': 'Еміграція та сучасні часи',
+    'jewish.content.emigration.text': 'З кінця XIX століття сотні тисяч євреїв з України емігрували до Палестини, а після створення Ізраїлю — до своєї нової батьківщини. У 1990-х роках понад півмільйона євреїв та їхніх родин з України переїхали до Ізраїлю, що стало однією з найбільших міграцій в сучасній історії країни.',
+    
+    'jewish.content.hollywood.title': 'З України до Голлівуду',
+    'jewish.content.hollywood.text': 'Десятки — можливо, сотні — кінорежисерів мають коріння в Україні: Дастін Хоффман, Кірк Дуглас, Стівен Спілберг, династія Майєр (MGM) та багато інших.',
+    
+    'jewish.content.visit.title': 'Чому варто відвідати',
+    'jewish.content.visit.text1': 'Подорож єврейськими місцями України — це рідкісна можливість поєднати духовне паломництво, культурні відкриття та кулінарні насолоди.',
+    'jewish.content.visit.text2': 'Тут ви знайдете вулиці штетлів, історичні синагоги, батьківщину хасидизму (Меджибіж, Умань, Белз, Гадяч) та місця трагедії (Бабин Яр, концтабір Янів).',
+    'jewish.content.visit.text3': 'Єврейський гумор Одеси, кухню — гефілте фіш, цимес, чолнт, книш, бейгли, мацу, штрудель, форшмак.',
+    'jewish.content.visit.text4': 'І — можливість, слідуючи традиції, тихо попросити благословення біля могил духовних лідерів — за здоров\'я близьких, успіх у справах чи спокій у серці.',
+    
+    // Additional translations for remaining English text
+    'jewish.content.dynasties.title': 'Основні хасидські династії, засновані в Україні',
+    'jewish.content.places.title': 'Топ-10 місць єврейської спадщини',
+    'jewish.content.image.uman': 'Умань - Головний центр єврейського паломництва у Східній Європі',
+    'jewish.content.image.sharhorod': 'Синагога в Шаргороді (1589) - Одна з найстаріших діючих синагог у Європі',
+    'jewish.content.image.heritage1': 'Історичне місце єврейської спадщини',
+    'jewish.content.image.heritage2': 'Збережена єврейська архітектура',
+    'jewish.content.image.preservation': 'Збереження єврейської спадщини для майбутніх поколінь',
+    'jewish.content.cta.journey': 'Спланувати подорож',
+    'jewish.content.cta.insurance': 'Оформити страховку',
+
+    // Missing Jewish content translations
+    'jewish.content.shtetls.title': 'Штетли: єврейські містечка',
+    'jewish.content.shtetls.text1': 'Штетли — це невеликі єврейські містечка, які були серцем єврейського життя в Україні протягом століть. Ці громади процвітали завдяки торгівлі, ремеслам та глибокій релігійній традиції.',
+    'jewish.content.shtetls.text2': 'У штетлах народилися видатні рабини, письменники, музиканти та мислителі, які вплинули на світову культуру. Тут зберігалися давні традиції та створювалися нові форми єврейського мистецтва.',
+
+    'jewish.content.tragedy.title': 'Трагічні сторінки історії',
+    'jewish.content.tragedy.text1': 'XX століття принесло жахливі випробування для єврейських громад України. Погроми, війни та Голокост знищили тисячі років культурної спадщини.',
+    'jewish.content.tragedy.text2': 'Пам\'ять про ці трагедії зберігається в меморіалах, музеях та пам\'ятниках, нагадуючи про важливість толерантності та людяності.',
+
+    'jewish.content.places.uman.title': 'Умань (Черкаська область)',
+    'jewish.content.places.uman.description': 'Центр хасидського паломництва, могила рабі Нахмана з Брацлава. Щороку тисячі паломників приїжджають сюди на Рош ха-Шана.',
+
+    'jewish.content.places.lviv.title': 'Львів (Львівська область)',
+    'jewish.content.places.lviv.description': 'Історичний єврейський квартал, синагоги та музеї. Центр єврейської культури Західної України з багатою історією.',
+
+    'jewish.content.places.kyiv.title': 'Київ',
+    'jewish.content.places.kyiv.description': 'Бабин Яр, Подільська синагога, музеї та культурні центри. Столиця з тисячолітньою історією єврейського життя.',
+
+    'jewish.content.places.odesa.title': 'Одеса (Одеська область)',
+    'jewish.content.places.odesa.description': 'Батьківщина єврейського гумору, видатні письменники та музиканти. Портове місто з унікальною єврейською культурою.',
+
+    // Additional missing translations - Ukrainian
+    'jewish.content.khazars.title': 'Спадщина хозарів',
+    'jewish.content.khazars.text1': 'Історія євреїв в Україні налічує понад тисячу років. Найперші письмові згадки про Київ з\'являються в єврейських текстах X століття, збережених з епохи Хозарського каганату.',
+    'jewish.content.khazars.text2': 'Хозари, чия правляча еліта прийняла іудаїзм, контролювали стратегічні торгові шляхи між Сходом і Заходом. У їхніх містах жили єврейські купці, ремісники та вчені, які заклали основу для століть єврейського життя в Україні.',
+
+    'jewish.content.hasidism.title': 'Народження хасидизму',
+    'jewish.content.hasidism.text1': 'Україна стала батьківщиною хасидизму — містичного єврейського руху, який революціонізував єврейську духовність. Заснований Баал Шем Товом у XVIII столітті, цей рух підкреслював радість, молитву та безпосередній зв\'язок з божественним.',
+    'jewish.content.hasidism.text2': 'Основні хасидські династії, такі як Брацлав, Хабад, Белз та Садагора, виникли в українських містах, створивши духовні центри, які приваблювали послідовників з усієї Східної Європи і продовжують впливати на єврейське життя в усьому світі.',
     
     // City Pages - Categories
     'cities.categories.unesco': 'Об\'єкт ЮНЕСКО',
