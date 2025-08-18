@@ -1,0 +1,24 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Щит -->
+  <path d="M20 2L6 12V28L20 38L34 28V12L20 2Z" fill="#005BBB"/>
+  
+  <!-- Тризуб -->
+  <!-- Центральный зубец -->
+  <path d="M18 8H22V12H18V8Z" fill="#FFD700"/>
+  <path d="M18 16H22V20H18V16Z" fill="#FFD700"/>
+  <path d="M18 24H22V28H18V24Z" fill="#FFD700"/>
+  
+  <!-- Левый зубец -->
+  <path d="M14 12H18V16H14V12Z" fill="#FFD700"/>
+  <path d="M12 16H16V20H12V16Z" fill="#FFD700"/>
+  <path d="M14 20H18V24H14V20Z" fill="#FFD700"/>
+  
+  <!-- Правый зубец -->
+  <path d="M22 12H26V16H22V12Z" fill="#FFD700"/>
+  <path d="M24 16H28V20H24V16Z" fill="#FFD700"/>
+  <path d="M22 20H26V24H22V20Z" fill="#FFD700"/>
+  
+  <!-- Основание -->
+  <path d="M16 28H24V32H16V28Z" fill="#FFD700"/>
+</svg>
+

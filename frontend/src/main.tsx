@@ -19,11 +19,12 @@ import HiddenGems from '@/pages/HiddenGems'
 import UnescoSites from '@/pages/UnescoSites'
 import ByRegions from '@/pages/ByRegions'
 import JewishUkraine from '@/pages/JewishUkraine'
+import NewsArticle from '@/pages/NewsArticle'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <I18nProvider>
-      <BrowserRouter basename="/open-ukraine-travel">
+      <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/open-ukraine-travel' : '/'}>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -40,6 +41,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/cities/carpathians" element={<Carpathians />} />
             <Route path="/cities/chernobyl" element={<Chernobyl />} />
             <Route path="/cities/chernivtsi" element={<Chernivtsi />} />
+            <Route path="/news/:slug" element={<NewsArticle />} />
             <Route path="/entry" element={<div className="p-6">Entry Requirements – placeholder</div>} />
             <Route path="/insurance" element={<div className="p-6">Insurance – placeholder</div>} />
             <Route path="/hotels" element={<div className="p-6">Hotels – placeholder</div>} />

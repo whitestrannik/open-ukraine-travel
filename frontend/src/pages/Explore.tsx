@@ -80,31 +80,7 @@ export default function Explore() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         
-        {/* Hero Content */}
-        <div className="relative z-20 text-center text-white px-4 max-w-5xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
-            {t('explore.hero.title')}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-3xl mx-auto drop-shadow-lg">
-            {t('explore.hero.subtitle')}
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/explore/destinations" 
-              className="inline-flex items-center bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              {t('explore.hero.cta.destinations')} →
-            </Link>
-            <Link 
-              to="/explore/essential" 
-              className="inline-flex items-center bg-white/10 hover:bg-white/20 backdrop-blur text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 border border-white/20"
-            >
-              {t('explore.hero.cta.essential')} →
-            </Link>
-          </div>
-        </div>
+        {/* Hero text and buttons removed as requested */}
       </section>
 
       {/* Quick Stats */}

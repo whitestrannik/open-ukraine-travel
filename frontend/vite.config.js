@@ -14,8 +14,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // GitHub Pages base URL - this should prefix ALL assets
-  base: '/open-ukraine-travel/',
+  // Base URL - use relative path for local development, absolute for production
+  base: process.env.NODE_ENV === 'production' ? '/open-ukraine-travel/' : '/',
   build: {
     outDir: 'dist',
     sourcemap: true,

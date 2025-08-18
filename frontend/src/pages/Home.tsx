@@ -1,444 +1,457 @@
 import { useI18n } from '@/state/i18n'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Home() {
   const { t } = useI18n()
+  const [bookingData, setBookingData] = useState({
+    checkInDay: '',
+    checkInMonth: '',
+    checkInYear: '',
+    checkOutDay: '',
+    checkOutMonth: '',
+    checkOutYear: '',
+    city: '',
+    guests: '2'
+  })
+
+  const handleInputChange = (field: string, value: string) => {
+    setBookingData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
+
+  const handleBookingSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log('Booking data:', bookingData)
+    window.location.href = '/hotels'
+  }
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <video 
           autoPlay 
           muted 
           loop 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={`${import.meta.env.BASE_URL}media/12064535-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
-          <source src={`${import.meta.env.BASE_URL}media/12080908-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        
-        {/* Hero Content */}
-        <div className="relative z-20 text-center text-white px-4 max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
-            {t('home.hero.title')}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-2xl mx-auto drop-shadow-lg">
-            {t('home.hero.subtitle')}
-          </p>
+        {/* News Content Overlay - Bottom Left */}
+        <div className="absolute bottom-20 left-6 z-20 max-w-sm">
+          <h1 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Latest News</h1>
           
-          {/* Primary CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/explore" 
-              className="bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              {t('home.hero.cta.explore')}
+          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-md overflow-hidden">
+            {/* Main News Item */}
+            <Link to="/news/tourism-recovery-program" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2 border-b border-gray-200/30 bg-gray-50/50">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-[#22242A] flex-1 pr-2">
+                    Ukraine Tourism Recovery Program Launched
+                  </h3>
+                  <div className="text-xs text-[#1F5FA0] font-bold">Jan 22</div>
+                </div>
+              </div>
             </Link>
-            <Link 
-              to="/insurance" 
-              className="bg-[#1F5FA0] hover:bg-[#1F5FA0]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              {t('home.hero.cta.insurance')}
+
+            {/* News Item 1 */}
+            <Link to="/news/new-tourist-routes" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2 border-b border-gray-200/20">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-[#22242A] flex-1 pr-2">
+                    New Tourist Routes Open in Western Ukraine
+                  </h3>
+                  <div className="text-xs text-[#4E7B53] font-medium">Jan 20</div>
+                </div>
+              </div>
+            </Link>
+
+            {/* News Item 2 */}
+            <Link to="/news/safety-updates" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2 border-b border-gray-200/20">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-[#22242A] flex-1 pr-2">
+                    Safety Updates for Travelers
+                  </h3>
+                  <div className="text-xs text-[#D89B5A] font-medium">Jan 18</div>
+                </div>
+              </div>
+            </Link>
+
+            {/* News Item 3 */}
+            <Link to="/news/cultural-events" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-[#22242A] flex-1 pr-2">
+                    Cultural Events This Month
+                  </h3>
+                  <div className="text-xs text-[#6A5B8C] font-medium">Jan 15</div>
+                </div>
+              </div>
             </Link>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Actions Bar */}
-      <section className="py-16 bg-[#F6F6F8]">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#22242A]">
-            {t('home.quickActions.title')}
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Insurance Card */}
-            <Link to="/insurance" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-[#1F5FA0] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Insurance Block Overlay - Bottom Right (Above Hotel Booking) */}
+        <div className="absolute top-2 right-6 z-30 w-52">
+          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden">
+            <div className="p-3">
+              <div className="flex items-center mb-2">
+                <svg className="w-5 h-5 text-[#1F5FA0] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
+                <h2 className="text-sm font-bold text-[#22242A]">Travel Insurance</h2>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-[#22242A]">{t('home.quickActions.insurance.title')}</h3>
-              <p className="text-[#B0B3BA] text-sm">{t('home.quickActions.insurance.description')}</p>
-            </Link>
+              
+              <div className="space-y-2 mb-3">
+                <div className="flex items-center text-xs text-[#B0B3BA]">
+                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Medical coverage
+                </div>
+                <div className="flex items-center text-xs text-[#B0B3BA]">
+                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Trip cancellation
+                </div>
+              </div>
 
-            {/* Hotels Card */}
-            <Link to="/hotels" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-[#D89B5A] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <Link 
+                to="/insurance" 
+                className="block w-full bg-[#4E7B53] hover:bg-[#4E7B53]/90 text-white text-center py-2 rounded-lg text-xs font-semibold transition-all duration-300 transform hover:scale-105"
+              >
+                Get Insured
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Booking Block Overlay - Bottom Right */}
+        <div className="absolute top-38 right-6 z-20 w-52">
+          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden">
+            <div className="p-4">
+              <div className="flex items-center mb-2">
+                <svg className="w-6 h-6 text-[#1F5FA0] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
+                <h2 className="text-lg font-bold text-[#22242A]">{t('bookYourStay')}</h2>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-[#22242A]">{t('home.quickActions.hotels.title')}</h3>
-              <p className="text-[#B0B3BA] text-sm">{t('home.quickActions.hotels.description')}</p>
-            </Link>
+              
+              <form onSubmit={handleBookingSubmit} className="space-y-3">
+                {/* City Selection */}
+                <div>
+                  <label className="block text-xs font-medium text-[#22242A] mb-1">{t('destination')}</label>
+                  <select 
+                    value={bookingData.city}
+                    onChange={(e) => handleInputChange('city', e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                    required
+                  >
+                    <option value="">{t('selectCity')}</option>
+                    <option value="kyiv">{t('kyiv')}</option>
+                    <option value="lviv">{t('lviv')}</option>
+                    <option value="odesa">{t('odesa')}</option>
+                    <option value="carpathians">{t('carpathians')}</option>
+                    <option value="chernivtsi">{t('chernivtsi')}</option>
+                  </select>
+                </div>
 
-            {/* Entry Rules Card */}
-            <Link to="/entry" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-[#4E7B53] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-[#22242A]">{t('home.quickActions.entry.title')}</h3>
-              <p className="text-[#B0B3BA] text-sm">{t('home.quickActions.entry.description')}</p>
-            </Link>
+                {/* Check-in Date */}
+                <div>
+                  <label className="block text-xs font-medium text-[#22242A] mb-1">{t('checkIn')}</label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <select 
+                      value={bookingData.checkInDay}
+                      onChange={(e) => handleInputChange('checkInDay', e.target.value)}
+                      className="px-2 py-2 border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                      required
+                    >
+                      <option value="">{t('day')}</option>
+                      {Array.from({length: 31}, (_, i) => i + 1).map(day => (
+                        <option key={day} value={day}>{day}</option>
+                      ))}
+                    </select>
+                    <select 
+                      value={bookingData.checkInMonth}
+                      onChange={(e) => handleInputChange('checkInMonth', e.target.value)}
+                      className="px-2 py-2 border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                      required
+                    >
+                      <option value="">{t('month')}</option>
+                      <option value="1">{t('january')}</option>
+                      <option value="2">{t('february')}</option>
+                      <option value="3">{t('march')}</option>
+                      <option value="4">{t('april')}</option>
+                      <option value="5">{t('may')}</option>
+                      <option value="6">{t('june')}</option>
+                      <option value="7">{t('july')}</option>
+                      <option value="8">{t('august')}</option>
+                      <option value="9">{t('september')}</option>
+                      <option value="10">{t('october')}</option>
+                      <option value="11">{t('november')}</option>
+                      <option value="12">{t('december')}</option>
+                    </select>
+                    <select 
+                      value={bookingData.checkInYear}
+                      onChange={(e) => handleInputChange('checkInYear', e.target.value)}
+                      className="px-2 py-2 border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                      required
+                    >
+                      <option value="">{t('year')}</option>
+                      {Array.from({length: 5}, (_, i) => new Date().getFullYear() + i).map(year => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
 
-            {/* Transportation Card */}
-            <Link to="/transportation" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-[#6A5B8C] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                </svg>
+                {/* Check-out Date */}
+                <div>
+                  <label className="block text-xs font-medium text-[#22242A] mb-1">{t('checkOut')}</label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <select 
+                      value={bookingData.checkOutDay}
+                      onChange={(e) => handleInputChange('checkOutDay', e.target.value)}
+                      className="px-2 py-2 border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                      required
+                    >
+                      <option value="">{t('day')}</option>
+                      {Array.from({length: 31}, (_, i) => i + 1).map(day => (
+                        <option key={day} value={day}>{day}</option>
+                      ))}
+                    </select>
+                    <select 
+                      value={bookingData.checkOutMonth}
+                      onChange={(e) => handleInputChange('checkOutMonth', e.target.value)}
+                      className="px-2 py-2 border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                      required
+                    >
+                      <option value="">{t('month')}</option>
+                      <option value="1">{t('january')}</option>
+                      <option value="2">{t('february')}</option>
+                      <option value="3">{t('march')}</option>
+                      <option value="4">{t('april')}</option>
+                      <option value="5">{t('may')}</option>
+                      <option value="6">{t('june')}</option>
+                      <option value="7">{t('july')}</option>
+                      <option value="8">{t('august')}</option>
+                      <option value="9">{t('september')}</option>
+                      <option value="10">{t('october')}</option>
+                      <option value="11">{t('november')}</option>
+                      <option value="12">{t('december')}</option>
+                    </select>
+                    <select 
+                      value={bookingData.checkOutYear}
+                      onChange={(e) => handleInputChange('checkOutYear', e.target.value)}
+                      className="px-2 py-2 border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                      required
+                    >
+                      <option value="">{t('year')}</option>
+                      {Array.from({length: 5}, (_, i) => new Date().getFullYear() + i).map(year => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Number of Guests */}
+                <div>
+                  <label className="block text-xs font-medium text-[#22242A] mb-1">{t('guests')}</label>
+                  <select 
+                    value={bookingData.guests}
+                    onChange={(e) => handleInputChange('guests', e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                  >
+                    <option value="1">1 {t('guest')}</option>
+                    <option value="2">2 {t('guests')}</option>
+                    <option value="3">3 {t('guests')}</option>
+                    <option value="4">4 {t('guests')}</option>
+                    <option value="5">5+ {t('guests')}</option>
+                  </select>
+                </div>
+
+                <button 
+                  type="submit"
+                  className="w-full bg-[#1F5FA0] hover:bg-[#1F5FA0]/90 text-white text-center py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                >
+                  {t('searchHotels')}
+                </button>
+              </form>
+
+              <div className="mt-3 space-y-1">
+                <div className="flex items-center text-xs text-[#B0B3BA]">
+                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {t('bestPriceGuarantee')}
+                </div>
+                <div className="flex items-center text-xs text-[#B0B3BA]">
+                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {t('freeCancellation')}
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-[#22242A]">{t('home.quickActions.transportation.title')}</h3>
-              <p className="text-[#B0B3BA] text-sm">{t('home.quickActions.transportation.description')}</p>
-            </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Destinations Preview */}
+      {/* Quick Stats - Ukraine at a Glance */}
+      <section className="py-16 bg-[#F6F6F8]">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
+              {t('explore.stats.title')}
+            </h2>
+            <p className="text-xl text-[#B0B3BA] max-w-3xl mx-auto">
+              {t('explore.stats.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { key: 'unesco', value: '7', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+              { key: 'regions', value: '24', icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7' },
+              { key: 'cities', value: '460+', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z' },
+              { key: 'history', value: '1000+', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' }
+            ].map((stat) => (
+              <div key={stat.key} className="text-center group">
+                <div className="w-16 h-16 bg-[#1F5FA0] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
+                  </svg>
+                </div>
+                <div className="text-3xl font-bold text-[#1F5FA0] mb-2">{stat.value}</div>
+                <div className="text-[#B0B3BA] font-medium">{t(`explore.stats.${stat.key}`)}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Explore Sections Grid - What Would You Like to Explore? */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
-              {t('home.destinations.title')}
+              {t('explore.sections.title')}
             </h2>
-            <p className="text-xl text-[#B0B3BA] max-w-2xl mx-auto">
-              {t('home.destinations.subtitle')}
+            <p className="text-xl text-[#B0B3BA] max-w-3xl mx-auto">
+              {t('explore.sections.subtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Kyiv */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`} 
-                alt="Kyiv" 
-                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{t('home.destinations.kyiv.title')}</h3>
-                <p className="text-white/90 text-sm mb-4">{t('home.destinations.kyiv.description')}</p>
-                <Link 
-                  to="/explore/destinations" 
-                  className="inline-flex items-center text-[#F5C542] hover:text-[#F5C542]/80 font-semibold"
-                >
-                  {t('home.destinations.explore')} →
-                </Link>
-              </div>
-            </div>
-
-            {/* Lviv */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`} 
-                alt="Lviv" 
-                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{t('home.destinations.lviv.title')}</h3>
-                <p className="text-white/90 text-sm mb-4">{t('home.destinations.lviv.description')}</p>
-                <Link 
-                  to="/explore/destinations" 
-                  className="inline-flex items-center text-[#F5C542] hover:text-[#F5C542]/80 font-semibold"
-                >
-                  {t('home.destinations.explore')} →
-                </Link>
-              </div>
-            </div>
-
-            {/* Carpathians */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`} 
-                alt="Carpathians" 
-                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{t('home.destinations.carpathians.title')}</h3>
-                <p className="text-white/90 text-sm mb-4">{t('home.destinations.carpathians.description')}</p>
-                <Link 
-                  to="/explore/destinations" 
-                  className="inline-flex items-center text-[#F5C542] hover:text-[#F5C542]/80 font-semibold"
-                >
-                  {t('home.destinations.explore')} →
-                </Link>
-              </div>
-            </div>
+            {[
+              {
+                id: 'destinations',
+                route: '/explore/destinations',
+                image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
+                icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+                color: 'bg-[#1F5FA0]',
+                gradient: 'from-[#1F5FA0] to-[#1F5FA0]/80'
+              },
+              {
+                id: 'essential',
+                route: '/explore/essential',
+                image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`,
+                icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+                color: 'bg-[#4E7B53]',
+                gradient: 'from-[#4E7B53] to-[#4E7B53]/80'
+              },
+              {
+                id: 'gems',
+                route: '/explore/gems',
+                image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
+                icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+                color: 'bg-[#6A5B8C]',
+                gradient: 'from-[#6A5B8C] to-[#6A5B8C]/80'
+              },
+              {
+                id: 'unesco',
+                route: '/explore/unesco',
+                image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
+                icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+                color: 'bg-[#D89B5A]',
+                gradient: 'from-[#D89B5A] to-[#D89B5A]/80'
+              },
+              {
+                id: 'regions',
+                route: '/explore/regions',
+                image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
+                icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
+                color: 'bg-[#1F5FA0]',
+                gradient: 'from-[#1F5FA0] to-[#1F5FA0]/80'
+              },
+              {
+                id: 'jewish',
+                route: '/explore/jewish',
+                image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000772.jpg`,
+                icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+                color: 'bg-[#6A5B8C]',
+                gradient: 'from-[#6A5B8C] to-[#6A5B8C]/80'
+              }
+            ].map((section) => (
+              <Link 
+                key={section.id}
+                to={section.route}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              >
+                {/* Background Image */}
+                <div className="relative h-80 overflow-hidden">
+                  <img 
+                    src={section.image} 
+                    alt={t(`explore.sections.${section.id}.title`)}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-t ${section.gradient} opacity-80`}></div>
+                  
+                  {/* Content */}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                    {/* Icon */}
+                    <div className="self-start">
+                      <div className={`w-12 h-12 ${section.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={section.icon} />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Text Content */}
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-2">
+                        {t(`explore.sections.${section.id}.title`)}
+                      </h3>
+                      <p className="text-white/90 text-sm mb-4 line-clamp-3">
+                        {t(`explore.sections.${section.id}.description`)}
+                      </p>
+                      
+                      {/* Arrow */}
+                      <div className="inline-flex items-center text-[#F5C542] hover:text-[#F5C542]/80 font-semibold transition-colors group">
+                        {t('explore.sections.explore')}
+                        <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              to="/explore" 
-              className="inline-flex items-center bg-[#1F5FA0] hover:bg-[#1F5FA0]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              {t('home.destinations.viewAll')} →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Safety & Trust Section */}
-      <section className="py-16 bg-[#F6F6F8]">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
-              {t('home.safety.title')}
-            </h2>
-            <p className="text-xl text-[#B0B3BA] max-w-3xl mx-auto">
-              {t('home.safety.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Government Partnership */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#1F5FA0] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-[#22242A]">{t('home.safety.government.title')}</h3>
-              <p className="text-[#B0B3BA]">{t('home.safety.government.description')}</p>
-            </div>
-
-            {/* Real-time Updates */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#4E7B53] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-[#22242A]">{t('home.safety.updates.title')}</h3>
-              <p className="text-[#B0B3BA]">{t('home.safety.updates.description')}</p>
-            </div>
-
-            {/* Tourist Support */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#D89B5A] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-[#22242A]">{t('home.safety.support.title')}</h3>
-              <p className="text-[#B0B3BA]">{t('home.safety.support.description')}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Categories */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
-              {t('home.experiences.title')}
-            </h2>
-            <p className="text-xl text-[#B0B3BA] max-w-2xl mx-auto">
-              {t('home.experiences.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Cultural Heritage */}
-            <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg`} 
-                alt="Cultural Heritage" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{t('home.experiences.cultural.title')}</h3>
-                <p className="text-white/80 text-sm">{t('home.experiences.cultural.description')}</p>
-              </div>
-            </Link>
-
-            {/* Nature & Parks */}
-            <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`} 
-                alt="Nature & Parks" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{t('home.experiences.nature.title')}</h3>
-                <p className="text-white/80 text-sm">{t('home.experiences.nature.description')}</p>
-              </div>
-            </Link>
-
-            {/* Food & Wine */}
-            <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-mayday-1370306.jpg`} 
-                alt="Food & Wine" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{t('home.experiences.food.title')}</h3>
-                <p className="text-white/80 text-sm">{t('home.experiences.food.description')}</p>
-              </div>
-            </Link>
-
-            {/* Events & Festivals */}
-            <Link to="/explore" className="group relative overflow-hidden rounded-xl h-64 shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-heyho-6143369.jpg`} 
-                alt="Events & Festivals" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{t('home.experiences.events.title')}</h3>
-                <p className="text-white/80 text-sm">{t('home.experiences.events.description')}</p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Latest Updates */}
-      <section className="py-16 bg-[#F6F6F8]">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
-              {t('home.updates.title')}
-            </h2>
-            <p className="text-xl text-[#B0B3BA] max-w-2xl mx-auto">
-              {t('home.updates.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Update 1 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`} 
-                alt="Travel Update" 
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <div className="text-sm text-[#1F5FA0] font-medium mb-2">January 15, 2025</div>
-                <h3 className="text-xl font-semibold mb-3 text-[#22242A]">
-                  {t('home.updates.news1.title')}
-                </h3>
-                <p className="text-[#B0B3BA] text-sm mb-4">
-                  {t('home.updates.news1.description')}
-                </p>
-                <a href="#" className="inline-flex items-center text-[#1F5FA0] hover:text-[#1F5FA0]/80 font-medium">
-                  {t('home.updates.readMore')} →
-                </a>
-              </div>
-            </div>
-
-            {/* Update 2 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`} 
-                alt="Safety Update" 
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <div className="text-sm text-[#4E7B53] font-medium mb-2">January 10, 2025</div>
-                <h3 className="text-xl font-semibold mb-3 text-[#22242A]">
-                  {t('home.updates.news2.title')}
-                </h3>
-                <p className="text-[#B0B3BA] text-sm mb-4">
-                  {t('home.updates.news2.description')}
-                </p>
-                <a href="#" className="inline-flex items-center text-[#1F5FA0] hover:text-[#1F5FA0]/80 font-medium">
-                  {t('home.updates.readMore')} →
-                </a>
-              </div>
-            </div>
-
-            {/* Update 3 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <img 
-                src={`${import.meta.env.BASE_URL}media/pexels-stepkoanna-33337362.jpg`} 
-                alt="Tourism Update" 
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <div className="text-sm text-[#D89B5A] font-medium mb-2">January 5, 2025</div>
-                <h3 className="text-xl font-semibold mb-3 text-[#22242A]">
-                  {t('home.updates.news3.title')}
-                </h3>
-                <p className="text-[#B0B3BA] text-sm mb-4">
-                  {t('home.updates.news3.description')}
-                </p>
-                <a href="#" className="inline-flex items-center text-[#1F5FA0] hover:text-[#1F5FA0]/80 font-medium">
-                  {t('home.updates.readMore')} →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              to="/blog" 
-              className="inline-flex items-center bg-[#22242A] hover:bg-[#22242A]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
-            >
-              {t('home.updates.viewAll')} →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Insurance Highlight */}
-      <section className="py-16 bg-gradient-to-r from-[#1F5FA0] to-[#1F5FA0]/90">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">
-            {t('home.insurance.title')}
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {t('home.insurance.subtitle')}
-          </p>
-          
-          <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold text-[#F5C542] mb-2">€50k+</div>
-                <div className="text-sm opacity-80">{t('home.insurance.coverage')}</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#F5C542] mb-2">24/7</div>
-                <div className="text-sm opacity-80">{t('home.insurance.support')}</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#F5C542] mb-2">€15</div>
-                <div className="text-sm opacity-80">{t('home.insurance.price')}</div>
-              </div>
-            </div>
-          </div>
-
-          <Link 
-            to="/insurance" 
-            className="inline-flex items-center bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-          >
-            {t('home.insurance.cta')} →
-          </Link>
         </div>
       </section>
     </div>

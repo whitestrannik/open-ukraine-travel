@@ -15,9 +15,9 @@
     "travel-guide"
   ],
   "scripts": {
-    "dev": "pnpm -r --parallel run dev",
-    "build": "pnpm -r run build",
-    "lint": "pnpm -r run lint",
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "lint": "cd frontend && npm run lint",
     "format": "prettier -w ."
   },
   "devDependencies": {

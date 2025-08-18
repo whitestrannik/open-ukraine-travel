@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
-type Language = 'en' | 'uk'
+type Language = 'en' | 'uk' | 'de' | 'fr' | 'es' | 'it' | 'pl' | 'ru' | 'he' | 'tr' | 'kk' | 'ar'
 
 type I18nContextValue = {
   lang: Language
@@ -12,12 +12,12 @@ const I18nContext = createContext<I18nContextValue | null>(null)
 
 const dictionaries: Record<Language, Record<string, string>> = {
   en: {
-    'nav.explore': 'Explore',
-    'nav.entry': 'Entry',
-    'nav.insurance': 'Insurance',
-    'nav.hotels': 'Hotels',
+    'nav.explore': 'Explore Ukraine',
+    'nav.entry': 'Entry Rules',
+    'nav.insurance': 'Travel Insurance',
+    'nav.hotels': 'Find Hotels',
     'nav.transportation': 'Transportation',
-    'nav.mice': 'MICE',
+    'nav.mice': 'MICE Travel',
     'explore.title': 'Explore Ukraine',
     
     // Home Page
@@ -90,6 +90,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'home.insurance.support': 'Emergency Support',
     'home.insurance.price': 'Starting from',
     'home.insurance.cta': 'Get Insured Now',
+    'home.insurance.cta.button': 'Get Insured',
     
     // Navigation
     'nav.home': 'Home',
@@ -106,6 +107,21 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'explore.nav.unesco': 'UNESCO Sites',
     'explore.nav.regions': 'By Regions',
     'explore.nav.jewish': 'Jewish Ukraine',
+    
+    // Footer translations
+    'footer.b2b': 'B2B Services',
+    'footer.emergencyContacts': 'Emergency Contacts',
+    'footer.eventsActivities': 'Events & Activities',
+    'footer.faqsHelp': 'FAQs & Help Desk',
+    'footer.newsUpdates': 'News & Updates',
+    'footer.governmentAddresses': 'Useful Governmental Address Book',
+    'footer.touristHotline': 'Tourist Hotline',
+    'footer.emergencyServices': 'Emergency Services',
+    'footer.embassySupport': 'Embassy Support',
+    'footer.ministryOfTourism': 'Ministry of Tourism',
+    'footer.borderGuardService': 'Border Guard Service',
+    'footer.consularServices': 'Consular Services',
+    'footer.safetyUpdates': 'Safety Updates',
     
     'destinations.grid.title': 'Must-Visit Destinations',
     'destinations.grid.subtitle': 'From historic capitals to pristine mountains, each destination offers unique experiences and unforgettable memories',
@@ -1358,14 +1374,62 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'cities.kyiv.cta.subtitle': 'Book your accommodation and get travel insurance for a worry-free visit',
     'cities.kyiv.cta.hotels': 'Find Hotels in Kyiv',
     'cities.kyiv.cta.insurance': 'Get Travel Insurance',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Book Your Stay',
+    'destination': 'Destination',
+    'selectCity': 'Select a city',
+    'kyiv': 'Kyiv',
+    'lviv': 'Lviv',
+    'odesa': 'Odesa',
+    'carpathians': 'Carpathians',
+    'chernivtsi': 'Chernivtsi',
+    'checkIn': 'Check-in',
+    'checkOut': 'Check-out',
+    'guests': 'Guests',
+    'guest': 'Guest',
+    'searchHotels': 'Search Hotels',
+    'bestPriceGuarantee': 'Best price guarantee',
+    'freeCancellation': 'Free cancellation',
+    
+    // Date translations
+    'day': 'Day',
+    'month': 'Month',
+    'year': 'Year',
+    'january': 'January',
+    'february': 'February',
+    'march': 'March',
+    'april': 'April',
+    'may': 'May',
+    'june': 'June',
+    'july': 'July',
+    'august': 'August',
+    'september': 'September',
+    'october': 'October',
+    'november': 'November',
+    'december': 'December',
   },
   uk: {
-    'nav.explore': 'Досліджуй',
-    'nav.entry': "В'їзд",
-    'nav.insurance': 'Страхування',
-    'nav.hotels': 'Готелі',
+    // Footer translations - Ukrainian
+    'footer.b2b': 'B2B послуги',
+    'footer.emergencyContacts': 'Екстрені контакти',
+    'footer.eventsActivities': 'Події та активності',
+    'footer.faqsHelp': 'Часті питання та довідка',
+    'footer.newsUpdates': 'Новини та оновлення',
+    'footer.governmentAddresses': 'Корисна адресна книга уряду',
+    'footer.touristHotline': 'Туристична гаряча лінія',
+    'footer.emergencyServices': 'Екстрені служби',
+    'footer.embassySupport': 'Підтримка посольства',
+    'footer.ministryOfTourism': 'Міністерство туризму',
+    'footer.borderGuardService': 'Прикордонна служба',
+    'footer.consularServices': 'Консульські послуги',
+    'footer.safetyUpdates': 'Оновлення безпеки',
+    'nav.explore': 'Досліджуй Україну',
+    'nav.entry': "Правила в'їзду",
+    'nav.insurance': 'Туристичне страхування',
+    'nav.hotels': 'Знайти готелі',
     'nav.transportation': 'Транспорт',
-    'nav.mice': 'MICE',
+    'nav.mice': 'MICE подорожі',
     'explore.title': 'Відкрий Україну',
     
     // Home Page
@@ -1438,6 +1502,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'home.insurance.support': 'Екстрена підтримка',
     'home.insurance.price': 'Від',
     'home.insurance.cta': 'Оформити страховку',
+    'home.insurance.cta.button': 'Оформити страховку',
     
     // Navigation
     'nav.home': 'Головна',
@@ -1800,7 +1865,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'cities.kyiv.history.modern.title': 'Столиця незалежної України',
     'cities.kyiv.history.modern.description': 'З часу незалежності України Київ процвітає як європейська столиця, приймаючи історичні події як Помаранчева революція та Революція гідності, закріплюючи свою роль як маяк демократії.',
     
-    'cities.kyiv.districts.title': 'Досліджуйте райони Києва',
+    'cities.kyiv.districts.title': 'Досліджуйте басейни Києва',
     'cities.kyiv.districts.subtitle': 'Кожен район пропонує унікальний характер, пам\'ятки та враження',
     
     'cities.kyiv.districts.podil.name': 'Подільський район',
@@ -1844,17 +1909,342 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'cities.kyiv.cta.subtitle': 'Забронюйте житло та оформіть туристичну страховку для безтурботного візиту',
     'cities.kyiv.cta.hotels': 'Знайти готелі в Києві',
     'cities.kyiv.cta.insurance': 'Оформити страховку',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Забронювати проживання',
+    'destination': 'Напрямок',
+    'selectCity': 'Оберіть місто',
+    'kyiv': 'Київ',
+    'lviv': 'Львів',
+    'odesa': 'Одеса',
+    'carpathians': 'Карпати',
+    'chernivtsi': 'Чернівці',
+    'checkIn': 'Заїзд',
+    'checkOut': 'Виїзд',
+    'guests': 'Гості',
+    'guest': 'Гість',
+    'searchHotels': 'Пошук готелів',
+    'bestPriceGuarantee': 'Гарантія найкращої ціни',
+    'freeCancellation': 'Безкоштовна скасування',
+    
+    // Date translations
+    'day': 'День',
+    'month': 'Місяць',
+    'year': 'Рік',
+    'january': 'Січень',
+    'february': 'Лютий',
+    'march': 'Березень',
+    'april': 'Квітень',
+    'may': 'Травень',
+    'june': 'Червень',
+    'july': 'Липень',
+    'august': 'Серпень',
+    'september': 'Вересень',
+    'october': 'Жовтень',
+    'november': 'Листопад',
+    'december': 'Грудень',
+  },
+  de: {
+    // Navigation
+    'nav.explore': 'Ukraine erkunden',
+    'nav.entry': 'Einreisebestimmungen',
+    'nav.insurance': 'Reiseversicherung',
+    'nav.hotels': 'Hotels finden',
+    'nav.transportation': 'Transport',
+    'nav.mice': 'MICE-Reisen',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Unterkunft buchen',
+    'destination': 'Reiseziel',
+    'selectCity': 'Stadt auswählen',
+    'kyiv': 'Kiew',
+    'lviv': 'Lwiw',
+    'odesa': 'Odessa',
+    'carpathians': 'Karpaten',
+    'chernivtsi': 'Czernowitz',
+    'checkIn': 'Check-in',
+    'checkOut': 'Check-out',
+    'guests': 'Gäste',
+    'guest': 'Gast',
+    'searchHotels': 'Hotels suchen',
+    'bestPriceGuarantee': 'Beste Preisgarantie',
+    'freeCancellation': 'Kostenlose Stornierung',
+    
+    // Date translations
+    'day': 'Tag',
+    'month': 'Monat',
+    'year': 'Jahr',
+    'january': 'Januar',
+    'february': 'Februar',
+    'march': 'März',
+    'april': 'April',
+    'may': 'Mai',
+    'june': 'Juni',
+    'july': 'Juli',
+    'august': 'August',
+    'september': 'September',
+    'october': 'Oktober',
+    'november': 'November',
+    'december': 'Dezember',
+  },
+  fr: {
+    // Navigation
+    'nav.explore': 'Explorer l\'Ukraine',
+    'nav.entry': 'Règles d\'entrée',
+    'nav.insurance': 'Assurance voyage',
+    'nav.hotels': 'Trouver des hôtels',
+    'nav.transportation': 'Transport',
+    'nav.mice': 'Voyages MICE',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Réserver votre séjour',
+    'destination': 'Destination',
+    'selectCity': 'Sélectionner une ville',
+    'kyiv': 'Kiev',
+    'lviv': 'Lviv',
+    'odesa': 'Odessa',
+    'carpathians': 'Carpates',
+    'chernivtsi': 'Tchernivtsi',
+    'checkIn': 'Arrivée',
+    'checkOut': 'Départ',
+    'guests': 'Voyageurs',
+    'guest': 'Voyageur',
+    'searchHotels': 'Rechercher des hôtels',
+    'bestPriceGuarantee': 'Garantie du meilleur prix',
+    'freeCancellation': 'Annulation gratuite',
+  },
+  es: {
+    // Navigation
+    'nav.explore': 'Explorar Ucrania',
+    'nav.entry': 'Reglas de entrada',
+    'nav.insurance': 'Seguro de viaje',
+    'nav.hotels': 'Encontrar hoteles',
+    'nav.transportation': 'Transporte',
+    'nav.mice': 'Viajes MICE',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Reserva tu estancia',
+    'destination': 'Destino',
+    'selectCity': 'Seleccionar ciudad',
+    'kyiv': 'Kiev',
+    'lviv': 'Leópolis',
+    'odesa': 'Odesa',
+    'carpathians': 'Cárpatos',
+    'chernivtsi': 'Chernivtsi',
+    'checkIn': 'Llegada',
+    'checkOut': 'Salida',
+    'guests': 'Huéspedes',
+    'guest': 'Huésped',
+    'searchHotels': 'Buscar hoteles',
+    'bestPriceGuarantee': 'Garantía del mejor precio',
+    'freeCancellation': 'Cancelación gratuita',
+  },
+  it: {
+    // Navigation
+    'nav.explore': 'Esplora l\'Ucraina',
+    'nav.entry': 'Regole di ingresso',
+    'nav.insurance': 'Assicurazione di viaggio',
+    'nav.hotels': 'Trova hotel',
+    'nav.transportation': 'Trasporto',
+    'nav.mice': 'Viaggi MICE',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Prenota il tuo soggiorno',
+    'destination': 'Destinazione',
+    'selectCity': 'Seleziona città',
+    'kyiv': 'Kiev',
+    'lviv': 'Leopoli',
+    'odesa': 'Odessa',
+    'carpathians': 'Carpazi',
+    'chernivtsi': 'Cernivci',
+    'checkIn': 'Check-in',
+    'checkOut': 'Check-out',
+    'guests': 'Ospiti',
+    'guest': 'Ospite',
+    'searchHotels': 'Cerca hotel',
+    'bestPriceGuarantee': 'Garanzia del miglior prezzo',
+    'freeCancellation': 'Cancellazione gratuita',
+  },
+  pl: {
+    // Navigation
+    'nav.explore': 'Odkryj Ukrainę',
+    'nav.entry': 'Zasady wjazdu',
+    'nav.insurance': 'Ubezpieczenie podróżne',
+    'nav.hotels': 'Znajdź hotele',
+    'nav.transportation': 'Transport',
+    'nav.mice': 'Podróże MICE',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Zarezerwuj pobyt',
+    'destination': 'Destynacja',
+    'selectCity': 'Wybierz miasto',
+    'kyiv': 'Kijów',
+    'lviv': 'Lwów',
+    'odesa': 'Odessa',
+    'carpathians': 'Karpaty',
+    'chernivtsi': 'Czerniowce',
+    'checkIn': 'Zameldowanie',
+    'checkOut': 'Wymeldowanie',
+    'guests': 'Goście',
+    'guest': 'Gość',
+    'searchHotels': 'Szukaj hoteli',
+    'bestPriceGuarantee': 'Gwarancja najlepszej ceny',
+    'freeCancellation': 'Bezpłatna anulacja',
+  },
+  ru: {
+    // Navigation
+    'nav.explore': 'Исследуй Украину',
+    'nav.entry': 'Правила въезда',
+    'nav.insurance': 'Страхование путешествий',
+    'nav.hotels': 'Найти отели',
+    'nav.transportation': 'Транспорт',
+    'nav.mice': 'MICE путешествия',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Забронировать проживание',
+    'destination': 'Направление',
+    'selectCity': 'Выберите город',
+    'kyiv': 'Киев',
+    'lviv': 'Львов',
+    'odesa': 'Одесса',
+    'carpathians': 'Карпаты',
+    'chernivtsi': 'Черновцы',
+    'checkIn': 'Заезд',
+    'checkOut': 'Выезд',
+    'guests': 'Гости',
+    'guest': 'Гость',
+    'searchHotels': 'Поиск отелей',
+    'bestPriceGuarantee': 'Гарантия лучшей цены',
+    'freeCancellation': 'Бесплатная отмена',
+  },
+  tr: {
+    // Navigation
+    'nav.explore': 'Ukrayna\'yı keşfet',
+    'nav.entry': 'Giriş kuralları',
+    'nav.insurance': 'Seyahat sigortası',
+    'nav.hotels': 'Otel bul',
+    'nav.transportation': 'Ulaşım',
+    'nav.mice': 'MICE seyahatleri',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Konaklamayı rezerve et',
+    'destination': 'Hedef',
+    'selectCity': 'Şehir seç',
+    'kyiv': 'Kiev',
+    'lviv': 'Lviv',
+    'odesa': 'Odessa',
+    'carpathians': 'Karpatlar',
+    'chernivtsi': 'Çernivtsi',
+    'checkIn': 'Giriş',
+    'checkOut': 'Çıkış',
+    'guests': 'Misafirler',
+    'guest': 'Misafir',
+    'searchHotels': 'Otel ara',
+    'bestPriceGuarantee': 'En iyi fiyat garantisi',
+    'freeCancellation': 'Ücretsiz iptal',
+  },
+  kk: {
+    // Navigation
+    'nav.explore': 'Украинаны зертте',
+    'nav.entry': 'Кіру ережелері',
+    'nav.insurance': 'Саяхат сақтандыруы',
+    'nav.hotels': 'Қонақ үйлерді тап',
+    'nav.transportation': 'Көлік',
+    'nav.mice': 'MICE саяхаттары',
+    
+    // Booking Block Translations
+    'bookYourStay': 'Тұрақты брондау',
+    'destination': 'Бағыт',
+    'selectCity': 'Қала таңдаңыз',
+    'kyiv': 'Киев',
+    'lviv': 'Львов',
+    'odesa': 'Одесса',
+    'carpathians': 'Карпаттар',
+    'chernivtsi': 'Черновцы',
+    'checkIn': 'Кіру',
+    'checkOut': 'Шығу',
+    'guests': 'Қонақтар',
+    'guest': 'Қонақ',
+    'searchHotels': 'Қонақ үйлерді іздеу',
+    'bestPriceGuarantee': 'Ең жақсы баға кепілі',
+    'freeCancellation': 'Тегін бас тарту',
+  },
+  ar: {
+    // Navigation
+    'nav.explore': 'استكشف أوكرانيا',
+    'nav.entry': 'قواعد الدخول',
+    'nav.insurance': 'تأمين السفر',
+    'nav.hotels': 'ابحث عن الفنادق',
+    'nav.transportation': 'النقل',
+    'nav.mice': 'رحلات MICE',
+    
+    // Booking Block Translations
+    'bookYourStay': 'احجز إقامتك',
+    'destination': 'الوجهة',
+    'selectCity': 'اختر المدينة',
+    'kyiv': 'كييف',
+    'lviv': 'لفيف',
+    'odesa': 'أوديسا',
+    'carpathians': 'الكاربات',
+    'chernivtsi': 'تشيرنوفتسي',
+    'checkIn': 'تسجيل الوصول',
+    'checkOut': 'تسجيل المغادرة',
+    'guests': 'الضيوف',
+    'guest': 'الضيف',
+    'searchHotels': 'البحث عن الفنادق',
+    'bestPriceGuarantee': 'ضمان أفضل سعر',
+    'freeCancellation': 'إلغاء مجاني',
+  },
+  he: {
+    // Navigation
+    'nav.explore': 'גלה את אוקראינה',
+    'nav.entry': 'כללי כניסה',
+    'nav.insurance': 'ביטוח נסיעות',
+    'nav.hotels': 'מצא מלונות',
+    'nav.transportation': 'תחבורה',
+    'nav.mice': 'נסיעות MICE',
+    
+    // Booking Block Translations
+    'bookYourStay': 'הזמן את שהותך',
+    'destination': 'יעד',
+    'selectCity': 'בחר עיר',
+    'kyiv': 'קייב',
+    'lviv': 'לבוב',
+    'odesa': 'אודסה',
+    'carpathians': 'הרי הקרפטים',
+    'chernivtsi': 'צ\'רנוביץ',
+    'checkIn': 'צ\'ק-אין',
+    'checkOut': 'צ\'ק-אאוט',
+    'guests': 'אורחים',
+    'guest': 'אורח',
+    'searchHotels': 'חפש מלונות',
+    'bestPriceGuarantee': 'הבטחת המחיר הטוב ביותר',
+    'freeCancellation': 'ביטול חינם',
   },
 }
 
 function detectInitialLang(): Language {
   const url = new URL(window.location.href)
   const query = url.searchParams.get('lang')
-  if (query === 'uk') return 'uk'
+  if (query && ['en', 'uk', 'de', 'fr', 'es', 'it', 'pl', 'ru', 'he', 'tr', 'kk', 'ar'].includes(query)) {
+    return query as Language
+  }
   const stored = localStorage.getItem('lang') as Language | null
-  if (stored === 'uk') return 'uk'
+  if (stored && ['en', 'uk', 'de', 'fr', 'es', 'it', 'pl', 'ru', 'he', 'tr', 'kk', 'ar'].includes(stored)) {
+    return stored
+  }
   const browser = navigator.language?.toLowerCase()
   if (browser?.startsWith('uk')) return 'uk'
+  if (browser?.startsWith('de')) return 'de'
+  if (browser?.startsWith('fr')) return 'fr'
+  if (browser?.startsWith('es')) return 'es'
+  if (browser?.startsWith('it')) return 'it'
+  if (browser?.startsWith('pl')) return 'pl'
+  if (browser?.startsWith('ru')) return 'ru'
+  if (browser?.startsWith('he')) return 'he'
+  if (browser?.startsWith('tr')) return 'tr'
+  if (browser?.startsWith('kk')) return 'kk'
+  if (browser?.startsWith('ar')) return 'ar'
   return 'en'
 }
 

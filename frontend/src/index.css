@@ -6,7 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --color-primary: #3b82f6;
   --color-primary-foreground: #ffffff;
 }
@@ -130,7 +130,5 @@
     @apply text-4xl font-bold text-primary border-l-4 border-primary pl-4 mb-4;
   }
   
-  nav a {
-    @apply px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-200;
-  }
+  /* Removed nav a background styles to make navigation transparent */
 }
