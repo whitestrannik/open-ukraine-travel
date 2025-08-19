@@ -37,12 +37,12 @@ export default function EssentialInfo() {
     }
   ]
 
-  const quickFacts = [
-    { id: 'language', icon: '🗣️', color: 'bg-[#1F5FA0]' },
-    { id: 'currency', icon: '💰', color: 'bg-[#4E7B53]' },
-    { id: 'timezone', icon: '🕐', color: 'bg-[#6A5B8C]' },
-    { id: 'emergency', icon: '🚨', color: 'bg-[#D89B5A]' }
-  ]
+           const quickFacts = [
+      { id: 'language', icon: '🗣️', color: 'bg-[#1F5FA0]' },
+      { id: 'currency', icon: '💰', color: 'bg-[#4E7B53]' },
+      { id: 'timezone', icon: '🕐', color: 'bg-[#6A5B8C]' },
+      { id: 'emergency', icon: '🚨', color: 'bg-[#D89B5A]' }
+    ]
 
   return (
     <div className="min-h-screen">
@@ -67,68 +67,102 @@ export default function EssentialInfo() {
         </div>
       </section>
 
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg')` }}
-        ></div>
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-        
-        <div className="relative z-20 text-center text-white px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
-            {t('essential.hero.title')}
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto drop-shadow-lg">
-            {t('essential.hero.subtitle')}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/entry" 
-              className="inline-flex items-center bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              {t('essential.hero.cta.entry')} →
-            </Link>
-            <Link 
-              to="/insurance" 
-              className="inline-flex items-center bg-white/10 hover:bg-white/20 backdrop-blur text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20"
-            >
-              {t('essential.hero.cta.insurance')} →
-            </Link>
-          </div>
-        </div>
-      </section>
+                         {/* Hero Section */}
+       <section className="relative h-screen flex items-center justify-center overflow-hidden">
+                   {/* Video Background */}
+           <video 
+             autoPlay 
+             muted 
+             loop 
+             className="absolute inset-0 w-full h-full object-cover"
+           >
+           <source src={`${import.meta.env.BASE_URL}media/205923.mp4`} type="video/mp4" />
+           Your browser does not support the video tag.
+         </video>
+                  <div className="absolute inset-0 bg-black/50 z-10"></div>
+                  
+                  {/* Quick Facts - Over Video */}
+                  <div className="relative z-20 max-w-6xl mx-auto px-4">
+                                                                                   <div className="text-center mb-7">
+                                                                                                                                                                                         <h2 className="text-4xl font-bold mb-2 text-white drop-shadow-2xl font-['Open Sans']">
+                           {t('essential.facts.title')}
+                         </h2>
+                         <p className="text-xl text-white/95 max-w-3xl mx-auto drop-shadow-lg font-['Open Sans']">
+                           {t('essential.facts.subtitle')}
+                         </p>
+                     </div>
 
-      {/* Quick Facts */}
-      <section className="py-16 bg-[#F6F6F8]">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
-              {t('essential.facts.title')}
-            </h2>
-            <p className="text-xl text-[#B0B3BA] max-w-3xl mx-auto">
-              {t('essential.facts.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {quickFacts.map((fact) => (
-              <div key={fact.id} className="text-center group">
-                <div className={`w-16 h-16 ${fact.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <span className="text-2xl">{fact.icon}</span>
-                </div>
-                <div className="text-lg font-bold text-[#22242A] mb-2">
-                  {t(`essential.facts.${fact.id}.value`)}
-                </div>
-                <div className="text-[#B0B3BA] font-medium">
-                  {t(`essential.facts.${fact.id}.label`)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                                                                                                                             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                       {quickFacts.map((fact) => (
+                         <div key={fact.id} className="text-center group">
+                                                       <div className={`w-14 h-14 ${fact.color} rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                             <span className="text-2xl">{fact.icon}</span>
+                           </div>
+                                                                                                               <div className="text-lg font-bold text-white mb-2 drop-shadow-lg font-['Open Sans']">
+                               {t(`essential.facts.${fact.id}.value`)}
+                             </div>
+                             <div className="text-white/90 font-medium drop-shadow-lg text-sm font-['Open Sans']">
+                               {t(`essential.facts.${fact.id}.label`)}
+                             </div>
+                                                                                                                                                     {fact.id === 'language' && (
+                                  <div className="mt-3 space-y-1">
+                                    <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                      <div className="font-semibold">🇷🇺 Russian:</div>
+                                      <div>Many understand Russian, but Ukrainian is more respectful to your conversation partner</div>
+                                    </div>
+                                   <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                     <div className="font-semibold">🇬🇧 English:</div>
+                                     <div>Common in tourist centers and major cities</div>
+                                   </div>
+                                 </div>
+                               )}
+                               {fact.id === 'currency' && (
+                                 <div className="mt-3 space-y-1">
+                                                                       <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                      <div className="font-semibold">💵 USD/EUR:</div>
+                                      <div>Easy to exchange at banks and widespread exchange kiosks (obmin valyut - Ukrainian name)</div>
+                                    </div>
+                                   <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                     <div className="font-semibold">🌍 Other currencies:</div>
+                                     <div>Harder to exchange, only in major centers</div>
+                                   </div>
+                                   <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                     <div className="font-semibold">⚠️ Safety:</div>
+                                     <div>Avoid exchanging currency on the street, only use official exchange offices. Exchange rate difference is minimal, so you won't save money but will stay safe.</div>
+                                   </div>
+                                 </div>
+                               )}
+                               {fact.id === 'timezone' && (
+                                 <div className="mt-3 space-y-1">
+                                   <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                     <div className="font-semibold">🇺🇦 Ukraine:</div>
+                                     <div>Entire country in one timezone (EET/EEST)</div>
+                                   </div>
+                                   <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                     <div className="font-semibold">🌍 Time differences:</div>
+                                     <div>Paris: +1h</div>
+                                     <div>New York: -7h</div>
+                                     <div>Delhi: +3.5h</div>
+                                     <div>Beijing: +6h</div>
+                                     <div>Kathmandu: +3.75h</div>
+                                   </div>
+                                 </div>
+                               )}
+                               {fact.id === 'emergency' && (
+                                 <div className="mt-3 space-y-1">
+                                   <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                                                           <div className="font-semibold">🏥 Medical (103):</div>
+                                      <div>Local medical service. Staff usually speak Ukrainian and understand Russian, but English is unlikely except major points.</div>
+                                      <div className="font-semibold">📋 Insurance:</div>
+                                      <div>For medical cases, better use the phone number from your insurance policy. <Link to="/insurance" className="underline hover:text-white">Get insurance policy here</Link></div>
+                                   </div>
+                                 </div>
+                               )}
+                         </div>
+                       ))}
+                     </div>
+                  </div>
+              </section>
 
       {/* Essential Information Sections */}
       <section className="py-16">

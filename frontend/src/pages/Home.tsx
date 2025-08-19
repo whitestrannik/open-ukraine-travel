@@ -30,6 +30,18 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Information Portal - Top Right */}
+      <div className="fixed top-0 right-4 z-50">
+        <a 
+          href="https://evisa.mfa.gov.ua/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-300 text-xs font-medium text-[#1F5FA0] hover:text-[#0F3F80] border border-white/50"
+        >
+          Information Portal
+        </a>
+      </div>
+
       {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
@@ -58,8 +70,8 @@ export default function Home() {
                     Ukraine Tourism Recovery Program Launched
                   </h3>
                   <div className="text-xs text-[#1F5FA0] font-bold">Jan 22</div>
-                </div>
-              </div>
+          </div>
+        </div>
             </Link>
 
             {/* News Item 1 */}
@@ -70,8 +82,8 @@ export default function Home() {
                     New Tourist Routes Open in Western Ukraine
                   </h3>
                   <div className="text-xs text-[#4E7B53] font-medium">Jan 20</div>
-                </div>
-              </div>
+          </div>
+        </div>
             </Link>
 
             {/* News Item 2 */}
@@ -82,7 +94,7 @@ export default function Home() {
                     Safety Updates for Travelers
                   </h3>
                   <div className="text-xs text-[#D89B5A] font-medium">Jan 18</div>
-                </div>
+              </div>
               </div>
             </Link>
 
@@ -94,11 +106,11 @@ export default function Home() {
                     Cultural Events This Month
                   </h3>
                   <div className="text-xs text-[#6A5B8C] font-medium">Jan 15</div>
-                </div>
-              </div>
-            </Link>
           </div>
         </div>
+                </Link>
+              </div>
+            </div>
 
         {/* Insurance Block Overlay - Bottom Right (Above Hotel Booking) */}
         <div className="absolute top-2 right-6 z-30 w-52">
@@ -123,18 +135,18 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   Trip cancellation
-                </div>
               </div>
+            </div>
 
-              <Link 
+                <Link 
                 to="/insurance" 
                 className="block w-full bg-[#4E7B53] hover:bg-[#4E7B53]/90 text-white text-center py-2 rounded-lg text-xs font-semibold transition-all duration-300 transform hover:scale-105"
-              >
+                >
                 Get Insured
-              </Link>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
         {/* Booking Block Overlay - Bottom Right */}
         <div className="absolute top-38 right-6 z-20 w-52">
@@ -212,8 +224,8 @@ export default function Home() {
                         <option key={year} value={year}>{year}</option>
                       ))}
                     </select>
-                  </div>
-                </div>
+          </div>
+        </div>
 
                 {/* Check-out Date */}
                 <div>
@@ -262,7 +274,7 @@ export default function Home() {
                       ))}
                     </select>
                   </div>
-                </div>
+          </div>
 
                 {/* Number of Guests */}
                 <div>
@@ -278,7 +290,7 @@ export default function Home() {
                     <option value="4">4 {t('guests')}</option>
                     <option value="5">5+ {t('guests')}</option>
                   </select>
-                </div>
+            </div>
 
                 <button 
                   type="submit"
@@ -292,15 +304,15 @@ export default function Home() {
                 <div className="flex items-center text-xs text-[#B0B3BA]">
                   <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                </svg>
                   {t('bestPriceGuarantee')}
-                </div>
+              </div>
                 <div className="flex items-center text-xs text-[#B0B3BA]">
                   <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   {t('freeCancellation')}
-                </div>
+            </div>
               </div>
             </div>
           </div>
@@ -331,7 +343,7 @@ export default function Home() {
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
                   </svg>
-                </div>
+              </div>
                 <div className="text-3xl font-bold text-[#1F5FA0] mb-2">{stat.value}</div>
                 <div className="text-[#B0B3BA] font-medium">{t(`explore.stats.${stat.key}`)}</div>
               </div>
@@ -427,14 +439,14 @@ export default function Home() {
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={section.icon} />
                         </svg>
-                      </div>
-                    </div>
-                    
+              </div>
+            </div>
+
                     {/* Text Content */}
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2">
                         {t(`explore.sections.${section.id}.title`)}
-                      </h3>
+                </h3>
                       <p className="text-white/90 text-sm mb-4 line-clamp-3">
                         {t(`explore.sections.${section.id}.description`)}
                       </p>
@@ -445,11 +457,11 @@ export default function Home() {
                         <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                      </div>
-                    </div>
-                  </div>
+              </div>
+            </div>
+          </div>
                 </div>
-              </Link>
+            </Link>
             ))}
           </div>
         </div>

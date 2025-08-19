@@ -76,7 +76,7 @@ export default function ByRegions() {
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src={`${import.meta.env.BASE_URL}media/12064535-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}media/9871912-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         

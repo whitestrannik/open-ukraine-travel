@@ -15,6 +15,7 @@ import Carpathians from '@/pages/cities/Carpathians'
 import Chernobyl from '@/pages/cities/Chernobyl'
 import Chernivtsi from '@/pages/cities/Chernivtsi'
 import EssentialInfo from '@/pages/EssentialInfo'
+import EntryRequirements from '@/pages/EntryRequirements'
 import HiddenGems from '@/pages/HiddenGems'
 import UnescoSites from '@/pages/UnescoSites'
 import ByRegions from '@/pages/ByRegions'
@@ -42,7 +43,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/cities/chernobyl" element={<Chernobyl />} />
             <Route path="/cities/chernivtsi" element={<Chernivtsi />} />
             <Route path="/news/:slug" element={<NewsArticle />} />
-            <Route path="/entry" element={<div className="p-6">Entry Requirements – placeholder</div>} />
+            <Route path="/entry" element={<EntryRequirements />} />
             <Route path="/insurance" element={<div className="p-6">Insurance – placeholder</div>} />
             <Route path="/hotels" element={<div className="p-6">Hotels – placeholder</div>} />
             <Route path="/transportation" element={<div className="p-6">Transportation – placeholder</div>} />

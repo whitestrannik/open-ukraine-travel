@@ -1,0 +1,307 @@
+{
+  "countries": [
+    {
+      "code": "US",
+      "name": {
+        "en": "United States",
+        "uk": "Сполучені Штати Америки",
+        "es": "Estados Unidos"
+      },
+      "visaRequirements": {
+        "visaRequired": false,
+        "maxStay": "90 days",
+        "maxStayText": {
+          "en": "90 days",
+          "uk": "90 днів",
+          "es": "90 días"
+        },
+        "notes": {
+          "en": "Visa-free entry for tourism and business purposes. Passport must be valid for at least 6 months beyond planned stay.",
+          "uk": "Безвізовий в'їзд для туристичних та ділових цілей. Паспорт повинен бути дійсним щонайменше 6 місяців після запланованого перебування.",
+          "es": "Entrada sin visa para turismo y negocios. El pasaporte debe ser válido por al menos 6 meses después de la estadía planificada."
+        },
+        "documents": {
+          "en": [
+            "Valid passport with at least 6 months validity",
+            "Proof of sufficient funds",
+            "Return ticket or onward travel documentation",
+            "Travel insurance (recommended)"
+          ],
+          "uk": [
+            "Дійсний паспорт з терміном дії щонайменше 6 місяців",
+            "Підтвердження достатніх коштів",
+            "Зворотний квиток або документація про подальшу подорож",
+            "Страховий поліс (рекомендується)"
+          ],
+          "es": [
+            "Pasaporte válido con al menos 6 meses de validez",
+            "Prueba de fondos suficientes",
+            "Boleto de regreso o documentación de viaje posterior",
+            "Seguro de viaje (recomendado)"
+          ]
+        }
+      }
+    },
+    {
+      "code": "GB",
+      "name": {
+        "en": "United Kingdom",
+        "uk": "Велика Британія",
+        "es": "Reino Unido"
+      },
+      "visaRequirements": {
+        "visaRequired": false,
+        "maxStay": "90 days",
+        "maxStayText": {
+          "en": "90 days",
+          "uk": "90 днів",
+          "es": "90 días"
+        },
+        "notes": {
+          "en": "Visa-free entry for tourism and business. UK citizens can enter Ukraine without a visa.",
+          "uk": "Безвізовий в'їзд для туризму та бізнесу. Громадяни Великої Британії можуть в'їжджати в Україну без візи.",
+          "es": "Entrada sin visa para turismo y negocios. Los ciudadanos del Reino Unido pueden entrar a Ucrania sin visa."
+        },
+        "documents": {
+          "en": [
+            "Valid passport",
+            "Proof of accommodation",
+            "Sufficient funds for stay",
+            "Travel insurance"
+          ],
+          "uk": [
+            "Дійсний паспорт",
+            "Підтвердження проживання",
+            "Достатні кошти для перебування",
+            "Страховий поліс"
+          ],
+          "es": [
+            "Pasaporte válido",
+            "Prueba de alojamiento",
+            "Fondos suficientes para la estadía",
+            "Seguro de viaje"
+          ]
+        }
+      }
+    },
+    {
+      "code": "CN",
+      "name": {
+        "en": "China",
+        "uk": "Китай",
+        "es": "China"
+      },
+      "visaRequirements": {
+        "visaRequired": true,
+        "maxStay": "30 days",
+        "maxStayText": {
+          "en": "30 days",
+          "uk": "30 днів",
+          "es": "30 días"
+        },
+        "notes": {
+          "en": "Visa required. Apply at Ukrainian embassy or consulate. Processing time: 5-15 business days.",
+          "uk": "Потрібна віза. Подавати заяву в посольстві або консульстві України. Термін розгляду: 5-15 робочих днів.",
+          "es": "Visa requerida. Solicitar en embajada o consulado ucraniano. Tiempo de procesamiento: 5-15 días hábiles."
+        },
+        "documents": {
+          "en": [
+            "Completed visa application form",
+            "Valid passport with 2 blank pages",
+            "2 recent passport photos (3.5x4.5 cm)",
+            "Proof of accommodation in Ukraine",
+            "Round-trip flight tickets",
+            "Travel insurance",
+            "Bank statement showing sufficient funds",
+            "Employment letter or business registration",
+            "Visa fee payment receipt"
+          ],
+          "uk": [
+            "Заповнена анкета на візу",
+            "Дійсний паспорт з 2 чистими сторінками",
+            "2 свіжі фотографії (3.5x4.5 см)",
+            "Підтвердження проживання в Україні",
+            "Квитки туди і назад",
+            "Страховий поліс",
+            "Банківська виписка про достатні кошти",
+            "Довідка з роботи або реєстрація бізнесу",
+            "Квитанція про оплату візового збору"
+          ],
+          "es": [
+            "Formulario de solicitud de visa completado",
+            "Pasaporte válido con 2 páginas en blanco",
+            "2 fotos recientes de pasaporte (3.5x4.5 cm)",
+            "Prueba de alojamiento en Ucrania",
+            "Boletos de avión de ida y vuelta",
+            "Seguro de viaje",
+            "Extracto bancario que muestre fondos suficientes",
+            "Carta de empleo o registro de negocio",
+            "Recibo de pago de tarifa de visa"
+          ]
+        },
+        "processingTime": {
+          "en": "5-15 business days",
+          "uk": "5-15 робочих днів",
+          "es": "5-15 días hábiles"
+        },
+        "visaFee": {
+          "en": "USD 65",
+          "uk": "65 доларів США",
+          "es": "USD 65"
+        }
+             }
+     },
+     {
+               "code": "IN",
+        "name": {
+          "en": "India",
+          "uk": "Індія",
+          "es": "India"
+        },
+        "visaRequirements": {
+          "visaRequired": true,
+          "maxStay": "90 days",
+          "maxStayText": {
+            "en": "90 days within any 180-day period",
+            "uk": "90 днів протягом будь-якого 180-денного періоду",
+            "es": "90 días dentro de cualquier período de 180 días"
+          },
+          "notes": {
+            "en": "Citizens of India holding ordinary passports must obtain a visa before traveling to Ukraine. This can be done by applying for an electronic visa (e-Visa) through the official MFA portal or by submitting documents in person at a Ukrainian visa center or embassy.",
+            "uk": "Громадяни Індії, що мають звичайні паспорти, повинні отримати візу перед поїздкою в Україну. Це можна зробити, подавши заяву на електронну візу (е-віза) через офіційний портал МЗС або подавши документи особисто в українському візовому центрі або посольстві.",
+            "es": "Los ciudadanos de la India que poseen pasaportes ordinarios deben obtener una visa antes de viajar a Ucrania. Esto se puede hacer solicitando una visa electrónica (e-Visa) a través del portal oficial del MFA o presentando documentos en persona en un centro de visas ucraniano o embajada."
+          },
+          "documents": {
+            "en": [
+              "Valid passport with at least 6 months validity",
+              "Digital passport photo (3.5x4.5 cm)",
+              "Proof of accommodation in Ukraine",
+              "Round-trip flight tickets",
+              "Travel insurance",
+              "Bank statement showing sufficient funds",
+              "Employment letter or business registration",
+              "Completed e-Visa application form"
+            ],
+            "uk": [
+              "Дійсний паспорт з терміном дії щонайменше 6 місяців",
+              "Цифрова фотографія паспорта (3.5x4.5 см)",
+              "Підтвердження проживання в Україні",
+              "Квитки туди і назад",
+              "Страховий поліс",
+              "Банківська виписка про достатні кошти",
+              "Довідка з роботи або реєстрація бізнесу",
+              "Заповнена анкета на е-візу"
+            ],
+            "es": [
+              "Pasaporte válido con al menos 6 meses de validez",
+              "Foto digital de pasaporte (3.5x4.5 cm)",
+              "Prueba de alojamiento en Ucrania",
+              "Boletos de avión de ida y vuelta",
+              "Seguro de viaje",
+              "Extracto bancario que muestre fondos suficientes",
+              "Carta de empleo o registro de negocio",
+              "Formulario de solicitud de e-Visa completado"
+            ]
+          },
+          "processingTime": {
+            "en": "3 business days (normal) / 1 business day (urgent)",
+            "uk": "3 робочі дні (звичайна) / 1 робочий день (термінова)",
+            "es": "3 días hábiles (normal) / 1 día hábil (urgente)"
+          },
+          "visaFee": {
+            "en": "USD 20 (single-entry) / USD 30 (double-entry)",
+            "uk": "20 доларів США (одноразова) / 30 доларів США (дворазова)",
+            "es": "USD 20 (entrada única) / USD 30 (doble entrada)"
+          },
+          "evisaInfo": {
+            "en": {
+              "title": "Electronic Visa (e-Visa)",
+              "purpose": "Tourism, business, cultural events, conferences, medical treatment, educational programs, private visits",
+              "stay": "Up to 90 days within any 180-day period",
+              "fees": {
+                "single": "Single-entry: 20 USD (normal) / 40 USD (urgent)",
+                "double": "Double-entry: 30 USD (normal) / 60 USD (urgent)"
+              },
+              "procedure": [
+                "Register on the MFA e-Visa portal",
+                "Upload scanned documents (passport, photo, insurance, proof of funds, trip purpose)",
+                "Pay the fee online",
+                "Receive the e-Visa by email"
+              ]
+            },
+            "uk": {
+              "title": "Електронна віза (е-віза)",
+              "purpose": "Туризм, бізнес, культурні заходи, конференції, медичне лікування, освітні програми, приватні візити",
+              "stay": "До 90 днів протягом будь-якого 180-денного періоду",
+              "fees": {
+                "single": "Одноразова: 20 доларів США (звичайна) / 40 доларів США (термінова)",
+                "double": "Дворазова: 30 доларів США (звичайна) / 60 доларів США (термінова)"
+              },
+              "procedure": [
+                "Зареєструватися на порталі е-візи МЗС",
+                "Завантажити відскановані документи (паспорт, фото, страховка, підтвердження коштів, мета поїздки)",
+                "Оплатити збір онлайн",
+                "Отримати е-візу електронною поштою"
+              ]
+            },
+            "es": {
+              "title": "Visa Electrónica (e-Visa)",
+              "purpose": "Turismo, negocios, eventos culturales, conferencias, tratamiento médico, programas educativos, visitas privadas",
+              "stay": "Hasta 90 días dentro de cualquier período de 180 días",
+              "fees": {
+                "single": "Entrada única: 20 USD (normal) / 40 USD (urgente)",
+                "double": "Doble entrada: 30 USD (normal) / 60 USD (urgente)"
+              },
+              "procedure": [
+                "Registrarse en el portal e-Visa del MFA",
+                "Subir documentos escaneados (pasaporte, foto, seguro, prueba de fondos, propósito del viaje)",
+                "Pagar la tarifa en línea",
+                "Recibir la e-Visa por correo electrónico"
+              ]
+            }
+          },
+          "stickerVisaInfo": {
+            "en": {
+              "title": "Sticker Visa (Embassy/Consulate)",
+              "type": "C-type short-term visa for tourism, business, private or cultural visits",
+              "duration": "Up to 90 days within any 180-day period",
+              "fee": "Standard consular fee (varies by embassy, usually ~65–85 USD)",
+              "procedure": [
+                "Complete the visa application online",
+                "Print and sign it",
+                "Submit in person to the Embassy/Consulate of Ukraine with required documents",
+                "Pay the consular fee"
+              ],
+              "processingTime": "Normally up to 10 business days; urgent options available at extra cost"
+            },
+            "uk": {
+              "title": "Віза-наклейка (Посольство/Консульство)",
+              "type": "Краткострокова віза типу C для туризму, бізнесу, приватних або культурних візитів",
+              "duration": "До 90 днів протягом будь-якого 180-денного періоду",
+              "fee": "Стандартний консульський збір (варіюється залежно від посольства, зазвичай ~65–85 доларів США)",
+              "procedure": [
+                "Заповнити заяву на візу онлайн",
+                "Роздрукувати та підписати",
+                "Подати особисто в Посольство/Консульство України з необхідними документами",
+                "Оплатити консульський збір"
+              ],
+              "processingTime": "Зазвичай до 10 робочих днів; термінові варіанти доступні за додаткову плату"
+            },
+            "es": {
+              "title": "Visa de Etiqueta (Embajada/Consulado)",
+              "type": "Visa de corta duración tipo C para turismo, negocios, visitas privadas o culturales",
+              "duration": "Hasta 90 días dentro de cualquier período de 180 días",
+              "fee": "Tarifa consular estándar (varía según la embajada, generalmente ~65–85 USD)",
+              "procedure": [
+                "Completar la solicitud de visa en línea",
+                "Imprimir y firmar",
+                "Presentar en persona en la Embajada/Consulado de Ucrania con los documentos requeridos",
+                "Pagar la tarifa consular"
+              ],
+              "processingTime": "Normalmente hasta 10 días hábiles; opciones urgentes disponibles a costo adicional"
+            }
+          }
+        }
+     }
+   ]
+ }
