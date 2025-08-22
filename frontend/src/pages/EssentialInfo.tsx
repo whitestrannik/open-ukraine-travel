@@ -107,54 +107,54 @@ export default function EssentialInfo() {
                                                                                                                                                      {fact.id === 'language' && (
                                   <div className="mt-3 space-y-1">
                                     <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                      <div className="font-semibold">🇷🇺 Russian:</div>
-                                      <div>Many understand Russian, but Ukrainian is more respectful to your conversation partner</div>
+                                      <div className="font-semibold">🇷🇺 {t('essential.facts.language.russian.title')}</div>
+                                      <div>{t('essential.facts.language.russian.description')}</div>
                                     </div>
                                    <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                     <div className="font-semibold">🇬🇧 English:</div>
-                                     <div>Common in tourist centers and major cities</div>
+                                     <div className="font-semibold">🇬🇧 {t('essential.facts.language.english.title')}</div>
+                                     <div>{t('essential.facts.language.english.description')}</div>
                                    </div>
                                  </div>
                                )}
-                               {fact.id === 'currency' && (
+                                                              {fact.id === 'currency' && (
                                  <div className="mt-3 space-y-1">
-                                                                       <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                      <div className="font-semibold">💵 USD/EUR:</div>
-                                      <div>Easy to exchange at banks and widespread exchange kiosks (obmin valyut - Ukrainian name)</div>
+                                       <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
+                                      <div className="font-semibold">💵 {t('essential.facts.currency.usd.title')}</div>
+                                      <div>{t('essential.facts.currency.usd.description')}</div>
                                     </div>
                                    <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                     <div className="font-semibold">🌍 Other currencies:</div>
-                                     <div>Harder to exchange, only in major centers</div>
+                                     <div className="font-semibold">🌍 {t('essential.facts.currency.other.title')}</div>
+                                     <div>{t('essential.facts.currency.other.description')}</div>
                                    </div>
                                    <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                     <div className="font-semibold">⚠️ Safety:</div>
-                                     <div>Avoid exchanging currency on the street, only use official exchange offices. Exchange rate difference is minimal, so you won't save money but will stay safe.</div>
+                                     <div className="font-semibold">⚠️ {t('essential.facts.currency.safety.title')}</div>
+                                     <div>{t('essential.facts.currency.safety.description')}</div>
                                    </div>
                                  </div>
                                )}
                                {fact.id === 'timezone' && (
                                  <div className="mt-3 space-y-1">
                                    <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                     <div className="font-semibold">🇺🇦 Ukraine:</div>
-                                     <div>Entire country in one timezone (EET/EEST)</div>
+                                     <div className="font-semibold">🇺🇦 {t('essential.facts.timezone.ukraine.title')}</div>
+                                     <div>{t('essential.facts.timezone.ukraine.description')}</div>
                                    </div>
                                    <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                     <div className="font-semibold">🌍 Time differences:</div>
-                                     <div>Paris: +1h</div>
-                                     <div>New York: -7h</div>
-                                     <div>Delhi: +3.5h</div>
-                                     <div>Beijing: +6h</div>
-                                     <div>Kathmandu: +3.75h</div>
+                                     <div className="font-semibold">🌍 {t('essential.facts.timezone.differences.title')}</div>
+                                     <div>{t('essential.facts.timezone.paris')}</div>
+                                     <div>{t('essential.facts.timezone.newyork')}</div>
+                                     <div>{t('essential.facts.timezone.delhi')}</div>
+                                     <div>{t('essential.facts.timezone.beijing')}</div>
+                                     <div>{t('essential.facts.timezone.kathmandu')}</div>
                                    </div>
                                  </div>
                                )}
-                               {fact.id === 'emergency' && (
+                                                              {fact.id === 'emergency' && (
                                  <div className="mt-3 space-y-1">
                                    <div className="text-white/80 text-base drop-shadow-lg font-['Open Sans']">
-                                                                           <div className="font-semibold">🏥 Medical (103):</div>
-                                      <div>Local medical service. Staff usually speak Ukrainian and understand Russian, but English is unlikely except major points.</div>
-                                      <div className="font-semibold">📋 Insurance:</div>
-                                      <div>For medical cases, better use the phone number from your insurance policy. <Link to="/insurance" className="underline hover:text-white">Get insurance policy here</Link></div>
+                                           <div className="font-semibold">🏥 {t('essential.facts.emergency.medical.title')}</div>
+                                      <div>{t('essential.facts.emergency.medical.description')}</div>
+                                      <div className="font-semibold">📋 {t('essential.facts.emergency.insurance.title')}</div>
+                                      <div>{t('essential.facts.emergency.insurance.description')} <Link to="/insurance" className="underline hover:text-white">{t('essential.facts.emergency.insurance.link')}</Link></div>
                                    </div>
                                  </div>
                                )}

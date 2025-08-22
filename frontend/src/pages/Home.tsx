@@ -57,8 +57,15 @@ export default function Home() {
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10"></div>
+        
+        {/* Main Hero Text - Centered */}
+        <div className="absolute inset-0 flex items-start justify-center z-15 pt-25 -ml-[100px]">
+          <h1 className="text-4xl md:text-6xl font-bold text-white text-center drop-shadow-2xl leading-relaxed uppercase" style={{ transform: 'scaleY(1.15)' }}>
+            {t('home.hero.brave.title')}
+          </h1>
+        </div>
         {/* News Content Overlay - Bottom Left */}
-        <div className="absolute bottom-20 left-6 z-20 max-w-sm">
+        <div className="absolute bottom-20 left-6 z-20 w-96">
           <h1 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Latest News</h1>
           
           <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-md overflow-hidden">
@@ -111,6 +118,61 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+
+        {/* Events Block Overlay - Bottom Left (Right of News) */}
+        <div className="absolute bottom-20 left-[calc(24rem+80px)] z-20 w-[26rem]">
+          <h1 className="text-lg font-bold text-white mb-1 drop-shadow-lg">{t('events.title')}</h1>
+          
+          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-md overflow-hidden">
+            {/* Main Event Item */}
+            <Link to="/events/spring-music-festival" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2 border-b border-gray-200/30 bg-gray-50/50">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-[#22242A] flex-1 pr-2">
+                    {t('events.festival.title')}
+                  </h3>
+                  <div className="text-xs text-[#1F5FA0] font-bold">{t('events.festival.date')}</div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Event Item 1 */}
+            <Link to="/events/cultural-heritage" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2 border-b border-gray-200/20">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-[#22242A] flex-1 pr-2">
+                    {t('events.cultural.title')}
+                  </h3>
+                  <div className="text-xs text-[#4E7B53] font-medium">{t('events.cultural.date')}</div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Event Item 2 */}
+            <Link to="/events/food-wine-festival" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2 border-b border-gray-200/20">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-[#22242A] flex-1 pr-2">
+                    {t('events.food.title')}
+                  </h3>
+                  <div className="text-xs text-[#D89B5A] font-medium">{t('events.food.date')}</div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Event Item 3 */}
+            <Link to="/events/nature-photography" className="block hover:bg-gray-50/50 transition-colors">
+              <div className="p-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-[#22242A] flex-1 pr-2">
+                    {t('events.nature.title')}
+                  </h3>
+                  <div className="text-xs text-[#6A5B8C] font-medium">{t('events.nature.date')}</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
 
         {/* Insurance Block Overlay - Bottom Right (Above Hotel Booking) */}
         <div className="absolute top-2 right-6 z-30 w-52">

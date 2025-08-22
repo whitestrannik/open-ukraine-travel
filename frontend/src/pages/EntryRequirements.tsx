@@ -7,7 +7,9 @@ export default function EntryRequirements() {
   const { t } = useI18n()
   const [selectedCountry, setSelectedCountry] = useState('')
   const [searchText, setSearchText] = useState('')
-  const selectRef = useRef<HTMLSelectElement>(null)
+  const [activeSection, setActiveSection] = useState('entry-rules')
+  const [showDropdown, setShowDropdown] = useState(false)
+  const selectRef = useRef<HTMLDivElement>(null)
   // const { 
   //   countries: jsonCountries, 
   //   loading, 
@@ -99,56 +101,64 @@ export default function EntryRequirements() {
     { code: 'HN', name: 'Honduras', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'HU', name: 'Hungary', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'IS', name: 'Iceland', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
-    { code: 'IN', name: 'India', visaRequired: true, maxStay: '90 days within any 180-day period', notes: 'Citizens of India holding ordinary passports must obtain a visa before traveling to Ukraine. This can be done by applying for an electronic visa (e-Visa) through the official MFA portal or by submitting documents in person at a Ukrainian visa center or embassy.' },
+    { code: 'IN', name: 'India', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'ID', name: 'Indonesia', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'IR', name: 'Iran', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'IQ', name: 'Iraq', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'IE', name: 'Ireland', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'IL', name: 'Israel', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'IT', name: 'Italy', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'CI', name: 'Ivory Coast', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'JM', name: 'Jamaica', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'JP', name: 'Japan', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'JO', name: 'Jordan', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'KZ', name: 'Kazakhstan', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
-    { code: 'KW', name: 'Kuwait', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'KE', name: 'Kenya', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'KI', name: 'Kiribati', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'KW', name: 'Kuwait', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'KG', name: 'Kyrgyzstan', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'LA', name: 'Laos', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'LV', name: 'Latvia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'LB', name: 'Lebanon', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
-    { code: 'LS', name: 'Lesotho', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'LS', name: 'Lesotho', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'LR', name: 'Liberia', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'LY', name: 'Libya', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'LI', name: 'Liechtenstein', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'LT', name: 'Lithuania', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'LU', name: 'Luxembourg', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'MK', name: 'North Macedonia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'MG', name: 'Madagascar', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MW', name: 'Malawi', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MY', name: 'Malaysia', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MV', name: 'Maldives', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'ML', name: 'Mali', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MT', name: 'Malta', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
-    { code: 'MH', name: 'Marshall Islands', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'MH', name: 'Marshall Islands', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MR', name: 'Mauritania', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MU', name: 'Mauritius', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'MX', name: 'Mexico', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'FM', name: 'Micronesia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'MD', name: 'Moldova', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'MC', name: 'Monaco', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
-    { code: 'MN', name: 'Mongolia', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'MN', name: 'Mongolia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'ME', name: 'Montenegro', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'MA', name: 'Morocco', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MZ', name: 'Mozambique', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'MM', name: 'Myanmar', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'NA', name: 'Namibia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'NR', name: 'Nauru', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'NP', name: 'Nepal', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'NL', name: 'Netherlands', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'NZ', name: 'New Zealand', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'NI', name: 'Nicaragua', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'NE', name: 'Niger', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'NG', name: 'Nigeria', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'KP', name: 'North Korea', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'NO', name: 'Norway', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'OM', name: 'Oman', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'PK', name: 'Pakistan', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
-    { code: 'PW', name: 'Palau', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'PW', name: 'Palau', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'PS', name: 'Palestine', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'PA', name: 'Panama', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'PG', name: 'Papua New Guinea', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'PY', name: 'Paraguay', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
@@ -160,6 +170,12 @@ export default function EntryRequirements() {
     { code: 'RO', name: 'Romania', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'RU', name: 'Russia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'RW', name: 'Rwanda', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'KN', name: 'Saint Kitts and Nevis', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'LC', name: 'Saint Lucia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'VC', name: 'Saint Vincent and the Grenadines', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'WS', name: 'Samoa', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'SM', name: 'San Marino', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'ST', name: 'Sao Tome and Principe', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'SA', name: 'Saudi Arabia', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'SN', name: 'Senegal', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'RS', name: 'Serbia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
@@ -168,33 +184,38 @@ export default function EntryRequirements() {
     { code: 'SG', name: 'Singapore', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'SK', name: 'Slovakia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'SI', name: 'Slovenia', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'SB', name: 'Solomon Islands', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'SO', name: 'Somalia', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'ZA', name: 'South Africa', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'KR', name: 'South Korea', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'SS', name: 'South Sudan', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'ES', name: 'Spain', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'LK', name: 'Sri Lanka', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'SD', name: 'Sudan', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'SR', name: 'Suriname', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
-    { code: 'SZ', name: 'Swaziland', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'SZ', name: 'Eswatini', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'SE', name: 'Sweden', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'CH', name: 'Switzerland', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'SY', name: 'Syria', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
-    { code: 'TW', name: 'Taiwan', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'TW', name: 'Taiwan', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'TJ', name: 'Tajikistan', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'TZ', name: 'Tanzania', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'TH', name: 'Thailand', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
-    { code: 'TL', name: 'Timor-Leste', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'TL', name: 'East Timor', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'TG', name: 'Togo', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
-    { code: 'TO', name: 'Tonga', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'TO', name: 'Tonga', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'TT', name: 'Trinidad and Tobago', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'TN', name: 'Tunisia', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'TR', name: 'Turkey', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
-    { code: 'TM', name: 'Turkmenistan', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'TM', name: 'Turkmenistan', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
+    { code: 'TV', name: 'Tuvalu', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'UG', name: 'Uganda', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'GB', name: 'United Kingdom', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'US', name: 'United States', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'UY', name: 'Uruguay', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'UZ', name: 'Uzbekistan', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'VU', name: 'Vanuatu', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
+    { code: 'VA', name: 'Vatican City', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'VE', name: 'Venezuela', visaRequired: false, maxStay: '90 days', notes: 'Visa-free entry for tourism and business' },
     { code: 'VN', name: 'Vietnam', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
     { code: 'YE', name: 'Yemen', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' },
@@ -202,378 +223,746 @@ export default function EntryRequirements() {
     { code: 'ZW', name: 'Zimbabwe', visaRequired: true, maxStay: '30 days', notes: 'Visa required. Apply at Ukrainian embassy. Processing time: 5-15 days' }
   ]
 
+  const filteredCountries = searchText.length > 0 
+    ? countries.filter(country => {
+        const countryName = t(`country.${country.code.toLowerCase()}`) !== `country.${country.code.toLowerCase()}` 
+          ? t(`country.${country.code.toLowerCase()}`) 
+          : country.name
+        return countryName.toLowerCase().startsWith(searchText.toLowerCase())
+      }).slice(0, 5)
+    : countries.slice(0, 5) // Показываем первые 5 стран при пустом поиске
+
+  const handleCountrySelect = (countryCode: string) => {
+    setSelectedCountry(countryCode)
+    const selectedCountryData = countries.find(c => c.code === countryCode)
+    if (selectedCountryData) {
+      const countryName = t(`country.${countryCode.toLowerCase()}`) !== `country.${countryCode.toLowerCase()}` 
+        ? t(`country.${countryCode.toLowerCase()}`) 
+        : selectedCountryData.name
+      setSearchText(countryName)
+    }
+    setShowDropdown(false)
+  }
+
+  const selectedCountryInfo = selectedCountry ? countries.find(c => c.code === selectedCountry) : null
+  const selectedCountryName = selectedCountry ? countries.find(c => c.code === selectedCountry)?.name : ''
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      })
+    }
+  }
+
   const generalRequirements = [
     {
       title: 'Passport Requirements',
       items: [
         'Valid passport with at least 6 months validity beyond your planned stay',
-        'Passport must have at least 2 blank pages for entry/exit stamps',
-        'Passport should be in good condition (not damaged or torn)'
+        'Passport must be in good condition with no damage',
+        'For some nationalities, passport must have at least 2 blank pages'
       ]
     },
     {
-      title: 'General Documents',
+      title: 'Visa Requirements',
       items: [
-        'Travel insurance covering your entire stay',
-        'Proof of accommodation (hotel booking or invitation letter)',
-        'Proof of financial means (bank statements, cash)',
-        'Return ticket or onward travel documentation',
-        'Purpose of visit documentation (if applicable)'
+        'Check if your nationality requires a visa before travel',
+        'Apply for visa well in advance of your trip',
+        'Some nationalities can enter visa-free for up to 90 days',
+        'Business visas may have different requirements'
       ]
     },
     {
-      title: 'Border Crossing',
+      title: 'Entry Points',
       items: [
-        'Present passport and entry card (if required)',
-        'Answer questions about purpose of visit and accommodation',
-        'May be asked to show proof of financial means',
-        'Customs declaration for items over €10,000 or equivalent',
-        'Keep entry stamp safe - required for exit'
+        'Major international airports: Kyiv Boryspil, Kyiv Zhuliany, Lviv, Odesa',
+        'Land border crossings from Poland, Slovakia, Hungary, Romania',
+        'Sea ports in Odesa and other coastal cities',
+        'Check current border crossing availability'
       ]
     },
     {
-      title: 'COVID-19 Requirements',
+      title: 'Customs Regulations',
       items: [
-        'Currently no COVID-19 restrictions for entry',
-        'No vaccination certificates required',
-        'No PCR tests required',
-        'No quarantine requirements',
-        'Check for updates before travel as requirements may change'
+        'Personal belongings and gifts up to €1000 value are duty-free',
+        'Currency over €10,000 must be declared',
+        'Restricted items include weapons, drugs, and certain foods',
+        'Check specific regulations for your items before travel'
       ]
     }
   ]
 
-  const selectedCountryInfo = countries.find(country => country.code === selectedCountry)
-
-  // Function to handle keyboard search
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLSelectElement>) => {
-    if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
-      const newSearchText = searchText + e.key.toLowerCase()
-      setSearchText(newSearchText)
-      
-      console.log('Searching for:', newSearchText) // Debug log
-      
-      // Find the first country that starts with the accumulated search text
-      const matchingCountry = countries.find(country => {
-        const countryName = t(`country.${country.code.toLowerCase()}`).toLowerCase()
-        const startsWith = countryName.startsWith(newSearchText)
-        console.log(`Checking ${countryName} against "${newSearchText}": ${startsWith}`) // Debug log
-        return startsWith
-      })
-      
-      if (matchingCountry && selectRef.current) {
-        console.log('Found match:', matchingCountry.name) // Debug log
-        const countryIndex = countries.findIndex(country => country.code === matchingCountry.code)
-        selectRef.current.selectedIndex = countryIndex + 1 // +1 because of the "Select your country..." option
-        setSelectedCountry(matchingCountry.code)
-      } else {
-        console.log('No match found for:', newSearchText) // Debug log
-      }
-      
-      // Clear search text after 2 seconds (increased from 1 second)
-      setTimeout(() => setSearchText(''), 2000)
-    }
-  }
-
   return (
-    <div className="min-h-screen">
-      {/* Breadcrumb Section */}
-      <section className="bg-gray-50 py-4 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4">
-          <nav className="flex items-center space-x-2 text-sm text-[#B0B3BA]">
-            <Link to="/" className="hover:text-[#1F5FA0] transition-colors">
-              {t('nav.home')}
-            </Link>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <Link to="/explore/essential" className="hover:text-[#1F5FA0] transition-colors">
-              {t('nav.explore')}
-            </Link>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <span className="text-[#1F5FA0] font-medium">Entry Requirements</span>
+    <div className="min-h-screen bg-[#F6F6F8]">
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <nav className="flex" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-4">
+              <li>
+                <a href="/" className="text-gray-500 hover:text-gray-700">
+                  Home
+                </a>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <svg className="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="ml-4 text-gray-700 font-medium">{t('entry.title')}</span>
+                </div>
+              </li>
+            </ol>
           </nav>
         </div>
-      </section>
+      </div>
 
-      {/* Main Content with Country Selector - Combined */}
-      <section className="py-12 bg-[#F6F6F8]">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            {/* Title and Introductory Text */}
-            <div className="mb-6">
-              <div className="flex items-center justify-center mb-3">
-                <div className="w-12 h-12 bg-[#1F5FA0] rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl text-white">🛂</span>
-                </div>
-                <h1 className="text-4xl font-bold text-[#22242A]">
-                  {t('entry.title')}
-                </h1>
-              </div>
-              <div className="text-lg text-[#22242A] max-w-4xl mx-auto space-y-3">
-                <p>{t('entry.intro.1')}</p>
-                <p>{t('entry.intro.2')}</p>
-                <p>{t('entry.intro.3')}</p>
+      {/* Main Content */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Left Sidebar Navigation */}
+            <div className="lg:col-span-1">
+              <div className="bg-gray-50 rounded-xl p-6 sticky top-8">
+                <h3 className="text-xl font-bold text-[#22242A] mb-6">Entry Requirements</h3>
+                <nav className="space-y-3">
+                  <button
+                    onClick={() => {
+                      setActiveSection('entry-rules')
+                      scrollToSection('entry-rules-section')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeSection === 'entry-rules'
+                        ? 'bg-[#1F5FA0] text-white'
+                        : 'text-[#22242A] hover:bg-gray-100'
+                    }`}
+                  >
+                    Entry Rules & Requirements
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveSection('general')
+                      scrollToSection('general-section')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeSection === 'general'
+                        ? 'bg-[#1F5FA0] text-white'
+                        : 'text-[#22242A] hover:bg-gray-100'
+                    }`}
+                  >
+                    General Information
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveSection('epidemiological')
+                      scrollToSection('epidemiological-section')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeSection === 'epidemiological'
+                        ? 'bg-[#1F5FA0] text-white'
+                        : 'text-[#22242A] hover:bg-gray-100'
+                    }`}
+                  >
+                    {t('entry.subsections.epidemiological.title')}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveSection('curfews')
+                      scrollToSection('curfews-section')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeSection === 'curfews'
+                        ? 'bg-[#1F5FA0] text-white'
+                        : 'text-[#22242A] hover:bg-gray-100'
+                    }`}
+                  >
+                    {t('entry.subsections.curfews.title')}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveSection('pets')
+                      scrollToSection('pets-section')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeSection === 'pets'
+                        ? 'bg-[#1F5FA0] text-white'
+                        : 'text-[#22242A] hover:bg-gray-100'
+                    }`}
+                  >
+                    {t('entry.subsections.pets.title')}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveSection('car')
+                      scrollToSection('car-section')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeSection === 'car'
+                        ? 'bg-[#1F5FA0] text-white'
+                        : 'text-[#22242A] hover:bg-gray-100'
+                    }`}
+                  >
+                    {t('entry.subsections.car.title')}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveSection('transit')
+                      scrollToSection('transit-section')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeSection === 'transit'
+                        ? 'bg-[#1F5FA0] text-white'
+                        : 'text-[#22242A] hover:bg-gray-100'
+                    }`}
+                  >
+                    {t('entry.subsections.transit.title')}
+                  </button>
+                </nav>
               </div>
             </div>
 
-            {/* Country Selector */}
-            <div className="mb-4">
-              <label htmlFor="country-select" className="block text-lg font-semibold text-[#22242A] mb-3">
-                {t('entry.nationality.question')}
-                {selectedCountryInfo && (
-                  <span className="text-sm text-green-600 ml-2 font-normal">
-                    ✓ {t(`country.${selectedCountryInfo.code.toLowerCase()}`)}
-                  </span>
-                )}
-                {searchText && !selectedCountryInfo && (
-                  <span className="text-sm text-blue-600 ml-2 font-normal">
-                    🔍 "{searchText}" → {t('entry.no.match')}
-                  </span>
-                )}
-              </label>
-              <select
-                ref={selectRef}
-                id="country-select"
-                value={selectedCountry}
-                onChange={(e) => setSelectedCountry(e.target.value)}
-                onKeyDown={handleKeyDown}
-                size={5}
-                className="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
-              >
-                <option value="">{t('entry.select.country')}</option>
-                {/* Add other countries from old array */}
-                {countries.map((country) => (
-                  <option key={country.code} value={country.code}>
-                    {t(`country.${country.code.toLowerCase()}`)}
-                  </option>
-                ))}
-              </select>
-              <p className="text-sm text-gray-500 mt-2">
-                {t('entry.tip')}
-              </p>
-            </div>
-
-            {/* Country Information */}
-            {selectedCountryInfo && (
-              <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-                <div className="flex items-center mb-4">
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${selectedCountryInfo.visaRequired ? 'bg-orange-500' : 'bg-green-500'}`}>
-                    <span className="text-white text-sm font-bold">
-                      {selectedCountryInfo.visaRequired ? t('entry.visa.required') : t('entry.visa.free')}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#22242A]">
-                    Entry Requirements for {t(`country.${selectedCountryInfo.code.toLowerCase()}`)}
-                  </h3>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-[#22242A] mb-2">{t('entry.visa.status')}</h4>
-                    <p className={`text-lg font-bold ${selectedCountryInfo.visaRequired ? 'text-orange-600' : 'text-green-600'}`}>
-                      {selectedCountryInfo.visaRequired ? t('entry.visa.required.text') : t('entry.visa.free.text')}
+            {/* Right Content Area */}
+            <div className="lg:col-span-3">
+              {/* Entry Rules & Requirements Section */}
+              {activeSection === 'entry-rules' && (
+                <div id="entry-rules-section">
+                <div className="w-full mb-12">
+                  <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                      Entry Rules & Requirements
+                    </h3>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      Welcome to Ukraine! This page provides comprehensive information about entry requirements for visitors from different countries.
                     </p>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      Select your nationality below to see specific visa requirements, maximum stay duration, and important notes for your country.
+                    </p>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      Please note that entry requirements may change, so always verify current information with official sources before travel.
+                    </p>
+                    
+                    <div className="space-y-8">
+                      {/* Country Selector */}
+                      <div>
+                        <label className="block text-lg font-semibold text-[#22242A] mb-4">
+                          {t('entry.nationality.question')}
+                        </label>
+                        
+                        <div className="relative" ref={selectRef}>
+                          <input
+                            type="text"
+                            placeholder={t('entry.select.country')}
+                            value={searchText}
+                            onChange={(e) => {
+                              setSearchText(e.target.value)
+                              setShowDropdown(true)
+                            }}
+                            onFocus={() => {
+                              setShowDropdown(true)
+                            }}
+                            onBlur={() => {
+                              setTimeout(() => {
+                                setShowDropdown(false)
+                              }, 200)
+                            }}
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1F5FA0] focus:border-transparent"
+                          />
+                          
+                          {showDropdown && (
+                            <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                              {filteredCountries.length > 0 ? (
+                                filteredCountries.map((country) => {
+                                  const countryName = t(`country.${country.code.toLowerCase()}`) !== `country.${country.code.toLowerCase()}` 
+                                    ? t(`country.${country.code.toLowerCase()}`) 
+                                    : country.name
+                                  return (
+                                    <button
+                                      key={country.code}
+                                      onClick={() => handleCountrySelect(country.code)}
+                                      className="w-full text-left px-4 py-3 hover:bg-gray-100 border-b border-gray-200 last:border-b-0"
+                                    >
+                                      {countryName}
+                                    </button>
+                                  )
+                                })
+                              ) : (
+                                <div className="px-4 py-3 text-gray-500">
+                                  {t('entry.no.match')}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* India - Special Display */}
+                      {selectedCountryInfo && selectedCountryInfo.code === 'IN' && (
+                        <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                          <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                            {t('entry.visa.status')} - {selectedCountryName}
+                          </h3>
+
+                          <div className="bg-white rounded-lg p-6 border border-gray-200">
+                              <h4 className="text-lg font-semibold text-[#22242A] mb-4">
+                                Entry Rules – Citizens of India (Ordinary Passports)
+                              </h4>
+                              <p className="text-[#22242A] mb-6">
+                                Citizens of India holding ordinary passports must obtain a visa before traveling to Ukraine. This can be done by applying for an electronic visa (e-Visa) through the official MFA portal or by submitting documents in person at a Ukrainian visa center or embassy.
+                              </p>
+
+                              <div className="space-y-6">
+                                <div>
+                                  <h5 className="text-lg font-semibold text-[#22242A] mb-3">1. Electronic Visa (e-Visa)</h5>
+                                  <div className="space-y-3">
+                                    <p className="text-[#22242A]"><strong>Purpose:</strong> Tourism, business, cultural events, conferences, medical treatment, educational programs, private visits</p>
+                                    <p className="text-[#22242A]"><strong>Stay:</strong> Up to 90 days within any 180-day period</p>
+                                    <div>
+                                                                              <p className="text-[#22242A] font-semibold">Fees:</p>
+                                        <p className="text-[#22242A]">Single-entry: 20 USD (normal) / 40 USD (urgent)</p>
+                                        <p className="text-[#22242A]">Double-entry: 30 USD (normal) / 60 USD (urgent)</p>
+                                    </div>
+                                    <div>
+                                      <p className="text-[#22242A] font-semibold">Application procedure:</p>
+                                      <ul className="list-disc list-inside space-y-1 text-[#22242A]">
+                                        <li>Register on the MFA e-Visa portal</li>
+                                        <li>Upload scanned documents (passport, photo, insurance, proof of funds, trip purpose)</li>
+                                        <li>Pay the fee online</li>
+                                        <li>Receive the e-Visa by email</li>
+                                      </ul>
+                                    </div>
+                                    <p className="text-[#22242A]"><strong>Processing time:</strong> ~3 business days (normal), 1 business day (urgent)</p>
+                                  </div>
+                                </div>
+
+                                <div>
+                                  <h5 className="text-lg font-semibold text-[#22242A] mb-3">2. Sticker Visa (Embassy/Consulate)</h5>
+                                  <div className="space-y-3">
+                                    <p className="text-[#22242A]"><strong>Type:</strong> C-type short-term visa for tourism, business, private or cultural visits</p>
+                                    <p className="text-[#22242A]"><strong>Duration:</strong> Up to 90 days within any 180-day period</p>
+                                    <p className="text-[#22242A]"><strong>Fee:</strong> Standard consular fee (varies by embassy, usually ~65–85 USD)</p>
+                                                                          <div>
+                                        <p className="text-[#22242A] font-semibold">Application procedure:</p>
+                                        <ul className="list-disc list-inside space-y-1 text-[#22242A]">
+                                          <li>Complete the visa application online</li>
+                                          <li>Print and sign it</li>
+                                          <li>Submit in person to the Embassy/Consulate of Ukraine with:</li>
+                                          <li className="ml-4">Valid passport</li>
+                                          <li className="ml-4">Recent photo</li>
+                                          <li className="ml-4">Travel insurance</li>
+                                          <li className="ml-4">Proof of sufficient funds</li>
+                                          <li className="ml-4">Trip details (hotel booking, invitation, etc.)</li>
+                                          <li>Pay the consular fee</li>
+                                        </ul>
+                                      </div>
+                                                                          <p className="text-[#22242A]"><strong>Processing time:</strong> Normally up to 10 business days; urgent options available at extra cost</p>
+                                  </div>
+                                </div>
+
+                                <div>
+                                  <h5 className="text-lg font-semibold text-[#22242A] mb-3">Summary Table</h5>
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full border-collapse">
+                                      <thead>
+                                        <tr className="bg-gray-50">
+                                          <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-[#22242A]">Visa Type</th>
+                                          <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-[#22242A]">Fee (USD)</th>
+                                          <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-[#22242A]">Processing Time</th>
+                                          <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-[#22242A]">Notes</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">e-Visa Single</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">20 (normal) / 40 (urgent)</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">3 days / 1 day urgent</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">Apply online</td>
+                                        </tr>
+                                        <tr>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">e-Visa Double</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">30 (normal) / 60 (urgent)</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">3 days / 1 day urgent</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">Apply online</td>
+                                        </tr>
+                                        <tr>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">Sticker Visa</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">~65–85 (consular fee)</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">~10 business days</td>
+                                          <td className="border border-gray-300 px-4 py-2 text-[#22242A]">Apply via embassy/consulate or visa center</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+
+                                <div>
+                                  <h5 className="text-lg font-semibold text-[#22242A] mb-3">Official sources:</h5>
+                                  <ul className="list-disc list-inside space-y-1 text-[#22242A]">
+                                    <li>
+                                      <a 
+                                        href="https://evisa.mfa.gov.ua/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="text-blue-600 hover:text-blue-800 underline"
+                                      >
+                                        Ministry of Foreign Affairs of Ukraine – e-Visa Information
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a 
+                                        href="https://india.mfa.gov.ua/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="text-blue-600 hover:text-blue-800 underline"
+                                      >
+                                        Embassy of Ukraine in India – Consular Services
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      )}
+
+                      {/* USA - Special Display */}
+                      {selectedCountryInfo && selectedCountryInfo.code === 'US' && (
+                        <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                          <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                            {t('entry.visa.status')} - {selectedCountryName}
+                          </h3>
+                          
+                          <div className="bg-white rounded-lg p-6 border border-gray-200">
+                            <h4 className="text-lg font-semibold text-[#22242A] mb-4">
+                              Entry Rules – Citizens of United States (Ordinary Passports)
+                            </h4>
+                            <p className="text-[#22242A] mb-6">
+                              Citizens of United States holding ordinary passports do not require a visa to enter Ukraine for tourism, business, private visits, or other short-term purposes.
+                            </p>
+
+                            <div className="space-y-6">
+                              <div>
+                                <h5 className="text-lg font-semibold text-[#22242A] mb-3">Allowed stay:</h5>
+                                <p className="text-[#22242A]">Up to 90 days within any 180-day period.</p>
+                              </div>
+
+                              <div>
+                                <h5 className="text-lg font-semibold text-[#22242A] mb-3">Visa-free entry:</h5>
+                                <p className="text-[#22242A]">Visa-free entry applies to multiple short visits as long as the total stay does not exceed the 90/180 rule.</p>
+                              </div>
+
+                              <div>
+                                <h5 className="text-lg font-semibold text-[#22242A] mb-3">Purpose of visit:</h5>
+                                <p className="text-[#22242A]">Tourism, business meetings, cultural events, conferences, private visits, and other non-remunerated activities.</p>
+                              </div>
+
+                              <div>
+                                <h5 className="text-lg font-semibold text-[#22242A] mb-3">Entry requirements:</h5>
+                                <ul className="list-disc list-inside space-y-2 text-[#22242A]">
+                                  <li>Valid passport (should be valid for at least 3 months beyond the intended departure date)</li>
+                                  <li>Proof of sufficient funds – Ukrainian border officers may request confirmation during entry checks. According to official regulations, travelers should have at least 20 times the subsistence minimum per person per month of stay in Ukraine (update with current year figures; for 2025, approx. UAH 5,260 per month, or ~USD 140). This can be shown as cash, bank statements, credit card limits, or a letter of financial guarantee.</li>
+                                  <li>Travel insurance covering the entire period in Ukraine</li>
+                                  <li>Return or onward ticket may be requested at border control</li>
+                                </ul>
+                              </div>
+
+                              <div>
+                                <h5 className="text-lg font-semibold text-[#22242A] mb-3">Important:</h5>
+                                <p className="text-[#22242A]">Stays longer than 90 days require a D-type long-term visa and subsequent residence permit.</p>
+                              </div>
+
+                              <div>
+                                <h5 className="text-lg font-semibold text-[#22242A] mb-3">Official sources:</h5>
+                                <ul className="list-disc list-inside space-y-1 text-[#22242A]">
+                                  <li>
+                                    <a 
+                                      href="https://mfa.gov.ua/en/visa-free-regime" 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-blue-600 hover:text-blue-800 underline"
+                                    >
+                                      Ministry of Foreign Affairs of Ukraine – Visa-Free Regime Information
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a 
+                                      href="https://dpsu.gov.ua/en/" 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-blue-600 hover:text-blue-800 underline"
+                                    >
+                                      State Border Guard Service of Ukraine – Proof of Funds Requirements
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a 
+                                      href="https://usa.mfa.gov.ua/" 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-blue-600 hover:text-blue-800 underline"
+                                    >
+                                      Embassy of Ukraine in United States – Entry Requirements
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Other Countries Information */}
+                      {selectedCountryInfo && selectedCountryInfo.code !== 'IN' && selectedCountryInfo.code !== 'US' && (
+                        <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                          <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                            {t('entry.visa.status')} - {selectedCountryName}
+                          </h3>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div className="bg-white rounded-lg p-6 border border-gray-200">
+                              <h4 className="text-lg font-semibold text-[#22242A] mb-3">
+                                {selectedCountryInfo.visaRequired ? t('entry.visa.required') : t('entry.visa.free')}
+                              </h4>
+                              <p className="text-[#22242A]">
+                                {selectedCountryInfo.visaRequired ? t('entry.visa.required.text') : t('entry.visa.free.text')}
+                              </p>
+                            </div>
+                            
+                            <div className="bg-white rounded-lg p-6 border border-gray-200">
+                              <h4 className="text-lg font-semibold text-[#22242A] mb-3">
+                                {t('entry.max.stay')}
+                              </h4>
+                              <p className="text-[#22242A]">{selectedCountryInfo.maxStay}</p>
+                            </div>
+                          </div>
+
+                          <div className="bg-white rounded-lg p-6 border border-gray-200">
+                            <h4 className="text-lg font-semibold text-[#22242A] mb-3">
+                              {t('entry.notes')}
+                            </h4>
+                            <p className="text-[#22242A]">{selectedCountryInfo.notes}</p>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                        <p className="text-blue-800 text-sm">
+                          <strong>{t('entry.tip')}</strong> {t('entry.intro.3')}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-[#22242A] mb-2">{t('entry.max.stay')}</h4>
-                    <p className="text-lg text-[#22242A]">{selectedCountryInfo.maxStay}</p>
+                </div>
+                </div>
+              )}
+
+              {/* All Sub-topic Blocks - Always visible */}
+              <div className="space-y-12">
+                {/* General Information Section */}
+                <div id="general-section" className="w-full">
+                  <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                      General Information
+                    </h3>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      Citizens of most countries need a valid passport to enter Ukraine. Some nationalities require a visa, while others can enter visa-free for up to 90 days.
+                    </p>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      {generalRequirements.map((section, index) => (
+                        <div key={index} className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                          <div className="flex items-center mb-6">
+                            <div className="w-12 h-12 bg-[#1F5FA0] rounded-lg flex items-center justify-center mr-4">
+                              <span className="text-xl">📋</span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-[#22242A]">
+                              {section.title}
+                            </h3>
+                          </div>
+                          
+                          <div className="space-y-3">
+                            {section.items.map((item, itemIndex) => (
+                              <div key={itemIndex} className="flex items-start">
+                                <div className="w-2 h-2 bg-[#F5C542] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                <span className="text-[#22242A]">{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-4">
-                  <h4 className="text-lg font-semibold text-[#22242A] mb-2">{t('entry.notes')}</h4>
-                  <p className="text-[#22242A]">{selectedCountryInfo.notes}</p>
+                {/* Epidemiological Restrictions Section */}
+                <div id="epidemiological-section" className="w-full">
+                  <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                      {t('entry.subsections.epidemiological.title')}
+                    </h3>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      {t('entry.subsections.epidemiological.description')}
+                    </p>
+                    
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-8">
+                      <h4 className="text-xl font-bold text-blue-800 mb-6">Current Health Requirements</h4>
+                      <div className="space-y-4 text-blue-700">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Currently no COVID-19 restrictions for entry to Ukraine</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>No vaccination certificates required</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>No PCR tests required</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>No quarantine requirements</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Special detailed information for India */}
-                {selectedCountryInfo.code === 'IN' && (
-                  <div className="mt-8 space-y-6">
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-blue-800 mb-4">{t('entry.india.title')}</h4>
-                      <p className="text-blue-700 mb-4">
-                        {t('entry.india.intro')}
-                      </p>
-                    </div>
-
-                    {/* e-Visa Information */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-blue-800 mb-4">{t('entry.india.evisa.title')}</h4>
-                      <div className="space-y-3 text-blue-700">
-                        <div><strong>{t('entry.india.evisa.purpose')}</strong></div>
-                        <div><strong>{t('entry.india.evisa.stay')}</strong></div>
-                        <div><strong>{t('entry.india.evisa.fees')}</strong></div>
-                        <div><strong>{t('entry.india.evisa.procedure.title')}</strong></div>
-                        <ul className="list-disc list-inside ml-4 space-y-1">
-                          <li>{t('entry.india.evisa.procedure.1')}</li>
-                          <li>{t('entry.india.evisa.procedure.2')}</li>
-                          <li>{t('entry.india.evisa.procedure.3')}</li>
-                          <li>{t('entry.india.evisa.procedure.4')}</li>
-                        </ul>
-                        <div><strong>{t('entry.india.evisa.processing')}</strong></div>
+                {/* Curfews and Safety Limitations Section */}
+                <div id="curfews-section" className="w-full">
+                  <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                      {t('entry.subsections.curfews.title')}
+                    </h3>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      {t('entry.subsections.curfews.description')}
+                    </p>
+                    
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
+                      <h4 className="text-xl font-bold text-yellow-800 mb-6">Current Safety Situation</h4>
+                      <div className="space-y-4 text-yellow-700">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Check current travel advisories before planning your trip</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Some regions may have specific restrictions</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Follow local authorities' instructions</span>
+                        </div>
                       </div>
-                    </div>
-
-                    {/* Sticker Visa Information */}
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-green-800 mb-4">{t('entry.india.sticker.title')}</h4>
-                      <div className="space-y-3 text-green-700">
-                        <div><strong>{t('entry.india.sticker.type')}</strong></div>
-                        <div><strong>{t('entry.india.sticker.duration')}</strong></div>
-                        <div><strong>{t('entry.india.sticker.fee')}</strong></div>
-                        <div><strong>{t('entry.india.sticker.procedure.title')}</strong></div>
-                        <ul className="list-disc list-inside ml-4 space-y-1">
-                          <li>{t('entry.india.sticker.procedure.1')}</li>
-                          <li>{t('entry.india.sticker.procedure.2')}</li>
-                          <li>{t('entry.india.sticker.procedure.3')}</li>
-                          <li>{t('entry.india.sticker.procedure.4')}</li>
-                        </ul>
-                        <div><strong>{t('entry.india.sticker.processing')}</strong></div>
-                      </div>
-                    </div>
-
-                    {/* Summary Table */}
-                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-gray-800 mb-4">{t('entry.india.summary.title')}</h4>
-                      <div className="overflow-x-auto">
-                        <table className="w-full text-sm">
-                          <thead>
-                            <tr className="bg-gray-100">
-                              <th className="px-4 py-2 text-left font-semibold">Visa Type</th>
-                              <th className="px-4 py-2 text-left font-semibold">Fee (USD)</th>
-                              <th className="px-4 py-2 text-left font-semibold">Processing Time</th>
-                              <th className="px-4 py-2 text-left font-semibold">Notes</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.evisa.single')}</td>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.fee.single')}</td>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.time.single')}</td>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.notes.single')}</td>
-                            </tr>
-                            <tr>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.evisa.double')}</td>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.fee.double')}</td>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.time.double')}</td>
-                              <td className="px-4 py-2 border-b">{t('entry.india.summary.notes.double')}</td>
-                            </tr>
-                            <tr>
-                              <td className="px-4 py-2">{t('entry.india.summary.sticker')}</td>
-                              <td className="px-4 py-2">{t('entry.india.summary.fee.sticker')}</td>
-                              <td className="px-4 py-2">{t('entry.india.summary.time.sticker')}</td>
-                              <td className="px-4 py-2">{t('entry.india.summary.notes.sticker')}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-
-                    {/* Official Sources */}
-                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-yellow-800 mb-4">{t('entry.india.sources.title')}</h4>
-                      <ul className="space-y-2 text-yellow-700">
-                        <li>• <a href="https://evisa.mfa.gov.ua/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">{t('entry.india.sources.mfa')}</a></li>
-                        <li>• <a href="https://india.mfa.gov.ua/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">{t('entry.india.sources.embassy')}</a></li>
-                      </ul>
                     </div>
                   </div>
-                )}
+                </div>
 
-                {/* Special detailed information for USA */}
-                {selectedCountryInfo.code === 'US' && (
-                  <div className="mt-8 space-y-6">
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-green-800 mb-4">{t('entry.usa.title')}</h4>
-                      <p className="text-green-700 mb-4">
-                        {t('entry.usa.intro')}
-                      </p>
-                    </div>
-
-                    {/* Visa-Free Entry Information */}
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-green-800 mb-4">{t('entry.usa.details.title')}</h4>
-                      <div className="space-y-3 text-green-700">
-                        <div><strong>{t('entry.usa.details.stay')}</strong></div>
-                        <div><strong>{t('entry.usa.details.visits')}</strong></div>
-                        <div><strong>{t('entry.usa.details.purpose')}</strong></div>
+                {/* Entry with Pets Section */}
+                <div id="pets-section" className="w-full">
+                  <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                      {t('entry.subsections.pets.title')}
+                    </h3>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      {t('entry.subsections.pets.description')}
+                    </p>
+                    
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-8">
+                      <h4 className="text-xl font-bold text-green-800 mb-6">Pet Entry Requirements</h4>
+                      <div className="space-y-4 text-green-700">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Valid pet passport or health certificate</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Up-to-date vaccinations (especially rabies)</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Microchip identification</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Check specific requirements for your pet type</span>
+                        </div>
                       </div>
-                    </div>
-
-                    {/* Entry Requirements */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-blue-800 mb-4">{t('entry.usa.requirements.title')}</h4>
-                      <div className="space-y-3 text-blue-700">
-                        <ul className="list-disc list-inside space-y-2">
-                          <li><strong>{t('entry.usa.requirements.passport')}</strong></li>
-                          <li><strong>{t('entry.usa.requirements.funds')}</strong></li>
-                          <li><strong>{t('entry.usa.requirements.insurance')}</strong></li>
-                          <li><strong>{t('entry.usa.requirements.ticket')}</strong></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* Important Notice */}
-                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-yellow-800 mb-4">{t('entry.usa.important.title')}</h4>
-                      <div className="text-yellow-700">
-                        <p><strong>{t('entry.usa.important.text')}</strong></p>
-                      </div>
-                    </div>
-
-                    {/* Official Sources */}
-                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                      <h4 className="text-xl font-bold text-gray-800 mb-4">{t('entry.usa.sources.title')}</h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li>• <a href="https://mfa.gov.ua/en/visa-free-regime" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">{t('entry.usa.sources.mfa')}</a></li>
-                        <li>• <a href="https://dpsu.gov.ua/en/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">{t('entry.usa.sources.border')}</a></li>
-                      </ul>
                     </div>
                   </div>
-                )}
+                </div>
 
+                {/* Entry with Car Section */}
+                <div id="car-section" className="w-full">
+                  <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                      {t('entry.subsections.car.title')}
+                    </h3>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      {t('entry.subsections.car.description')}
+                    </p>
+                    
+                    <div className="bg-purple-50 border border-purple-200 rounded-lg p-8">
+                      <h4 className="text-xl font-bold text-purple-800 mb-6">Vehicle Entry Requirements</h4>
+                      <div className="space-y-4 text-purple-700">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Valid vehicle registration documents</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>International driving permit (if required)</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Vehicle insurance valid in Ukraine</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Customs declaration for temporary import</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Transit Rules Section */}
+                <div id="transit-section" className="w-full">
+                  <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                    <h3 className="text-2xl font-bold text-[#22242A] mb-6">
+                      {t('entry.subsections.transit.title')}
+                    </h3>
+                    <p className="text-lg text-[#22242A] mb-8">
+                      {t('entry.subsections.transit.description')}
+                    </p>
+                    
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-8">
+                      <h4 className="text-xl font-bold text-orange-800 mb-6">Transit Requirements</h4>
+                      <div className="space-y-4 text-orange-700">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Valid passport and transit visa (if required)</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Proof of onward travel</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Maximum transit time limits apply</span>
+                        </div>
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>Stay within designated transit areas</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* General Information */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-[#22242A]">
-              General Information
-            </h2>
-            <p className="text-xl text-[#B0B3BA] max-w-3xl mx-auto">
-              Citizens of most countries need a valid passport to enter Ukraine. Some nationalities require a visa, while others can enter visa-free for up to 90 days.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {generalRequirements.map((section, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-[#1F5FA0] rounded-lg flex items-center justify-center mr-4">
-                    <span className="text-xl">📋</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#22242A]">
-                    {section.title}
-                  </h3>
-                </div>
-                
-                <div className="space-y-3">
-                  {section.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="flex items-start">
-                      <div className="w-2 h-2 bg-[#F5C542] rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                      <span className="text-[#22242A]">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -581,29 +970,27 @@ export default function EntryRequirements() {
       {/* Important Notice */}
       <section className="py-16 bg-gradient-to-r from-[#D89B5A] to-[#D89B5A]/90">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <div className="mb-8">
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">⚠️</span>
-            </div>
-            <h2 className="text-3xl font-bold mb-4">
-              Important Notice
-            </h2>
-            <p className="text-xl opacity-90 mb-8">
-              Entry requirements may change without notice. Always verify current requirements with the Ukrainian embassy or consulate in your country before travel.
-            </p>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Need Help?</h3>
-            <p className="text-lg mb-6">
-              For specific questions about your nationality or situation, contact the nearest Ukrainian embassy or consulate.
-            </p>
-            <Link 
-              to="/explore/essential" 
-              className="inline-flex items-center bg-white text-[#D89B5A] px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
+          <h2 className="text-3xl font-bold mb-6">Important Notice</h2>
+          <p className="text-lg mb-8">
+            Entry requirements and travel conditions may change rapidly. Always verify current information with official sources before planning your trip to Ukraine.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://mfa.gov.ua/en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-[#D89B5A] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
-              Back to Essential Information →
-            </Link>
+              Ministry of Foreign Affairs
+            </a>
+            <a
+              href="https://dmsu.gov.ua/en/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-[#D89B5A] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            >
+              State Migration Service
+            </a>
           </div>
         </div>
       </section>
