@@ -104,7 +104,7 @@ export function Layout() {
                   to="/explore" 
                   className="font-sans font-semibold text-lg transition-all duration-200 flex items-center justify-center text-center whitespace-nowrap gap-1 py-1 px-1 border-b-2 text-[#08108A] border-transparent hover:text-[#1F5FA0] hover:border-[#1F5FA0]"
                 >
-                  <span className="relative z-10">{t('nav.explore')}</span>
+                  <span className="relative z-10 uppercase tracking-tighter">{t('nav.explore')}</span>
                   <svg 
                     className={`w-4 h-4 transition-transform duration-200 ${
                       isExploreDropdownOpen ? 'rotate-180' : ''
@@ -126,6 +126,22 @@ export function Layout() {
                   >
                     <div className="py-2">
                       <Link 
+                        to="/explore/essential" 
+                        className="flex items-center px-4 py-3 text-[#22242A] hover:bg-[#1F5FA0] hover:text-white transition-colors duration-200 group"
+                        onClick={() => setIsExploreDropdownOpen(false)}
+                      >
+                        <div className="w-8 h-8 bg-[#4E7B53] rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/20">
+                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-medium">{t('explore.nav.essential')}</div>
+                          <div className="text-sm text-[#B0B3BA] group-hover:text-white/80">Travel tips & guides</div>
+                        </div>
+                      </Link>
+                      
+                      <Link 
                         to="/explore/destinations" 
                         className="flex items-center px-4 py-3 text-[#22242A] hover:bg-[#1F5FA0] hover:text-white transition-colors duration-200 group"
                         onClick={() => setIsExploreDropdownOpen(false)}
@@ -143,34 +159,18 @@ export function Layout() {
                       </Link>
                       
                       <Link 
-                        to="/explore/essential" 
+                        to="/explore/regions" 
                         className="flex items-center px-4 py-3 text-[#22242A] hover:bg-[#1F5FA0] hover:text-white transition-colors duration-200 group"
                         onClick={() => setIsExploreDropdownOpen(false)}
                       >
-                        <div className="w-8 h-8 bg-[#4E7B53] rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/20">
+                        <div className="w-8 h-8 bg-[#1F5FA0] rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/20">
                           <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                           </svg>
                         </div>
                         <div>
-                          <div className="font-medium">{t('explore.nav.essential')}</div>
-                          <div className="text-sm text-[#B0B3BA] group-hover:text-white/80">Travel tips & guides</div>
-                        </div>
-                      </Link>
-                      
-                      <Link 
-                        to="/explore/gems" 
-                        className="flex items-center px-4 py-3 text-[#22242A] hover:bg-[#1F5FA0] hover:text-white transition-colors duration-200 group"
-                        onClick={() => setIsExploreDropdownOpen(false)}
-                      >
-                        <div className="w-8 h-8 bg-[#6A5B8C] rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/20">
-                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <div className="font-medium">{t('explore.nav.gems')}</div>
-                          <div className="text-sm text-[#B0B3BA] group-hover:text-white/80">Off the beaten path</div>
+                          <div className="font-medium">{t('explore.nav.regions')}</div>
+                          <div className="text-sm text-[#B0B3BA] group-hover:text-white/80">Regional highlights</div>
                         </div>
                       </Link>
                       
@@ -191,18 +191,18 @@ export function Layout() {
                       </Link>
                       
                       <Link 
-                        to="/explore/regions" 
+                        to="/explore/gems" 
                         className="flex items-center px-4 py-3 text-[#22242A] hover:bg-[#1F5FA0] hover:text-white transition-colors duration-200 group"
                         onClick={() => setIsExploreDropdownOpen(false)}
                       >
-                        <div className="w-8 h-8 bg-[#1F5FA0] rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/20">
+                        <div className="w-8 h-8 bg-[#6A5B8C] rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/20">
                           <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                           </svg>
                         </div>
                         <div>
-                          <div className="font-medium">{t('explore.nav.regions')}</div>
-                          <div className="text-sm text-[#B0B3BA] group-hover:text-white/80">Regional highlights</div>
+                          <div className="font-medium">{t('explore.nav.gems')}</div>
+                          <div className="text-sm text-[#B0B3BA] group-hover:text-white/80">Off the beaten path</div>
                         </div>
                       </Link>
                       
@@ -236,7 +236,7 @@ export function Layout() {
                   }`
                 }
               >
-                <span className="relative z-10">{t('nav.entry')}</span>
+                <span className="relative z-10 uppercase tracking-tighter">{t('nav.entry')}</span>
               </NavLink>
               
               <NavLink 
@@ -249,7 +249,7 @@ export function Layout() {
                   }`
                 }
               >
-                <span className="relative z-10">{t('nav.insurance')}</span>
+                <span className="relative z-10 uppercase tracking-tighter">{t('nav.insurance')}</span>
               </NavLink>
               
               <NavLink 
@@ -262,7 +262,7 @@ export function Layout() {
                   }`
                 }
               >
-                <span className="relative z-10">{t('nav.hotels')}</span>
+                <span className="relative z-10 uppercase tracking-tighter">{t('nav.hotels')}</span>
               </NavLink>
               
               <NavLink 
@@ -275,7 +275,7 @@ export function Layout() {
                   }`
                 }
               >
-                {t('nav.transportation')}
+                <span className="uppercase tracking-tighter">{t('nav.transportation')}</span>
               </NavLink>
               
               <NavLink 
@@ -288,7 +288,7 @@ export function Layout() {
                   }`
                 }
               >
-                {t('nav.mice')}
+                <span className="uppercase tracking-tighter">{t('nav.mice')}</span>
               </NavLink>
             </div>
           </nav>

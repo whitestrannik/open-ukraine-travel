@@ -58,6 +58,30 @@ export default function HiddenGems() {
       image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`,
       category: 'historical',
       region: 'lviv'
+    },
+    {
+      id: 'poltava',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
+      category: 'cultural',
+      region: 'poltava'
+    },
+    {
+      id: 'chernivtsi',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
+      category: 'cultural',
+      region: 'chernivtsi'
+    },
+    {
+      id: 'zhovkva',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
+      category: 'historical',
+      region: 'zhovkva'
+    },
+    {
+      id: 'chernihiv',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg`,
+      category: 'historical',
+      region: 'chernihiv'
     }
   ]
 
@@ -217,9 +241,16 @@ export default function HiddenGems() {
                         {t(`gems.items.${gem.id}.location`)}
                       </div>
                       
-                      <button className="text-[#F5C542] hover:text-[#F5C542]/80 font-semibold transition-colors">
+                                             <Link
+                         to={gem.id === 'poltava' ? '/explore/gems/poltava' :
+                             gem.id === 'chernivtsi' ? '/explore/gems/chernivtsi' :
+                             gem.id === 'zhovkva' ? '/explore/gems/zhovkva' :
+                             gem.id === 'chernihiv' ? '/explore/gems/chernihiv' :
+                             '#'}
+                         className="text-[#F5C542] hover:text-[#F5C542]/80 font-semibold transition-colors"
+                       >
                         {t('gems.items.explore')} →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -14,6 +14,7 @@ import Odesa from '@/pages/cities/Odesa'
 import Carpathians from '@/pages/cities/Carpathians'
 import Chernobyl from '@/pages/cities/Chernobyl'
 import Chernivtsi from '@/pages/cities/Chernivtsi'
+import Poltava from '@/pages/cities/Poltava'
 import EssentialInfo from '@/pages/EssentialInfo'
 import EntryRequirements from '@/pages/EntryRequirements'
 import HiddenGems from '@/pages/HiddenGems'
@@ -21,6 +22,10 @@ import UnescoSites from '@/pages/UnescoSites'
 import ByRegions from '@/pages/ByRegions'
 import JewishUkraine from '@/pages/JewishUkraine'
 import NewsArticle from '@/pages/NewsArticle'
+import HiddenGemsPoltava from '@/pages/HiddenGemsPoltava'
+import HiddenGemsChernivtsi from '@/pages/HiddenGemsChernivtsi'
+import HiddenGemsZhovkva from '@/pages/HiddenGemsZhovkva'
+import HiddenGemsChernihiv from '@/pages/HiddenGemsChernihiv'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -33,6 +38,10 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/explore/destinations" element={<TopDestinations />} />
             <Route path="/explore/essential" element={<EssentialInfo />} />
             <Route path="/explore/gems" element={<HiddenGems />} />
+            <Route path="/explore/gems/poltava" element={<HiddenGemsPoltava />} />
+            <Route path="/explore/gems/chernivtsi" element={<HiddenGemsChernivtsi />} />
+            <Route path="/explore/gems/zhovkva" element={<HiddenGemsZhovkva />} />
+            <Route path="/explore/gems/chernihiv" element={<HiddenGemsChernihiv />} />
             <Route path="/explore/unesco" element={<UnescoSites />} />
             <Route path="/explore/regions" element={<ByRegions />} />
             <Route path="/explore/jewish" element={<JewishUkraine />} />
@@ -42,6 +51,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/cities/carpathians" element={<Carpathians />} />
             <Route path="/cities/chernobyl" element={<Chernobyl />} />
             <Route path="/cities/chernivtsi" element={<Chernivtsi />} />
+            <Route path="/cities/poltava" element={<Poltava />} />
             <Route path="/news/:slug" element={<NewsArticle />} />
             <Route path="/entry" element={<EntryRequirements />} />
             <Route path="/insurance" element={<div className="p-6">Insurance – placeholder</div>} />

@@ -111,10 +111,10 @@ export default function TopDestinations() {
               </Link>
               
               <Link 
-                to="/explore/gems" 
+                to="/explore/regions" 
                 className="px-4 py-2 rounded-lg font-medium text-[#22242A] bg-gray-100 hover:bg-[#1F5FA0] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
-                {t('explore.nav.gems')}
+                {t('explore.nav.regions')}
               </Link>
               
               <Link 
@@ -125,10 +125,10 @@ export default function TopDestinations() {
               </Link>
               
               <Link 
-                to="/explore/regions" 
+                to="/explore/gems" 
                 className="px-4 py-2 rounded-lg font-medium text-[#22242A] bg-gray-100 hover:bg-[#1F5FA0] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
-                {t('explore.nav.regions')}
+                {t('explore.nav.gems')}
               </Link>
               
               <Link 

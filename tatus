@@ -171,4 +171,23 @@ export default function Home() {
                   <label className="block text-xs font-medium text-[#22242A] mb-1">{t('checkIn')}</label>
                   <div className="grid grid-cols-3 gap-2">
                     <select 
-                      value={bookingData.ch
+                      value={bookingData.ch[33m1d90de6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update Jewish Ukraine page with proper image layout and text wrapping
+[33m1a558c3[m Add Ukraine at a Glance and Explore sections to homepage, fix header scroll synchronization
+[33m47f7d92[m Fix Router basename to match repository path
+[33m4831f1c[m Fix GitHub Pages deployment: correct base path and remove duplicate translation keys
+[33m420979c[m Fixing translation of Jewish page
+[33m224736b[m renaming project name. Updating Jewish page
+[33m30efc1d[m Added photos and texts for portal
+[33m883a853[m Added Jewish heritage in Ukraine article (EN)
+[33ma11c182[m FIX: Remove sticky positioning from sub-navigation that was interfering with breadcrumb layout
+[33mbc26928[m TRIGGER: Force GitHub Pages rebuild to apply breadcrumb position fix
+[33m18a826f[m FIX: Move breadcrumbs above hero image in TopDestinations page
+[33m8397c44[m FIX: Fix hero section background images on GitHub Pages subpages
+[33ma214811[m FIX: Replace all hardcoded asset paths with import.meta.env.BASE_URL
+[33m3288d35[m FIX: Use import.meta.env.BASE_URL for all asset URLs + add .nojekyll
+[33m62aeabf[m SIMPLIFY: Hardcode GitHub Pages paths - remove complex environment logic
+[33m8de6b9c[m Fix asset loading: Use getAssetUrl helper for GitHub Pages compatibility
+[33m5dd5222[m Fix GitHub Pages assets: Hardcode base URL for testing
+[33m814502a[m Trigger GitHub Pages rebuild with correct asset paths
+[33mb77b5e6[m GitHub Actions: Use --no-frozen-lockfile to resolve CI lockfile issues
+[33m4c9f013[m Fix GitHub Actions: Convert vite.config.ts to .js and update pnpm workflow

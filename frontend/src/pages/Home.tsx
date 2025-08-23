@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 export default function Home() {
   const { t } = useI18n()
+  const [showRegionsInfo, setShowRegionsInfo] = useState(false)
+  const [showUnescoInfo, setShowUnescoInfo] = useState(false)
   const [bookingData, setBookingData] = useState({
     checkInDay: '',
     checkInMonth: '',
@@ -28,39 +30,38 @@ export default function Home() {
     window.location.href = '/hotels'
   }
 
+  const handleRegionsClick = () => {
+    setShowRegionsInfo(!showRegionsInfo)
+  }
+
+  const handleUnescoClick = () => {
+    setShowUnescoInfo(!showUnescoInfo)
+  }
+
   return (
     <div className="min-h-screen">
       {/* Information Portal - Top Right */}
-      <div className="fixed top-0 right-4 z-50">
-        <a 
-          href="https://evisa.mfa.gov.ua/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-300 text-xs font-medium text-[#1F5FA0] hover:text-[#0F3F80] border border-white/50"
-        >
+      <div className="absolute top-0 right-4 z-50">
+        <span className="text-xs font-medium text-[#08108A] drop-shadow-lg">
           Information Portal
-        </a>
+        </span>
       </div>
 
       {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <video 
-          autoPlay 
-          muted 
-          loop 
+        {/* Image Background */}
+        <img 
+          src={`${import.meta.env.BASE_URL}media/kiev-2340518.jpg`}
+          alt="Kiev cityscape"
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={`${import.meta.env.BASE_URL}media/12064535-uhd_3840_2160_30fps.mp4`} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        />
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         
-        {/* Main Hero Text - Centered */}
-        <div className="absolute inset-0 flex items-start justify-center z-15 pt-25 -ml-[100px]">
-          <h1 className="text-4xl md:text-6xl font-bold text-white text-center drop-shadow-2xl leading-relaxed uppercase" style={{ transform: 'scaleY(1.15)' }}>
+        {/* Main Hero Text - Near Top Edge */}
+        <div className="absolute top-6 left-10 z-15">
+          <h1 className="text-2xl md:text-3xl font-bold text-white drop-shadow-2xl leading-relaxed uppercase" style={{ transform: 'scaleY(1.15)' }}>
             {t('home.hero.brave.title')}
           </h1>
         </div>
@@ -382,37 +383,192 @@ export default function Home() {
       </section>
 
       {/* Quick Stats - Ukraine at a Glance */}
-      <section className="py-16 bg-[#F6F6F8]">
+      <section className="py-8 bg-[#F6F6F8]">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
-              {t('explore.stats.title')}
-            </h2>
-            <p className="text-xl text-[#B0B3BA] max-w-3xl mx-auto">
-              {t('explore.stats.subtitle')}
-            </p>
-          </div>
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            {/* Left side - Title and Description */}
+            <div className="lg:w-1/2 text-center lg:text-left">
+              <h2 className="text-4xl font-bold mb-2 text-[#22242A]">
+                {t('explore.stats.title')}
+              </h2>
+              <p className="text-xl text-[#B0B3BA]">
+                {t('explore.stats.subtitle')}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {/* Right side - Stats Grid */}
+            <div className="lg:w-1/2 grid grid-cols-4 gap-3">
             {[
               { key: 'unesco', value: '7', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
-              { key: 'regions', value: '24', icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7' },
+              { key: 'regions', value: '14+', icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7' },
               { key: 'cities', value: '460+', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z' },
               { key: 'history', value: '1000+', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' }
             ].map((stat) => (
-              <div key={stat.key} className="text-center group">
-                <div className="w-16 h-16 bg-[#1F5FA0] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div 
+                key={stat.key} 
+                className={`text-center group ${stat.key === 'regions' || stat.key === 'unesco' ? 'cursor-pointer' : ''}`}
+                onClick={stat.key === 'regions' ? handleRegionsClick : stat.key === 'unesco' ? handleUnescoClick : undefined}
+              >
+                <div className="w-16 h-16 bg-[#1F5FA0] rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
                   </svg>
               </div>
-                <div className="text-3xl font-bold text-[#1F5FA0] mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold text-[#1F5FA0] mb-1">{stat.value}</div>
                 <div className="text-[#B0B3BA] font-medium">{t(`explore.stats.${stat.key}`)}</div>
               </div>
             ))}
           </div>
+          </div>
         </div>
       </section>
+
+      {/* Regions Info Modal */}
+      {showRegionsInfo && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-[#22242A]">{t('regions.modal.title')}</h3>
+                <button 
+                  onClick={() => setShowRegionsInfo(false)}
+                  className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+                >
+                  ×
+                </button>
+              </div>
+              
+              <div className="space-y-4 text-[#22242A]">
+                <div className="border-l-4 border-[#1F5FA0] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.halychyna')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.halychyna.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#4E7B53] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.bukovyna')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.bukovyna.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#6A5B8C] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.zakarpattia')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.zakarpattia.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#D89B5A] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.volyn')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.volyn.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#1F5FA0] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.polissia')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.polissia.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#4E7B53] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.podillia')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.podillia.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#6A5B8C] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.central')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.central.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#D89B5A] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.slobozhanshchyna')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.slobozhanshchyna.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#1F5FA0] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.donbas')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.donbas.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#4E7B53] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.southern')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.southern.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#6A5B8C] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.crimea')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.crimea.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#D89B5A] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.bessarabia')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.bessarabia.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#1F5FA0] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.starodub')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.starodub.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#4E7B53] pl-4">
+                  <h4 className="font-semibold text-lg">{t('regions.modal.kuban')}</h4>
+                  <p className="text-[#B0B3BA]">{t('regions.modal.kuban.desc')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* UNESCO Info Modal */}
+      {showUnescoInfo && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-[#22242A]">{t('unesco.modal.title')}</h3>
+                <button 
+                  onClick={() => setShowUnescoInfo(false)}
+                  className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+                >
+                  ×
+                </button>
+              </div>
+              
+              <div className="space-y-4 text-[#22242A]">
+                <div className="border-l-4 border-[#1F5FA0] pl-4">
+                  <h4 className="font-semibold text-lg">{t('unesco.modal.kyiv_pechersk')}</h4>
+                  <p className="text-[#B0B3BA]">{t('unesco.modal.kyiv_pechersk.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#4E7B53] pl-4">
+                  <h4 className="font-semibold text-lg">{t('unesco.modal.lviv')}</h4>
+                  <p className="text-[#B0B3BA]">{t('unesco.modal.lviv.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#6A5B8C] pl-4">
+                  <h4 className="font-semibold text-lg">{t('unesco.modal.struve')}</h4>
+                  <p className="text-[#B0B3BA]">{t('unesco.modal.struve.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#D89B5A] pl-4">
+                  <h4 className="font-semibold text-lg">{t('unesco.modal.carpathian')}</h4>
+                  <p className="text-[#B0B3BA]">{t('unesco.modal.carpathian.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#1F5FA0] pl-4">
+                  <h4 className="font-semibold text-lg">{t('unesco.modal.wooden')}</h4>
+                  <p className="text-[#B0B3BA]">{t('unesco.modal.wooden.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#4E7B53] pl-4">
+                  <h4 className="font-semibold text-lg">{t('unesco.modal.chernivtsi')}</h4>
+                  <p className="text-[#B0B3BA]">{t('unesco.modal.chernivtsi.desc')}</p>
+                </div>
+                
+                <div className="border-l-4 border-[#6A5B8C] pl-4">
+                  <h4 className="font-semibold text-lg">{t('unesco.modal.kamianets')}</h4>
+                  <p className="text-[#B0B3BA]">{t('unesco.modal.kamianets.desc')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Explore Sections Grid - What Would You Like to Explore? */}
       <section className="py-16">
@@ -445,12 +601,12 @@ export default function Home() {
                 gradient: 'from-[#4E7B53] to-[#4E7B53]/80'
               },
               {
-                id: 'gems',
-                route: '/explore/gems',
-                image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
-                icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
-                color: 'bg-[#6A5B8C]',
-                gradient: 'from-[#6A5B8C] to-[#6A5B8C]/80'
+                id: 'regions',
+                route: '/explore/regions',
+                image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
+                icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
+                color: 'bg-[#1F5FA0]',
+                gradient: 'from-[#1F5FA0] to-[#1F5FA0]/80'
               },
               {
                 id: 'unesco',
@@ -461,12 +617,12 @@ export default function Home() {
                 gradient: 'from-[#D89B5A] to-[#D89B5A]/80'
               },
               {
-                id: 'regions',
-                route: '/explore/regions',
-                image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
-                icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
-                color: 'bg-[#1F5FA0]',
-                gradient: 'from-[#1F5FA0] to-[#1F5FA0]/80'
+                id: 'gems',
+                route: '/explore/gems',
+                image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
+                icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+                color: 'bg-[#6A5B8C]',
+                gradient: 'from-[#6A5B8C] to-[#6A5B8C]/80'
               },
               {
                 id: 'jewish',
