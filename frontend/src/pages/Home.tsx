@@ -585,14 +585,6 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                id: 'destinations',
-                route: '/explore/destinations',
-                image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
-                icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
-                color: 'bg-[#1F5FA0]',
-                gradient: 'from-[#1F5FA0] to-[#1F5FA0]/80'
-              },
-              {
                 id: 'essential',
                 route: '/explore/essential',
                 image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`,

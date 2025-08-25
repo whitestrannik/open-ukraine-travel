@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { useI18n } from '@/state/i18n'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 // Список поддерживаемых языков
 const languages = [
@@ -21,6 +22,8 @@ export function LanguageToggle() {
   const { lang, setLang } = useI18n()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate()
+  const location = useLocation()
   
   const currentLanguage = languages.find(l => l.code === lang) || languages[0]
   
@@ -39,8 +42,73 @@ export function LanguageToggle() {
   }, [isOpen])
   
   const handleLanguageSelect = (languageCode: string) => {
-    setLang(languageCode)
+    setLang(languageCode as any)
     setIsOpen(false)
+    
+    // Перенаправляем на соответствующую версию страницы для Чернигов и Черновцов
+    const currentPath = location.pathname
+    
+    // Для Чернигов
+    if (currentPath === '/explore/gems/chernihiv' || 
+        currentPath === '/chernihiv-english-new' || 
+        currentPath === '/chernihiv-sp') {
+      
+      const routes = {
+        uk: '/explore/gems/chernihiv',
+        en: '/chernihiv-english-new',
+        es: '/chernihiv-sp'
+      }
+      
+      const targetRoute = routes[languageCode as keyof typeof routes]
+      if (targetRoute && currentPath !== targetRoute) {
+        navigate(targetRoute, { replace: true })
+      }
+    }
+    
+    // Для Черновцов
+    if (currentPath === '/explore/gems/chernivtsi' || 
+        currentPath === '/chernivtsi-english') {
+      
+      const routes = {
+        uk: '/explore/gems/chernivtsi',
+        en: '/chernivtsi-english'
+      }
+      
+      const targetRoute = routes[languageCode as keyof typeof routes]
+      if (targetRoute && currentPath !== targetRoute) {
+        navigate(targetRoute, { replace: true })
+      }
+    }
+    
+    // Для Полтава
+    if (currentPath === '/explore/gems/poltava' || 
+        currentPath === '/poltava-english') {
+      
+      const routes = {
+        uk: '/explore/gems/poltava',
+        en: '/poltava-english'
+      }
+      
+      const targetRoute = routes[languageCode as keyof typeof routes]
+      if (targetRoute && currentPath !== targetRoute) {
+        navigate(targetRoute, { replace: true })
+      }
+    }
+    
+    // Для Жовква
+    if (currentPath === '/explore/gems/zhovkva' || 
+        currentPath === '/zhovkva-english') {
+      
+      const routes = {
+        uk: '/explore/gems/zhovkva',
+        en: '/zhovkva-english'
+      }
+      
+      const targetRoute = routes[languageCode as keyof typeof routes]
+      if (targetRoute && currentPath !== targetRoute) {
+        navigate(targetRoute, { replace: true })
+      }
+    }
   }
   
   return (

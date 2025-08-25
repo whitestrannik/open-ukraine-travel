@@ -2,11 +2,15 @@ import { useState, useRef, useEffect } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { LanguageToggle } from './LanguageToggle'
 import { useI18n } from '@/state/i18n'
+import { useLanguageRedirect } from '@/hooks/useLanguageRedirect'
 
 export function Layout() {
   const { t } = useI18n()
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  
+  // Используем хук для автоматического перенаправления при смене языка
+  useLanguageRedirect()
   
   // Dropdown state
   const [isExploreDropdownOpen, setIsExploreDropdownOpen] = useState(false)

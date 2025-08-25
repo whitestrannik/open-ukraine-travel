@@ -49,11 +49,114 @@ export default function UnescoSites() {
     }
   ]
 
+  const unescoCandidates = [
+    {
+      id: 'chernihiv-historic-center',
+      name: 'Historic Centre of Chernihiv (9th–13th centuries)',
+      image: `${import.meta.env.BASE_URL}media/Чернігівський_колегіум_(Чернігів) (1).jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'chernihiv',
+      year: '2023',
+      description: 'Includes the Transfiguration Cathedral (11th century) and Borysohlibskyi Cathedral (12th century), among other architectural landmarks.'
+    },
+    {
+      id: 'kamianets-podilskyi-canyon',
+      name: 'Cultural Landscape of the Canyon in Kamianets-Podilskyi',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'kamianets-podilskyi',
+      year: '2023',
+      description: 'Historic city centre and fortress spanning 11th–18th centuries.'
+    },
+    {
+      id: 'shevchenko-tomb',
+      name: 'Taras Shevchenko\'s Tomb and State Historical and Natural Museum‑Reserve',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-12932806.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'cherkasy',
+      year: '2023',
+      description: 'A combined cultural and natural site.'
+    },
+    {
+      id: 'askania-nova',
+      name: 'National Steppe Biosphere Reserve "Askania-Nova"',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
+      status: 'tentative',
+      type: 'natural',
+      city: 'kherson',
+      year: '2023',
+      description: 'A natural conservation area and biosphere reserve.'
+    },
+    {
+      id: 'sofiyivka-park',
+      name: 'Dendrological Park "Sofiyivka"',
+      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'cherkasy',
+      year: '2023',
+      description: 'An English landscape garden with a rich variety of plant species, founded in 1796.'
+    },
+    {
+      id: 'bagcesaray-palace',
+      name: 'Bagçesaray Palace of the Crimean Khans',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-345522.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'crimea',
+      year: '2023',
+      description: 'A 16th-century palace complex with mosques, residences, and gardens.'
+    },
+    {
+      id: 'stone-tomb',
+      name: 'Archaeological Site "Stone Tomb" (Kamyana Mohyla)',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'zaporizhzhia',
+      year: '2023',
+      description: 'Sandstone blocks with petroglyphs from the Mesolithic to Medieval periods.'
+    },
+    {
+      id: 'mykolaiv-observatory',
+      name: 'Mykolaiv Astronomical Observatory',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1227513.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'mykolaiv',
+      year: '2023',
+      description: 'A historic observatory founded in 1821.'
+    },
+    {
+      id: 'sudak-fortress',
+      name: 'Complex of the Sudak Fortress Monuments (6th–16th c.)',
+      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'crimea',
+      year: '2023',
+      description: 'A medieval fortress with Byzantine and Genoese layers.'
+    },
+    {
+      id: 'derzhprom',
+      name: 'Derzhprom (State Industry Building)',
+      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`,
+      status: 'tentative',
+      type: 'cultural',
+      city: 'kharkiv',
+      year: '2023',
+      description: 'A 1920s constructivist architectural masterpiece.'
+    }
+  ]
+
   const stats = [
-    { id: 'total', value: '7', icon: '🏛️', color: 'bg-[#1F5FA0]' },
-    { id: 'cultural', value: '6', icon: '🎭', color: 'bg-[#6A5B8C]' },
-    { id: 'natural', value: '1', icon: '🌲', color: 'bg-[#4E7B53]' },
-    { id: 'years', value: '33', icon: '📅', color: 'bg-[#D89B5A]' }
+    { id: 'total', value: '16', icon: '🏛️', color: 'bg-[#1F5FA0]' },
+    { id: 'cultural', value: '14', icon: '🎭', color: 'bg-[#6A5B8C]' },
+    { id: 'natural', value: '2', icon: '🌲', color: 'bg-[#4E7B53]' },
+    { id: 'candidates', value: '10', icon: '⏳', color: 'bg-[#F5C542]' }
   ]
 
   return (
@@ -100,20 +203,7 @@ export default function UnescoSites() {
             {t('unesco.hero.subtitle')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/explore/destinations" 
-              className="inline-flex items-center bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              {t('unesco.hero.cta.explore')} →
-            </Link>
-            <Link 
-              to="/cities/kyiv" 
-              className="inline-flex items-center bg-white/10 hover:bg-white/20 backdrop-blur text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20"
-            >
-              {t('unesco.hero.cta.kyiv')} →
-            </Link>
-          </div>
+
         </div>
       </section>
 
@@ -226,6 +316,94 @@ export default function UnescoSites() {
                   <p className="text-[#22242A] text-sm leading-relaxed">
                     {t(`unesco.sites.${site.id}.significance`)}
                   </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* UNESCO Candidates Grid */}
+      <section className="py-16 bg-[#F6F6F8]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-[#22242A]">
+              UNESCO Tentative List
+            </h2>
+            <p className="text-xl text-[#B0B3BA] max-w-3xl mx-auto">
+              Discover the remarkable sites that are candidates for UNESCO World Heritage status, showcasing Ukraine's rich cultural and historical diversity
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {unescoCandidates.map((candidate) => (
+              <div 
+                key={candidate.id}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={candidate.image} 
+                    alt={`${candidate.id} candidate`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  
+                  {/* Candidate Badge */}
+                  <div className="absolute top-4 left-4">
+                    <div className="flex items-center gap-2 bg-[#F5C542] text-black px-3 py-1 rounded-full text-sm font-medium">
+                      <span>⏳</span>
+                      <span>Tentative {candidate.year}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Type Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${
+                      candidate.type === 'cultural' ? 'bg-[#6A5B8C]' : 'bg-[#4E7B53]'
+                    }`}>
+                      {candidate.type === 'cultural' ? 'Cultural' : 'Natural'}
+                    </span>
+                  </div>
+                  
+                                     <div className="absolute bottom-0 left-0 right-0 p-6">
+                     <h3 className="text-xl font-bold text-white mb-2">
+                       {candidate.name}
+                     </h3>
+                     <p className="text-white/90 text-sm mb-3 line-clamp-2">
+                       {candidate.description}
+                     </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-white/80 text-sm">
+                        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        {candidate.city.charAt(0).toUpperCase() + candidate.city.slice(1)}
+                      </div>
+                      
+                      <button className="text-[#F5C542] hover:text-[#F5C542]/80 font-semibold transition-colors">
+                        Learn More →
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Card Content */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-sm text-[#B0B3BA]">
+                      Status: <span className="font-semibold text-[#F5C542]">Tentative List</span>
+                    </div>
+                    <div className="text-sm text-[#B0B3BA]">
+                      Added: <span className="font-semibold text-[#22242A]">{candidate.year}</span>
+                    </div>
+                  </div>
+                  
+                                     <p className="text-[#22242A] text-sm leading-relaxed">
+                     {candidate.description}
+                   </p>
                 </div>
               </div>
             ))}

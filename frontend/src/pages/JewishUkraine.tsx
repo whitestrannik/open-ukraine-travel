@@ -129,20 +129,7 @@ export default function JewishUkraine() {
             A Thousand Years of Life, Faith, and Inspiration
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="#heritage-sites" 
-              className="inline-flex items-center bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              Explore Heritage Sites →
-            </Link>
-            <Link 
-              to="#history" 
-              className="inline-flex items-center bg-white/10 hover:bg-white/20 backdrop-blur text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20"
-            >
-              Discover History →
-            </Link>
-          </div>
+
         </div>
       </section>
 

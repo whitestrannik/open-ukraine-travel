@@ -181,6 +181,8 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'destinations.grid.title': 'Popular Destinations',
     'destinations.grid.subtitle': 'Discover Ukraine\'s most visited and beloved destinations',
     'gems.grid.title': 'Hidden Treasures',
+    'gems.ready.title': 'Ready to Explore',
+    'gems.coming.title': 'Coming Soon',
     'gems.grid.subtitle': 'Explore lesser-known but equally amazing destinations',
     'unesco.sites.title': 'UNESCO Sites',
     'unesco.sites.subtitle': 'Visit Ukraine\'s World Heritage sites',
@@ -261,6 +263,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     
     // Hidden Gems Items
     'gems.items.explore': 'Explore',
+    'gems.items.coming-soon': 'Coming Soon',
     'gems.items.tunnel-of-love.name': 'Tunnel of Love',
     'gems.items.tunnel-of-love.description': 'A magical railway tunnel formed by trees, perfect for romantic walks',
     'gems.items.tunnel-of-love.location': 'Klevan, Rivne Oblast',
@@ -344,7 +347,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'unesco.stats.total.label': 'Total Sites',
     'unesco.stats.cultural.label': 'Cultural Sites',
     'unesco.stats.natural.label': 'Natural Sites',
-    'unesco.stats.years.label': 'Years of Heritage',
+    'unesco.stats.candidates.label': 'Tentative List',
     'unesco.importance.title': 'Why UNESCO Sites Matter',
     'unesco.importance.subtitle': 'Understanding the significance of World Heritage sites',
     'unesco.importance.universal.title': 'Universal Value',
@@ -829,25 +832,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'essential.facts.emergency.insurance.description': 'For medical cases, better use the phone number from your insurance policy.',
     'essential.facts.emergency.insurance.link': 'Get insurance policy here',
     
-    // Essential Information Sections
-    'essential.sections.entry-requirements.title': 'Entry Requirements',
-    'essential.sections.entry-requirements.description': 'Visa requirements, passport validity, and entry procedures',
-    'essential.sections.entry-requirements.points': 'Valid passport required|EU citizens: visa-free for 90 days|US/Canada/UK citizens: visa-free for 90 days|Check specific requirements for your nationality|Passport must be valid for duration of stay',
-    'essential.sections.currency-payments.title': 'Currency & Payments',
-    'essential.sections.currency-payments.description': 'Payment methods, currency exchange, and financial tips',
-    'essential.sections.currency-payments.points': 'Official currency: Ukrainian Hryvnia (UAH)|Credit cards widely accepted in cities|ATMs available throughout the country|Cash preferred in rural areas|Currency exchange at banks and licensed exchangers',
-    'essential.sections.health-safety.title': 'Health & Safety',
-    'essential.sections.health-safety.description': 'Medical care, emergency services, and safety information',
-    'essential.sections.health-safety.points': 'No special vaccinations required|Tap water safe in major cities|Travel insurance recommended|Emergency number: 112|Medical care available in all major cities',
-    'essential.sections.transportation.title': 'Transportation',
-    'essential.sections.transportation.description': 'Getting around Ukraine by various means of transport',
-    'essential.sections.transportation.points': 'Extensive railway network|Domestic flights between major cities|Bus connections to all regions|Metro systems in Kyiv, Kharkiv, Dnipro|Taxi and ride-sharing apps available',
-    'essential.sections.communication.title': 'Communication',
-    'essential.sections.communication.description': 'Internet, mobile networks, and language information',
-    'essential.sections.communication.points': 'Free WiFi in hotels and cafes|Mobile coverage excellent in cities|International roaming available|English spoken in tourist areas|Ukrainian and Russian widely understood',
-    'essential.sections.cultural-tips.title': 'Cultural Tips',
-    'essential.sections.cultural-tips.description': 'Local customs, etiquette, and cultural insights',
-    'essential.sections.cultural-tips.points': 'Dress modestly when visiting religious sites|Remove shoes when entering homes|Handshake is standard greeting|Tipping 10% in restaurants|Learn basic Ukrainian phrases',
+
   },
   uk: {
     // Navigation
@@ -1019,6 +1004,8 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'destinations.grid.title': 'Популярні напрямки',
     'destinations.grid.subtitle': 'Відкрийте найвідвідуваніші та найулюбленіші напрямки України',
     'gems.grid.title': 'Приховані скарби',
+    'gems.ready.title': 'Готові до дослідження',
+    'gems.coming.title': 'Незабаром',
     'gems.grid.subtitle': 'Досліджуйте менш відомі, але не менш вражаючі напрямки',
     'unesco.sites.title': 'Сайти ЮНЕСКО',
     'unesco.sites.subtitle': 'Відвідайте об\'єкти Всесвітньої спадщини України',
@@ -1099,6 +1086,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     
     // Hidden Gems Items
     'gems.items.explore': 'Дослідити',
+    'gems.items.coming-soon': 'Незабаром',
     'gems.items.tunnel-of-love.name': 'Тунель Кохання',
     'gems.items.tunnel-of-love.description': 'Магічний залізничний тунель з дерев, ідеальний для романтичних прогулянок',
     'gems.items.tunnel-of-love.location': 'Клевань, Рівненська область',
@@ -1182,7 +1170,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'unesco.stats.total.label': 'Всього сайтів',
     'unesco.stats.cultural.label': 'Культурні сайти',
     'unesco.stats.natural.label': 'Природні сайти',
-    'unesco.stats.years.label': 'Років спадщини',
+    'unesco.stats.candidates.label': 'Попередній список',
     'unesco.importance.title': 'Чому важливі сайти ЮНЕСКО',
     'unesco.importance.subtitle': 'Розуміння значення об\'єктів Всесвітньої спадщини',
     'unesco.importance.universal.title': 'Універсальна цінність',
@@ -1642,24 +1630,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'essential.cta.hotels': 'Знайти Готелі',
     
     // Essential Information Sections
-    'essential.sections.entry-requirements.title': 'Вимоги до В\'їзду',
-    'essential.sections.entry-requirements.description': 'Візові вимоги, дійсність паспорта та процедури в\'їзду',
-    'essential.sections.entry-requirements.points': 'Потрібен дійсний паспорт|Громадяни ЄС: безвізовий режим на 90 днів|Громадяни США/Канади/Великобританії: безвізовий режим на 90 днів|Перевірте конкретні вимоги для вашого громадянства|Паспорт повинен бути дійсним протягом усього перебування',
-    'essential.sections.currency-payments.title': 'Валюта та Платежі',
-    'essential.sections.currency-payments.description': 'Способи оплати, обмін валют та фінансові поради',
-    'essential.sections.currency-payments.points': 'Офіційна валюта: українська гривня (UAH)|Кредитні картки широко приймаються в містах|Банкомати доступні по всій країні|У сільських районах краще готівка|Обмін валют у банках та ліцензованих обмінниках',
-    'essential.sections.health-safety.title': 'Здоров\'я та Безпека',
-    'essential.sections.health-safety.description': 'Медична допомога, служби екстреного реагування та інформація про безпеку',
-    'essential.sections.health-safety.points': 'Спеціальні щеплення не потрібні|Водопровідна вода безпечна у великих містах|Рекомендується туристична страховка|Номер екстреної служби: 112|Медична допомога доступна у всіх великих містах',
-    'essential.sections.transportation.title': 'Транспорт',
-    'essential.sections.transportation.description': 'Пересування Україною різними видами транспорту',
-    'essential.sections.transportation.points': 'Розгалужена залізнична мережа|Внутрішні рейси між великими містами|Автобусне сполучення з усіма регіонами|Системи метро в Києві, Харкові, Дніпрі|Доступні таксі та додатки для замовлення поїздок',
-    'essential.sections.communication.title': 'Зв\'язок',
-    'essential.sections.communication.description': 'Інтернет, мобільні мережі та мовна інформація',
-    'essential.sections.communication.points': 'Безкоштовний WiFi в готелях та кафе|Відмінне мобільне покриття в містах|Доступний міжнародний роумінг|Англійська мова поширена в туристичних районах|Українська та російська широко розуміються',
-    'essential.sections.cultural-tips.title': 'Культурні Поради',
-    'essential.sections.cultural-tips.description': 'Місцеві звичаї, етикет та культурні особливості',
-    'essential.sections.cultural-tips.points': 'Одягайтеся скромно при відвідуванні релігійних місць|Знімайте взуття при вході в будинки|Рукостискання - стандартне привітання|Чайові 10% в ресторанах|Вивчіть основні українські фрази',
+
   },
   de: {
     'nav.explore': 'Ukraine erkunden',
@@ -2265,6 +2236,8 @@ const dictionaries: Record<Language, Record<string, string>> = {
     'destinations.grid.title': 'Destinos Populares',
     'destinations.grid.subtitle': 'Descubre los destinos más visitados y queridos de Ucrania',
     'gems.grid.title': 'Tesoros Ocultos',
+    'gems.ready.title': 'Listo para Explorar',
+    'gems.coming.title': 'Próximamente',
     'gems.grid.subtitle': 'Explora destinos menos conocidos pero igualmente asombrosos',
     'unesco.sites.title': 'Sitios UNESCO',
     'unesco.sites.subtitle': 'Visita los sitios del Patrimonio Mundial de Ucrania',
@@ -2345,6 +2318,7 @@ const dictionaries: Record<Language, Record<string, string>> = {
     
     // Hidden Gems Items
     'gems.items.explore': 'Explorar',
+    'gems.items.coming-soon': 'Próximamente',
     'gems.items.tunnel-of-love.name': 'Túnel del Amor',
     'gems.items.tunnel-of-love.description': 'Un túnel ferroviario mágico formado por árboles, perfecto para paseos románticos',
     'gems.items.tunnel-of-love.location': 'Klevan, Oblast de Rivne',
@@ -2425,6 +2399,10 @@ const dictionaries: Record<Language, Record<string, string>> = {
     
     'unesco.stats.title': 'Estadísticas UNESCO',
     'unesco.stats.subtitle': 'Aprende sobre los sitios del Patrimonio Mundial de Ucrania',
+    'unesco.stats.total.label': 'Total de Sitios',
+    'unesco.stats.cultural.label': 'Sitios Culturales',
+    'unesco.stats.natural.label': 'Sitios Naturales',
+    'unesco.stats.candidates.label': 'Lista Tentativa',
     'unesco.importance.title': 'Por qué Importan los Sitios UNESCO',
     'unesco.importance.subtitle': 'Entendiendo la importancia de los sitios del Patrimonio Mundial',
     'unesco.importance.universal.title': 'Valor Universal',

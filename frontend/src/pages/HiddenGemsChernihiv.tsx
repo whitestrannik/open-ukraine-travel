@@ -1,8 +1,31 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useI18n } from '@/state/i18n'
 
 export default function HiddenGemsChernihiv() {
-  const { t } = useI18n()
+  const { lang } = useI18n()
+  const [showEnglish, setShowEnglish] = useState(false)
+
+  if (showEnglish) {
+    return (
+      <div className="min-h-screen bg-blue-100 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-blue-800 mb-4">
+            ENGLISH VERSION WORKS!
+          </h1>
+          <p className="text-xl text-blue-600 mb-4">
+            This is the English version of Chernihiv page
+          </p>
+          <button 
+            onClick={() => setShowEnglish(false)}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Back to Ukrainian
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen">
@@ -11,24 +34,38 @@ export default function HiddenGemsChernihiv() {
         <div className="max-w-6xl mx-auto px-4">
           <nav className="flex items-center space-x-2 text-sm text-[#B0B3BA]">
             <Link to="/" className="hover:text-[#1F5FA0] transition-colors">
-              {t('nav.home')}
+              Головна
             </Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
             <Link to="/explore" className="hover:text-[#1F5FA0] transition-colors">
-              {t('nav.explore')}
+              Дослідити
             </Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
             <Link to="/explore/gems" className="hover:text-[#1F5FA0] transition-colors">
-              {t('gems.nav.title')}
+              Приховані Перлини
             </Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
             <span className="text-[#1F5FA0] font-medium">Чернігів - Древня Столиця Русі</span>
+            <div className="flex items-center space-x-2 ml-4">
+              <Link 
+                to={lang === 'en' ? '/chernihiv-english-new' : '/chernihiv-english-new'}
+                className="text-sm bg-[#1F5FA0] text-white px-3 py-1 rounded hover:bg-[#1F5FA0]/80 transition-colors"
+              >
+                EN
+              </Link>
+              <Link 
+                to={lang === 'es' ? '/chernihiv-sp' : '/chernihiv-sp'}
+                className="text-sm bg-[#1F5FA0] text-white px-3 py-1 rounded hover:bg-[#1F5FA0]/80 transition-colors"
+              >
+                ES
+              </Link>
+            </div>
           </nav>
         </div>
       </section>
@@ -37,7 +74,7 @@ export default function HiddenGemsChernihiv() {
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg')` }}
+          style={{ backgroundImage: `url('/media/ukraine-5124718.jpg')` }}
         ></div>
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         
@@ -57,28 +94,58 @@ export default function HiddenGemsChernihiv() {
           <article className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold mb-8 text-gray-900">Чернігів: Древня Столиця Русі з Величними Соборами</h2>
             
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Чернігів — це одне з найстаріших міст України, яке було одним з головних центрів Київської Русі. 
-              Засноване в IX столітті, місто стало столицею Чернігівського князівства та одним з найважливіших 
-              політичних, культурних та духовних центрів Середньовічної Русі. Сьогодні Чернігів — це живий музей 
-              давньоруської архітектури, де зберігаються унікальні пам'ятки XI-XIII століть.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start mb-6">
+                             <div className="md:w-80 flex-shrink-0">
+                 <img 
+                   src="/media/architecture-3197527.jpg"
+                   alt="Чернігів - древня столиця Русі"
+                   className="w-full h-64 object-contain rounded-lg shadow-lg bg-gray-100"
+                 />
+                 <p className="text-sm text-gray-600 text-center mt-2">
+                   Чернігів - одне з найстаріших міст України
+                 </p>
+               </div>
+              
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Чернігів — це одне з найстаріших міст України, яке було одним з головних центрів Київської Русі. 
+                  Засноване в IX столітті, місто стало столицею Чернігівського князівства та одним з найважливіших 
+                  політичних, культурних та духовних центрів Середньовічної Русі. Сьогодні Чернігів — це живий музей 
+                  давньоруської архітектури, де зберігаються унікальні пам'ятки XI-XIII століть.
+                </p>
+              </div>
+            </div>
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Спасо-Преображенський Собор: Найстаріший Собор України</h3>
             
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Спасо-Преображенський собор — це найстаріший збережений храм України, збудований в 1036 році 
-              князем Мстиславом Володимировичем. Собор є унікальним зразком давньоруської архітектури та 
-              одним з найкращих прикладів візантійського стилю в Східній Європі. Храм має хрестово-купольну 
-              структуру з трьома апсидами та п'ятьма куполами, що є характерним для давньоруської архітектури.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start mb-6">
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Спасо-Преображенський собор — це найстаріший збережений храм України, збудований в 1036 році 
+                  князем Мстиславом Володимировичем. Собор є унікальним зразком давньоруської архітектури та 
+                  одним з найкращих прикладів візантійського стилю в Східній Європі. Храм має хрестово-купольну 
+                  структуру з трьома апсидами та п'ятьма куполами, що є характерним для давньоруської архітектури.
+                </p>
 
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Інтер'єр собору вражає своєю величчю та автентичністю. Тут зберігаються оригінальні фрески 
-              XI століття, які є одними з найстаріших в Україні. Особливо цінні фрески в центральній апсиді, 
-              які зображують сцени з життя Христа та Богородиці. У соборі також зберігаються унікальні 
-              архітектурні деталі, включаючи оригінальні двері та вікна XI століття.
-            </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Інтер'єр собору вражає своєю величчю та автентичністю. Тут зберігаються оригінальні фрески 
+                  XI століття, які є одними з найстаріших в Україні. Особливо цінні фрески в центральній апсиді, 
+                  які зображують сцени з життя Христа та Богородиці. У соборі також зберігаються унікальні 
+                  архітектурні деталі, включаючи оригінальні двері та вікна XI століття.
+                </p>
+              </div>
+              
+              <div className="md:w-80 flex-shrink-0">
+                <img 
+                  src="/media/Spas_sobor (1).jpg"
+                  alt="Спасо-Преображенський собор - найстаріший храм України"
+                  className="w-full h-64 object-contain rounded-lg shadow-lg bg-gray-100"
+                />
+                <p className="text-sm text-gray-600 text-center mt-2">
+                  Спасо-Преображенський собор (1036 рік)
+                </p>
+              </div>
+            </div>
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Борисоглібський Собор: Княжа Усипальниця</h3>
             
@@ -99,52 +166,97 @@ export default function HiddenGemsChernihiv() {
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Троїцько-Іллінський Монастир: Духовний Центр</h3>
             
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Троїцько-Іллінський монастир — це комплекс будівель XVII-XVIII століть, який включає 
-              церкву, житлові корпуси та величну дзвіницю. Монастир був важливим духовним центром 
-              Чернігова та центром освіти. Дзвіниця монастиря, збудована в 1775 році, є однією з 
-              найвищих в Україні (58 метрів) та архітектурною домінантою міста.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start mb-6">
+              <div className="md:w-80 flex-shrink-0">
+                <img 
+                  src="/media/Троїцький_монастир (1).jpg"
+                  alt="Троїцько-Іллінський монастир - духовний центр Чернігова"
+                  className="w-full h-64 object-contain rounded-lg shadow-lg bg-gray-100"
+                />
+                <p className="text-sm text-gray-600 text-center mt-2">
+                  Троїцько-Іллінський монастир (XVII-XVIII ст.)
+                </p>
+              </div>
+              
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Троїцько-Іллінський монастир — це комплекс будівель XVII-XVIII століть, який включає 
+                  церкву, житлові корпуси та величну дзвіницю. Монастир був важливим духовним центром 
+                  Чернігова та центром освіти. Дзвіниця монастиря, збудована в 1775 році, є однією з 
+                  найвищих в Україні (58 метрів) та архітектурною домінантою міста.
+                </p>
 
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              З висоти дзвіниці відкривається панорамний вид на весь Чернігів та околиці. Це один 
-              з найкращих способів побачити місто з висоти пташиного польоту та зрозуміти його 
-              історичну структуру. У монастирі зберігається бібліотека з унікальними рукописами 
-              та стародруками, які свідчать про культурне значення цього місця.
-            </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  З висоти дзвіниці відкривається панорамний вид на весь Чернігів та околиці. Це один 
+                  з найкращих способів побачити місто з висоти пташиного польоту та зрозуміти його 
+                  історичну структуру. У монастирі зберігається бібліотека з унікальними рукописами 
+                  та стародруками, які свідчать про культурне значення цього місця.
+                </p>
+              </div>
+            </div>
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Чернігівський Вокзал: Архітектурна Перлина</h3>
             
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Чернігівський вокзал — це унікальна пам'ятка архітектури початку XX століття, 
-              збудована в 1900-1901 роках за проектом архітектора Миколи Милютина. Будівля вокзалу 
-              є прекрасним зразком еклектичного стилю з елементами модерну та неоренесансу. 
-              Фасад вокзалу прикрашений елегантними колонами, арками та декоративними елементами.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start mb-6">
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Чернігівський вокзал — це унікальна пам'ятка архітектури початку XX століття, 
+                  збудована в 1900-1901 роках за проектом архітектора Миколи Милютина. Будівля вокзалу 
+                  є прекрасним зразком еклектичного стилю з елементами модерну та неоренесансу. 
+                  Фасад вокзалу прикрашений елегантними колонами, арками та декоративними елементами.
+                </p>
 
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Інтер'єр вокзалу вражає своєю величчю та функціональністю. Тут зберігається оригінальне 
-              планування з великими залами очікування, касовими залами та рестораном. Особливо цікавий 
-              парадний зал з високими стелями, великими вікнами та оригінальним оздобленням. 
-              Вокзал є не тільки транспортним вузлом, але й архітектурною перлиною міста.
-            </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Інтер'єр вокзалу вражає своєю величчю та функціональністю. Тут зберігається оригінальне 
+                  планування з великими залами очікування, касовими залами та рестораном. Особливо цікавий 
+                  парадний зал з високими стелями, великими вікнами та оригінальним оздобленням. 
+                  Вокзал є не тільки транспортним вузлом, але й архітектурною перлиною міста.
+                </p>
+              </div>
+              
+              <div className="md:w-80 flex-shrink-0">
+                <img 
+                  src="/media/Железнодорожный_вокзал._Чернигов.jpg"
+                  alt="Чернігівський вокзал - архітектурна перлина початку XX століття"
+                  className="w-full h-64 object-contain rounded-lg shadow-lg bg-gray-100"
+                />
+                <p className="text-sm text-gray-600 text-center mt-2">
+                  Чернігівський вокзал (1900-1901 рр.)
+                </p>
+              </div>
+            </div>
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Музеї Чернігова: Культурна Спадщина</h3>
             
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              У Чернігові працює кілька унікальних музеїв, які розповідають про багату історію міста. 
-              Чернігівський історичний музей імені В.В. Тарновського розташований у будівлі колишньої 
-              губернської земської управи та включає експозиції, присвячені історії міста від давніх 
-              часів до сьогодення. Особливо цікава колекція археологічних знахідок, включаючи унікальні 
-              предмети з княжих курганів.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start mb-6">
+              <div className="md:w-80 flex-shrink-0">
+                <img 
+                  src="/media/Чернігівський_колегіум_(Чернігів) (1).jpg"
+                  alt="Чернігівський колегіум - культурна спадщина міста"
+                  className="w-full h-64 object-contain rounded-lg shadow-lg bg-gray-100"
+                />
+                <p className="text-sm text-gray-600 text-center mt-2">
+                  Чернігівський колегіум - культурний центр
+                </p>
+              </div>
+              
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  У Чернігові працює кілька унікальних музеїв, які розповідають про багату історію міста. 
+                  Чернігівський історичний музей імені В.В. Тарновського розташований у будівлі колишньої 
+                  губернської земської управи та включає експозиції, присвячені історії міста від давніх 
+                  часів до сьогодення. Особливо цікава колекція археологічних знахідок, включаючи унікальні 
+                  предмети з княжих курганів.
+                </p>
 
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Музей архітектури та побуту Чернігівщини розташований у комплексі будівель XVII-XVIII 
-              століть та розповідає про традиційну архітектуру та побут мешканців регіону. Тут можна 
-              побачити реконструкції традиційних хат, господарських будівель та ремісничих майстерень. 
-              Особливо цікава колекція традиційного одягу, меблів та предметів побуту.
-            </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Музей архітектури та побуту Чернігівщини розташований у комплексі будівель XVII-XVIII 
+                  століть та розповідає про традиційну архітектуру та побут мешканців регіону. Тут можна 
+                  побачити реконструкції традиційних хат, господарських будівель та ремісничих майстерень. 
+                  Особливо цікава колекція традиційного одягу, меблів та предметів побуту.
+                </p>
+              </div>
+            </div>
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Княжий Місто: Історичний Центр</h3>
             
@@ -164,20 +276,35 @@ export default function HiddenGemsChernihiv() {
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Козелець: По Дорозі з Києва</h3>
             
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Місто Козелець, розташоване за 70 кілометрів від Чернігова по дорозі з Києва, 
-              є унікальною пам'яткою архітектури XVIII століття. Тут знаходиться Собор Різдва 
-              Пресвятої Богородиці — один з найкращих зразків українського бароко, збудований 
-              в 1752-1763 роках за проектом архітектора Андрія Квасова. Собор є унікальним 
-              зразком хрестово-купольної архітектури з елементами бароко.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start mb-6">
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Місто Козелець, розташоване за 70 кілометрів від Чернігова по дорозі з Києва, 
+                  є унікальною пам'яткою архітектури XVIII століття. Тут знаходиться Собор Різдва 
+                  Пресвятої Богородиці — один з найкращих зразків українського бароко, збудований 
+                  в 1752-1763 роках за проектом архітектора Андрія Квасова. Собор є унікальним 
+                  зразком хрестово-купольної архітектури з елементами бароко.
+                </p>
 
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Інтер'єр собору вражає своєю величчю та багатством оздоблення. Тут зберігається 
-              унікальний іконостас XVIII століття з різьбленими деталями та позолотою. 
-              Особливо цінні ікони та фрески, які прикрашають стіни та стелі храму. 
-              Козелець є обов'язковим пунктом для відвідування при подорожі з Києва до Чернігова.
-            </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Інтер'єр собору вражає своєю величчю та багатством оздоблення. Тут зберігається 
+                  унікальний іконостас XVIII століття з різьбленими деталями та позолотою. 
+                  Особливо цінні ікони та фрески, які прикрашають стіни та стелі храму. 
+                  Козелець є обов'язковим пунктом для відвідування при подорожі з Києва до Чернігова.
+                </p>
+              </div>
+              
+                             <div className="md:w-80 flex-shrink-0">
+                 <img 
+                   src="/media/ukraine-5124718.jpg"
+                   alt="Козелець - собор Різдва Богородиці"
+                   className="w-full h-64 object-contain rounded-lg shadow-lg bg-gray-100"
+                 />
+                 <p className="text-sm text-gray-600 text-center mt-2">
+                   Козелець - унікальна пам'ятка українського бароко
+                 </p>
+               </div>
+            </div>
 
             <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Це Любопытно</h3>
             
@@ -218,6 +345,8 @@ export default function HiddenGemsChernihiv() {
                 <li>• Зробіть фотографії з висоти дзвіниці монастиря</li>
               </ul>
             </div>
+
+            
           </article>
         </div>
       </section>

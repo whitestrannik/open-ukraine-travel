@@ -89,14 +89,7 @@ export default function Lviv() {
             {t('cities.lviv.hero.subtitle')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
-              {t('cities.lviv.hero.cta.plan')} →
-            </button>
-            <button className="inline-flex items-center bg-white/10 hover:bg-white/20 backdrop-blur text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20">
-              {t('cities.lviv.hero.cta.guide')} →
-            </button>
-          </div>
+
         </div>
       </section>
 

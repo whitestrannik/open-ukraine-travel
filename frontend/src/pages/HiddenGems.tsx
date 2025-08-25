@@ -2,9 +2,35 @@ import { Link } from 'react-router-dom'
 import { useI18n } from '@/state/i18n'
 
 export default function HiddenGems() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
 
   const hiddenGems = [
+    // Готовые тексты (сначала)
+    {
+      id: 'chernihiv',
+      image: `${import.meta.env.BASE_URL}media/Чернігівський_колегіум_(Чернігів) (1).jpg`,
+      category: 'historical',
+      region: 'chernihiv'
+    },
+    {
+      id: 'chernivtsi',
+      image: `${import.meta.env.BASE_URL}media/chernivtsi-5080209.jpg`,
+      category: 'cultural',
+      region: 'chernivtsi'
+    },
+    {
+      id: 'poltava',
+      image: `${import.meta.env.BASE_URL}media/architecture-3197527.jpg`,
+      category: 'cultural',
+      region: 'poltava'
+    },
+    {
+      id: 'zhovkva',
+      image: `${import.meta.env.BASE_URL}media/city-1644926.jpg`,
+      category: 'historical',
+      region: 'zhovkva'
+    },
+    // Тексты еще не написаны (потом)
     {
       id: 'tunnel-of-love',
       image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-2787267.jpg`,
@@ -16,12 +42,6 @@ export default function HiddenGems() {
       image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
       category: 'historical',
       region: 'lviv'
-    },
-    {
-      id: 'askania-nova',
-      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
-      category: 'nature',
-      region: 'kherson'
     },
     {
       id: 'kamianets-podilskyi',
@@ -48,40 +68,10 @@ export default function HiddenGems() {
       region: 'rivne'
     },
     {
-      id: 'dzharylhach',
-      image: `${import.meta.env.BASE_URL}media/pexels-nextvoyage-1000026.jpg`,
-      category: 'nature',
-      region: 'kherson'
-    },
-    {
       id: 'pidhirtsi-castle',
       image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200201.jpg`,
       category: 'historical',
       region: 'lviv'
-    },
-    {
-      id: 'poltava',
-      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
-      category: 'cultural',
-      region: 'poltava'
-    },
-    {
-      id: 'chernivtsi',
-      image: `${import.meta.env.BASE_URL}media/pexels-kostiantyn-13200378.jpg`,
-      category: 'cultural',
-      region: 'chernivtsi'
-    },
-    {
-      id: 'zhovkva',
-      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1174204.jpg`,
-      category: 'historical',
-      region: 'zhovkva'
-    },
-    {
-      id: 'chernihiv',
-      image: `${import.meta.env.BASE_URL}media/pexels-freestockpro-1172064.jpg`,
-      category: 'historical',
-      region: 'chernihiv'
     }
   ]
 
@@ -130,20 +120,7 @@ export default function HiddenGems() {
             {t('gems.hero.subtitle')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/explore/destinations" 
-              className="inline-flex items-center bg-[#F5C542] hover:bg-[#F5C542]/90 text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              {t('gems.hero.cta.destinations')} →
-            </Link>
-            <Link 
-              to="/explore/regions" 
-              className="inline-flex items-center bg-white/10 hover:bg-white/20 backdrop-blur text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 border border-white/20"
-            >
-              {t('gems.hero.cta.regions')} →
-            </Link>
-          </div>
+
         </div>
       </section>
 
@@ -191,11 +168,23 @@ export default function HiddenGems() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hiddenGems.map((gem) => (
-              <div 
+          {/* Готовые тексты */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-8 text-[#22242A] text-center">
+              {t('gems.ready.title')}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {hiddenGems.slice(0, 4).map((gem) => (
+                              <Link
                 key={gem.id}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                to={gem.id === 'poltava' ? (lang === 'en' ? '/poltava-english' : '/explore/gems/poltava') :
+                    gem.id === 'chernivtsi' ? '/explore/gems/chernivtsi' :
+                    gem.id === 'zhovkva' ? (lang === 'en' ? '/zhovkva-english' : '/explore/gems/zhovkva') :
+                    gem.id === 'chernihiv' ? (lang === 'en' ? '/chernihiv-english-new' : 
+                                             lang === 'es' ? '/chernihiv-sp' : 
+                                             '/explore/gems/chernihiv') :
+                    '#'}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 block cursor-pointer"
               >
                 <div className="relative h-80 overflow-hidden">
                   <img 
@@ -233,29 +222,85 @@ export default function HiddenGems() {
                       {t(`gems.items.${gem.id}.description`)}
                     </p>
                     
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-center">
                       <div className="flex items-center text-white/80 text-sm">
                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                         {t(`gems.items.${gem.id}.location`)}
                       </div>
-                      
-                                             <Link
-                         to={gem.id === 'poltava' ? '/explore/gems/poltava' :
-                             gem.id === 'chernivtsi' ? '/explore/gems/chernivtsi' :
-                             gem.id === 'zhovkva' ? '/explore/gems/zhovkva' :
-                             gem.id === 'chernihiv' ? '/explore/gems/chernihiv' :
-                             '#'}
-                         className="text-[#F5C542] hover:text-[#F5C542]/80 font-semibold transition-colors"
-                       >
-                        {t('gems.items.explore')} →
-                      </Link>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
+            </div>
+          </div>
+
+          {/* Тексты в разработке */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-[#22242A] text-center">
+              {t('gems.coming.title')}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {hiddenGems.slice(4).map((gem) => (
+                <div 
+                  key={gem.id}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 opacity-75"
+                >
+                  <div className="relative h-80 overflow-hidden">
+                    <img 
+                      src={gem.image} 
+                      alt={t(`gems.items.${gem.id}.name`)}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    
+                    {/* Region Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-white/20 backdrop-blur text-white text-sm font-medium rounded-full">
+                        {t(`gems.regions.${gem.region}`)}
+                      </span>
+                    </div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium text-white ${
+                        gem.category === 'nature' ? 'bg-[#4E7B53]' :
+                        gem.category === 'historical' ? 'bg-[#6A5B8C]' :
+                        gem.category === 'cultural' ? 'bg-[#1F5FA0]' :
+                        'bg-[#D89B5A]'
+                      }`}>
+                        {t(`gems.categories.${gem.category}`)}
+                      </span>
+                    </div>
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        {t(`gems.items.${gem.id}.name`)}
+                      </h3>
+                      <p className="text-white/90 text-sm mb-4 line-clamp-2">
+                        {t(`gems.items.${gem.id}.description`)}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center text-white/80 text-sm">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          {t(`gems.items.${gem.id}.location`)}
+                        </div>
+                        
+                        <span className="text-[#F5C542] font-semibold">
+                          {t('gems.items.coming-soon')} →
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

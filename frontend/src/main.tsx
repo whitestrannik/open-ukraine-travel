@@ -26,6 +26,13 @@ import HiddenGemsPoltava from '@/pages/HiddenGemsPoltava'
 import HiddenGemsChernivtsi from '@/pages/HiddenGemsChernivtsi'
 import HiddenGemsZhovkva from '@/pages/HiddenGemsZhovkva'
 import HiddenGemsChernihiv from '@/pages/HiddenGemsChernihiv'
+import ChernihivEnglishNew from '@/pages/ChernihivEnglishNew'
+import ChernihivSp from '@/pages/ChernihivSp'
+import ChernivtsiEnglish from '@/pages/ChernivtsiEnglish'
+import PoltavaEnglish from '@/pages/PoltavaEnglish'
+import ZhovkvaEnglish from '@/pages/ZhovkvaEnglish'
+import TestEnglish from '@/pages/TestEnglish'
+import MiceTravel from '@/pages/MiceTravel'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -42,6 +49,12 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/explore/gems/chernivtsi" element={<HiddenGemsChernivtsi />} />
             <Route path="/explore/gems/zhovkva" element={<HiddenGemsZhovkva />} />
             <Route path="/explore/gems/chernihiv" element={<HiddenGemsChernihiv />} />
+            <Route path="/chernihiv-english-new" element={<ChernihivEnglishNew />} />
+            <Route path="/chernihiv-sp" element={<ChernihivSp />} />
+            <Route path="/chernivtsi-english" element={<ChernivtsiEnglish />} />
+            <Route path="/poltava-english" element={<PoltavaEnglish />} />
+            <Route path="/zhovkva-english" element={<ZhovkvaEnglish />} />
+            <Route path="/test-english" element={<TestEnglish />} />
             <Route path="/explore/unesco" element={<UnescoSites />} />
             <Route path="/explore/regions" element={<ByRegions />} />
             <Route path="/explore/jewish" element={<JewishUkraine />} />
@@ -57,7 +70,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/insurance" element={<div className="p-6">Insurance – placeholder</div>} />
             <Route path="/hotels" element={<div className="p-6">Hotels – placeholder</div>} />
             <Route path="/transportation" element={<div className="p-6">Transportation – placeholder</div>} />
-            <Route path="/mice" element={<div className="p-6">MICE – placeholder</div>} />
+            <Route path="/mice" element={<MiceTravel />} />
           </Route>
         </Routes>
       </BrowserRouter>
